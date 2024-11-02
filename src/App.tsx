@@ -1,9 +1,8 @@
 import './App.css'
-import FourImageSpace from './Client/Food/FourImageSpace/FourImageSpace'
 import EightSpotsSpace from './Client/EightSpotsSpace/EightSpotsSpace'
-import EightSpotsCard from './Client/EightSpotsSpace/EightSpotsCard'
 import MainIntroImage from './Client/MainIntroImage/MainIntroImage'
 import Food from './Client/Food/Food'
+import Landmarks from './Client/Landmarks/Landmarks'
 
 function App() {
   return (
@@ -11,6 +10,7 @@ function App() {
       <MainIntroImage />
       <EightSpotsSpace />
       <Food />
+      <Landmarks />
     </>
   )
 }

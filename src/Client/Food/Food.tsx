@@ -8,7 +8,7 @@ export default function Food() {
 
     return (
         <>
-            <Container>
+            <Container style={{ maxWidth: '1600px' }} >
                 <h1 style={{ margin: '50px', textAlign: 'center' }}>FOOOOOOOOOOD</h1>
                 <Row >
                     <Col>

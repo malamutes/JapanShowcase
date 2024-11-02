@@ -28,13 +28,6 @@
     transform: scale(0.4);
 }
 
-.TextStyle {
-    position: absolute;
-    font-size: 1cqw;
-    z-index: 1;
-    bottom: 5%;
-}
-
 .ImgStyle {
     max-width: 100%;
     aspect-ratio: 1;
@@ -59,26 +52,6 @@
 }
 
 
-.TextStyleHorizontal {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    transform: scaleY(0.25);
-    font-size: 2.25cqw;
-    position: absolute;
-    bottom: -25%;
-}
-
-.TextStyleVertical {
-    transform: scaleX(0.25);
-    font-size: 2.25cqw;
-    position: absolute;
-    font-size: 2.5cqw;
-    margin: auto auto;
-    top: 17.5%
-}
-
-
-
 .ImgStyleHorizontal {
     position: absolute;
     top: 0;
@@ -89,4 +62,30 @@
     position: absolute;
     left: 0;
     transform: scaleX(0.25);
+}
+
+
+.TextStyle {
+    position: absolute;
+    font-size: 1cqw;
+    z-index: 1;
+    bottom: 5%;
+    transition-property: transform, font-size, opacity;
+    transition-duration: 2s, 2s, 2s;
+
+}
+
+.TextStyleHorizontal {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+
+}
+
+.TextStyleVertical {
+    transform: scaleX(0.25);
+    font-size: 2.25cqw;
+    position: absolute;
+    font-size: 2.5cqw;
+    margin: auto auto;
+
 }

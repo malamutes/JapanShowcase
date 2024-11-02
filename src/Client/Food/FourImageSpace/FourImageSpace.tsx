@@ -25,7 +25,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
 
     return (
         <>
-            <Container style={{ maxWidth: '500px', aspectRatio: '1' }}>
+            <Container style={{ maxWidth: '750px', aspectRatio: '1' }}>
                 <Row>
                     <Col style={{ backgroundColor: 'rgb(36, 36, 36)', borderRadius: "5px", transformOrigin: 'top left', display: 'grid', placeItems: 'center', position: 'relative' }}
                         className={`OneQuarter 
@@ -35,12 +35,13 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                             ${hoveredFour ? "OneQuarterNotHoveredOblique" : ""}
                             `} onMouseEnter={() => setHoveredOne(true)}
                         onMouseLeave={() => setHoveredOne(false)}>
+
                         <span className={`TextStyle
                         ${hoveredTwo ? "TextStyleHorizontal" : ""}
                         ${hoveredThree ? "TextStyleVertical" : ""}
                             `}>{props.title1}</span>
 
-                        <img className={`ImgStyle ImgStyleTopLeft
+                        <img className={`ImgStyle ImgStyleTopLeft rounded
                         ${hoveredTwo ? "ImgStyleHorizontal" : ""}
                         ${hoveredThree ? "ImgStyleVertical ImgStyleTopLeft" : ""}
                             `} src={props.img1} />
@@ -60,7 +61,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                         ${hoveredFour ? "TextStyleVertical" : ""}
                             `}>{props.title2}</span>
 
-                        <img className={`ImgStyle ImgStyleTopRight
+                        <img className={`ImgStyle ImgStyleTopRight rounded
                         ${hoveredOne ? "ImgStyleHorizontal" : ""}
                         ${hoveredFour ? "ImgStyleVertical ImgStyleTopRight" : ""}
 
@@ -83,7 +84,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                            ${hoveredOne ? "TextStyleVertical" : ""}
                             `}>{props.title3}</span>
 
-                        <img className={`ImgStyle ImgStyleBottomLeft
+                        <img className={`ImgStyle ImgStyleBottomLeft rounded
                         ${hoveredFour ? "ImgStyleHorizontal ImgStyleBottomLeft" : ""}
                         ${hoveredOne ? "ImgStyleVertical ImgStyleBottomLeft " : ""}
                             `} src={props.img3} />
@@ -103,7 +104,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                            ${hoveredTwo ? "TextStyleVertical" : ""}
                             `}>{props.title4}</span>
 
-                        <img className={`ImgStyle ImgStyleBottomRight
+                        <img className={`ImgStyle ImgStyleBottomRight rounded
                         ${hoveredTwo ? "ImgStyleVertical ImgStyleTopRight" : ""}
                         ${hoveredThree ? "ImgStyleHorizontal ImgStyleBottomRight" : ""}
                             `} src={props.img4} />

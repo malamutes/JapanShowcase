@@ -1,0 +1,16 @@
+.BaseSlide {
+    transition-property: transform;
+    transition-duration: 2s;
+}
+
+.BaseSlideTransform1 {
+    transform: translateX(-100%);
+}
+
+.BaseSlideTransform2 {
+    transform: translateX(-200%);
+}
+
+.BaseSlideTransform3 {
+    transform: translateX(-300%);
+}
