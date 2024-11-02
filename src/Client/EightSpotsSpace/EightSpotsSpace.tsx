@@ -1,27 +1,37 @@
 import { Col, Container, Row } from "react-bootstrap";
 import EightSpotsCard from "./EightSpotsCard";
+import { PlaceData } from "../Data/EightSpotData";
 
 export default function EightSpotsSpace() {
+    const PD = PlaceData;
+    const cardStyle: React.CSSProperties = {
+
+    }
 
     return (
         <>
-            <Container style={{ maxWidth: '1350px', aspectRatio: '1.5', backgroundColor: 'orange' }}>
+            <h1 style={{
+                textAlign: 'center', marginTop: '100px',
+                marginBottom: '50px', fontWeight: '700',
+            }}>SPECIAL PLACES</h1>
+            <Container style={{
+                maxWidth: '1600px', width: '100%',
+            }}>
                 <Row >
-                    <Col >
-                        {['red', 'blue', 'green', 'yellow',].map((element, index) => (
-                            <Row key={index} style={{ margin: '50px 15px' }}>
-                                <EightSpotsCard />
-                            </Row>
+                    <Col>
+                        {Object.keys(PD).slice(0, 4).map((element, index) => (
+                            <EightSpotsCard key={index} title={PD[element].title}
+                                desc={PD[element].description}
+                                img={PD[element].img} />
                         ))}
                     </Col>
 
                     <Col>
-                        {['orange', 'purple', 'pink', 'cyan'].map((element, index) => (
-                            <Row key={index} style={{ margin: '50px 15px' }}>
-                                <EightSpotsCard />
-                            </Row>
+                        {Object.keys(PD).slice(4, 8).map((element, index) => (
+                            <EightSpotsCard key={index} title={PD[element].title}
+                                desc={PD[element].description}
+                                img={PD[element].img} />
                         ))}
-
                     </Col>
                 </Row>
 

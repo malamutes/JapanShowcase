@@ -26,6 +26,6 @@
   },
   "include": [
     "src",
-    "src/Client/FourImageSpace/FourImageSpace.tsx"
+    "src/Client/Food/FourImageSpace/FourImageSpace.tsx"
   ]
 }

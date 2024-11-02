@@ -1,33 +1,56 @@
 import { Container, Row, Col } from "react-bootstrap";
 
-export default function EightSpotsCard() {
+interface EightSpotsCardProps {
+    title: string,
+    desc: string,
+    img: string
+}
+
+export default function EightSpotsCard(props: EightSpotsCardProps) {
     return (
         <>
-            <Container >
-                <Row style={{ aspectRatio: '4', borderRadius: '15px', overflow: 'hidden' }}>
-                    <Col xs={8} style={{ backgroundColor: 'red', }}>
-                        <Row style={{ marginLeft: '15%', marginTop: '5%' }}>
-                            <div style={{
-                                backgroundColor: 'yellow', aspectRatio: 1,
-                                width: '1.75%', borderRadius: '50%',
-                                position: 'absolute'
-                            }}>
-                            </div>
-                            <span style={{ marginLeft: '75px' }}>asdsa</span>
+            <Container style={{ margin: '2.5cqw auto' }}>
+                <Row style={{
+                    aspectRatio: '5', borderRadius: '15px',
+                    maxWidth: '750px', width: '50cqw',
+                    overflow: 'hidden'
+                }}>
+                    <Col xs={8} style={{
+                        backgroundColor: 'rgb(24,24,24)', display: 'flex',
+                        flexDirection: 'column', alignItems: 'center',
+
+                    }}>
+                        <Row style={{
+
+                        }}>
+                            <span style={{ fontWeight: '700', fontSize: '1.25cqw', margin: '1.25cqw' }}>{props.title}</span >
                         </Row>
 
-                        <Row style={{ marginLeft: '7.5%', marginTop: '5%' }}>
-                            <span>HELLO</span>
+                        <Row style={{ maxWidth: '75%', textAlign: 'center' }}>
+                            <span style={{ fontSize: '0.6cqw' }}>{props.desc}</span>
                         </Row>
 
                     </Col>
 
-                    <Col xs={4} style={{ backgroundColor: 'green' }}>
+                    <Col xs={4} style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        overflow: 'hidden'
 
+                    }}>
+
+                        <img alt="Image" src={props.img}
+                            style={{
+                                width: '110%',
+                                height: 'auto',
+                                transform: 'scale(1.05)',
+                                transformOrigin: 'center'
+                            }} />
                     </Col>
 
-                </Row>
-            </Container>
+                </Row >
+            </Container >
         </>
     )
 }
