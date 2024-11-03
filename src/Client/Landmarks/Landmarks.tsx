@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { Col, Container, Row } from "react-bootstrap";
-
+import { Col, Container, Row, Card, ProgressBar } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import './Landmarks.css'
+import { LandMarksData } from "../Data/LandmarksData";
 
 export default function Landmarks() {
     const [distance, setDistance] = useState(0);
     const [scroll, canScroll] = useState(true);
+
+    const LD = LandMarksData;
 
     function clamp(value: number, min: number, max: number) {
         return Math.max(min, Math.min(value, max));
@@ -13,17 +16,8 @@ export default function Landmarks() {
 
 
     const handleWheel = (event: React.WheelEvent) => {
-        /*if (distance >= 0 && distance <= 400) {
-            setDistance(distance => (distance + event.deltaY / 50));
-        }
-        else if (distance < 0) {
-            setDistance(0);
-        }
-        else if (distance > 400) {
-            setDistance(400);
-        }*/
-
-        setDistance(clamp(distance + event.deltaY / 20, 0, 400));
+        //20 determines rate of scroll, higher number is slower scroll, small is faster
+        setDistance(clamp(distance + event.deltaY / 20, 0, 100 * (Object.keys(LD).length - 1)));
 
         console.log(distance);
 
@@ -50,34 +44,49 @@ export default function Landmarks() {
 
     return (
         <>
-            <Container>
+            <Container style={{ minWidth: '1500px' }}>
                 <h1 style={{ margin: '50px', textAlign: 'center' }}>LANDMARKS</h1>
                 <Row >
-                    <Col xs={4} style={{ backgroundColor: 'orange', height: '703.5px' }}>
+                    <Col xs={4} style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)', height: '800px', padding: '0' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
-                            {['red', 'blue', 'green', 'yellow', 'purple'].map((element, index) => (
+                            {Object.keys(LD).map((landmark, index) => (
                                 <div key={index} style={{
-                                    minWidth: '100%', aspectRatio: '0.59', backgroundColor: element,
-                                    transition: 'transform 1s ease',
-                                    transform: `translateY(${-(Math.floor((distance + 50) / 100) * 100)}%)`
-                                }}></div>
+                                    minWidth: '100%', minHeight: '800px', transition: 'transform 1s ease',
+                                    transform: `translateY(${-(Math.floor((distance + 50) / 100) * 100)}%)`,
+                                    display: 'grid', placeItems: 'center'
+                                }}>
+                                    <Card style={{ backgroundColor: 'transparent', maxWidth: '75%' }}>
+                                        <Card.Body style={{ textAlign: 'center' }}>
+                                            <Card.Title as={"h1"}>{LD[landmark].titleEnglish}</Card.Title>
+                                            <Card.Subtitle style={{ lineHeight: '2' }} as={"h3"} className="mb-2 text-muted">{LD[landmark].titleJapanese}</Card.Subtitle>
+                                            <Card.Text as={"h6"} style={{ lineHeight: '2.5' }}>
+                                                {LD[landmark].description}
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
                             ))}
                         </div >
                     </Col>
 
-                    <Col xs={8} style={{ backgroundColor: 'grey', padding: '0', height: '703.5px', overflow: 'hidden' }}>
+                    <Col xs={8} style={{ padding: '0', height: '800px', overflow: 'hidden' }}>
                         <div style={{ display: 'flex', width: '100%' }}
                             onMouseEnter={() => canScroll(false)} onMouseLeave={() => canScroll(true)} onWheel={(event) => handleWheel(event)}>
-                            {['red', 'blue', 'green', 'yellow', 'purple'].map((element, index) => (
+                            {Object.keys(LD).map((landmark, index) => (
                                 <div key={index} style={{
-                                    minWidth: '100%', aspectRatio: '1.25', backgroundColor: element,
+                                    minWidth: '100%', height: '800px',
                                     transition: 'transform 0.3 ease',
                                     transform: `translateX(${-distance}%)`
-                                }}></div>
+                                }}>
+                                    <Image fluid src={LD[landmark].img} style={{ minHeight: '100%' }} />
+                                </div>
                             ))}
                         </div >
                     </Col>
+
+                    <ProgressBar variant="secondary" now={distance} min={0} max={100 * (Object.keys(LD).length - 1)} style={{ maxHeight: '2.5px', padding: '0' }} />
                 </Row>
+
             </Container >
 
         </>

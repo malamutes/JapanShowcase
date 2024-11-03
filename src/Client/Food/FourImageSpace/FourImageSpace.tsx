@@ -36,10 +36,6 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                             `} onMouseEnter={() => setHoveredOne(true)}
                         onMouseLeave={() => setHoveredOne(false)}>
 
-                        <span className={`TextStyle
-                        ${hoveredTwo ? "TextStyleHorizontal" : ""}
-                        ${hoveredThree ? "TextStyleVertical" : ""}
-                            `}>{props.title1}</span>
 
                         <img className={`ImgStyle ImgStyleTopLeft rounded
                         ${hoveredTwo ? "ImgStyleHorizontal" : ""}
@@ -56,10 +52,6 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                             `} onMouseEnter={() => setHoveredTwo(true)}
                         onMouseLeave={() => setHoveredTwo(false)} >
 
-                        <span className={`TextStyle
-                           ${hoveredOne ? "TextStyleHorizontal" : ""}
-                        ${hoveredFour ? "TextStyleVertical" : ""}
-                            `}>{props.title2}</span>
 
                         <img className={`ImgStyle ImgStyleTopRight rounded
                         ${hoveredOne ? "ImgStyleHorizontal" : ""}
@@ -79,10 +71,6 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                         onMouseEnter={() => setHoveredThree(true)}
                         onMouseLeave={() => setHoveredThree(false)}>
 
-                        <span className={`TextStyle
-                        ${hoveredFour ? "TextStyleHorizontal" : ""}
-                           ${hoveredOne ? "TextStyleVertical" : ""}
-                            `}>{props.title3}</span>
 
                         <img className={`ImgStyle ImgStyleBottomLeft rounded
                         ${hoveredFour ? "ImgStyleHorizontal ImgStyleBottomLeft" : ""}
@@ -99,10 +87,6 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                             `} onMouseEnter={() => setHoveredFour(true)}
                         onMouseLeave={() => setHoveredFour(false)} >
 
-                        <span className={`TextStyle
-                        ${hoveredThree ? "TextStyleHorizontal" : ""}
-                           ${hoveredTwo ? "TextStyleVertical" : ""}
-                            `}>{props.title4}</span>
 
                         <img className={`ImgStyle ImgStyleBottomRight rounded
                         ${hoveredTwo ? "ImgStyleVertical ImgStyleTopRight" : ""}
@@ -114,3 +98,10 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
         </>
     )
 }
+
+
+/*                <span className={`TextStyle
+                        ${hoveredTwo ? "TextStyleHorizontal" : ""}
+                        ${hoveredThree ? "TextStyleVertical" : ""}
+                            `}>{props.title1}</span>
+ */

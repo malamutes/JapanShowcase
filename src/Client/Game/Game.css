@@ -1,0 +1,15 @@
+.animated-border {
+    position: relative;
+}
+
+.animated-border::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    transform: translateX(-50%);
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}

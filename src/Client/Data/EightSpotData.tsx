@@ -1,4 +1,4 @@
-interface PlaceDescription {
+export interface PlaceDescription {
     title: string,
     description: string,
     img: string

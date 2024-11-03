@@ -1,0 +1,43 @@
+.DivTop {
+    position: relative;
+    width: 100%;
+    border: 3px solid rgba(100, 100, 100, 0);
+    border-radius: 5px;
+    transition-property: border;
+    transition-duration: 0.5s;
+    overflow: hidden;
+}
+
+.DivTop:hover {
+    border: 3px solid rgba(100, 100, 100, 1);
+}
+
+.DivTop:hover>.Div1 {
+    opacity: 0;
+    transform: scale(1.1);
+
+}
+
+.DivTop:hover>.Div2 {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+.Div1 {
+    position: absolute;
+    max-width: 100%;
+    background-color: gray;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s, 2s;
+    opacity: 1;
+
+}
+
+.Div2 {
+    max-width: 100%;
+    background-color: gray;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s, 2s;
+    opacity: 0;
+}
