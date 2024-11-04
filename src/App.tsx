@@ -5,6 +5,7 @@ import Food from './Client/Food/Food'
 import Landmarks from './Client/Landmarks/Landmarks'
 import Entertainment from './Client/Entertainment/Entertainment'
 import Game from './Client/Game/Game'
+import Festival from './Client/Festival/Festival'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Landmarks />
       <Entertainment />
       <Game />
+      <Festival />
     </>
   )
 }
