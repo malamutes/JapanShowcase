@@ -78,7 +78,7 @@ export default function Landmarks() {
                                     transition: 'transform 0.3 ease',
                                     transform: `translateX(${-distance}%)`
                                 }}>
-                                    <Image fluid src={LD[landmark].img} style={{ minHeight: '100%' }} />
+                                    <Image fluid src={LD[landmark].img} style={{ minHeight: '100%' }} alt={`${LD[landmark].titleEnglish}`} />
                                 </div>
                             ))}
                         </div >

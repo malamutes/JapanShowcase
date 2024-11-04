@@ -40,7 +40,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                         <img className={`ImgStyle ImgStyleTopLeft rounded
                         ${hoveredTwo ? "ImgStyleHorizontal" : ""}
                         ${hoveredThree ? "ImgStyleVertical ImgStyleTopLeft" : ""}
-                            `} src={props.img1} />
+                            `} src={props.img1} alt={`${props.title1}`} />
                     </Col>
 
                     <Col style={{ backgroundColor: 'rgb(36, 36, 36)', borderRadius: "5px", transformOrigin: 'top right', display: 'grid', placeItems: 'center', position: 'relative' }}
@@ -57,7 +57,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                         ${hoveredOne ? "ImgStyleHorizontal" : ""}
                         ${hoveredFour ? "ImgStyleVertical ImgStyleTopRight" : ""}
 
-                        `} src={props.img2} />
+                        `} src={props.img2} alt={`${props.title2}`} />
                     </Col>
                 </Row>
                 <Row>
@@ -75,7 +75,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                         <img className={`ImgStyle ImgStyleBottomLeft rounded
                         ${hoveredFour ? "ImgStyleHorizontal ImgStyleBottomLeft" : ""}
                         ${hoveredOne ? "ImgStyleVertical ImgStyleBottomLeft " : ""}
-                            `} src={props.img3} />
+                            `} src={props.img3} alt={`${props.title3}`} />
                     </Col>
 
                     <Col style={{ backgroundColor: 'rgb(36, 36, 36)', borderRadius: "5px", transformOrigin: 'bottom right', display: 'grid', placeItems: 'center', position: 'relative' }}
@@ -91,7 +91,7 @@ export default function FourImageSpace(props: FourImageSpaceProps) {
                         <img className={`ImgStyle ImgStyleBottomRight rounded
                         ${hoveredTwo ? "ImgStyleVertical ImgStyleTopRight" : ""}
                         ${hoveredThree ? "ImgStyleHorizontal ImgStyleBottomRight" : ""}
-                            `} src={props.img4} />
+                            `} src={props.img4} alt={`${props.title4}`} />
                     </Col>
                 </Row>
             </Container>

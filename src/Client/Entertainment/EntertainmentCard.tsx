@@ -12,10 +12,10 @@ export default function EntertainmentCard(props: EntertainmentCardProps) {
         <>
             <div className='DivTop'>
                 <div className="Div1">
-                    <Image fluid src={props.front} style={{ aspectRatio: `${aspectRatio1}` }} rounded />
+                    <Image fluid src={props.front} style={{ aspectRatio: `${aspectRatio1}` }} rounded alt={`${props.front}`} />
                 </div>
                 <div className="Div2">
-                    <Image fluid src={props.back} style={{ aspectRatio: `${aspectRatio1}` }} rounded />
+                    <Image fluid src={props.back} style={{ aspectRatio: `${aspectRatio1}` }} rounded alt={`${props.front}`} />
                 </div>
             </div>
         </>

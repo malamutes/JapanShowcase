@@ -11,7 +11,7 @@ export default function MainIntroImage() {
             <Container style={{ overflow: 'hidden', maxWidth: '1920px', width: '100%' }} className="MainImgCon">
                 <Row>
                     <Col xs={10} >
-                        <img alt="Japan-Night-Image" src="/Images/CanvaJapanNight.png"
+                        <img alt="Japan-Night-Image" src="/Images/CanvaJapanNight.webp"
                             style={{ transform: 'scale(1.2)' }} />
                     </Col>
 
