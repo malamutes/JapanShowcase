@@ -22,7 +22,8 @@ export default function EightSpotsSpace() {
                         {Object.keys(PD).slice(0, 4).map((element, index) => (
                             <EightSpotsCard key={index} title={PD[element].title}
                                 desc={PD[element].description}
-                                img={PD[element].img} />
+                                img={PD[element].img}
+                                colour={PD[element].color} />
                         ))}
                     </Col>
 
@@ -30,7 +31,9 @@ export default function EightSpotsSpace() {
                         {Object.keys(PD).slice(4, 8).map((element, index) => (
                             <EightSpotsCard key={index} title={PD[element].title}
                                 desc={PD[element].description}
-                                img={PD[element].img} />
+                                img={PD[element].img}
+                                colour={PD[element].color}
+                            />
                         ))}
                     </Col>
                 </Row>

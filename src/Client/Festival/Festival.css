@@ -4,8 +4,8 @@
 }
 
 .custom-carousel .carousel-indicators [data-bs-target] {
-    width: 0.5cqw;
-    height: 0.5cqw;
+    width: 0.6cqw;
+    height: 0.6cqw;
     border-radius: 50%;
 }
 
