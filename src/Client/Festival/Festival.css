@@ -1,0 +1,27 @@
+.custom-carousel .carousel-indicators {
+    transform: translateY(50%);
+    /* Push down by 10 pixels */
+}
+
+.custom-carousel .carousel-indicators [data-bs-target] {
+    width: 0.5cqw;
+    height: 0.5cqw;
+    border-radius: 50%;
+}
+
+.FestivalIcon {
+    filter: grayscale(100);
+    transform: scale(0.4);
+    transition-property: filter, transform;
+    transition-duration: 1s, 1s;
+}
+
+.FestivalIcon:hover {
+    filter: grayscale(0);
+    transform: scale(0.5);
+}
+
+.FestivalIconClicked {
+    filter: grayscale(0);
+    transform: scale(0.5);
+}
