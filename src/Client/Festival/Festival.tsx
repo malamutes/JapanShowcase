@@ -34,10 +34,13 @@ export default function Festival() {
                     <div style={{
                         width: '43.75%', height: '55%',
                         position: 'absolute', zIndex: '10', top: '55%',
-                        transform: 'translateY(-50%)', left: '2.5%', backgroundColor: 'red'
+                        transform: 'translateY(-50%)', left: '2.5%'
                     }}>
 
-                        <hr style={{ height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`, marginBottom: '1.25cqw', width: '80%' }} />
+                        <hr style={{
+                            height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`,
+                            marginTop: '1.25cqw', width: '80%', backgroundColor: 'red', opacity: '1'
+                        }} />
                         <Carousel controls={false} className="custom-carousel" interval={3000}>
                             {FD[currFestival].images.map((image, index) => (
                                 <CarouselItem key={index}>
@@ -45,7 +48,10 @@ export default function Festival() {
                                 </CarouselItem>
                             ))}
                         </Carousel>
-                        <hr style={{ height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`, marginTop: '1.25cqw', width: '80%', backgroundColor: 'red' }} />
+                        <hr style={{
+                            height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`,
+                            marginTop: '1.25cqw', width: '80%', backgroundColor: 'red', opacity: '1'
+                        }} />
                     </div>
 
                     <div style={{
@@ -56,7 +62,7 @@ export default function Festival() {
                         <Card style={{ width: '75%', backgroundColor: 'transparent', color: `${FD[currFestival].textColor}`, lineHeight: '2' }}>
                             <Card.Body style={{ textAlign: 'center' }}>
                                 <Card.Title as={"h1"} style={{ marginBottom: '1.5cqw' }} >{FD[currFestival].titleEng}</Card.Title>
-                                <hr style={{ height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`, marginBottom: '1.25cqw' }} />
+                                <hr style={{ height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`, marginBottom: '1.25cqw', opacity: '1' }} />
                                 <Card.Subtitle as={"h4"} className="mb-2" >{FD[currFestival].titleJap}</Card.Subtitle>
                                 <Card.Text style={{ marginTop: '1cqw' }}>
                                     {`${FD[currFestival].date}, ${FD[currFestival].location}`} <br />
