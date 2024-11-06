@@ -9,8 +9,8 @@
 
 .EightSpotCard:hover {
     box-shadow:
-        5px 25px 25px var(--colour),
-        -5px 25px 25px var(--colour);
+        5px 15px 25px var(--colour),
+        -5px 15px 25px var(--colour);
     transform: translateY(-10%);
 }
 

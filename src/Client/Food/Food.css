@@ -1,0 +1,35 @@
+.FoodCardDefault {
+    margin: 0.25cqw 0;
+    padding: 1cqw;
+    width: 33.3%;
+    flex-shrink: 0;
+    transform: scale(0.5);
+    transition-duration: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    /* doesnt shrink in parent container */
+}
+
+.FoodCardActive {
+    transform: scale(1);
+    box-shadow: 2.5px 2.5px 5px var(--colour),
+        -2.5px -2.5px 5px var(--colour),
+        2.5px -2.5px 5px var(--colour),
+        -2.5px 2.5px 5px var(--colour);
+
+}
+
+.Line {
+    height: 0.1cqw;
+    border: 0.1cqw solid var(--colour);
+    width: 5cqw !important;
+    opacity: 0.25;
+    transform-origin: center center;
+    transition-property: opacity, transform;
+    transition-duration: 1s, 1s;
+}
+
+.LineActive {
+    opacity: 1;
+    transform: scaleX(3);
+}

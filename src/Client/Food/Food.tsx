@@ -1,39 +1,75 @@
-import FourImageSpace from "./FourImageSpace/FourImageSpace"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import { FoodData } from "../Data/FoodData"
+import FoodCard from "./FoodCard";
+import { useEffect, useState } from "react";
+import { Image } from "react-bootstrap";
+import './Food.css'
 
 export default function Food() {
     const FD = FoodData;
-    console.log(FoodData["Sushi"].img);
+
+    function clamp(value: number, min: number, max: number) {
+        return Math.max(min, Math.min(value, max));
+    }
+
+
+    const [moveAlong, setMoveAlong] = useState<number>(0);
+    const [activeIndex, setActiveIndex] = useState<number>(1);
+
+    function handleClick(directionRight: boolean) {
+        /* moving right */
+        if (directionRight === true) {
+            setMoveAlong(moveAlong => Math.max((moveAlong - 33.3), -33.3 * (Object.keys(FD).length - 2)));
+            setActiveIndex(activeIndex => clamp((activeIndex + 1), 0, Object.keys(FD).length - 1));
+        }
+        else if (directionRight === false) {
+            setMoveAlong(moveAlong => Math.min((moveAlong + 33.3), 33.3));
+            setActiveIndex(activeIndex => clamp((activeIndex - 1), 0, Object.keys(FD).length - 1));
+        }
+
+    }
+
+    useEffect(() => { console.log(activeIndex) }, [activeIndex]);
 
     return (
         <>
-            <Container style={{ maxWidth: '1250px' }} >
+            <Container style={{ maxWidth: '1250px', position: 'relative' }} >
                 <h1 style={{ margin: '50px', textAlign: 'center' }}>FOOOOOOOOOOD</h1>
-                <Row >
-                    <Col>
-                        <FourImageSpace
-                            img1={FD["Sushi"].img} title1={FD["Sushi"].title}
-                            img2={FD["Ramen"].img} title2={FD["Ramen"].title}
-                            img3={FD["Tempura"].img} title3={FD["Tempura"].title}
-                            img4={FD["Okonomiyaki"].img} title4={FD["Okonomiyaki"].title}
-                        />
-                    </Col>
 
-                    <Col>
-                        <FourImageSpace
-                            img1={FD["Yakisoba"].img} title1={FD["Yakisoba"].title}
-                            img2={FD["Sashimi"].img} title2={FD["Sashimi"].title}
-                            img3={FD["Mochi"].img} title3={FD["Mochi"].title}
-                            img4={FD["Udon"].img} title4={FD["Udon"].title}
-                        />
-                    </Col>
+                <div style={{ width: '7.5%', aspectRatio: '2.5', position: 'absolute', right: '0%', bottom: '0%', display: 'flex', cursor: 'pointer' }}>
 
-                </Row>
+                    <Image fluid src="/public/Images/RightArrow.png" style={{
+                        cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)',
+                        transform: 'rotate(180deg)'
+                    }}
+                        onClick={() => handleClick(false)} />
+
+                    <hr style={{ width: '2.5cqw', backgroundColor: `darkgrey`, opacity: '1', border: `0.1cqw solid white`, transform: ' rotate(90deg) scaleX(2.5)' }} />
+
+
+                    <Image fluid src="/public/Images/RightArrow.png" style={{ cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)' }}
+                        onClick={() => handleClick(true)} />
+
+
+                </div>
+
+                <div style={{ overflowX: 'hidden' }}>
+                    <div style={{ width: '100%', display: 'flex', transform: `translateX(${moveAlong}%)`, transition: 'transform 1s ease-in-out' }}>
+                        {Object.keys(FD).map((food, index) => (
+                            <FoodCard key={index} activeElement={index === activeIndex}
+                                image={FD[food].img} titleEng={FD[food].titleEng}
+                                titleJap={FD[food].titleJap} desc={FD[food].desc}
+                                color={FD[food].color} />
+                        ))}
+                    </div>
+
+
+                </div>
             </Container>
-
 
         </>
 
     )
 }
+
+//<a href="https://www.freepik.com/icon/next_17214681#fromView=search&page=1&position=0&uuid=d174364e-8d06-46f3-8b15-40ca125be8bf">Icon by Icon Desai</a> arrow

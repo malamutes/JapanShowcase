@@ -55,7 +55,7 @@ export default function Landmarks() {
                                     transform: `translateY(${-(Math.floor((distance + 50) / 100) * 100)}%)`,
                                     display: 'grid', placeItems: 'center'
                                 }}>
-                                    <Card style={{ backgroundColor: 'transparent', maxWidth: '75%' }}>
+                                    <Card style={{ backgroundColor: 'transparent', maxWidth: '75%' }} >
                                         <Card.Body style={{ textAlign: 'center' }}>
                                             <Card.Title as={"h1"}>{LD[landmark].titleEnglish}</Card.Title>
                                             <Card.Subtitle style={{ lineHeight: '2' }} as={"h3"} className="mb-2 text-muted">{LD[landmark].titleJapanese}</Card.Subtitle>
