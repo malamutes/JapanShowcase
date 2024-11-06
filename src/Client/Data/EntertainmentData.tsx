@@ -5,6 +5,47 @@ interface EntertainmentDataType {
     description: string; // New field for description
 }
 
+interface GeneralEntertainmentType {
+    image: string,
+    title: string,
+    desc: string,
+    color: string
+}
+
+
+const GeneralEntertainment: { [key: string]: GeneralEntertainmentType } = {
+    Anime: {
+        image: '/Public/Images/EntertainmentImages/AOTBack.webp',
+        title: 'Anime',
+        desc: 'A style of animation that originated in Japan, known for its colorful artwork, fantastical themes, and vibrant characters. Popular globally, it spans many genres, appealing to audiences of all ages.',
+        color: '#FF6F61' // A vibrant coral color representing the dynamic and colorful nature of anime
+    },
+    JDrama: {
+        image: '/Public/Images/EntertainmentImages/AOTFront.webp',
+        title: 'J-Drama',
+        desc: 'Japanese TV dramas that cover a range of genres including romance, mystery, and slice-of-life. They often feature compelling storytelling and cultural themes, gaining fans both domestically and internationally.',
+        color: '#4682B4' // A calm steel blue, representing the emotional depth and variety of J-Dramas
+    },
+    TraditionalArt: {
+        image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
+        title: 'Japanese Traditional Art',
+        desc: 'Encompasses art forms such as Kabuki theater, Noh performances, and Sumo wrestling. These arts are rooted in centuries-old traditions, showcasing Japan’s rich cultural heritage and artistry.',
+        color: '#8B4513' // A rich saddle brown, evoking traditional and historical elements of Japanese culture
+    },
+    JMusic: {
+        image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
+        title: 'J-Music',
+        desc: 'The diverse world of Japanese music, encompassing various genres, from traditional instruments like shamisen and koto to modern styles that have made a global impact.',
+        color: '#FFD700' // A bright yellow, representing the energetic and sparkling nature of J-Music.
+    },
+    Manga: {
+        image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
+        title: 'Manga',
+        desc: 'Japanese graphic novels and comics that have become a global phenomenon, with genres spanning everything from action and adventure to romance, horror, and fantasy.',
+        color: '#32CD32' // A lively green, symbolizing the creativity and diversity of Manga.
+    }
+};
+
 const EntertainmentData: { [key: string]: EntertainmentDataType } = {
     AOT: {
         front: '/Public/Images/EntertainmentImages/AOTFront.webp',
@@ -38,4 +79,4 @@ const EntertainmentData: { [key: string]: EntertainmentDataType } = {
     }
 };
 
-export { EntertainmentData };
+export { EntertainmentData, GeneralEntertainment };

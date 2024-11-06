@@ -8,34 +8,29 @@
     overflow: hidden;
 }
 
-.DivTop:hover {
-    border: 3px solid rgba(100, 100, 100, 1);
-}
-
-.DivTop:hover>.Div1 {
-    opacity: 0;
-
-}
-
 .DivTop:hover>.Div2 {
     opacity: 1;
 }
 
-
-.Div1 {
-    position: absolute;
-    max-width: 100%;
-    background-color: gray;
-    transition-property: opacity;
-    transition-duration: 0.5s;
-    opacity: 1;
-
-}
-
 .Div2 {
-    max-width: 100%;
-    background-color: gray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Matches the parent container */
+    height: 100%;
+    /* Matches the parent container */
     transition-property: opacity, transform;
     transition-duration: 0.5s, 2s;
     opacity: 0;
+    z-index: 1;
+}
+
+.LeftContainer {
+    transition: transform 1s;
+    transform-origin: center left;
+}
+
+.LeftContainer:hover {
+    transform: scaleX(1.25);
 }

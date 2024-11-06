@@ -1,23 +1,35 @@
 import './Entertainment.css'
-import { Image, Offcanvas } from 'react-bootstrap'
+import { Card, Image } from 'react-bootstrap'
 
 interface EntertainmentCardProps {
-    front: string,
-    back: string
+    image: string,
+    desc: string,
+    title: string,
+    color: string
 }
 
 export default function EntertainmentCard(props: EntertainmentCardProps) {
-    const aspectRatio1 = 0.6;
     return (
         <>
-            <div className='DivTop'>
-                <div className="Div1">
-                    <Image fluid src={props.front} style={{ aspectRatio: `${aspectRatio1}` }} rounded alt={`${props.front}`} />
+            <div className='DivTop' >
+                <div className='Div1' >
+                    <Card style={{ backgroundColor: props.color, minHeight: '350px' }}>
+                        <Card.Body>
+                            <Card.Title >{props.title}</Card.Title>
+                            <Card.Text style={{ marginTop: '2.5cqw', maxWidth: '15cqw', lineHeight: '2' }}>
+                                {props.desc}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
                 </div>
-                <div className="Div2">
-                    <Image fluid src={props.back} style={{ aspectRatio: `${aspectRatio1}` }} rounded alt={`${props.front}`} />
+
+                <div className='Div2' >
+                    <Image fluid src={props.image} />
                 </div>
+
             </div>
+
+
         </>
     )
 }

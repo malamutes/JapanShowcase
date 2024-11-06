@@ -6,7 +6,7 @@
     transform: scale(0.5);
     transition-duration: transform;
     transition-timing-function: ease-in-out;
-    transition-duration: 1s;
+    transition-duration: 0.75s;
     /* doesnt shrink in parent container */
 }
 
