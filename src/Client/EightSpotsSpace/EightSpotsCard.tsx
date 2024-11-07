@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import './EightSpotsCard.css'
 import React from "react";
 
+
 interface EightSpotsCardProps {
     title: string,
     desc: string,
@@ -15,7 +16,7 @@ export default function EightSpotsCard(props: EightSpotsCardProps) {
             <Container style={{ margin: '2.5cqw auto', display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
                 <Row style={{
                     aspectRatio: '5', borderRadius: '15px',
-                    maxWidth: '750px', width: '50cqw',
+                    maxWidth: '650px',
                     overflow: 'hidden', '--colour': props.colour
                 } as React.CSSProperties} className="EightSpotCard">
                     <Col xs={8} style={{
@@ -24,12 +25,12 @@ export default function EightSpotsCard(props: EightSpotsCardProps) {
 
                     }}>
                         <Row style={{ justifyContent: 'center' }}>
-                            <span style={{ textAlign: 'center', fontWeight: '700', fontSize: '1.25cqw', marginTop: '1.25cqw', marginBottom: '0.5cqw' }}>{props.title}</span >
+                            <span style={{ textAlign: 'center', fontWeight: '700', fontSize: '1cqw', marginTop: '0.5cqw', marginBottom: '0.5cqw' }}>{props.title}</span >
                             <hr className="Line" />
                         </Row>
 
                         <Row style={{ maxWidth: '75%', textAlign: 'center' }}>
-                            <span style={{ fontSize: '0.6cqw' }}>{props.desc}</span>
+                            <span style={{ fontSize: '0.55cqw' }}>{props.desc}</span>
                         </Row>
 
                     </Col>

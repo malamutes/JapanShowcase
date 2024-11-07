@@ -1,24 +1,19 @@
 import { Col, Container, Row } from "react-bootstrap";
 import EightSpotsCard from "./EightSpotsCard";
 import { PlaceData } from "../Data/EightSpotData";
+import '../CommonStyles/CommonStyles.css'
 
 export default function EightSpotsSpace() {
     const PD = PlaceData;
-    const cardStyle: React.CSSProperties = {
-
-    }
 
     return (
         <>
-            <h1 style={{
-                textAlign: 'center', marginTop: '100px',
-                marginBottom: '50px', fontWeight: '700',
-            }}>SPECIAL PLACES</h1>
             <Container style={{
-                maxWidth: '1600px', width: '100%',
+                maxWidth: '100vw', backgroundColor: "rgba(50, 50, 50, 0.25)"
             }}>
-                <Row >
-                    <Col>
+                <h1 className="CommonHeader" >Cultural Hubs of Japan</h1>
+                <Row style={{ marginTop: '-2.5cqw' }}>
+                    <Col style={{ marginRight: '-20cqw' }}>
                         {Object.keys(PD).slice(0, 4).map((element, index) => (
                             <EightSpotsCard key={index} title={PD[element].title}
                                 desc={PD[element].description}

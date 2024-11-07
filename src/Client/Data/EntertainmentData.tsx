@@ -9,42 +9,48 @@ interface GeneralEntertainmentType {
     image: string,
     title: string,
     desc: string,
-    color: string
+    color: string,
+    borderColor: string
 }
-
 
 const GeneralEntertainment: { [key: string]: GeneralEntertainmentType } = {
     Anime: {
-        image: '/Public/Images/EntertainmentImages/AOTBack.webp',
+        image: '/Public/Images/EntertainmentImages/anime.webp',
         title: 'Anime',
         desc: 'A style of animation that originated in Japan, known for its colorful artwork, fantastical themes, and vibrant characters. Popular globally, it spans many genres, appealing to audiences of all ages.',
-        color: '#FF6F61' // A vibrant coral color representing the dynamic and colorful nature of anime
+        color: '#CC5A52', // Darker coral color
+        borderColor: '#A4423C' // Even darker shade to blend with the dark background
     },
     JDrama: {
         image: '/Public/Images/EntertainmentImages/AOTFront.webp',
         title: 'J-Drama',
         desc: 'Japanese TV dramas that cover a range of genres including romance, mystery, and slice-of-life. They often feature compelling storytelling and cultural themes, gaining fans both domestically and internationally.',
-        color: '#4682B4' // A calm steel blue, representing the emotional depth and variety of J-Dramas
+        color: '#3B6B8E', // Darker steel blue
+        borderColor: '#2E526C' // Darker, muted steel blue for better blending
     },
     TraditionalArt: {
         image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
         title: 'Japanese Traditional Art',
         desc: 'Encompasses art forms such as Kabuki theater, Noh performances, and Sumo wrestling. These arts are rooted in centuries-old traditions, showcasing Japan’s rich cultural heritage and artistry.',
-        color: '#8B4513' // A rich saddle brown, evoking traditional and historical elements of Japanese culture
+        color: '#6E3A12', // Darker saddle brown
+        borderColor: '#4F2A0D' // Even darker brown to blend with background
     },
     JMusic: {
         image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
         title: 'J-Music',
         desc: 'The diverse world of Japanese music, encompassing various genres, from traditional instruments like shamisen and koto to modern styles that have made a global impact.',
-        color: '#FFD700' // A bright yellow, representing the energetic and sparkling nature of J-Music.
+        color: '#D4AF37', // Darker gold for subtlety
+        borderColor: '#A07F29' // Darkened, deeper gold for blending
     },
     Manga: {
         image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
         title: 'Manga',
         desc: 'Japanese graphic novels and comics that have become a global phenomenon, with genres spanning everything from action and adventure to romance, horror, and fantasy.',
-        color: '#32CD32' // A lively green, symbolizing the creativity and diversity of Manga.
+        color: '#2A8B2A', // Darker green for a muted look
+        borderColor: '#1F661F' // Darker green to subtly define against background
     }
 };
+
 
 const EntertainmentData: { [key: string]: EntertainmentDataType } = {
     AOT: {

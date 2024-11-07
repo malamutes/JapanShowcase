@@ -3,6 +3,8 @@ import { Col, Container, Row, Card, ProgressBar } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import './Landmarks.css'
 import { LandMarksData } from "../Data/LandmarksData";
+import '../CommonStyles/CommonStyles.css'
+
 
 export default function Landmarks() {
     const [distance, setDistance] = useState(0);
@@ -44,8 +46,8 @@ export default function Landmarks() {
 
     return (
         <>
-            <Container style={{ minWidth: '1500px' }}>
-                <h1 style={{ margin: '50px', textAlign: 'center' }}>LANDMARKS</h1>
+            <Container style={{ maxWidth: '100vw', background: 'rgba(255, 255, 255, 0.75)' }}>
+                <h1 className="CommonHeader">Treasured Sites of Japan</h1>
                 <Row >
                     <Col xs={4} style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)', height: '800px', padding: '0' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
@@ -78,7 +80,7 @@ export default function Landmarks() {
                                     transition: 'transform 0.3 ease',
                                     transform: `translateX(${-distance}%)`
                                 }}>
-                                    <Image fluid src={LD[landmark].img} style={{ minHeight: '100%' }} alt={`${LD[landmark].titleEnglish}`} />
+                                    <Image fluid src={LD[landmark].img} style={{ minHeight: '100%', width: '100%' }} alt={`${LD[landmark].titleEnglish}`} />
                                 </div>
                             ))}
                         </div >

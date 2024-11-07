@@ -246,102 +246,105 @@ export default function Games() {
 
     return (
         <>
-            <Container>
-                <h1 style={{ margin: '75px', textAlign: 'center' }}>GAMES WHICH LORE I LIKE</h1>
-                <Row >
-                    <Col>
-                        <div className={`animated-border`} onMouseEnter={() => startTimerOne()} onMouseLeave={() => stopTimerOne()}
-                            style={{
-                                filter: `brightness(${hoverDurationOne === 150 ? 1 : 0.75})`,
-                                backgroundImage: `conic-gradient(rgba(127, 127, 127, ${hoverDurationOne === 150 ? 1 : 0.5}) ${hoverDurationOne / 1.5}%, transparent ${hoverDurationOne}%`,
-                                cursor: `${hoverDurationOne === 150 ? "pointer" : "progress"}`
-                            }}>
-                            <div style={{ transform: 'scale(0.975)', overflow: 'hidden' }}>
-                                <Image src="/Public/Images/GameImages/Bloodborne.webp" alt="Bloodborne" fluid style={{
-                                    filter: `grayscale(${hoverDurationOne === 150 ? "0%" : "100%"})`,
-                                    transition: 'transform 1s', transform: `scale(${hoverDurationOne === 150 ? 1.15 : 1})`
-                                }} />
-                            </div>
-
-                        </div>
-
-                    </Col>
-
-                    <Col>
-                        <Row style={{ margin: '0' }}>
-                            <div className={`animated-border`} onMouseEnter={() => startTimerTwo()} onMouseLeave={() => stopTimerTwo()}
+            <Container style={{ maxWidth: '100vw', backgroundColor: "rgba(15, 15, 15, 1)", marginBottom: '3.75cqw' }}>
+                <h1 className="CommonHeader">Cult Favorites</h1>
+                <Container >
+                    <Row >
+                        <Col>
+                            <div className={`animated-border`} onMouseEnter={() => startTimerOne()} onMouseLeave={() => stopTimerOne()}
                                 style={{
-                                    filter: `brightness(${hoverDurationTwo === 150 ? 1 : 0.75})`,
-                                    backgroundImage: `conic-gradient(rgba(204, 173, 0, ${hoverDurationTwo === 150 ? 1 : 0.5}) ${hoverDurationTwo / 1.5}%, transparent ${hoverDurationTwo}%`,
-                                    cursor: `${hoverDurationTwo === 150 ? "pointer" : "progress"}`
+                                    filter: `brightness(${hoverDurationOne === 150 ? 1 : 0.75})`,
+                                    backgroundImage: `conic-gradient(rgba(127, 127, 127, ${hoverDurationOne === 150 ? 1 : 0.5}) ${hoverDurationOne / 1.5}%, transparent ${hoverDurationOne}%`,
+                                    cursor: `${hoverDurationOne === 150 ? "pointer" : "progress"}`
                                 }}>
-                                <div style={{ transform: 'scaleY(0.95)', overflow: 'hidden' }}>
-                                    <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
-                                        filter: `grayscale(${hoverDurationTwo === 150 ? "0%" : "100%"})`,
-                                        transition: 'transform 1s', transform: `scale(${hoverDurationTwo === 150 ? 1.1 : 1})`
+                                <div style={{ transform: 'scale(0.975)', overflow: 'hidden' }}>
+                                    <Image src="/Public/Images/GameImages/Bloodborne.webp" alt="Bloodborne" fluid style={{
+                                        filter: `grayscale(${hoverDurationOne === 150 ? "0%" : "100%"})`,
+                                        transition: 'transform 1s', transform: `scale(${hoverDurationOne === 150 ? 1.15 : 1})`
                                     }} />
                                 </div>
 
                             </div>
-                        </Row>
-                        <Row style={{ margin: '0' }}>
-                            <Col style={{ paddingTop: '2%' }}>
-                                <Row >
-                                    <div className={`animated-border`} onMouseEnter={() => startTimerThree()} onMouseLeave={() => stopTimerThree()}
-                                        style={{
-                                            filter: `brightness(${hoverDurationThree === 150 ? 1 : 0.75})`,
-                                            backgroundImage: `conic-gradient(rgba(102, 0, 102, ${hoverDurationThree === 150 ? 1 : 0.5}) ${hoverDurationThree / 1.5}%, transparent ${hoverDurationThree}%`,
-                                            cursor: `${hoverDurationThree === 150 ? "pointer" : "progress"}`
-                                        }}>
-                                        <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}>
-                                            <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
-                                                filter: `grayscale(${hoverDurationThree === 150 ? "0%" : "100%"})`,
-                                                transition: 'transform 1s', transform: `scale(${hoverDurationThree === 150 ? 1.15 : 1})`
-                                            }} />
-                                        </div>
 
-                                    </div>
-                                </Row>
+                        </Col>
 
-                                <Row style={{ paddingTop: '4%' }}>
-                                    <div className={`animated-border`} onMouseEnter={() => startTimerFour()} onMouseLeave={() => stopTimerFour()}
-                                        style={{
-
-                                            backgroundImage: `conic-gradient(rgba(204, 0, 0, ${hoverDurationFour === 150 ? 1 : 0.5}) ${hoverDurationFour / 1.5}%, transparent ${hoverDurationFour}%`,
-                                            cursor: `${hoverDurationFour === 150 ? "pointer" : "progress"}`
-                                        }}>
-                                        <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}>
-                                            <Image src="/Public/Images/GameImages/PersonaFive.webp" alt="PersonaFive" fluid style={{
-                                                filter: `grayscale(${hoverDurationFour === 150 ? "0%" : "100%"})`,
-                                                transition: 'transform 1s', transform: `scale(${hoverDurationFour === 150 ? 1.15 : 1})`
-                                            }} />
-                                        </div>
-
-                                    </div>
-                                </Row>
-
-                            </Col>
-
-                            <Col style={{ paddingTop: '2%' }}>
-                                <div className={`animated-border`} onMouseEnter={() => startTimerFive()} onMouseLeave={() => stopTimerFive()}
+                        <Col>
+                            <Row style={{ margin: '0' }}>
+                                <div className={`animated-border`} onMouseEnter={() => startTimerTwo()} onMouseLeave={() => stopTimerTwo()}
                                     style={{
-
-                                        backgroundImage: `conic-gradient(rgba(0, 0, 204, ${hoverDurationFive === 150 ? 1 : 0.5}) ${hoverDurationFive / 1.5}%, transparent ${hoverDurationFive}%`,
-                                        cursor: `${hoverDurationFive === 150 ? "pointer" : "progress"}`
+                                        filter: `brightness(${hoverDurationTwo === 150 ? 1 : 0.75})`,
+                                        backgroundImage: `conic-gradient(rgba(204, 173, 0, ${hoverDurationTwo === 150 ? 1 : 0.5}) ${hoverDurationTwo / 1.5}%, transparent ${hoverDurationTwo}%`,
+                                        cursor: `${hoverDurationTwo === 150 ? "pointer" : "progress"}`
                                     }}>
-                                    <div style={{ transform: 'scale(0.95)', overflow: 'hidden' }}>
-                                        <Image src="/Public/Images/GameImages/MGR.webp" alt="MGR" fluid style={{
-                                            filter: `grayscale(${hoverDurationFive === 150 ? "0%" : "100%"})`,
-                                            transition: 'transform 1s', transform: `scale(${hoverDurationFive === 150 ? 1.1 : 1})`
+                                    <div style={{ transform: 'scaleY(0.95)', overflow: 'hidden' }}>
+                                        <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
+                                            filter: `grayscale(${hoverDurationTwo === 150 ? "0%" : "100%"})`,
+                                            transition: 'transform 1s', transform: `scale(${hoverDurationTwo === 150 ? 1.1 : 1})`
                                         }} />
                                     </div>
-                                </div>
-                            </Col>
 
-                        </Row>
-                    </Col>
-                </Row>
-            </Container >
+                                </div>
+                            </Row>
+                            <Row style={{ margin: '0' }}>
+                                <Col style={{ paddingTop: '2%' }}>
+                                    <Row >
+                                        <div className={`animated-border`} onMouseEnter={() => startTimerThree()} onMouseLeave={() => stopTimerThree()}
+                                            style={{
+                                                filter: `brightness(${hoverDurationThree === 150 ? 1 : 0.75})`,
+                                                backgroundImage: `conic-gradient(rgba(102, 0, 102, ${hoverDurationThree === 150 ? 1 : 0.5}) ${hoverDurationThree / 1.5}%, transparent ${hoverDurationThree}%`,
+                                                cursor: `${hoverDurationThree === 150 ? "pointer" : "progress"}`
+                                            }}>
+                                            <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}>
+                                                <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
+                                                    filter: `grayscale(${hoverDurationThree === 150 ? "0%" : "100%"})`,
+                                                    transition: 'transform 1s', transform: `scale(${hoverDurationThree === 150 ? 1.15 : 1})`
+                                                }} />
+                                            </div>
+
+                                        </div>
+                                    </Row>
+
+                                    <Row style={{ paddingTop: '4%' }}>
+                                        <div className={`animated-border`} onMouseEnter={() => startTimerFour()} onMouseLeave={() => stopTimerFour()}
+                                            style={{
+
+                                                backgroundImage: `conic-gradient(rgba(204, 0, 0, ${hoverDurationFour === 150 ? 1 : 0.5}) ${hoverDurationFour / 1.5}%, transparent ${hoverDurationFour}%`,
+                                                cursor: `${hoverDurationFour === 150 ? "pointer" : "progress"}`
+                                            }}>
+                                            <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}>
+                                                <Image src="/Public/Images/GameImages/PersonaFive.webp" alt="PersonaFive" fluid style={{
+                                                    filter: `grayscale(${hoverDurationFour === 150 ? "0%" : "100%"})`,
+                                                    transition: 'transform 1s', transform: `scale(${hoverDurationFour === 150 ? 1.15 : 1})`
+                                                }} />
+                                            </div>
+
+                                        </div>
+                                    </Row>
+
+                                </Col>
+
+                                <Col style={{ paddingTop: '2%' }}>
+                                    <div className={`animated-border`} onMouseEnter={() => startTimerFive()} onMouseLeave={() => stopTimerFive()}
+                                        style={{
+
+                                            backgroundImage: `conic-gradient(rgba(0, 0, 204, ${hoverDurationFive === 150 ? 1 : 0.5}) ${hoverDurationFive / 1.5}%, transparent ${hoverDurationFive}%`,
+                                            cursor: `${hoverDurationFive === 150 ? "pointer" : "progress"}`
+                                        }}>
+                                        <div style={{ transform: 'scale(0.95)', overflow: 'hidden' }}>
+                                            <Image src="/Public/Images/GameImages/MGR.webp" alt="MGR" fluid style={{
+                                                filter: `grayscale(${hoverDurationFive === 150 ? "0%" : "100%"})`,
+                                                transition: 'transform 1s', transform: `scale(${hoverDurationFive === 150 ? 1.1 : 1})`
+                                            }} />
+                                        </div>
+                                    </div>
+                                </Col>
+
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container >
+            </Container>
+
 
         </>
     )

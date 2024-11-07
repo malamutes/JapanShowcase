@@ -4,6 +4,7 @@ import FoodCard from "./FoodCard";
 import { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import './Food.css'
+import '../CommonStyles/CommonStyles.css'
 
 export default function Food() {
     const FD = FoodData;
@@ -33,39 +34,44 @@ export default function Food() {
 
     return (
         <>
-            <Container style={{ maxWidth: '1250px', position: 'relative' }} >
-                <h1 style={{ margin: '50px', textAlign: 'center' }}>FOOOOOOOOOOD</h1>
 
-                <div style={{ width: '7.5%', aspectRatio: '2.5', position: 'absolute', right: '0%', bottom: '0%', display: 'flex', cursor: 'pointer' }}>
-
-                    <Image fluid src="/public/Images/RightArrow.png" style={{
-                        cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)',
-                        transform: 'rotate(180deg)'
-                    }}
-                        onClick={() => handleClick(false)} />
-
-                    <hr style={{ width: '2.5cqw', backgroundColor: `darkgrey`, opacity: '1', border: `0.1cqw solid white`, transform: ' rotate(90deg) scaleX(2.5)' }} />
+            <Container style={{ maxWidth: '100vw', marginBottom: '5cqw' }}>
+                <h1 className="CommonHeader">Taste of Japan</h1>
+                <Container style={{
+                    maxWidth: '75%',
+                }} >
 
 
-                    <Image fluid src="/public/Images/RightArrow.png" style={{ cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)' }}
-                        onClick={() => handleClick(true)} />
+                    <div style={{ width: '5%', aspectRatio: '2.5', position: 'absolute', right: '10%', display: 'flex', cursor: 'pointer' }}>
+
+                        <Image fluid src="/public/Images/RightArrow.png" style={{
+                            cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)',
+                            transform: 'rotate(180deg)'
+                        }}
+                            onClick={() => handleClick(false)} />
+
+                        <hr style={{ width: '2.5cqw', backgroundColor: `darkgrey`, opacity: '1', border: `0.1cqw solid white`, transform: ' rotate(90deg) scaleX(2.5)' }} />
 
 
-                </div>
+                        <Image fluid src="/public/Images/RightArrow.png" style={{ cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)' }}
+                            onClick={() => handleClick(true)} />
 
-                <div style={{ overflowX: 'hidden' }}>
-                    <div style={{ width: '100%', display: 'flex', transform: `translateX(${moveAlong}%)`, transition: 'transform 1s ease-in-out' }}>
-                        {Object.keys(FD).map((food, index) => (
-                            <FoodCard key={index} activeElement={index === activeIndex}
-                                image={FD[food].img} titleEng={FD[food].titleEng}
-                                titleJap={FD[food].titleJap} desc={FD[food].desc}
-                                color={FD[food].color} />
-                        ))}
+
                     </div>
 
-
-                </div>
+                    <div style={{ overflowX: 'hidden' }}>
+                        <div style={{ width: '100%', display: 'flex', transform: `translateX(${moveAlong}%)`, transition: 'transform 1s ease-in-out' }}>
+                            {Object.keys(FD).map((food, index) => (
+                                <FoodCard key={index} activeElement={index === activeIndex}
+                                    image={FD[food].img} titleEng={FD[food].titleEng}
+                                    titleJap={FD[food].titleJap} desc={FD[food].desc}
+                                    color={FD[food].color} />
+                            ))}
+                        </div>
+                    </div>
+                </Container>
             </Container>
+
 
         </>
 
