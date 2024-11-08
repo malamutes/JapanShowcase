@@ -4,21 +4,26 @@
     box-shadow:
         0px 0px 0px var(--colour),
         0px 0px 0px var(--colour);
+    aspect-ratio: 3.75;
+    border-radius: 15px;
+    max-width: 650px;
+    overflow-y: hidden;
 }
 
 
 .EightSpotCard:hover {
     box-shadow:
-        5px 15px 25px var(--colour),
-        -5px 15px 25px var(--colour);
+        0.5cqw 0.75cqw 1.25cqw var(--colour),
+        -0.5cqw 0.75cqw 1.25cqw var(--colour);
     transform: translateY(-10%);
 }
 
 .Line {
     height: 0.1cqw;
     border: 0.1cqw solid var(--colour);
-    width: 5cqw !important;
     opacity: 0.25;
+    max-width: 100px;
+    margin: 0.35cqw auto;
     transform-origin: center center;
     transition-property: opacity, transform;
     transition-duration: 1s, 1s;
@@ -27,4 +32,105 @@
 .EightSpotCard:hover .Line {
     opacity: 0.75;
     transform: scaleX(3);
+}
+
+.CardBody {}
+
+.CardBody .TitleStyle {
+    font-weight: 700;
+    font-size: 1cqw;
+    margin: 0;
+
+
+}
+
+.CardBody .DescStyle {
+    font-size: 0.7cqw;
+    margin: auto;
+    max-width: 75%;
+}
+
+.CityImage {
+    width: 110%;
+    height: auto;
+    transform: scaleX(1.05);
+    transform-origin: center;
+}
+
+@media(min-width: 1920px) {
+    .Line {
+        margin: 7.5px auto;
+    }
+
+    .CardBody .TitleStyle {
+        margin-top: -10px;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .CardBody .DescStyle {
+        font-size: 12px;
+        margin: auto;
+        max-width: 75%;
+    }
+
+    .EightSpotCard:hover {
+        box-shadow:
+            5px 15px 25px var(--colour),
+            -5px 15px 25px var(--colour);
+        transform: translateY(-10%);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1920px) {
+    .CityImage {
+        transform: scaleX(1.165);
+    }
+}
+
+@media(max-width: 992px) {
+    .CardBody .DescStyle {
+        display: none;
+    }
+
+    .CardBody .TitleStyle {
+        font-size: 1.35cqw;
+    }
+
+    .EightSpotCard:hover .Line {
+        opacity: 0.75;
+        transform: scaleX(2.75);
+    }
+
+    .CityImage {
+        transform: scaleX(1.5);
+    }
+
+}
+
+/* 360 px is lowest for width for phones */
+
+@media(max-width: 576px) {
+    .CardBody .DescStyle {
+        display: none;
+    }
+
+    .CardBody .TitleStyle {
+        margin-left: 1.325cqw;
+        font-size: 1.35cqw;
+    }
+
+    .EightSpotCard:hover .Line {
+        opacity: 0.75;
+        transform: scaleX(2.25);
+    }
+
+    .EightSpotCard {
+        aspect-ratio: 2.5;
+    }
+
+    .CityImage {
+        width: calc(115% + 3.75vw);
+    }
+
 }

@@ -46,7 +46,7 @@ export default function Landmarks() {
 
     return (
         <>
-            <Container style={{ maxWidth: '100vw', background: 'rgba(255, 255, 255, 0.75)' }}>
+            <Container className="CommonContainer" style={{ background: 'rgba(255, 255, 255, 0.75)' }}>
                 <h1 className="CommonHeader">Treasured Sites of Japan</h1>
                 <Row >
                     <Col xs={4} style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)', height: '800px', padding: '0' }}>

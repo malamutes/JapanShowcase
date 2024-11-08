@@ -11,7 +11,7 @@ export default function Entertainment() {
 
     return (
         <>
-            <Container style={{ maxWidth: '100vw', marginBottom: '5cqw' }}>
+            <Container className="CommonContainer" style={{ marginBottom: '5cqw' }}>
                 <h1 className="CommonHeader">Japanese Entertainment</h1>
                 <Container style={{ maxWidth: '75%' }}>
                     <Row >

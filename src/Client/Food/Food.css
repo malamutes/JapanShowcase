@@ -11,7 +11,7 @@
 }
 
 .FoodCardActive {
-    transform: scale(1);
+    transform: scale(0.8);
     box-shadow: 2.5px 2.5px 5px var(--colour),
         -2.5px -2.5px 5px var(--colour),
         2.5px -2.5px 5px var(--colour),
@@ -32,4 +32,14 @@
 .LineActive {
     opacity: 1;
     transform: scaleX(3);
+}
+
+.NavDiv {
+    width: 5%;
+    aspect-ratio: auto;
+    position: absolute;
+    right: 10%;
+    margin-top: 25px;
+    display: flex;
+    cursor: pointer;
 }

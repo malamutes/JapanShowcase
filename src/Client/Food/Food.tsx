@@ -35,14 +35,13 @@ export default function Food() {
     return (
         <>
 
-            <Container style={{ maxWidth: '100vw', marginBottom: '5cqw' }}>
+            <Container className="CommonContainer">
                 <h1 className="CommonHeader">Taste of Japan</h1>
                 <Container style={{
-                    maxWidth: '75%',
+                    maxWidth: '75%', position: 'relative'
                 }} >
 
-
-                    <div style={{ width: '5%', aspectRatio: '2.5', position: 'absolute', right: '10%', display: 'flex', cursor: 'pointer' }}>
+                    <div className="NavDiv">
 
                         <Image fluid src="/public/Images/RightArrow.png" style={{
                             cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)',
@@ -50,7 +49,11 @@ export default function Food() {
                         }}
                             onClick={() => handleClick(false)} />
 
-                        <hr style={{ width: '2.5cqw', backgroundColor: `darkgrey`, opacity: '1', border: `0.1cqw solid white`, transform: ' rotate(90deg) scaleX(2.5)' }} />
+                        <div style={{
+                            backgroundColor: `red`, opacity: '1',
+                            border: `2.5px solid white`, margin: '0 5px'
+
+                        }} />
 
 
                         <Image fluid src="/public/Images/RightArrow.png" style={{ cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)' }}

@@ -246,7 +246,7 @@ export default function Games() {
 
     return (
         <>
-            <Container style={{ maxWidth: '100vw', backgroundColor: "rgba(15, 15, 15, 1)", marginBottom: '3.75cqw' }}>
+            <Container className="CommonContainer" style={{ backgroundColor: "rgba(15, 15, 15, 1)" }}>
                 <h1 className="CommonHeader">Cult Favorites</h1>
                 <Container >
                     <Row >

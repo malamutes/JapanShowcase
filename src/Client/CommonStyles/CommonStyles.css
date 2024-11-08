@@ -1,8 +1,10 @@
 .CommonHeader {
     position: relative;
     text-align: start;
-    top: 1.5cqw;
-    margin-bottom: 3.75cqw;
     font-weight: 700;
     margin-left: 3.75cqw;
+}
+
+.CommonContainer {
+    max-width: 1920px !important;
 }

@@ -9,11 +9,10 @@ export default function Festival() {
 
     return (
         <>
-            <Container style={{ maxWidth: '100vw' }}>
+            <Container className="CommonContainer">
                 <h1 className="CommonHeader">Festivals & Traditions</h1>
                 <Container >
                     <Row style={{ width: '1500px', height: '750px', position: 'absolute', marginTop: '-3.75cqw' }}>
-
                         <Row style={{
                             backgroundColor: 'rgb(25, 25, 25)', width: '50%', height: '15%',
                             top: '10%', left: '40%', position: 'absolute', margin: '0', alignItems: 'start', borderRadius: '15px 15px 0% 0%',
