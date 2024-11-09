@@ -14,3 +14,81 @@
 .BaseSlideTransform3 {
     transform: translateX(-300%);
 }
+
+.LandmarkRowContainer {}
+
+.LandmarkRowContainer .TextContainer {
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 800px;
+    padding: 0;
+}
+
+.LandmarkRowContainer .ImageContainer {
+    padding: 0;
+    height: 800px;
+    overflow: hidden;
+}
+
+.LandmarkRowContainer .TextCardContainer {
+    min-width: 100%;
+    min-height: 800px;
+    transition: transform 1s ease;
+    display: grid;
+    place-items: center;
+}
+
+.LandmarkRowContainer .CardContainer {
+    background-color: transparent;
+    max-width: 75%;
+}
+
+.LandmarkRowContainer .TitleText {
+    font-size: 40px;
+}
+
+.LandmarkRowContainer .SubTitleText {
+    font-size: 30px;
+}
+
+.LandmarkRowContainer .DescText {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.LandmarkColContainer .CardContainer {
+    background-color: transparent;
+    max-width: 75%;
+    color: whitesmoke;
+}
+
+.LandmarkColContainer .TitleText {
+    font-size: 3.5cqw;
+}
+
+.LandmarkColContainer .SubTitleText {
+    font-size: 2.5cqw;
+}
+
+.LandmarkColContainer .DescTextSmall {
+    font-weight: 500;
+    font-size: 2cqw;
+}
+
+@media (max-width: 576px) {
+    .LandmarkColContainer .CardContainer {
+        max-width: 90%;
+    }
+
+    .LandmarkColContainer .DescTextSmall {
+        font-size: 2.5cqw;
+    }
+
+    .LandmarkColContainer .TitleText {
+        font-size: 4cqw;
+    }
+
+    .LandmarkColContainer .SubTitleText {
+        font-size: 3cqw;
+    }
+
+}

@@ -13,7 +13,7 @@ interface EightSpotsCardProps {
 export default function EightSpotsCard(props: EightSpotsCardProps) {
     return (
         <>
-            <Container style={{ margin: '2.5cqw auto', display: 'grid', placeItems: 'center', cursor: 'pointer' }}>
+            <Container className="EightSpotCardContainer">
                 <Row style={{
                     '--colour': props.colour
                 } as React.CSSProperties} className="EightSpotCard">

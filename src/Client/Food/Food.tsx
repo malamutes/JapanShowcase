@@ -37,9 +37,7 @@ export default function Food() {
 
             <Container className="CommonContainer">
                 <h1 className="CommonHeader">Taste of Japan</h1>
-                <Container style={{
-                    maxWidth: '75%', position: 'relative'
-                }} >
+                <Container className="FoodContainer" >
 
                     <div className="NavDiv">
 

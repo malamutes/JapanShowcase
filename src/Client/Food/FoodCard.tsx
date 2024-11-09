@@ -1,4 +1,4 @@
-import { Card, Container, Row, Col, Image } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import './Food.css'
 
 interface FoodCardProps {
@@ -21,10 +21,10 @@ export default function FoodCard(props: FoodCardProps) {
 
 
                 <Card.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Card.Title style={{ textAlign: 'center' }}>{props.titleEng}</Card.Title>
-                    <Card.Subtitle className="mb-2" style={{ textAlign: 'center' }}>{props.titleJap}</Card.Subtitle>
+                    <Card.Title className="TitleText">{props.titleEng}</Card.Title>
+                    <Card.Subtitle className="mb-2 SubTitleText" >{props.titleJap}</Card.Subtitle>
                     <hr style={{ '--colour': props.color, margin: '0.5cqw 0' } as React.CSSProperties} className={`Line ${props.activeElement ? "LineActive" : ""}`} />
-                    <Card.Text style={{ textAlign: 'center' }}>
+                    <Card.Text className="DescText">
                         {props.desc}
                     </Card.Text>
                 </Card.Body>

@@ -9,6 +9,7 @@ import '../CommonStyles/CommonStyles.css'
 export default function Landmarks() {
     const [distance, setDistance] = useState(0);
     const [scroll, canScroll] = useState(true);
+    const [currentScreenWidth, setCurrentScreenWidth] = useState(true);
 
     const LD = LandMarksData;
 
@@ -41,27 +42,46 @@ export default function Landmarks() {
 
     }, [scroll])
 
+    useEffect(() => {
+        function widthLess992() {
+            if (window.innerWidth <= 992) {
+                setCurrentScreenWidth(false);
+            }
+            else if (window.innerWidth > 992) {
+                setCurrentScreenWidth(true);
+            }
+        };
+
+        widthLess992();
+
+        window.addEventListener('resize', widthLess992);
+
+        return () => {
+            window.removeEventListener('resize', widthLess992);
+        };
+
+    }, []);
+
 
     //need to set height of my elements so its more dyanmic
 
     return (
         <>
-            <Container className="CommonContainer" style={{ background: 'rgba(255, 255, 255, 0.75)' }}>
+            <Container className="CommonContainer" >
                 <h1 className="CommonHeader">Treasured Sites of Japan</h1>
-                <Row >
-                    <Col xs={4} style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)', height: '800px', padding: '0' }}>
+                {currentScreenWidth ? (<Row className="LandmarkRowContainer">
+                    <Col lg={4} className="TextContainer">
                         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
                             {Object.keys(LD).map((landmark, index) => (
                                 <div key={index} style={{
-                                    minWidth: '100%', minHeight: '800px', transition: 'transform 1s ease',
                                     transform: `translateY(${-(Math.floor((distance + 50) / 100) * 100)}%)`,
-                                    display: 'grid', placeItems: 'center'
-                                }}>
-                                    <Card style={{ backgroundColor: 'transparent', maxWidth: '75%' }} >
+                                }} className="TextCardContainer">
+                                    <Card className="CardContainer " >
                                         <Card.Body style={{ textAlign: 'center' }}>
-                                            <Card.Title as={"h1"}>{LD[landmark].titleEnglish}</Card.Title>
-                                            <Card.Subtitle style={{ lineHeight: '2' }} as={"h3"} className="mb-2 text-muted">{LD[landmark].titleJapanese}</Card.Subtitle>
-                                            <Card.Text as={"h6"} style={{ lineHeight: '2.5' }}>
+                                            <Card.Title className="TitleText">{LD[landmark].titleEnglish}</Card.Title>
+                                            <Card.Subtitle style={{ lineHeight: '2' }} className="mb-2 text-muted SubTitleText">
+                                                {LD[landmark].titleJapanese}</Card.Subtitle>
+                                            <Card.Text className="DescText" style={{ lineHeight: '2.5' }}>
                                                 {LD[landmark].description}
                                             </Card.Text>
                                         </Card.Body>
@@ -71,7 +91,7 @@ export default function Landmarks() {
                         </div >
                     </Col>
 
-                    <Col xs={8} style={{ padding: '0', height: '800px', overflow: 'hidden' }}>
+                    <Col lg={8} className="ImageContainer">
                         <div style={{ display: 'flex', width: '100%' }}
                             onMouseEnter={() => canScroll(false)} onMouseLeave={() => canScroll(true)} onWheel={(event) => handleWheel(event)}>
                             {Object.keys(LD).map((landmark, index) => (
@@ -86,8 +106,27 @@ export default function Landmarks() {
                         </div >
                     </Col>
 
-                    <ProgressBar variant="secondary" now={distance} min={0} max={100 * (Object.keys(LD).length - 1)} style={{ maxHeight: '2.5px', padding: '0' }} />
-                </Row>
+                    <ProgressBar variant="secondary" now={distance} min={0} max={100 * (Object.keys(LD).length - 1)} style={{ maxHeight: '4px', padding: '0' }} />
+                </Row >) : (
+                    <Col className="LandmarkColContainer">
+                        {Object.keys(LD).map((landmark, index) => (
+                            <Row key={index} style={{ justifyContent: 'center', margin: '5cqw 0' }}>
+                                <Image fluid src={LD[landmark].img} alt={`${LD[landmark].titleEnglish}`} />
+                                <Card className="CardContainer ">
+                                    <Card.Body style={{ textAlign: 'center' }}>
+                                        <Card.Title className="TitleText">{LD[landmark].titleEnglish}</Card.Title>
+                                        <Card.Subtitle style={{ lineHeight: '2' }} className="mb-2 SubTitleText">
+                                            {LD[landmark].titleJapanese}</Card.Subtitle>
+                                        <Card.Text className="DescTextSmall" style={{ lineHeight: '2' }}>
+                                            {LD[landmark].description}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Row>
+                        ))}
+                    </Col>
+                )}
+
 
             </Container >
 

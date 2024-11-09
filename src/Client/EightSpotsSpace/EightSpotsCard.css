@@ -57,6 +57,13 @@
     transform-origin: center;
 }
 
+.EightSpotCardContainer {
+    margin: 2.5cqw auto;
+    display: grid;
+    place-items: center;
+    cursor: pointer
+}
+
 @media(min-width: 1920px) {
     .Line {
         margin: 7.5px auto;
@@ -80,6 +87,10 @@
             -5px 15px 25px var(--colour);
         transform: translateY(-10%);
     }
+
+    .EightSpotCardContainer {
+        margin: 100px auto;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1920px) {
@@ -94,7 +105,7 @@
     }
 
     .CardBody .TitleStyle {
-        font-size: 1.35cqw;
+        font-size: 1.6cqw;
     }
 
     .EightSpotCard:hover .Line {
@@ -117,7 +128,8 @@
 
     .CardBody .TitleStyle {
         margin-left: 1.325cqw;
-        font-size: 1.35cqw;
+        font-size: 1.4cqw;
+        margin-top: -5px;
     }
 
     .EightSpotCard:hover .Line {
