@@ -10,7 +10,7 @@ export default function EightSpotsSpace() {
         <>
             <Container className="CommonContainer">
                 <h1 className="CommonHeader" >Cultural Hubs of Japan</h1>
-                <Container style={{ maxWidth: '75%' }}>
+                <Container>
 
                     <Row>
                         <Col >

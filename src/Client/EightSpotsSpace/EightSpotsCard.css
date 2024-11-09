@@ -64,6 +64,7 @@
     cursor: pointer
 }
 
+
 @media(min-width: 1920px) {
     .Line {
         margin: 7.5px auto;
@@ -89,7 +90,7 @@
     }
 
     .EightSpotCardContainer {
-        margin: 100px auto;
+        margin: 50px auto;
     }
 }
 

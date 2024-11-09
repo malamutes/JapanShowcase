@@ -12,44 +12,44 @@ interface GeneralEntertainmentType {
     color: string,
     borderColor: string
 }
-
 const GeneralEntertainment: { [key: string]: GeneralEntertainmentType } = {
     Anime: {
         image: '/Public/Images/EntertainmentImages/anime.webp',
         title: 'Anime',
-        desc: 'A style of animation that originated in Japan, known for its colorful artwork, fantastical themes, and vibrant characters. Popular globally, it spans many genres, appealing to audiences of all ages.',
-        color: '#CC5A52', // Darker coral color
-        borderColor: '#A4423C' // Even darker shade to blend with the dark background
+        desc: 'Anime is a Japanese animation style known for its colorful artwork. It spans diverse genres, appealing to all age groups worldwide.',
+        color: '#CC5A52',
+        borderColor: '#A4423C'
     },
     JDrama: {
         image: '/Public/Images/EntertainmentImages/AOTFront.webp',
         title: 'J-Drama',
-        desc: 'Japanese TV dramas that cover a range of genres including romance, mystery, and slice-of-life. They often feature compelling storytelling and cultural themes, gaining fans both domestically and internationally.',
-        color: '#3B6B8E', // Darker steel blue
-        borderColor: '#2E526C' // Darker, muted steel blue for better blending
+        desc: 'J-Drama includes Japanese TV dramas across various genres. They are known for their compelling stories and cultural depth.',
+        color: '#3B6B8E',
+        borderColor: '#2E526C'
     },
     TraditionalArt: {
         image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
         title: 'Japanese Traditional Art',
-        desc: 'Encompasses art forms such as Kabuki theater, Noh performances, and Sumo wrestling. These arts are rooted in centuries-old traditions, showcasing Japan’s rich cultural heritage and artistry.',
-        color: '#6E3A12', // Darker saddle brown
-        borderColor: '#4F2A0D' // Even darker brown to blend with background
+        desc: 'Japanese traditional art includes performances like Kabuki and Noh. These ancient art forms showcase Japan’s rich cultural heritage.',
+        color: '#6E3A12',
+        borderColor: '#4F2A0D'
     },
     JMusic: {
         image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
         title: 'J-Music',
-        desc: 'The diverse world of Japanese music, encompassing various genres, from traditional instruments like shamisen and koto to modern styles that have made a global impact.',
-        color: '#D4AF37', // Darker gold for subtlety
-        borderColor: '#A07F29' // Darkened, deeper gold for blending
+        desc: 'J-Music includes a variety of Japanese music genres. It spans from traditional instruments to modern styles that have gained international popularity.',
+        color: '#D4AF37',
+        borderColor: '#A07F29'
     },
     Manga: {
         image: '/Public/Images/EntertainmentImages/MonsterBack.webp',
         title: 'Manga',
-        desc: 'Japanese graphic novels and comics that have become a global phenomenon, with genres spanning everything from action and adventure to romance, horror, and fantasy.',
-        color: '#2A8B2A', // Darker green for a muted look
-        borderColor: '#1F661F' // Darker green to subtly define against background
+        desc: 'Manga are Japanese graphic novels that have become a global phenomenon. They cover genres from action to romance, appealing to all types of readers.',
+        color: '#2A8B2A',
+        borderColor: '#1F661F'
     }
 };
+
 
 
 const EntertainmentData: { [key: string]: EntertainmentDataType } = {

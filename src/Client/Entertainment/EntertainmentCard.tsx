@@ -6,7 +6,8 @@ interface EntertainmentCardProps {
     desc: string,
     title: string,
     color: string,
-    borderColour: string
+    borderColour: string,
+    height: string
 }
 
 export default function EntertainmentCard(props: EntertainmentCardProps) {
@@ -14,10 +15,10 @@ export default function EntertainmentCard(props: EntertainmentCardProps) {
         <>
             <div className='DivTop' style={{ border: `0.25cqw double ${props.borderColour}`, borderRadius: '12.5px' }}>
                 <div className='Div1' >
-                    <Card style={{ backgroundColor: props.color, minHeight: '350px' }}>
+                    <Card style={{ backgroundColor: props.color, height: props.height }}>
                         <Card.Body>
-                            <Card.Title >{props.title}</Card.Title>
-                            <Card.Text style={{ marginTop: '2.5cqw', maxWidth: '15cqw', lineHeight: '2' }}>
+                            <Card.Title className="TitleStyle">{props.title}</Card.Title>
+                            <Card.Text className="DescStyle">
                                 {props.desc}
                             </Card.Text>
                         </Card.Body>
