@@ -45,7 +45,7 @@
 }
 
 .CardBody .DescStyle {
-    font-size: 0.7cqw;
+    font-size: 0.85cqw;
     margin: auto;
     max-width: 75%;
 }
@@ -58,10 +58,10 @@
 }
 
 .EightSpotCardContainer {
-    margin: 2.5cqw auto;
+    margin-bottom: 2.5cqw;
     display: grid;
     place-items: center;
-    cursor: pointer
+    cursor: pointer;
 }
 
 
@@ -120,30 +120,42 @@
 
 }
 
-/* 360 px is lowest for width for phones */
 
-@media(max-width: 576px) {
-    .CardBody .DescStyle {
-        display: none;
+@media(max-width: 768px) {
+    .EightSpotCardContainer {
+        place-items: stretch;
+        margin-bottom: 3.5cqw;
+
     }
 
     .CardBody .TitleStyle {
+        font-size: 2cqw;
+    }
+
+    .CardBody .DescStyle {
+        display: inline-block;
+        font-size: 1.25cqw;
+        line-height: 2.5;
+    }
+
+    .EightSpotCard:hover .Line {
+        opacity: 0.75;
+        transform: scaleX(5);
+    }
+
+}
+
+/* 360 px is lowest for width for phones */
+
+@media(max-width: 576px) {
+    .CardBody .TitleStyle {
         margin-left: 1.325cqw;
-        font-size: 1.4cqw;
+        font-size: 3.25cqw;
         margin-top: -5px;
     }
 
     .EightSpotCard:hover .Line {
         opacity: 0.75;
-        transform: scaleX(2.25);
+        transform: scaleX(5);
     }
-
-    .EightSpotCard {
-        aspect-ratio: 2.5;
-    }
-
-    .CityImage {
-        width: calc(115% + 3.75vw);
-    }
-
 }

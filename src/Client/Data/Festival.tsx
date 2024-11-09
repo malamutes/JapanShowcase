@@ -87,7 +87,7 @@ const FestivalData: { [key: string]: FestivalTypes } = {
             "/Public/Images/FestivalImages/TakayamaMatsuriOne.webp",
             "/Public/Images/FestivalImages/TakayamaMatsuriTwo.webp",
             "/Public/Images/FestivalImages/TakayamaMatsuriThree.webp",
-            "/Public/Images/FestivalImages/TakayamaMatsuriFour.webp",
+            "/Public/Images/FestivalImages/TakayamaMatsuriFour.jpg",
             "/Public/Images/FestivalImages/TakayamaMatsuriFive.webp"
         ],
         icons: "/Public/Images/FestivalImages/Drum.png",

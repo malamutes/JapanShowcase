@@ -12,67 +12,60 @@ export default function Festival() {
             <Container className="CommonContainer">
                 <h1 className="CommonHeader">Festivals & Traditions</h1>
                 <Container >
-                    <Row style={{ width: '1500px', height: '750px', position: 'absolute', marginTop: '-3.75cqw' }}>
-                        <Row style={{
-                            backgroundColor: 'rgb(25, 25, 25)', width: '50%', height: '15%',
-                            top: '10%', left: '40%', position: 'absolute', margin: '0', alignItems: 'start', borderRadius: '15px 15px 0% 0%',
-                            border: '2.5px solid grey'
-                        }}>
-                            {Object.keys(FD).map((festival) => (
-                                <Col key={festival}>
-                                    <Image fluid src={FD[festival].icons} alt={`${festival} Icon`}
-                                        style={{ cursor: 'pointer' }} className={`FestivalIcon ${currFestival === festival ? "FestivalIconClicked" : ""}`}
-                                        onClick={() => { setCurrFestival(festival) }}
-                                    />
-
-                                </Col>
-                            ))}
-                        </Row>
-
-                        <div style={{
-                            width: '43.75%', height: '55%',
-                            position: 'absolute', zIndex: '10', top: '55%',
-                            transform: 'translateY(-50%)', left: '2.5%'
-                        }}>
+                    <Row >
+                        <Col >
+                            <hr style={{
+                                opacity: '1',
+                                border: `1px solid ${FD[currFestival].color}`
+                            }} />
+                            <Row>
+                                <Carousel controls={false} className="custom-carousel" interval={3000}>
+                                    {FD[currFestival].images.map((image, index) => (
+                                        <CarouselItem key={index}>
+                                            <Image src={image} alt={image} style={{ minWidth: '100%' }} />
+                                        </CarouselItem>
+                                    ))}
+                                </Carousel>
+                            </Row>
 
                             <hr style={{
+                                opacity: '1',
                                 height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`,
-                                marginTop: '1.25cqw', width: '80%', backgroundColor: 'red', opacity: '1'
                             }} />
-                            <Carousel controls={false} className="custom-carousel" interval={3000}>
-                                {FD[currFestival].images.map((image, index) => (
-                                    <CarouselItem key={index}>
-                                        <Image src={image} alt={image} fluid />
-                                    </CarouselItem>
+                        </Col>
+
+                        <Col style={{ border: `5px double ${FD[currFestival].color}`, backgroundColor: 'rgb(15, 15, 15)' }}>
+                            <Row style={{ backgroundColor: 'rgb(30,30,30)', border: `2.5px solid ${FD[currFestival].textColor}`, }}>
+                                {Object.keys(FD).map((festival) => (
+                                    <Col key={festival}>
+                                        <Image fluid src={FD[festival].icons} alt={`${festival} Icon`}
+                                            style={{ cursor: 'pointer', minWidth: '35px' }} className={`FestivalIcon ${currFestival === festival ? "FestivalIconClicked" : ""}`}
+                                            onClick={() => { setCurrFestival(festival) }}
+                                        />
+
+                                    </Col>
                                 ))}
-                            </Carousel>
-                            <hr style={{
-                                height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`,
-                                marginTop: '1.25cqw', width: '80%', backgroundColor: 'red', opacity: '1'
-                            }} />
-                        </div>
+                            </Row>
 
-                        <div style={{
-                            backgroundColor: 'rgb(25, 25, 25)', width: '50%', height: '70%',
-                            position: 'absolute', left: '40%', top: '60%', transform: 'translateY(-50%)',
-                            border: '2.5px solid white', display: 'grid', placeItems: 'center'
-                        }}>
-                            <Card style={{ width: '75%', backgroundColor: 'transparent', color: `${FD[currFestival].textColor}`, lineHeight: '2' }}>
-                                <Card.Body style={{ textAlign: 'center' }}>
-                                    <Card.Title as={"h1"} style={{ marginBottom: '1.5cqw' }} >{FD[currFestival].titleEng}</Card.Title>
-                                    <hr style={{ height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`, marginBottom: '1.25cqw', opacity: '1' }} />
-                                    <Card.Subtitle as={"h4"} className="mb-2" >{FD[currFestival].titleJap}</Card.Subtitle>
-                                    <Card.Text style={{ marginTop: '1cqw' }}>
-                                        {`${FD[currFestival].date}, ${FD[currFestival].location}`} <br />
-                                        {FD[currFestival].description}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </div>
+                            <Row>
+                                <Card style={{ color: `${FD[currFestival].textColor}`, backgroundColor: 'transparent' }}>
+                                    <Card.Body style={{ textAlign: 'center' }}>
+                                        <Card.Title as={"h1"} className="TitleStyle" >{FD[currFestival].titleEng}</Card.Title>
+                                        <hr style={{ border: `1px solid ${FD[currFestival].color}`, opacity: '1' }} />
+                                        <Card.Subtitle as={"h4"} className="mb-2 SubTitleStyle" >{FD[currFestival].titleJap}</Card.Subtitle>
+                                        <Card.Text className="DescStyle">
+                                            {`${FD[currFestival].date}, ${FD[currFestival].location}`} <br />
+                                            {FD[currFestival].description}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Row>
+
+                        </Col>
                     </Row>
 
                 </Container >
-            </Container>
+            </Container >
 
         </>
     )

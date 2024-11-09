@@ -11,9 +11,8 @@ export default function EightSpotsSpace() {
             <Container className="CommonContainer">
                 <h1 className="CommonHeader" >Cultural Hubs of Japan</h1>
                 <Container>
-
                     <Row>
-                        <Col >
+                        <Col md={6}>
                             {Object.keys(PD).slice(0, 4).map((element, index) => (
                                 <EightSpotsCard key={index} title={PD[element].title}
                                     desc={PD[element].description}
@@ -22,7 +21,7 @@ export default function EightSpotsSpace() {
                             ))}
                         </Col>
 
-                        <Col >
+                        <Col md={6}>
                             {Object.keys(PD).slice(4, 8).map((element, index) => (
                                 <EightSpotsCard key={index} title={PD[element].title}
                                     desc={PD[element].description}

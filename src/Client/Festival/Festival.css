@@ -25,3 +25,45 @@
     filter: grayscale(0);
     transform: scale(0.5);
 }
+
+
+
+@media(min-width: 1920px) {
+    .custom-carousel .carousel-indicators [data-bs-target] {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .custom-carousel .carousel-indicators [data-bs-target] {
+        width: 1.25cqw;
+        height: 1.25cqw;
+    }
+}
+
+@media(max-width: 768px) {
+    .custom-carousel .carousel-indicators [data-bs-target] {
+        width: 2.5cqw;
+        height: 2.5cqw;
+    }
+}
+
+@media(max-width: 576px) {
+    .DescStyle {
+        font-size: 2.5cqw;
+    }
+
+    .TitleStyle {
+        font-size: 3.5cqw;
+    }
+
+    .SubTitleStyle {
+        font-size: 3cqw;
+    }
+
+    .custom-carousel .carousel-indicators [data-bs-target] {
+        width: 3cqw;
+        height: 3cqw;
+    }
+}
