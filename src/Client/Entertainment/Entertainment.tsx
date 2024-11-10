@@ -32,7 +32,7 @@ export default function Entertainment() {
 
     return (
         <>
-            <Container className="CommonContainer" style={{ marginBottom: '5cqw' }}>
+            <Container className="CommonContainer" >
                 <h1 className="CommonHeader">Japanese Entertainment</h1>
                 <Container >
                     <Row >

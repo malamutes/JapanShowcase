@@ -61,12 +61,30 @@ export default function Food() {
                     </div>
 
                     <div style={{ overflowX: 'hidden' }}>
-                        <div style={{ width: '100%', display: 'flex', transform: `translateX(${moveAlong}%)`, transition: 'transform 1s ease-in-out' }}>
+                        <div style={{
+                            width: '100%', display: 'flex',
+                            transform: `translateX(${moveAlong}%)`,
+                            transition: 'transform 1s ease-in-out',
+                        }}>
                             {Object.keys(FD).map((food, index) => (
                                 <FoodCard key={index} activeElement={index === activeIndex}
                                     image={FD[food].img} titleEng={FD[food].titleEng}
                                     titleJap={FD[food].titleJap} desc={FD[food].desc}
-                                    color={FD[food].color} />
+                                    color={FD[food].color} onclick={() => {
+                                        if (index != activeIndex) {
+                                            if (index > activeIndex) {
+                                                setMoveAlong(moveAlong => Math.max((moveAlong - 33.3), -33.3 * (Object.keys(FD).length - 2)));
+                                            }
+                                            else if (index < activeIndex) {
+                                                setMoveAlong(moveAlong => Math.min((moveAlong + 33.3), 33.3));
+                                            }
+                                            setActiveIndex(index);
+                                        }
+                                        else if (index === activeIndex) {
+                                            console.log("YIPPIE");
+                                        }
+
+                                    }} />
                             ))}
                         </div>
                     </div>

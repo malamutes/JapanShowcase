@@ -7,7 +7,8 @@ interface FoodCardProps {
     titleJap: string,
     desc: string,
     activeElement: boolean,
-    color: string
+    color: string,
+    onclick: () => void
 
 }
 
@@ -15,7 +16,9 @@ export default function FoodCard(props: FoodCardProps) {
     return (
         <>
             <Card className={`FoodCardDefault ${props.activeElement ? "FoodCardActive" : ""}`}
-                style={{ backgroundColor: 'rgb(50, 50, 50)', color: 'white', '--colour': props.color } as React.CSSProperties}>
+                style={{ cursor: 'pointer', backgroundColor: 'rgb(50, 50, 50)', color: 'white', '--colour': props.color } as React.CSSProperties}
+                onClick={props.onclick}
+            >
 
                 <Card.Img src={props.image} draggable={false} />
 
