@@ -250,7 +250,7 @@ export default function Games() {
                 <h1 className="CommonHeader">Cult Favorites</h1>
                 <Container >
                     <Row >
-                        <Col>
+                        <Col style={{ padding: '0' }}>
                             <div className={`animated-border`} onMouseEnter={() => startTimerOne()} onMouseLeave={() => stopTimerOne()}
                                 style={{
                                     filter: `brightness(${hoverDurationOne === 150 ? 1 : 0.75})`,
@@ -268,15 +268,16 @@ export default function Games() {
 
                         </Col>
 
-                        <Col>
+                        <Col style={{ padding: '0' }}>
                             <Row style={{ margin: '0' }}>
                                 <div className={`animated-border`} onMouseEnter={() => startTimerTwo()} onMouseLeave={() => stopTimerTwo()}
                                     style={{
                                         filter: `brightness(${hoverDurationTwo === 150 ? 1 : 0.75})`,
                                         backgroundImage: `conic-gradient(rgba(204, 173, 0, ${hoverDurationTwo === 150 ? 1 : 0.5}) ${hoverDurationTwo / 1.5}%, transparent ${hoverDurationTwo}%`,
-                                        cursor: `${hoverDurationTwo === 150 ? "pointer" : "progress"}`
+                                        cursor: `${hoverDurationTwo === 150 ? "pointer" : "progress"}`,
+                                        display: 'grid', placeItems: 'center'
                                     }}>
-                                    <div style={{ transform: 'scaleY(0.95)', overflow: 'hidden' }}>
+                                    <div style={{ transform: 'scaleY(0.95) scaleX(1.05)', overflow: 'hidden' }}>
                                         <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
                                             filter: `grayscale(${hoverDurationTwo === 150 ? "0%" : "100%"})`,
                                             transition: 'transform 1s', transform: `scale(${hoverDurationTwo === 150 ? 1.1 : 1})`
@@ -290,11 +291,12 @@ export default function Games() {
                                     <Row >
                                         <div className={`animated-border`} onMouseEnter={() => startTimerThree()} onMouseLeave={() => stopTimerThree()}
                                             style={{
+                                                padding: '0 0.5cqw',
                                                 filter: `brightness(${hoverDurationThree === 150 ? 1 : 0.75})`,
                                                 backgroundImage: `conic-gradient(rgba(102, 0, 102, ${hoverDurationThree === 150 ? 1 : 0.5}) ${hoverDurationThree / 1.5}%, transparent ${hoverDurationThree}%`,
-                                                cursor: `${hoverDurationThree === 150 ? "pointer" : "progress"}`
+                                                cursor: `${hoverDurationThree === 150 ? "pointer" : "progress"}`,
                                             }}>
-                                            <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}>
+                                            <div style={{ transform: 'scaleY(0.90) ', overflow: 'hidden', backgroundColor: 'blue' }}>
                                                 <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
                                                     filter: `grayscale(${hoverDurationThree === 150 ? "0%" : "100%"})`,
                                                     transition: 'transform 1s', transform: `scale(${hoverDurationThree === 150 ? 1.15 : 1})`
@@ -307,7 +309,7 @@ export default function Games() {
                                     <Row style={{ paddingTop: '4%' }}>
                                         <div className={`animated-border`} onMouseEnter={() => startTimerFour()} onMouseLeave={() => stopTimerFour()}
                                             style={{
-
+                                                padding: '0 0.5cqw',
                                                 backgroundImage: `conic-gradient(rgba(204, 0, 0, ${hoverDurationFour === 150 ? 1 : 0.5}) ${hoverDurationFour / 1.5}%, transparent ${hoverDurationFour}%`,
                                                 cursor: `${hoverDurationFour === 150 ? "pointer" : "progress"}`
                                             }}>
@@ -323,10 +325,9 @@ export default function Games() {
 
                                 </Col>
 
-                                <Col style={{ paddingTop: '2%' }}>
+                                <Col style={{ paddingLeft: '0', paddingRight: '0', paddingTop: '2%' }}>
                                     <div className={`animated-border`} onMouseEnter={() => startTimerFive()} onMouseLeave={() => stopTimerFive()}
                                         style={{
-
                                             backgroundImage: `conic-gradient(rgba(0, 0, 204, ${hoverDurationFive === 150 ? 1 : 0.5}) ${hoverDurationFive / 1.5}%, transparent ${hoverDurationFive}%`,
                                             cursor: `${hoverDurationFive === 150 ? "pointer" : "progress"}`
                                         }}>

@@ -13,7 +13,7 @@ export default function Festival() {
                 <h1 className="CommonHeader">Festivals & Traditions</h1>
                 <Container >
                     <Row >
-                        <Col >
+                        <Col md={6}>
                             <hr style={{
                                 opacity: '1',
                                 border: `1px solid ${FD[currFestival].color}`
@@ -22,7 +22,7 @@ export default function Festival() {
                                 <Carousel controls={false} className="custom-carousel" interval={3000}>
                                     {FD[currFestival].images.map((image, index) => (
                                         <CarouselItem key={index}>
-                                            <Image src={image} alt={image} style={{ minWidth: '100%' }} />
+                                            <Image src={image} alt={image} className="ImageCarousel" />
                                         </CarouselItem>
                                     ))}
                                 </Carousel>

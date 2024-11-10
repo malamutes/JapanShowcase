@@ -26,6 +26,10 @@
     transform: scale(0.5);
 }
 
+.custom-carousel .ImageCarousel {
+    min-width: 100%;
+}
+
 
 
 @media(min-width: 1920px) {
@@ -46,6 +50,10 @@
     .custom-carousel .carousel-indicators [data-bs-target] {
         width: 2.5cqw;
         height: 2.5cqw;
+    }
+
+    .custom-carousel .ImageCarousel {
+        max-width: 100%
     }
 }
 
