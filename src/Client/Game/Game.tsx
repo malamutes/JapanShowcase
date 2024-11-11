@@ -1,6 +1,7 @@
-import { Container, Row, Col, Image, Form } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import './Game.css'
 import { useEffect, useState } from "react";
+import CommonHeader from "../CommonStyles/CommonHeader";
 
 export default function Games() {
     const [hoverDurationOne, setHoverDurationOne] = useState<number>(0);
@@ -246,8 +247,8 @@ export default function Games() {
 
     return (
         <>
-            <Container className="CommonContainer" style={{ backgroundColor: "rgba(15, 15, 15, 1)" }}>
-                <h1 className="CommonHeader">Cult Favorites</h1>
+            <Container className="CommonContainer" >
+                <CommonHeader header="Cult Favourites" colour=" #800080" />
                 <Container >
                     <Row >
                         <Col style={{ padding: '0' }}>
@@ -273,12 +274,12 @@ export default function Games() {
                                 <div className={`animated-border`} onMouseEnter={() => startTimerTwo()} onMouseLeave={() => stopTimerTwo()}
                                     style={{
                                         filter: `brightness(${hoverDurationTwo === 150 ? 1 : 0.75})`,
-                                        backgroundImage: `conic-gradient(rgba(204, 173, 0, ${hoverDurationTwo === 150 ? 1 : 0.5}) ${hoverDurationTwo / 1.5}%, transparent ${hoverDurationTwo}%`,
+                                        backgroundImage: `conic-gradient(rgba(102, 0, 102, ${hoverDurationTwo === 150 ? 1 : 0.5}) ${hoverDurationTwo / 1.5}%, transparent ${hoverDurationTwo}%`,
                                         cursor: `${hoverDurationTwo === 150 ? "pointer" : "progress"}`,
                                         display: 'grid', placeItems: 'center'
                                     }}>
-                                    <div style={{ transform: 'scaleY(0.95) scaleX(1.05)', overflow: 'hidden' }}>
-                                        <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
+                                    <div style={{ transform: 'scaleY(0.95) scaleX(1.15)', overflow: 'hidden' }}>
+                                        <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
                                             filter: `grayscale(${hoverDurationTwo === 150 ? "0%" : "100%"})`,
                                             transition: 'transform 1s', transform: `scale(${hoverDurationTwo === 150 ? 1.1 : 1})`
                                         }} />
@@ -293,11 +294,11 @@ export default function Games() {
                                             style={{
                                                 padding: '0 0.5cqw',
                                                 filter: `brightness(${hoverDurationThree === 150 ? 1 : 0.75})`,
-                                                backgroundImage: `conic-gradient(rgba(102, 0, 102, ${hoverDurationThree === 150 ? 1 : 0.5}) ${hoverDurationThree / 1.5}%, transparent ${hoverDurationThree}%`,
+                                                backgroundImage: `conic-gradient(rgba(204, 173, 0, ${hoverDurationThree === 150 ? 1 : 0.5}) ${hoverDurationThree / 1.5}%, transparent ${hoverDurationThree}%`,
                                                 cursor: `${hoverDurationThree === 150 ? "pointer" : "progress"}`,
                                             }}>
                                             <div style={{ transform: 'scaleY(0.90) ', overflow: 'hidden', backgroundColor: 'blue' }}>
-                                                <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
+                                                <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
                                                     filter: `grayscale(${hoverDurationThree === 150 ? "0%" : "100%"})`,
                                                     transition: 'transform 1s', transform: `scale(${hoverDurationThree === 150 ? 1.15 : 1})`
                                                 }} />

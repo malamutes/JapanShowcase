@@ -1,8 +1,9 @@
 import './Entertainment.css'
 import { Container, Row, Col, Offcanvas } from 'react-bootstrap'
 import EntertainmentCard from './EntertainmentCard'
-import { EntertainmentData, GeneralEntertainment } from '../Data/EntertainmentData'
+import { GeneralEntertainment } from '../Data/EntertainmentData'
 import { useState, useEffect } from 'react'
+import CommonHeader from '../CommonStyles/CommonHeader'
 
 
 export default function Entertainment() {
@@ -33,7 +34,7 @@ export default function Entertainment() {
     return (
         <>
             <Container className="CommonContainer" >
-                <h1 className="CommonHeader">Japanese Entertainment</h1>
+                <CommonHeader header="Japanese Entertainment" colour="#FF1493" />
                 <Container >
                     <Row >
                         {Object.keys(GE).slice(0, 3).map((entertainment, index) => (

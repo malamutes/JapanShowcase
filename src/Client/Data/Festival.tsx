@@ -11,6 +11,23 @@ interface FestivalTypes {
 }
 
 const FestivalData: { [key: string]: FestivalTypes } = {
+    SapporoSnowFestival: {
+        titleEng: "Sapporo Snow Festival",
+        titleJap: "さっぽろ雪まつり",
+        date: "Early February",
+        location: "Sapporo",
+        description: `The Sapporo Snow Festival showcases stunning snow and ice sculptures and attracts visitors from around the world. Key highlights include the Snow Sculpture Contest and massive sculptures at Odori Park, illuminated at night. This festival began in 1950 as a local event created by high school students.`,
+        images: [
+            "/Public/Images/FestivalImages/SapporoSnowOne.webp",
+            "/Public/Images/FestivalImages/SapporoSnowTwo.webp",
+            "/Public/Images/FestivalImages/SapporoSnowThree.webp",
+            "/Public/Images/FestivalImages/SapporoSnowFour.webp",
+            "/Public/Images/FestivalImages/SapporoSnowFive.webp"
+        ],
+        icons: "/Public/Images/FestivalImages/Snowflake.png",
+        color: "#00BFFF", // Deep Sky Blue
+        textColor: "rgb(225, 240, 255)" // Subtle text color
+    },
     GionMatsuri: {
         titleEng: "Gion Festival",
         titleJap: "祇園祭",
@@ -43,23 +60,6 @@ const FestivalData: { [key: string]: FestivalTypes } = {
         icons: "/Public/Images/FestivalImages/Mask.png",
         color: "#FFD700", // Gold
         textColor: "rgb(255, 245, 230)" // Subtle text color
-    },
-    SapporoSnowFestival: {
-        titleEng: "Sapporo Snow Festival",
-        titleJap: "さっぽろ雪まつり",
-        date: "Early February",
-        location: "Sapporo",
-        description: `The Sapporo Snow Festival showcases stunning snow and ice sculptures and attracts visitors from around the world. Key highlights include the Snow Sculpture Contest and massive sculptures at Odori Park, illuminated at night. This festival began in 1950 as a local event created by high school students.`,
-        images: [
-            "/Public/Images/FestivalImages/SapporoSnowOne.webp",
-            "/Public/Images/FestivalImages/SapporoSnowTwo.webp",
-            "/Public/Images/FestivalImages/SapporoSnowThree.webp",
-            "/Public/Images/FestivalImages/SapporoSnowFour.webp",
-            "/Public/Images/FestivalImages/SapporoSnowFive.webp"
-        ],
-        icons: "/Public/Images/FestivalImages/Snowflake.png",
-        color: "#00BFFF", // Deep Sky Blue
-        textColor: "rgb(225, 240, 255)" // Subtle text color
     },
     KandaMatsuri: {
         titleEng: "Kanda Festival",

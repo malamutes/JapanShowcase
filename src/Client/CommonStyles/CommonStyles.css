@@ -1,10 +1,56 @@
-.CommonHeader {
+.CommonContainer {
     position: relative;
-    text-align: start;
-    font-weight: 700;
-    margin-left: 3.75cqw;
+    max-width: 1920px !important;
+    margin-bottom: 5cqw;
 }
 
-.CommonContainer {
-    max-width: 1920px !important;
+.CommonHeaderLineLeft {
+    opacity: 1;
+    width: 5cqw;
+    height: 0.25cqw;
+}
+
+.CommonHeaderLineRight {
+    opacity: 1;
+    width: 50cqw;
+    height: 0.25cqw;
+}
+
+.CommonHeaderTitle {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 2.5cqw;
+
+}
+
+.CommonHeaderRow {
+    margin-bottom: 2.5cqw;
+}
+
+@media(min-width: 1920px) {
+    .CommonContainer {
+        margin-bottom: 75px;
+    }
+
+    .CommonHeaderLineLeft {
+        width: 100px;
+    }
+
+    .CommonHeaderLineRight {
+        width: 1000px;
+    }
+
+    .CommonHeaderTitle {
+        font-size: 47.5px;
+    }
+}
+
+@media(max-width: 576px) {
+    .CommonHeaderLineLeft {
+        width: 5cqw;
+    }
+
+    .CommonHeaderLineRight {
+        width: 40cqw;
+    }
 }

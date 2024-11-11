@@ -4,6 +4,7 @@ import { Image } from "react-bootstrap";
 import './Landmarks.css'
 import { LandMarksData } from "../Data/LandmarksData";
 import '../CommonStyles/CommonStyles.css'
+import CommonHeader from "../CommonStyles/CommonHeader";
 
 
 export default function Landmarks() {
@@ -68,7 +69,7 @@ export default function Landmarks() {
     return (
         <>
             <Container className="CommonContainer" >
-                <h1 className="CommonHeader">Treasured Sites of Japan</h1>
+                <CommonHeader header="Treasured Sites of Japan" colour=" #FFD700" />
                 {currentScreenWidth ? (<Row className="LandmarkRowContainer">
                     <Col lg={4} className="TextContainer">
                         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
@@ -110,7 +111,7 @@ export default function Landmarks() {
                 </Row >) : (
                     <Col className="LandmarkColContainer">
                         {Object.keys(LD).map((landmark, index) => (
-                            <Row key={index} style={{ justifyContent: 'center', margin: '5cqw 0' }}>
+                            <Row key={index} style={{ justifyContent: 'center', marginBottom: '5cqw' }}>
                                 <Image fluid src={LD[landmark].img} alt={`${LD[landmark].titleEnglish}`} />
                                 <Card className="CardContainer ">
                                     <Card.Body style={{ textAlign: 'center' }}>

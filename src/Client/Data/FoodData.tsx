@@ -7,19 +7,19 @@ interface FoodCard {
 }
 
 const FoodData: { [key: string]: FoodCard } = {
-    'Sushi': {
-        titleEng: "Sushi",
-        titleJap: "すし",
-        img: "/Public/Images/FoodImages/Sushi.webp",
-        desc: "A Japanese dish consisting of vinegared rice combined with various ingredients, such as seafood, vegetables, and occasionally tropical fruits.",
-        color: "#1ABC9C" // Sushi color: seaweed green
-    },
     'Ramen': {
         titleEng: "Ramen",
         titleJap: "ラーメン",
         img: "/Public/Images/FoodImages/Ramen.webp",
         desc: "A Japanese noodle soup dish consisting of Chinese-style wheat noodles served in a meat- or fish-based broth, flavored with soy sauce or miso.",
         color: "#E74C3C" // Ramen color: spicy red
+    },
+    'Sushi': {
+        titleEng: "Sushi",
+        titleJap: "すし",
+        img: "/Public/Images/FoodImages/Sushi.webp",
+        desc: "A Japanese dish consisting of vinegared rice combined with various ingredients, such as seafood, vegetables, and occasionally tropical fruits.",
+        color: "#1ABC9C" // Sushi color: seaweed green
     },
     'Tempura': {
         titleEng: "Tempura",

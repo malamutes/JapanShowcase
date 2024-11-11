@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import EightSpotsCard from "./EightSpotsCard";
 import { PlaceData } from "../Data/EightSpotData";
 import '../CommonStyles/CommonStyles.css'
+import CommonHeader from "../CommonStyles/CommonHeader";
 
 export default function EightSpotsSpace() {
     const PD = PlaceData;
@@ -9,9 +10,9 @@ export default function EightSpotsSpace() {
     return (
         <>
             <Container className="CommonContainer">
-                <h1 className="CommonHeader" >Cultural Hubs of Japan</h1>
-                <Container>
-                    <Row>
+                <CommonHeader header="Cultural Hubs of Japan" colour="red" />
+                <Container >
+                    <Row >
                         <Col md={6}>
                             {Object.keys(PD).slice(0, 4).map((element, index) => (
                                 <EightSpotsCard key={index} title={PD[element].title}

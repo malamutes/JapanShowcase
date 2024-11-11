@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import './Food.css'
 import '../CommonStyles/CommonStyles.css'
+import CommonHeader from "../CommonStyles/CommonHeader";
 
 export default function Food() {
     const FD = FoodData;
@@ -35,8 +36,8 @@ export default function Food() {
     return (
         <>
 
-            <Container className="CommonContainer">
-                <h1 className="CommonHeader">Taste of Japan</h1>
+            <Container className="CommonContainer" >
+                <CommonHeader header="Taste of Japan" colour="green" />
                 <Container className="FoodContainer" >
 
                     <div className="NavDiv">

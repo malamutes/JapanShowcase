@@ -2,15 +2,16 @@ import { Container, Row, Carousel, Image, Card, Col, CarouselItem } from "react-
 import './Festival.css'
 import { FestivalData } from "../Data/Festival";
 import { useState } from "react";
+import CommonHeader from "../CommonStyles/CommonHeader";
 
 export default function Festival() {
     const FD = FestivalData;
-    const [currFestival, setCurrFestival] = useState("GionMatsuri");
+    const [currFestival, setCurrFestival] = useState("SapporoSnowFestival");
 
     return (
         <>
             <Container className="CommonContainer">
-                <h1 className="CommonHeader">Festivals & Traditions</h1>
+                <CommonHeader header="Festivals & Traditions" colour=" #1E90FF" />
                 <Container >
                     <Row >
                         <Col md={6}>

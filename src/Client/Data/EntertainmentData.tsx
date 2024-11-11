@@ -17,8 +17,8 @@ const GeneralEntertainment: { [key: string]: GeneralEntertainmentType } = {
         image: '/Public/Images/EntertainmentImages/anime.webp',
         title: 'Anime',
         desc: 'Anime is a Japanese animation style known for its colorful artwork. It spans diverse genres, appealing to all age groups worldwide.',
-        color: '#CC5A52',
-        borderColor: '#A4423C'
+        color: '#8e0061',
+        borderColor: '#5a003d'
     },
     JDrama: {
         image: '/Public/Images/EntertainmentImages/AOTFront.webp',
