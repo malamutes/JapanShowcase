@@ -9,7 +9,7 @@ interface CommonHeaderProps {
 export default function CommonHeader(props: CommonHeaderProps) {
     return (
         <>
-            <Row style={{ alignItems: 'center' }} className='CommonHeaderRow'>
+            <Row style={{ alignItems: 'center', '--shadowColour': props.colour } as React.CSSProperties} className='CommonHeaderRow'>
                 <Col xs="auto">
                     <hr style={{
                         backgroundColor: `${props.colour}`, border: `0.1cqw solid ${props.colour}`

@@ -1,0 +1,18 @@
+.ReferenceAnchor {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0.5cqw 0.5cqw;
+    background-color: transparent;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.ReferenceAnchor:hover {
+    background-color: grey;
+}
+
+.SocialAnchor {
+    margin-bottom: 1cqw;
+}

@@ -33,7 +33,7 @@ export default function Entertainment() {
 
     return (
         <>
-            <Container className="CommonContainer" >
+            <Container className="CommonContainer" id="Entertainment">
                 <CommonHeader header="Japanese Entertainment" colour="#FF1493" />
                 <Container >
                     <Row >

@@ -247,7 +247,7 @@ export default function Games() {
 
     return (
         <>
-            <Container className="CommonContainer" >
+            <Container className="CommonContainer" id="Cult Favourites">
                 <CommonHeader header="Cult Favourites" colour=" #800080" />
                 <Container >
                     <Row >

@@ -36,7 +36,7 @@ export default function Food() {
     return (
         <>
 
-            <Container className="CommonContainer" >
+            <Container className="CommonContainer" id="Food">
                 <CommonHeader header="Taste of Japan" colour="green" />
                 <Container className="FoodContainer" >
 

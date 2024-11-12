@@ -6,10 +6,13 @@ import Landmarks from './Client/Landmarks/Landmarks'
 import Entertainment from './Client/Entertainment/Entertainment'
 import Game from './Client/Game/Game'
 import Festival from './Client/Festival/Festival'
+import ReferenceBar from './Client/ReferenceBar/ReferenceBar'
+import TopBar from './Client/ReferenceBar/TopBar'
 
 function App() {
   return (
     <>
+      <TopBar />
       <MainIntroImage />
       <EightSpotsSpace />
       <Food />
@@ -17,6 +20,7 @@ function App() {
       <Entertainment />
       <Game />
       <Festival />
+      <ReferenceBar />
     </>
   )
 }

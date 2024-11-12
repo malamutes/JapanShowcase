@@ -68,7 +68,7 @@ export default function Landmarks() {
 
     return (
         <>
-            <Container className="CommonContainer" >
+            <Container className="CommonContainer" id="Landmarks">
                 <CommonHeader header="Treasured Sites of Japan" colour=" #FFD700" />
                 {currentScreenWidth ? (<Row className="LandmarkRowContainer">
                     <Col lg={4} className="TextContainer">

@@ -10,7 +10,7 @@ export default function Festival() {
 
     return (
         <>
-            <Container className="CommonContainer">
+            <Container className="CommonContainer" id="Festival">
                 <CommonHeader header="Festivals & Traditions" colour=" #1E90FF" />
                 <Container >
                     <Row >

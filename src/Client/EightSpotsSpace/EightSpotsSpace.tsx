@@ -9,7 +9,7 @@ export default function EightSpotsSpace() {
 
     return (
         <>
-            <Container className="CommonContainer">
+            <Container className="CommonContainer" id="Hubs">
                 <CommonHeader header="Cultural Hubs of Japan" colour="red" />
                 <Container >
                     <Row >
