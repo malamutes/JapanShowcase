@@ -16,3 +16,18 @@
 .SocialAnchor {
     margin-bottom: 1cqw;
 }
+
+.TopBarText {
+    color: black;
+    display: inline-block;
+    padding: 0.25cqw 0.25cqw;
+    background-color: transparent;
+    text-align: start;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.TopBarText:hover {
+    background-color: grey;
+}
