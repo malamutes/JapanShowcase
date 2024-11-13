@@ -20,36 +20,29 @@ export default function ReferenceBar() {
 
     return (
         <>
-            <Container style={{ backgroundColor: 'rgb(25, 25, 25)' }} fluid>
+            <Container style={{ backgroundColor: 'rgb(25, 25, 25)' }} fluid id="ReferenceBar">
                 <Container style={{ width: '80%', paddingTop: '2cqw' }}>
                     <Row >
                         {Object.keys(RD).map((reference, index) => (
-                            <Col key={index} xs={12} sm={6} lg={3} >
+                            <Col key={index} xs={12} lg={4} >
                                 <h6 style={{ textAlign: 'center', marginBottom: '1cqw', textDecoration: 'underline' }}>{reference}</h6>
                                 <Row style={{ justifyContent: 'center', marginBottom: '2.5cqw' }}>
                                     {Object.keys(RD[reference]).map((referenceExample, indexExample) => (
                                         reference === "References" ? (
-                                            <Col key={indexExample} style={{ display: 'flex', justifyContent: 'center' }}>
+                                            <Col key={indexExample} xs={12} sm={4} style={{ display: 'flex', justifyContent: 'center' }}>
                                                 <a target="_blank" href={RD[reference][referenceExample].link} className="ReferenceAnchor">
                                                     {RD[reference][referenceExample].title}
                                                 </a>
                                             </Col>
                                         ) : reference === "Socials" ? (
-                                            <Col key={indexExample} xs={4} style={{ display: 'flex', justifyContent: 'center' }}>
+                                            <Col key={indexExample} xs={6} sm={4} style={{ display: 'flex', justifyContent: 'center' }}>
                                                 <a target="_blank" href={RD[reference][referenceExample].link} className="SocialAnchor">
                                                     <FontAwesomeIcon icon={iconMap[RD[reference][referenceExample].title]} size="2x" />
                                                 </a>
                                             </Col>
-                                        ) : reference === "Contact" ? (
-
-                                            <Col key={indexExample} xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                                                <a target="_blank" href={RD[reference][referenceExample].link} className="ReferenceAnchor">
-                                                    {RD[reference][referenceExample].title}
-                                                </a>
-                                            </Col>
                                         ) : (
                                             //for quick nav since its the last one
-                                            <Col key={indexExample} style={{ display: 'flex', justifyContent: 'center' }}>
+                                            <Col key={indexExample} xs={12} sm={6} style={{ display: 'flex', justifyContent: 'center' }}>
                                                 <a href={RD[reference][referenceExample].link} className="ReferenceAnchor">
                                                     {RD[reference][referenceExample].title}
                                                 </a>

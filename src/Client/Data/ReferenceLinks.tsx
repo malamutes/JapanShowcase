@@ -5,25 +5,13 @@ interface ReferenceDataInterface {
 
 const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } } = {
     References: {
-        SnowIcon: {
-            title: "Snow",
-            link: "https://www.freepik.com/icon/snowflake_1622133"
+        Icons: {
+            title: "Icons",
+            link: "Newlink"
         },
-        LanternIcon: {
-            title: "Lantern",
-            link: "https://www.freepik.com/icon/lantern_7052524#fromView=search&page=1&position=13&uuid=251182de-2438-461c-bb91-2e5bd5fc5632"
-        },
-        MaskIcon: {
-            title: "Mask",
-            link: "https://www.freepik.com/icon/opera_17047687#fromView=search&page=1&position=2&uuid=eaecc4a8-1f2a-4231-8bcc-f2fe3d52e55d"
-        },
-        ShrineIcon: {
-            title: "Shrine",
-            link: "https://www.freepik.com/icon/dojo_13890178#fromView=search&page=1&position=4&uuid=c0989b94-c0ff-4fdb-9bfc-769d8177edfd"
-        },
-        DrumIcon: {
-            title: "Drum",
-            link: "https://www.freepik.com/icon/drum_10073390#fromView=search&page=1&position=0&uuid=43a5f621-a20c-455a-9618-7d84982916f6"
+        Fontawesome: {
+            title: "Fontawesome",
+            link: "//https://fontawesome.com/"
         },
         Unsplash: {
             title: "Unsplash",
@@ -41,30 +29,8 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
             title: "Alphacoder",
             link: "https://alphacoders.com/"
         },
-        Fontawesome: {
-            title: "Fontawesome",
-            link: "https://fontawesome.com/"
-        }
-    },
-    Contact: {
-        Github: {
-            title: "GitHub",
-            link: "https://github.com/your-profile"
-        },
-        PhoneNumber: {
-            title: "Phone Number",
-            link: "tel:+1234567890"
-        },
-        Gmail: {
-            title: "Gmail",
-            link: "mailto:someone@example.com"
-        }
     },
     QuickNavigation: {
-        Home: {
-            title: "Home",
-            link: "#Home"
-        },
         CulturalHubs: {
             title: "Hubs",
             link: "#Hubs"
@@ -115,10 +81,6 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
             title: "TikTok",
             link: "https://tiktok.com"
         },
-        Pinterest: {
-            title: "Pinterest",
-            link: "https://pinterest.com"
-        }
     }
 }
 
@@ -183,3 +145,25 @@ export { ReferenceData, TopBarData };
 //<a href="https://www.freepik.com/icon/dojo_13890178#fromView=search&page=1&position=4&uuid=c0989b94-c0ff-4fdb-9bfc-769d8177edfd">Icon by Iconic Panda</a>
 //<a href="https://www.freepik.com/icon/opera_17047687#fromView=search&page=1&position=2&uuid=eaecc4a8-1f2a-4231-8bcc-f2fe3d52e55d">Icon by Slamlabs</a>
 //<a href="https://www.freepik.com/icon/drum_10073390#fromView=search&page=1&position=0&uuid=43a5f621-a20c-455a-9618-7d84982916f6">Icon by Designing Hub</a>
+//https://fontawesome.com/
+
+//<a href="https://www.flaticon.com/free-icons/japan" title="japan icons">Japan icons created by Freepik - Flaticon</a>
+//<a href="https://www.freepik.com/icon/cherry-blossom_15273749#fromView=search&page=1&position=0&uuid=7bdf669a-2314-4b32-8822-ddf444d08b0f">Icon by afif fudin</a>
+
+
+/*     Contact: {
+        Github: {
+            title: "GitHub",
+            link: "https://github.com/your-profile"
+        },
+        PhoneNumber: {
+            title: "Phone Number",
+            link: "tel:+1234567890"
+        },
+        Gmail: {
+            title: "Gmail",
+            link: "mailto:someone@example.com"
+        }
+    },
+
+    */

@@ -31,3 +31,38 @@
 .TopBarText:hover {
     background-color: grey;
 }
+
+.SagaFlag {
+    transform: scale(0.8);
+    transition-property: transform;
+    transition-duration: 1s;
+    min-width: 55px;
+    cursor: pointer;
+}
+
+.SagaFlag:hover {
+    transform: scale(1);
+}
+
+.DropdownText {
+    font-size: 0.95cqw;
+}
+
+@media(max-width: 992px) {
+    .DropdownText {
+        font-size: 1.95cqw;
+    }
+}
+
+
+@media(max-width: 576px) {
+    .DropdownText {
+        display: none;
+    }
+}
+
+@media(min-width: 1920px) {
+    .DropdownText {
+        font-size: 18px;
+    }
+}
