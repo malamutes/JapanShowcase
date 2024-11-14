@@ -7,13 +7,15 @@ interface CommonNavButtonProps {
     styleButton?: React.CSSProperties //toptional with question mark
     styleText?: React.CSSProperties,
     customClassButton?: string,
-    customClassText?: string
+    customClassText?: string,
+    onclick: () => void
 }
 
 export default function CommonNavButton(props: CommonNavButtonProps) {
     return (
         <>
             <Button className={`CommonNavButtonStyle ${props.customClassButton || ""}`}
+                onClick={props.onclick}
                 style={{
                     borderRadius: '25px', width: '10cqw',
                     maxWidth: '200px',

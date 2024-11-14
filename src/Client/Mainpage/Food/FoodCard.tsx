@@ -33,7 +33,7 @@ export default function FoodCard(props: FoodCardProps) {
                     <Card.Text className="DescText">
                         {props.desc}
                     </Card.Text>
-                    {props.activeElement ? (<CommonNavButton text="SOUNDS YUMMY!" color={props.color} />) : (null)}
+                    {props.activeElement ? (<CommonNavButton text="SOUNDS YUMMY!" color={props.color} onclick={() => console.log(props.titleEng)} />) : (null)}
 
                 </Card.Body>
             </Card>

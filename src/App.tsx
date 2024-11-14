@@ -1,13 +1,13 @@
 import './App.css'
-import EightSpotsSpace from './Client/EightSpotsSpace/EightSpotsSpace'
-import MainIntroImage from './Client/MainIntroImage/MainIntroImage'
-import Food from './Client/Food/Food'
-import Landmarks from './Client/Landmarks/Landmarks'
-import Entertainment from './Client/Entertainment/Entertainment'
-import Game from './Client/Game/Game'
-import Festival from './Client/Festival/Festival'
-import ReferenceBar from './Client/ReferenceBar/ReferenceBar'
-import TopBar from './Client/ReferenceBar/TopBar'
+import EightSpotsSpace from './Client/Mainpage/EightSpotsSpace/EightSpotsSpace'
+import MainIntroImage from './Client/Mainpage/MainIntroImage/MainIntroImage'
+import Food from './Client/Mainpage/Food/Food'
+import Landmarks from './Client/Mainpage/Landmarks/Landmarks'
+import Entertainment from './Client/Mainpage/Entertainment/Entertainment'
+import Game from './Client/Mainpage/Game/Game'
+import Festival from './Client/Mainpage/Festival/Festival'
+import ReferenceBar from './Client/Mainpage/ReferenceBar/ReferenceBar'
+import TopBar from './Client/Mainpage/ReferenceBar/TopBar'
 
 function App() {
   return (
