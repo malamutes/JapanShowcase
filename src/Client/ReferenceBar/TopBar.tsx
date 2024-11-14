@@ -60,68 +60,166 @@ export default function TopBar() {
 
     const [scrollAmount, setScrollAmount] = useState(0);
 
-    const hubs = document.getElementById("Hubs");
-    const food = document.getElementById("Food");
-    const landmarks = document.getElementById("Landmarks");
-    const entertainment = document.getElementById("Entertainment");
-    const games = document.getElementById("Cult Favourites");
-    const festival = document.getElementById("Festival");
-    const reference = document.getElementById("ReferenceBar");
+    const [hubs, setHubs] = useState<HTMLDivElement | null>(null);
+    const [food, setFood] = useState<HTMLDivElement | null>(null);
+    const [landmarks, setLandmarks] = useState<HTMLDivElement | null>(null);
+    const [entertainment, setEntertainment] = useState<HTMLDivElement | null>(null);
+    const [games, setGames] = useState<HTMLDivElement | null>(null);
+    const [festival, setFestival] = useState<HTMLDivElement | null>(null);
 
-    const boundingBoxes = {
-        hubs: hubs?.getBoundingClientRect(),
-        food: food?.getBoundingClientRect(),
-        landmarks: landmarks?.getBoundingClientRect(),
-        entertainment: entertainment?.getBoundingClientRect(),
-        games: games?.getBoundingClientRect(),
-        festival: festival?.getBoundingClientRect(),
-        reference: reference?.getBoundingClientRect()
-    };
+    const [hubsBottom, setHubsBottom] = useState<number | null>(0);
+    const [foodBottom, setFoodBottom] = useState<number | null>(0);
+    const [landmarksBottom, setLandmarksBottom] = useState<number | null>(0);
+    const [entertainmentBottom, setEntertainmentBottom] = useState<number | null>(0);
+    const [gamesBottom, setGamesBottom] = useState<number | null>(0);
+    const [festivalBottom, setFestivalBottom] = useState<number | null>(0);
 
-    //getting bottom of bounding boxes
-    const hubsBottom = boundingBoxes['hubs'] ? boundingBoxes['hubs'].bottom + window.scrollY : null;
-    const foodBottom = boundingBoxes['food'] ? boundingBoxes['food'].bottom + window.scrollY : null;
-    const landmarksBottom = boundingBoxes['landmarks'] ? boundingBoxes['landmarks'].bottom + window.scrollY : null;
-    const entertainmentBottom = boundingBoxes['entertainment'] ? boundingBoxes['entertainment'].bottom + window.scrollY : null;
-    const gamesBottom = boundingBoxes['games'] ? boundingBoxes['games'].bottom + window.scrollY : null;
-    const festivalBottom = boundingBoxes['festival'] ? boundingBoxes['festival'].bottom + window.scrollY : null;
+    const [hubsTop, setHubsTop] = useState<number | null>(0);
 
-    const hubsTop = boundingBoxes['hubs'] ? boundingBoxes['hubs'].top + window.scrollY : null;
+    const [progressHubs, setProgressHubs] = useState<number>(0);
+    const [progressFood, setProgressFood] = useState<number>(0);
+    const [progressLandmarks, setProgressLandmarks] = useState<number>(0);
+    const [progressEntertainment, setProgressEntertainment] = useState<number>(0);
+    const [progressGames, setProgressGames] = useState<number>(0);
+    const [progressFestival, setProgressFestival] = useState<number>(0);
+
+    const [initialScroll, setInitialScroll] = useState(true);
 
 
-    const progressHubs = (((hubsBottom ?? 0) - (hubsTop ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100;
-    const progressFood = (((foodBottom ?? 0) - (hubsBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100;
-    const progressLandmarks = (((landmarksBottom ?? 0) - (foodBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100;
-    const progressEntertainment = (((entertainmentBottom ?? 0) - (landmarksBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100;
-    const progressGames = (((gamesBottom ?? 0) - (entertainmentBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100;
-    const progressFestival = (((festivalBottom ?? 0) - (gamesBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100;
+    useEffect(() => {
+        const handleScroll = () => {
+            if (initialScroll) {
+                setInitialScroll(false); // Set to false after the first scroll
+            }
+        };
 
-    // ?? is null coalescing where 0 / 1 is fallback value if previous operand is null or undefined
+        if (initialScroll) {
+            window.addEventListener('scroll', handleScroll);
+        }
+
+
+        // Cleanup the event listener on unmount
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [initialScroll]); // Dependency on initialScroll to update on the first scroll
+
+    useEffect(() => {
+        setHubs(document.getElementById("Hubs") as HTMLDivElement | null);
+        setFood(document.getElementById("Food") as HTMLDivElement | null);
+        setLandmarks(document.getElementById("Landmarks") as HTMLDivElement | null);
+        setEntertainment(document.getElementById("Entertainment") as HTMLDivElement | null);
+        setGames(document.getElementById("Cult Favourites") as HTMLDivElement | null);
+        setFestival(document.getElementById("Festival") as HTMLDivElement | null);
+        console.log("adhuiashihd");
+    }, [initialScroll]);
+
+    useEffect(() => {
+        const handleResizeBounds = () => {
+            setHubsTop((hubs?.getBoundingClientRect().top ?? 0) + window.scrollY);
+            setHubsBottom((hubs?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
+            setFoodBottom((food?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
+            setLandmarksBottom((landmarks?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
+            setEntertainmentBottom((entertainment?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
+            setGamesBottom((games?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
+            setFestivalBottom((festival?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
+            console.log("andasdashd");
+        }
+
+        window.addEventListener('resize', handleResizeBounds);
+
+        if (initialScroll) {
+            window.addEventListener('scroll', handleResizeBounds);
+            console.log("HELLO");
+        }
+        else if (initialScroll === false) {
+            console.log("BYEBYE")
+        }
+
+        //load stuff below is to defer calcualtion on page refresh to prevent the values above being the same
+        //still not sure familiar with it but apparently it has to do with the bounding boxes/ dom elements
+        //not being fully rendered yet when i call it
+        //need to prolly use f12 and check calls later on but its boring so defer for later
+        const onLoad = () => {
+            setTimeout(() => handleResizeBounds(), 0);
+            console.log("scroll", scrollAmount);
+        };
+
+        window.addEventListener('load', onLoad);
+
+        return () => {
+            window.removeEventListener('resize', handleResizeBounds);
+            window.removeEventListener('scroll', handleResizeBounds);
+            window.removeEventListener('load', onLoad);
+        }
+    }, [hubs, initialScroll])
+
+
+    useEffect(() => {
+        console.log("HUB DIMS", hubsTop, hubsBottom, festivalBottom, foodBottom, landmarksBottom, entertainmentBottom, gamesBottom);
+
+    }, [hubsTop])
+
+
+    useEffect(() => {
+        setProgressHubs((((hubsBottom ?? 0) - (hubsTop ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+        setProgressFood((((foodBottom ?? 0) - (hubsBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+        setProgressLandmarks((((landmarksBottom ?? 0) - (foodBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+        setProgressEntertainment((((entertainmentBottom ?? 0) - (landmarksBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+        setProgressGames((((gamesBottom ?? 0) - (entertainmentBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+        setProgressFestival((((festivalBottom ?? 0) - (gamesBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+    }, [festivalBottom])
+
+
+    useEffect(() => {
+        console.log("PROGRESS BARS", progressEntertainment, progressFestival, progressFood, progressHubs, progressLandmarks, progressGames);
+
+    }, [progressEntertainment, progressFestival, progressFood, progressHubs, progressLandmarks, progressGames])
+
 
     function clamp(value: number, min: number, max: number) {
         return Math.max(min, Math.min(value, max));
     }
 
-    console.log(hubsTop);
-    console.log(festivalBottom);
-    //we will hardcode festival bottom value and subtracting from top value for now until i can fix the first render not running issue
     useEffect(() => {
         const handleScroll = () => {
-            setScrollAmount((window.scrollY / (5803.921875 - 853)) * 100);
+            if (window.innerWidth >= 2000) {
+                setScrollAmount((window.scrollY * 1.55 / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+            }
+            else if (window.innerWidth < 2000) {
+
+                console.log(festivalBottom, hubsTop, "asdhsauidhsaidh", window.scrollY);
+                setScrollAmount((window.scrollY / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
+            }
+
         }
 
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+
         }
-    }, [])
+    }, [hubsTop, hubsBottom, festivalBottom, foodBottom, landmarksBottom, entertainmentBottom, gamesBottom])
+
+    useEffect(() => {
+        console.log(scrollAmount);
+
+    }, [scrollAmount])
+
+    useEffect(() => {
+        console.log("Scroll Y:", window.scrollY);
+        console.log("Festival Bottom:", festivalBottom);
+        console.log("Hubs Top:", hubsTop);
+    }, [festivalBottom, hubsTop]);
+
+    useEffect(() => {
+        console.log("Scroll Amount:", scrollAmount);
+    }, [scrollAmount]);
 
     return (
         <>
             <Container style={{
                 position: 'fixed', zIndex: '10',
-                backgroundColor: 'rgb(25, 25, 25)', height: '7.5%', maxHeight: '150px'
+                backgroundColor: 'rgb(25, 25, 25)', height: '7.5%', maxHeight: '150px', top: '0'
             }} fluid>
                 <Row style={{
                     height: '100%',
@@ -238,6 +336,7 @@ export default function TopBar() {
                                 boxShadow: `0px 0px 20px 2.5px rgba(30, 144, 255, ${scrollAmount >= progressHubs + progressFood + progressLandmarks + progressEntertainment + progressGames + progressFestival ? 0.7 : 0})`
                             }} />
                         </ProgressBar>
+
 
                     </Col>
 

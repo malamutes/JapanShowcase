@@ -15,12 +15,16 @@ function App() {
       <TopBar />
       <MainIntroImage />
       <EightSpotsSpace />
+
       <Food />
       <Landmarks />
       <Entertainment />
       <Game />
       <Festival />
       <ReferenceBar />
+
+      {/* hoping that putting top bar at the bottom would let the other elements render first so stuff is already defined */}
+
     </>
   )
 }

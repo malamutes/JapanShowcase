@@ -32,7 +32,7 @@ export default function Games() {
                 setTimerOne(null);
             }
 
-            console.log("hello1");
+
 
             const newTimer = setInterval(() => {
                 setHoverDurationOne(hoverDurationOne => (Math.max(hoverDurationOne - 1, 0)));
@@ -53,7 +53,7 @@ export default function Games() {
             clearInterval(timerOne);
             setTimerOne(null);
         }
-        console.log(hoverDurationOne);
+
     }, [hoverDurationOne]);
 
     // Timer 2
@@ -82,9 +82,6 @@ export default function Games() {
                 clearInterval(timerTwo);
                 setTimerTwo(null);
             }
-
-            console.log("hello2");
-
             const newTimer = setInterval(() => {
                 setHoverDurationTwo(hoverDurationTwo => Math.max(hoverDurationTwo - 1, 0));
             }, 10); // 10ms
@@ -102,7 +99,6 @@ export default function Games() {
             clearInterval(timerTwo);
             setTimerTwo(null);
         }
-        console.log(hoverDurationTwo);
     }, [hoverDurationTwo]);
 
     // Timer 3
@@ -130,7 +126,7 @@ export default function Games() {
                 clearInterval(timerThree);
                 setTimerThree(null);
             }
-            console.log("hello3");
+
 
             const newTimer = setInterval(() => {
                 setHoverDurationThree(hoverDurationThree => Math.max(hoverDurationThree - 1, 0));
@@ -177,7 +173,7 @@ export default function Games() {
                 clearInterval(timerFour);
                 setTimerFour(null);
             }
-            console.log("hello4");
+
 
             const newTimer = setInterval(() => {
                 setHoverDurationFour(hoverDurationFour => Math.max(hoverDurationFour - 1, 0));
@@ -224,7 +220,7 @@ export default function Games() {
                 clearInterval(timerFive);
                 setTimerFive(null);
             }
-            console.log("hello5");
+
 
             const newTimer = setInterval(() => {
                 setHoverDurationFive(hoverDurationFive => Math.max(hoverDurationFive - 1, 0));

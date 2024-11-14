@@ -31,8 +31,6 @@ export default function Food() {
 
     }
 
-    useEffect(() => { console.log(activeIndex) }, [activeIndex]);
-
     return (
         <>
 
@@ -82,7 +80,7 @@ export default function Food() {
                                             setActiveIndex(index);
                                         }
                                         else if (index === activeIndex) {
-                                            console.log("YIPPIE");
+
                                         }
 
                                     }} />
