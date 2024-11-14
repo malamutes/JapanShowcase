@@ -4,6 +4,7 @@ import { FestivalData } from "../Data/Festival";
 import { useState, useRef } from "react";
 import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
+import CommonNavButton from "../CommonStyles/CommonNavButton";
 
 export default function Festival() {
     const FD = FestivalData;
@@ -12,6 +13,9 @@ export default function Festival() {
     const FestivalRef = useRef<HTMLDivElement>(null);
     const scrollPast = checkScrollPosition((8.5 / 10), FestivalRef)
 
+
+    //ive just abused !important for commonnavbutton for now
+    //will come back to fix it later but not a priority atm
     return (
         <>
             <Container className="CommonContainer" id="Festival" ref={FestivalRef}>
@@ -54,7 +58,9 @@ export default function Festival() {
 
                             <Row>
                                 <Card style={{ color: `${FD[currFestival].textColor}`, backgroundColor: 'transparent' }}>
-                                    <Card.Body style={{ textAlign: 'center' }}>
+                                    <Card.Body style={{
+                                        textAlign: 'center',
+                                    }}>
                                         <Card.Title as={"h1"} className="TitleStyle" >{FD[currFestival].titleEng}</Card.Title>
                                         <hr style={{ border: `1px solid ${FD[currFestival].color}` }} className={`HRLine ${scrollPast ? "HRLineShow" : ""}`} />
                                         <Card.Subtitle as={"h4"} className="mb-2 SubTitleStyle">{FD[currFestival].titleJap}</Card.Subtitle>
@@ -62,6 +68,10 @@ export default function Festival() {
                                             {`${FD[currFestival].date}, ${FD[currFestival].location}`} <br />
                                             {FD[currFestival].description}
                                         </Card.Text>
+                                        <CommonNavButton customClassButton="FestivalNavButton"
+                                            customClassText="FestivalNavButtonText"
+                                            text="SOUNDS FESTIVE!" color={FD[currFestival].color}
+                                            styleText={{ fontSize: '2cqw' }} />
                                     </Card.Body>
                                 </Card>
                             </Row>

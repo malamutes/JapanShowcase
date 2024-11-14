@@ -30,7 +30,14 @@
     min-width: 100%;
 }
 
+.FestivalNavButton {
+    max-width: 200px;
+    margin: auto;
+}
 
+.FestivalNavButtonText {
+    font-size: 1cqw !important;
+}
 
 @media(min-width: 1920px) {
     .custom-carousel .carousel-indicators [data-bs-target] {
@@ -76,6 +83,10 @@
         width: 1.25cqw;
         height: 1.25cqw;
     }
+
+    .FestivalNavButtonText {
+        font-size: 1.5cqw !important;
+    }
 }
 
 @media(max-width: 768px) {
@@ -86,6 +97,14 @@
 
     .custom-carousel .ImageCarousel {
         max-width: 100%
+    }
+
+    .FestivalNavButton {
+        width: 25cqw !important;
+    }
+
+    .FestivalNavButtonText {
+        font-size: 2.5cqw !important;
     }
 }
 
@@ -105,5 +124,13 @@
     .custom-carousel .carousel-indicators [data-bs-target] {
         width: 3cqw;
         height: 3cqw;
+    }
+
+    .FestivalNavButton {
+        width: 30cqw !important;
+    }
+
+    .FestivalNavButtonText {
+        font-size: 2.5cqw !important;
     }
 }

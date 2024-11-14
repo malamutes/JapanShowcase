@@ -1,6 +1,7 @@
 .EightSpotCard {
-    transition-property: transform, box-shadow 0.5 ease-in-out;
-    transition-duration: 1s, 1s;
+    transition-property: transform, box-shadow 0.5 ease-in-out, clip-path ease;
+    transition-duration: 1s, 1s, 2s;
+
     box-shadow:
         0px 0px 0px var(--colour),
         0px 0px 0px var(--colour);
@@ -52,8 +53,6 @@
 
 .CityImage {
     width: 110%;
-    height: auto;
-    transform: scaleX(1.05);
     transform-origin: center;
 }
 
@@ -96,8 +95,8 @@
 
 @media(max-width: 1920px) {
     .EightSpotHide {
-        clip-path: inset(0 100% 0 0);
         transition: clip-path 2s ease;
+        clip-path: inset(0 100% 0 0);
     }
 
     .EightSpotShow {
@@ -108,6 +107,7 @@
 @media (min-width: 992px) and (max-width: 1920px) {
     .CityImage {
         transform: scaleX(1.165);
+
     }
 }
 

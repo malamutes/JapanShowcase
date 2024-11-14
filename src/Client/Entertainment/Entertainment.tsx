@@ -44,7 +44,7 @@ export default function Entertainment() {
                         {Object.keys(GE).slice(0, 3).map((entertainment, index) => (
                             <Col lg={12} onMouseEnter={() => setCurrentHover(index)} onMouseLeave={() => setCurrentHover(-1)}
                                 style={{
-                                    transition: 'flex 1s',
+                                    transition: 'flex 1s', cursor: 'pointer',
                                     flex: `${currentScreenWidth === true ? (currentHover === index ? 1.5 : 1) : ''}`,
                                     marginBottom: `${currentScreenWidth ? "" : "2.5cqw"}`
                                 }}>
@@ -64,8 +64,8 @@ export default function Entertainment() {
                         {Object.keys(GE).slice(3, 5).map((entertainment, index) => (
                             <Col lg={6} onMouseEnter={() => setCurrentHover(index + 3)} onMouseLeave={() => setCurrentHover(-1)}
                                 style={{
-                                    transition: 'flex 1s',
-                                    flex: `${currentScreenWidth === true ? (currentHover === index ? 1.5 : 1) : ''}`,
+                                    transition: 'flex 1s', cursor: 'pointer',
+                                    flex: `${currentScreenWidth === true ? (currentHover === index + 3 ? 1.5 : 1) : ''}`,
                                     marginBottom: `${currentScreenWidth ? "" : "2.5cqw"}`
                                 }}>
                                 <EntertainmentCard

@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap"
 import './Food.css'
+import CommonNavButton from "../CommonStyles/CommonNavButton"
 
 interface FoodCardProps {
     image: string,
@@ -17,7 +18,7 @@ export default function FoodCard(props: FoodCardProps) {
     return (
         <>
             <Card className={`FoodCardDefault ${props.activeElement ? "FoodCardActive" : ""}`}
-                style={{ cursor: 'pointer', backgroundColor: 'rgb(50, 50, 50)', color: 'white', '--colour': props.color } as React.CSSProperties}
+                style={{ cursor: props.activeElement ? "" : "pointer", backgroundColor: 'rgb(50, 50, 50)', color: 'white', '--colour': props.color } as React.CSSProperties}
                 onClick={props.onclick}
             >
 
@@ -32,6 +33,8 @@ export default function FoodCard(props: FoodCardProps) {
                     <Card.Text className="DescText">
                         {props.desc}
                     </Card.Text>
+                    {props.activeElement ? (<CommonNavButton text="SOUNDS YUMMY!" color={props.color} />) : (null)}
+
                 </Card.Body>
             </Card>
         </>

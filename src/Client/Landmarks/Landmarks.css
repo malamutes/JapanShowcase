@@ -74,6 +74,7 @@
     font-size: 2cqw;
 }
 
+
 @media (max-width: 576px) {
     .LandmarkColContainer .CardContainer {
         max-width: 90%;

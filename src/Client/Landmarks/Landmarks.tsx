@@ -6,6 +6,7 @@ import { LandMarksData } from "../Data/LandmarksData";
 import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
+import CommonNavButton from "../CommonStyles/CommonNavButton";
 
 
 export default function Landmarks() {
@@ -81,7 +82,7 @@ export default function Landmarks() {
                                 <div key={index} style={{
                                     transform: `translateY(${-(Math.floor((distance + 50) / 100) * 100)}%)`,
                                 }} className="TextCardContainer">
-                                    <Card className="CardContainer " >
+                                    <Card className="CardContainer" >
                                         <Card.Body style={{ textAlign: 'center' }}>
                                             <Card.Title className="TitleText">{LD[landmark].titleEnglish}</Card.Title>
                                             <Card.Subtitle style={{ lineHeight: '2' }} className="mb-2 text-muted SubTitleText">
@@ -89,8 +90,11 @@ export default function Landmarks() {
                                             <Card.Text className="DescText" style={{ lineHeight: '2.5' }}>
                                                 {LD[landmark].description}
                                             </Card.Text>
+                                            <CommonNavButton text="TAKE ME THERE!" color='gray' styleButton={{ margin: 'auto' }} />
                                         </Card.Body>
+
                                     </Card>
+
                                 </div>
                             ))}
                         </div >
@@ -125,6 +129,9 @@ export default function Landmarks() {
                                         <Card.Text className="DescTextSmall" style={{ lineHeight: '2' }}>
                                             {LD[landmark].description}
                                         </Card.Text>
+                                        <CommonNavButton text="TAKE ME THERE!" color='gray'
+                                            styleButton={{ minWidth: '25cqw', margin: 'auto' }}
+                                            styleText={{ fontSize: '2.5cqw' }} />
                                     </Card.Body>
                                 </Card>
                             </Row>

@@ -349,7 +349,8 @@ export default function TopBar() {
                         <Row>
                             <Col style={{ marginRight: `${more992px ? "2.5cqw" : ""}` }}>
                                 <Dropdown >
-                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic"
+                                        disabled={window.scrollY === 0 ? true : false}>
                                         <span className="DropdownText">About Me</span>
                                     </Dropdown.Toggle>
 
@@ -363,7 +364,8 @@ export default function TopBar() {
 
                             <Col >
                                 <Dropdown>
-                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic"
+                                        disabled={window.scrollY === 0 ? true : false}>
                                         <span className="DropdownText">Motivations</span>
                                     </Dropdown.Toggle>
 
