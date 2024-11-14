@@ -48,6 +48,7 @@
     font-size: 0.95cqw;
 }
 
+
 @media(max-width: 992px) {
     .DropdownText {
         font-size: 1.95cqw;

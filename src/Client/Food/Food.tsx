@@ -1,14 +1,18 @@
 import { Container } from "react-bootstrap"
 import { FoodData } from "../Data/FoodData"
 import FoodCard from "./FoodCard";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Image } from "react-bootstrap";
 import './Food.css'
 import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
+import checkScrollPosition from "../CommonStyles/ScrollPast";
 
 export default function Food() {
     const FD = FoodData;
+
+    const FoodRef = useRef<HTMLDivElement>(null);
+    const scrollPast = checkScrollPosition((8.5 / 10), FoodRef)
 
     function clamp(value: number, min: number, max: number) {
         return Math.max(min, Math.min(value, max));
@@ -34,8 +38,8 @@ export default function Food() {
     return (
         <>
 
-            <Container className="CommonContainer" id="Food">
-                <CommonHeader header="Taste of Japan" colour="green" />
+            <Container className="CommonContainer" id="Food" ref={FoodRef}>
+                <CommonHeader header="Taste of Japan" colour="green" scrollPast={scrollPast} />
                 <Container className="FoodContainer" >
 
                     <div className="NavDiv">
@@ -69,6 +73,7 @@ export default function Food() {
                                 <FoodCard key={index} activeElement={index === activeIndex}
                                     image={FD[food].img} titleEng={FD[food].titleEng}
                                     titleJap={FD[food].titleJap} desc={FD[food].desc}
+                                    scrollPast={scrollPast}
                                     color={FD[food].color} onclick={() => {
                                         if (index != activeIndex) {
                                             if (index > activeIndex) {

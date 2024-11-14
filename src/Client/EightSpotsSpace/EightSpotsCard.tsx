@@ -7,13 +7,14 @@ interface EightSpotsCardProps {
     title: string,
     desc: string,
     img: string,
-    colour: string
+    colour: string,
+    scrollPast: boolean
 }
 
 export default function EightSpotsCard(props: EightSpotsCardProps) {
     return (
         <>
-            <Container className="EightSpotCardContainer">
+            <Container className={`EightSpotCardContainer EightSpotHide ${props.scrollPast ? "EightSpotShow" : ""}`}>
                 <Row style={{
                     '--colour': props.colour
                 } as React.CSSProperties} className="EightSpotCard">

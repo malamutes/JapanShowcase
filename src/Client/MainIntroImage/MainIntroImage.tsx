@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import '../CommonStyles/CommonStyles.css'
 
 export default function MainIntroImage() {
     const backgroundColor = `rgb(24, 24, 24),`;
@@ -8,7 +9,7 @@ export default function MainIntroImage() {
                                 rgba(24, 24, 24, 1) 100%)`;
     return (
         <>
-            <Container style={{ overflow: 'hidden', maxWidth: '1920px', width: '100%' }} className="MainImgCon" id="Home">
+            <Container style={{ overflow: 'hidden', maxWidth: '1920px', width: '100%' }} className="CommonContainer" id="Home">
                 <Row>
                     <Col xs={10} >
                         <img alt="Japan-Night-Image" src="/Images/CanvaJapanNight.webp"

@@ -1,12 +1,17 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import './Game.css'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CommonHeader from "../CommonStyles/CommonHeader";
+import checkScrollPosition from "../CommonStyles/ScrollPast";
 
 export default function Games() {
     const [hoverDurationOne, setHoverDurationOne] = useState<number>(0);
     const [timerOne, setTimerOne] = useState<number | null>(null);
     const [timerDropOne, setTimerDropOne] = useState<number | null>(null);
+
+
+    const GameRef = useRef<HTMLDivElement>(null);
+    const scrollPast = checkScrollPosition((8.5 / 10), GameRef)
 
     //0 and 150 hover dur
     function startTimerOne() {
@@ -243,8 +248,8 @@ export default function Games() {
 
     return (
         <>
-            <Container className="CommonContainer" id="Cult Favourites">
-                <CommonHeader header="Cult Favourites" colour=" #800080" />
+            <Container className="CommonContainer" id="Cult Favourites" ref={GameRef}>
+                <CommonHeader header="Cult Favourites" colour=" #800080" scrollPast={scrollPast} />
                 <Container >
                     <Row >
                         <Col style={{ padding: '0' }}>
@@ -254,7 +259,8 @@ export default function Games() {
                                     backgroundImage: `conic-gradient(rgba(127, 127, 127, ${hoverDurationOne === 150 ? 1 : 0.5}) ${hoverDurationOne / 1.5}%, transparent ${hoverDurationOne}%`,
                                     cursor: `${hoverDurationOne === 150 ? "pointer" : "progress"}`
                                 }}>
-                                <div style={{ transform: 'scale(0.975)', overflow: 'hidden' }}>
+                                <div style={{ transform: 'scale(0.975)', overflow: 'hidden' }}
+                                    className={`ImageOne ${scrollPast ? "ImageOneShow" : ""}`}>
                                     <Image src="/Public/Images/GameImages/Bloodborne.webp" alt="Bloodborne" fluid style={{
                                         filter: `grayscale(${hoverDurationOne === 150 ? "0%" : "100%"})`,
                                         transition: 'transform 1s', transform: `scale(${hoverDurationOne === 150 ? 1.15 : 1})`
@@ -274,7 +280,7 @@ export default function Games() {
                                         cursor: `${hoverDurationTwo === 150 ? "pointer" : "progress"}`,
                                         display: 'grid', placeItems: 'center'
                                     }}>
-                                    <div style={{ transform: 'scaleY(0.95) scaleX(1.15)', overflow: 'hidden' }}>
+                                    <div className={`ImageTwo SMTImage ${scrollPast ? "ImageOneShow" : ""}`}>
                                         <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
                                             filter: `grayscale(${hoverDurationTwo === 150 ? "0%" : "100%"})`,
                                             transition: 'transform 1s', transform: `scale(${hoverDurationTwo === 150 ? 1.1 : 1})`
@@ -293,7 +299,8 @@ export default function Games() {
                                                 backgroundImage: `conic-gradient(rgba(204, 173, 0, ${hoverDurationThree === 150 ? 1 : 0.5}) ${hoverDurationThree / 1.5}%, transparent ${hoverDurationThree}%`,
                                                 cursor: `${hoverDurationThree === 150 ? "pointer" : "progress"}`,
                                             }}>
-                                            <div style={{ transform: 'scaleY(0.90) ', overflow: 'hidden', backgroundColor: 'blue' }}>
+                                            <div style={{ transform: 'scaleY(0.90) ', overflow: 'hidden' }}
+                                                className={`ImageFive ${scrollPast ? "ImageOneShow" : ""}`}>
                                                 <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
                                                     filter: `grayscale(${hoverDurationThree === 150 ? "0%" : "100%"})`,
                                                     transition: 'transform 1s', transform: `scale(${hoverDurationThree === 150 ? 1.15 : 1})`
@@ -310,7 +317,8 @@ export default function Games() {
                                                 backgroundImage: `conic-gradient(rgba(204, 0, 0, ${hoverDurationFour === 150 ? 1 : 0.5}) ${hoverDurationFour / 1.5}%, transparent ${hoverDurationFour}%`,
                                                 cursor: `${hoverDurationFour === 150 ? "pointer" : "progress"}`
                                             }}>
-                                            <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}>
+                                            <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}
+                                                className={`ImageFour ${scrollPast ? "ImageOneShow" : ""}`}>
                                                 <Image src="/Public/Images/GameImages/PersonaFive.webp" alt="PersonaFive" fluid style={{
                                                     filter: `grayscale(${hoverDurationFour === 150 ? "0%" : "100%"})`,
                                                     transition: 'transform 1s', transform: `scale(${hoverDurationFour === 150 ? 1.15 : 1})`
@@ -328,7 +336,8 @@ export default function Games() {
                                             backgroundImage: `conic-gradient(rgba(0, 0, 204, ${hoverDurationFive === 150 ? 1 : 0.5}) ${hoverDurationFive / 1.5}%, transparent ${hoverDurationFive}%`,
                                             cursor: `${hoverDurationFive === 150 ? "pointer" : "progress"}`
                                         }}>
-                                        <div style={{ transform: 'scale(0.95)', overflow: 'hidden' }}>
+                                        <div style={{ transform: 'scale(0.95)', overflow: 'hidden' }}
+                                            className={`ImageThree ${scrollPast ? "ImageOneShow" : ""}`}>
                                             <Image src="/Public/Images/GameImages/MGR.webp" alt="MGR" fluid style={{
                                                 filter: `grayscale(${hoverDurationFive === 150 ? "0%" : "100%"})`,
                                                 transition: 'transform 1s', transform: `scale(${hoverDurationFive === 150 ? 1.1 : 1})`

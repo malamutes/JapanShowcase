@@ -1,38 +1,42 @@
 import { Container, Row, Carousel, Image, Card, Col, CarouselItem } from "react-bootstrap";
 import './Festival.css'
 import { FestivalData } from "../Data/Festival";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import CommonHeader from "../CommonStyles/CommonHeader";
+import checkScrollPosition from "../CommonStyles/ScrollPast";
 
 export default function Festival() {
     const FD = FestivalData;
     const [currFestival, setCurrFestival] = useState("SapporoSnowFestival");
 
+    const FestivalRef = useRef<HTMLDivElement>(null);
+    const scrollPast = checkScrollPosition((8.5 / 10), FestivalRef)
+
     return (
         <>
-            <Container className="CommonContainer" id="Festival">
-                <CommonHeader header="Festivals & Traditions" colour=" #1E90FF" />
+            <Container className="CommonContainer" id="Festival" ref={FestivalRef}>
+                <CommonHeader header="Festivals & Traditions" colour=" #1E90FF" scrollPast={scrollPast} />
                 <Container >
                     <Row >
                         <Col md={6}>
                             <hr style={{
-                                opacity: '1',
                                 border: `1px solid ${FD[currFestival].color}`
-                            }} />
+                            }} className={`HRLine ${scrollPast ? "HRLineShow" : ""}`} />
                             <Row>
                                 <Carousel controls={false} className="custom-carousel" interval={3000}>
                                     {FD[currFestival].images.map((image, index) => (
                                         <CarouselItem key={index}>
-                                            <Image src={image} alt={image} className="ImageCarousel" />
+                                            <Image src={image} alt={image}
+                                                className={`ImageCarousel ImageCarouselHide 
+                                                ${scrollPast ? "ImageCarouselShow" : "ImageCarouselHide"}`} />
                                         </CarouselItem>
                                     ))}
                                 </Carousel>
                             </Row>
 
                             <hr style={{
-                                opacity: '1',
                                 height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`,
-                            }} />
+                            }} className={`HRLine ${scrollPast ? "HRLineShow" : ""}`} />
                         </Col>
 
                         <Col style={{ border: `5px double ${FD[currFestival].color}`, backgroundColor: 'rgb(15, 15, 15)' }}>
@@ -52,9 +56,9 @@ export default function Festival() {
                                 <Card style={{ color: `${FD[currFestival].textColor}`, backgroundColor: 'transparent' }}>
                                     <Card.Body style={{ textAlign: 'center' }}>
                                         <Card.Title as={"h1"} className="TitleStyle" >{FD[currFestival].titleEng}</Card.Title>
-                                        <hr style={{ border: `1px solid ${FD[currFestival].color}`, opacity: '1' }} />
-                                        <Card.Subtitle as={"h4"} className="mb-2 SubTitleStyle" >{FD[currFestival].titleJap}</Card.Subtitle>
-                                        <Card.Text className="DescStyle">
+                                        <hr style={{ border: `1px solid ${FD[currFestival].color}` }} className={`HRLine ${scrollPast ? "HRLineShow" : ""}`} />
+                                        <Card.Subtitle as={"h4"} className="mb-2 SubTitleStyle">{FD[currFestival].titleJap}</Card.Subtitle>
+                                        <Card.Text className="DescStyle" >
                                             {`${FD[currFestival].date}, ${FD[currFestival].location}`} <br />
                                             {FD[currFestival].description}
                                         </Card.Text>

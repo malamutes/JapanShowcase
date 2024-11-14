@@ -8,6 +8,7 @@ interface FoodCardProps {
     desc: string,
     activeElement: boolean,
     color: string,
+    scrollPast: boolean,
     onclick: () => void
 
 }
@@ -20,7 +21,8 @@ export default function FoodCard(props: FoodCardProps) {
                 onClick={props.onclick}
             >
 
-                <Card.Img src={props.image} draggable={false} />
+                <Card.Img src={props.image} draggable={false}
+                    className={`FoodImage ${props.scrollPast ? "FoodImageShow" : ""}`} />
 
 
                 <Card.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

@@ -94,6 +94,17 @@
     }
 }
 
+@media(max-width: 1920px) {
+    .EightSpotHide {
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 2s ease;
+    }
+
+    .EightSpotShow {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
 @media (min-width: 992px) and (max-width: 1920px) {
     .CityImage {
         transform: scaleX(1.165);

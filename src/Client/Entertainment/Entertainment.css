@@ -41,7 +41,19 @@
     margin-top: 75px;
 }
 
+@media(max-width: 1920px) {
+    .EntertainmentBeforeScoll {
+        opacity: 0;
+        transform: translateY(50%);
+        transition: opacity 1.5s ease-out, transform 1s ease-out;
+    }
 
+    .EntertainmentAfterScoll {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
 
 @media(max-width: 1200px) {
     .Div1 .DescStyle {

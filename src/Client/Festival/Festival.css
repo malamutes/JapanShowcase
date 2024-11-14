@@ -37,6 +37,38 @@
         width: 15px;
         height: 15px;
     }
+
+    .HRLine {
+        opacity: 1;
+    }
+}
+
+@media(max-width: 1920px) {
+    .HRLine {
+        opacity: 1;
+        transform: scale(0.01);
+        transition: transform 1.25s ease, opacity 1.5s;
+    }
+
+    .HRLineShow {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .DescStyle {
+        margin-top: 1.5cqw;
+    }
+
+    .ImageCarouselHide {
+        opacity: 0;
+        filter: blur(10cqw);
+        transition: opacity 1.25s, filter 1s ease;
+    }
+
+    .ImageCarouselShow {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 @media(max-width: 1200px) {

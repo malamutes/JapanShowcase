@@ -4,3 +4,47 @@
 
     width: 100%;
 }
+
+.SMTImage {
+    transform: scaleY(0.95) scaleX(1.15);
+    overflow: hidden
+}
+
+@media(max-width: 1400px) {
+    .SMTImage {
+        transform: scaleY(0.95) scaleX(1.025);
+    }
+}
+
+@media(max-width: 1920px) {
+    .ImageOne {
+        clip-path: inset(100% 0 0 0);
+        transition: clip-path 2s ease;
+    }
+
+    /* clip path is top right bottom left */
+    .ImageTwo {
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 2s ease;
+    }
+
+    .ImageThree {
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path 2s ease;
+    }
+
+    .ImageFour {
+        clip-path: inset(0 0 0 100%);
+        transition: clip-path 2s ease;
+    }
+
+    .ImageFive {
+        clip-path: inset(100% 0 0 0);
+        transition: clip-path 2s ease;
+    }
+
+    .ImageOneShow {
+        clip-path: inset(0 0 0 0);
+    }
+
+}

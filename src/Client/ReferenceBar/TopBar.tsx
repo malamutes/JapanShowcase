@@ -121,17 +121,17 @@ export default function TopBar() {
             setEntertainmentBottom((entertainment?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
             setGamesBottom((games?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
             setFestivalBottom((festival?.getBoundingClientRect().bottom ?? 0) + window.scrollY);
-            console.log("andasdashd");
+            //console.log("andasdashd");
         }
 
         window.addEventListener('resize', handleResizeBounds);
 
         if (initialScroll) {
             window.addEventListener('scroll', handleResizeBounds);
-            console.log("HELLO");
+            //console.log("HELLO");
         }
         else if (initialScroll === false) {
-            console.log("BYEBYE")
+            // console.log("BYEBYE")
         }
 
         //load stuff below is to defer calcualtion on page refresh to prevent the values above being the same
@@ -152,11 +152,11 @@ export default function TopBar() {
         }
     }, [hubs, initialScroll])
 
-
-    useEffect(() => {
-        console.log("HUB DIMS", hubsTop, hubsBottom, festivalBottom, foodBottom, landmarksBottom, entertainmentBottom, gamesBottom);
-
-    }, [hubsTop])
+    /*
+        useEffect(() => {
+            console.log("HUB DIMS", hubsTop, hubsBottom, festivalBottom, foodBottom, landmarksBottom, entertainmentBottom, gamesBottom);
+    
+        }, [hubsTop]) */
 
 
     useEffect(() => {
@@ -168,12 +168,12 @@ export default function TopBar() {
         setProgressFestival((((festivalBottom ?? 0) - (gamesBottom ?? 0)) / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
     }, [festivalBottom])
 
-
-    useEffect(() => {
-        console.log("PROGRESS BARS", progressEntertainment, progressFestival, progressFood, progressHubs, progressLandmarks, progressGames);
-
-    }, [progressEntertainment, progressFestival, progressFood, progressHubs, progressLandmarks, progressGames])
-
+    /*
+        useEffect(() => {
+            console.log("PROGRESS BARS", progressEntertainment, progressFestival, progressFood, progressHubs, progressLandmarks, progressGames);
+    
+        }, [progressEntertainment, progressFestival, progressFood, progressHubs, progressLandmarks, progressGames])
+    */
 
     function clamp(value: number, min: number, max: number) {
         return Math.max(min, Math.min(value, max));
@@ -186,7 +186,7 @@ export default function TopBar() {
             }
             else if (window.innerWidth < 2000) {
 
-                console.log(festivalBottom, hubsTop, "asdhsauidhsaidh", window.scrollY);
+                //console.log(festivalBottom, hubsTop, "asdhsauidhsaidh", window.scrollY);
                 setScrollAmount((window.scrollY / ((festivalBottom ?? 1) - (hubsTop ?? 0))) * 100);
             }
 
@@ -199,28 +199,31 @@ export default function TopBar() {
 
         }
     }, [hubsTop, hubsBottom, festivalBottom, foodBottom, landmarksBottom, entertainmentBottom, gamesBottom])
-
-    useEffect(() => {
-        console.log(scrollAmount);
-
-    }, [scrollAmount])
-
-    useEffect(() => {
-        console.log("Scroll Y:", window.scrollY);
-        console.log("Festival Bottom:", festivalBottom);
-        console.log("Hubs Top:", hubsTop);
-    }, [festivalBottom, hubsTop]);
-
-    useEffect(() => {
-        console.log("Scroll Amount:", scrollAmount);
-    }, [scrollAmount]);
-
+    /*
+        useEffect(() => {
+            console.log(scrollAmount);
+    
+        }, [scrollAmount])
+    
+        useEffect(() => {
+            console.log("Scroll Y:", window.scrollY);
+            console.log("Festival Bottom:", festivalBottom);
+            console.log("Hubs Top:", hubsTop);
+        }, [festivalBottom, hubsTop]);
+    
+        useEffect(() => {
+            console.log("Scroll Amount:", scrollAmount);
+        }, [scrollAmount]);
+    */
     return (
         <>
             <Container style={{
                 position: 'fixed', zIndex: '10',
-                backgroundColor: 'rgb(25, 25, 25)', height: '7.5%', maxHeight: '150px', top: '0'
-            }} fluid>
+                height: '7.5%', maxHeight: '150px', top: '0',
+                transition: 'backgroundColor 1s ease, opacity 1s ease',
+                opacity: `${window.scrollY === 0 ? "0.1" : "1"}`,
+                backgroundColor: `${window.scrollY === 0 ? "" : "rgb(25,25,25)"}`
+            }} fluid className="TopBarContainer">
                 <Row style={{
                     height: '100%',
                     display: 'flex',

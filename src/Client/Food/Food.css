@@ -56,10 +56,24 @@
 
 .FoodCardDefault .SubTitleText {}
 
+
+@media(max-width: 1920px) {
+    .FoodImage {
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path 2s ease;
+    }
+
+    .FoodImageShow {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+
+
 @media(max-width: 1200px) {
     .CommonContainer .FoodContainer {
         max-width: 100%;
-
     }
 }
 

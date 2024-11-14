@@ -2,14 +2,17 @@ import './Entertainment.css'
 import { Container, Row, Col, Offcanvas } from 'react-bootstrap'
 import EntertainmentCard from './EntertainmentCard'
 import { GeneralEntertainment } from '../Data/EntertainmentData'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import CommonHeader from '../CommonStyles/CommonHeader'
-
+import checkScrollPosition from '../CommonStyles/ScrollPast'
 
 export default function Entertainment() {
     const GE = GeneralEntertainment;
     const [currentHover, setCurrentHover] = useState(-1);
     const [currentScreenWidth, setCurrentScreenWidth] = useState(true);
+
+    const EntertainmentRef = useRef<HTMLDivElement>(null);
+    const scrollPast = checkScrollPosition((8.5 / 10), EntertainmentRef)
 
     useEffect(() => {
         function widthLess768() {
@@ -33,9 +36,10 @@ export default function Entertainment() {
 
     return (
         <>
-            <Container className="CommonContainer" id="Entertainment">
-                <CommonHeader header="Japanese Entertainment" colour="#FF1493" />
-                <Container >
+            <Container className={`CommonContainer`} style={{ overflowY: 'hidden' }}
+                id="Entertainment" ref={EntertainmentRef}>
+                <CommonHeader header="Japanese Entertainment" colour="#FF1493" scrollPast={scrollPast} />
+                <Container className={`EntertainmentBeforeScoll ${scrollPast ? "EntertainmentAfterScoll" : ""}`}>
                     <Row >
                         {Object.keys(GE).slice(0, 3).map((entertainment, index) => (
                             <Col lg={12} onMouseEnter={() => setCurrentHover(index)} onMouseLeave={() => setCurrentHover(-1)}
