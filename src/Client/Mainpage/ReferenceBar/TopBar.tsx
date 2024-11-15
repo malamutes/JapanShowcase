@@ -219,7 +219,7 @@ export default function TopBar() {
         <>
             <Container style={{
                 position: 'fixed', zIndex: '10',
-                height: '7.5%', maxHeight: '150px', top: '0',
+                height: '7.5%', minHeight: '60px', maxHeight: '150px', top: '0',
                 transition: 'backgroundColor 1s ease, opacity 1s ease',
                 opacity: `${window.scrollY === 0 ? "0.1" : "1"}`,
                 backgroundColor: `${window.scrollY === 0 ? "" : "rgb(25,25,25)"}`
@@ -348,7 +348,7 @@ export default function TopBar() {
                     }}>
                         <Row>
                             <Col style={{ marginRight: `${more992px ? "2.5cqw" : ""}` }}>
-                                <Dropdown >
+                                <Dropdown>
                                     <Dropdown.Toggle variant="secondary" id="dropdown-basic"
                                         disabled={window.scrollY === 0 ? true : false}>
                                         <span className="DropdownText">About Me</span>
@@ -382,8 +382,10 @@ export default function TopBar() {
                     </Col>
 
                 </Row >
-
             </Container >
+            {/*   {window.scrollY === 0 ?
+                (<Button style={{ position: 'fixed', right: '5%', top: '850px', zIndex: '1000' }} href='#Hubs'>DOWN</Button>)
+                : (null)}*/}
 
         </>
     )

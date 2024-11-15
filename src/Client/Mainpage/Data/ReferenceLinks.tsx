@@ -3,12 +3,41 @@ interface ReferenceDataInterface {
     link: string, // Changed from 'links' to 'link' since we're dealing with one URL per item
 }
 
+
+
+//<a href="https://www.freepik.com/icon/lantern_7052524#fromView=search&page=1&position=13&uuid=251182de-2438-461c-bb91-2e5bd5fc5632">Icon by ToZ Icon</a>
+//<a href="https://www.freepik.com/icon/snowflake_1622133">Icon by Freepik</a>
+//<a href="https://www.freepik.com/icon/dojo_13890178#fromView=search&page=1&position=4&uuid=c0989b94-c0ff-4fdb-9bfc-769d8177edfd">Icon by Iconic Panda</a>
+//<a href="https://www.freepik.com/icon/opera_17047687#fromView=search&page=1&position=2&uuid=eaecc4a8-1f2a-4231-8bcc-f2fe3d52e55d">Icon by Slamlabs</a>
+//<a href="https://www.freepik.com/icon/drum_10073390#fromView=search&page=1&position=0&uuid=43a5f621-a20c-455a-9618-7d84982916f6">Icon by Designing Hub</a>
+//https://fontawesome.com/
+
+//<a href="https://www.flaticon.com/free-icons/japan" title="japan icons">Japan icons created by Freepik - Flaticon</a>
+//<a href="https://www.freepik.com/icon/cherry-blossom_15273749#fromView=search&page=1&position=0&uuid=7bdf669a-2314-4b32-8822-ddf444d08b0f">Icon by afif fudin</a>
 const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } } = {
-    References: {
-        Icons: {
-            title: "Icons",
-            link: "Newlink"
+    IconReferences: {
+        Snowflake: {
+            title: "Snowflake",
+            link: "https://www.freepik.com/icon/snowflake_1622133"
         },
+        Lantern: {
+            title: "Lantern",
+            link: "https://www.freepik.com/icon/lantern_7052524#fromView=search&page=1&position=13&uuid=251182de-2438-461c-bb91-2e5bd5fc5632"
+        },
+        Drum: {
+            title: "Drum",
+            link: "https://www.freepik.com/icon/drum_10073390#fromView=search&page=1&position=0&uuid=43a5f621-a20c-455a-9618-7d84982916f6"
+        },
+        Mask: {
+            title: "Mask",
+            link: "https://www.freepik.com/icon/opera_17047687#fromView=search&page=1&position=2&uuid=eaecc4a8-1f2a-4231-8bcc-f2fe3d52e55d"
+        },
+        Shrine: {
+            title: "Shrine",
+            link: "https://www.freepik.com/icon/dojo_13890178#fromView=search&page=1&position=4&uuid=c0989b94-c0ff-4fdb-9bfc-769d8177edfd"
+        },
+    },
+    ImageReferences: {
         Fontawesome: {
             title: "Fontawesome",
             link: "//https://fontawesome.com/"
@@ -30,18 +59,24 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
             link: "https://alphacoders.com/"
         },
     },
-    QuickNavigation: {
+    QuickNavOne: {
         CulturalHubs: {
             title: "Hubs",
             link: "#Hubs"
         },
-        TasteOfJapan: {
-            title: "Food",
-            link: "#Food"
-        },
         TreasuredSites: {
             title: "Landmarks",
             link: "#Landmarks"
+        },
+        Festivals: {
+            title: "Festivals",
+            link: "#Festivals"
+        }
+    },
+    QuickNavTwo: {
+        TasteOfJapan: {
+            title: "Food",
+            link: "#Food"
         },
         Entertainment: {
             title: "Entertainment",
@@ -51,37 +86,7 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
             title: "Cult Favorites",
             link: "#Cult Favourites"
         },
-        FestivalsAndTraditions: {
-            title: "Festivals",
-            link: "#Festivals"
-        }
     },
-    Socials: {
-        Facebook: {
-            title: "Facebook",
-            link: "https://facebook.com"
-        },
-        Twitter: {
-            title: "Twitter",
-            link: "https://twitter.com"
-        },
-        Instagram: {
-            title: "Instagram",
-            link: "https://instagram.com"
-        },
-        YouTube: {
-            title: "YouTube",
-            link: "https://youtube.com"
-        },
-        LinkedIn: {
-            title: "LinkedIn",
-            link: "https://linkedin.com"
-        },
-        TikTok: {
-            title: "TikTok",
-            link: "https://tiktok.com"
-        },
-    }
 }
 
 const TopBarData: { [outerKey: string]: { [innerKey: string]: { title: string; image: string } } } = {
@@ -151,19 +156,33 @@ export { ReferenceData, TopBarData };
 //<a href="https://www.freepik.com/icon/cherry-blossom_15273749#fromView=search&page=1&position=0&uuid=7bdf669a-2314-4b32-8822-ddf444d08b0f">Icon by afif fudin</a>
 
 
-/*     Contact: {
-        Github: {
-            title: "GitHub",
-            link: "https://github.com/your-profile"
-        },
-        PhoneNumber: {
-            title: "Phone Number",
-            link: "tel:+1234567890"
-        },
-        Gmail: {
-            title: "Gmail",
-            link: "mailto:someone@example.com"
-        }
-    },
+/*  
 
     */
+
+
+/*    Socials: {
+    Facebook: {
+        title: "Facebook",
+        link: "https://facebook.com"
+    },
+    Twitter: {
+        title: "Twitter",
+        link: "https://twitter.com"
+    },
+    Instagram: {
+        title: "Instagram",
+        link: "https://instagram.com"
+    },
+    YouTube: {
+        title: "YouTube",
+        link: "https://youtube.com"
+    },
+    LinkedIn: {
+        title: "LinkedIn",
+        link: "https://linkedin.com"
+    },
+    TikTok: {
+        title: "TikTok",
+        link: "https://tiktok.com"
+    }, */

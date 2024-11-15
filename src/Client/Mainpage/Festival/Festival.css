@@ -48,6 +48,11 @@
     .HRLine {
         opacity: 1;
     }
+
+    .FestivalNavButtonText {
+        font-size: 18px !important;
+    }
+
 }
 
 @media(max-width: 1920px) {
@@ -110,15 +115,15 @@
 
 @media(max-width: 576px) {
     .DescStyle {
-        font-size: 2.5cqw;
+        font-size: 15px;
     }
 
     .TitleStyle {
-        font-size: 3.5cqw;
+        font-size: 20px;
     }
 
     .SubTitleStyle {
-        font-size: 3cqw;
+        font-size: 17.5px;
     }
 
     .custom-carousel .carousel-indicators [data-bs-target] {

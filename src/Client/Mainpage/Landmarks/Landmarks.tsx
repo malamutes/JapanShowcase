@@ -131,7 +131,7 @@ export default function Landmarks() {
                                         </Card.Text>
                                         <CommonNavButton text="TAKE ME THERE!" color='gray'
                                             styleButton={{ minWidth: '25cqw', margin: 'auto' }}
-                                            styleText={{ fontSize: '2.5cqw' }} />
+                                            styleText={{ fontSize: '10px' }} />
                                     </Card.Body>
                                 </Card>
                             </Row>

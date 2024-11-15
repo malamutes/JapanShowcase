@@ -1,60 +1,174 @@
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button, Image, Accordion } from 'react-bootstrap'
 import './ReferenceBar.css'
 import { ReferenceData } from '../Data/ReferenceLinks'
 import { faInstagram, faFacebook, faLinkedin, faTiktok, faPinterest, faYoutube, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect, useState } from 'react';
 
 const iconMap: { [key: string]: any } = {
-    Instagram: faInstagram,
-    Facebook: faFacebook,
-    LinkedIn: faLinkedin,
-    TikTok: faTiktok,
-    Pinterest: faPinterest,
-    YouTube: faYoutube,
-    Twitter: faXTwitter,
+    instagram: faInstagram,
+    facebook: faFacebook,
+    linkedIn: faLinkedin,
+    tikTok: faTiktok,
+    pinterest: faPinterest,
+    youTube: faYoutube,
+    twitter: faXTwitter,
 };
 
 
 export default function ReferenceBar() {
     const RD = ReferenceData;
+    const [more768px, setMore768px] = useState(true);
+
+    useEffect(() => {
+        const handleSmallScreen = () => {
+            if (window.innerWidth <= 768) {
+                setMore768px(false);
+            }
+            else if (window.innerWidth > 768) {
+                setMore768px(true)
+            }
+
+        }
+
+        handleSmallScreen();
+        window.addEventListener('resize', handleSmallScreen);
+
+        return () => {
+            window.removeEventListener('resize', handleSmallScreen);
+        }
+    }, [])
 
     return (
         <>
-            <Container style={{ backgroundColor: 'rgb(25, 25, 25)' }} fluid id="ReferenceBar">
-                <Container style={{ width: '80%', paddingTop: '2cqw' }}>
-                    <Row >
-                        {Object.keys(RD).map((reference, index) => (
-                            <Col key={index} xs={12} lg={4} >
-                                <h6 style={{ textAlign: 'center', marginBottom: '1cqw', textDecoration: 'underline' }}>{reference}</h6>
-                                <Row style={{ justifyContent: 'center', marginBottom: '2.5cqw' }}>
-                                    {Object.keys(RD[reference]).map((referenceExample, indexExample) => (
-                                        reference === "References" ? (
-                                            <Col key={indexExample} xs={12} sm={4} style={{ display: 'flex', justifyContent: 'center' }}>
-                                                <a target="_blank" href={RD[reference][referenceExample].link} className="ReferenceAnchor">
-                                                    {RD[reference][referenceExample].title}
-                                                </a>
-                                            </Col>
-                                        ) : reference === "Socials" ? (
-                                            <Col key={indexExample} xs={6} sm={4} style={{ display: 'flex', justifyContent: 'center' }}>
-                                                <a target="_blank" href={RD[reference][referenceExample].link} className="SocialAnchor">
-                                                    <FontAwesomeIcon icon={iconMap[RD[reference][referenceExample].title]} size="2x" />
-                                                </a>
-                                            </Col>
-                                        ) : (
-                                            //for quick nav since its the last one
-                                            <Col key={indexExample} xs={12} sm={6} style={{ display: 'flex', justifyContent: 'center' }}>
-                                                <a href={RD[reference][referenceExample].link} className="ReferenceAnchor">
-                                                    {RD[reference][referenceExample].title}
-                                                </a>
-                                            </Col>
-                                        )
+            <Container className="ReferenceBarContainer" style={{ backgroundColor: 'rgb(25, 25, 25)' }} fluid id="ReferenceBar">
+                <Container style={{ paddingTop: '2cqw', paddingBottom: '2cqw' }}>
+                    <Col>
+                        <Row >
+                            <Col md={4} className="d-flex flex-column">
+                                <Row >
+                                    <span >
+                                        <h3 className="JapanTitleStyle">JAPAN SHOWCASE</h3>
+                                        <p className="DescriptionStyle">The site I’m building showcases
+                                            Japan’s culture while highlighting my web development skills.
+                                            It focuses on responsive design, interactivity, and a smooth user experience to
+                                            demonstrate my expertise in modern web technologies.</p>
+                                    </span>
+
+                                </Row>
+
+                                <Row className="flex-grow-1" style={{
+                                    display: 'flex', flexDirection: 'column', justifyContent: 'start',
+                                }}>
+                                    <span className="EmailInputText">Give me your email.</span>
+                                    <Row>
+                                        <Form.Control
+                                            type="text"
+                                            id="inputPassword5"
+                                            aria-describedby="passwordHelpBlock"
+                                            placeholder='Email'
+                                            className="FormEmailInput"
+                                            style={{
+                                                width: '40%'
+                                            }}
+                                        />
+
+                                        <Button variant="danger"
+                                            className="FormEmailInput"
+                                            style={{
+                                                width: '25%', padding: '0'
+                                            }} ><span className='EmailInputText'>GIVE</span></Button>
+                                    </Row>
+
+                                </Row>
+
+                                <Row className="SocialIconRow" style={{ maxWidth: '85%' }}>
+                                    {["facebook", "twitter", "instagram", "youTube", "linkedIn", "tikTok"].map((social, socialIndex) => (
+                                        <Col key={socialIndex} xs={2}>
+                                            <a target="_blank" href={`https://${social}.com`} >
+                                                <FontAwesomeIcon icon={iconMap[social]} className='SocialIcon' />
+                                            </a>
+                                        </Col>
                                     ))}
+                                </Row>
+                            </Col>
+
+                            <Col md={4} className="d-flex flex-column align-items-center">
+                                <Row className="flex-grow-1">
+
+                                </Row>
+
+                                <Row >
+                                    <a href="#Home" className='AnchorToTop'>Back to Top</a>
+                                </Row>
+                            </Col>
+
+                            <Col md={4} >
+                                <Row >
+                                    {more768px ? (Object.keys(RD).map((referenceType, typeIndex) => (
+                                        <Col key={typeIndex} className="ReferenceLinksColStyle" >
+                                            <h6 className="ReferenceTitle" >{referenceType}</h6>
+                                            {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
+                                                <Row key={linkIndex} style={{}}>
+                                                    <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}</a>
+                                                </Row>
+                                            ))}
+                                        </Col>
+                                    ))) :
+                                        (<Accordion style={{ marginBottom: '25px' }} className='CustomAccordian'>
+                                            {Object.keys(RD).map((referenceType, typeIndex) => (
+                                                <Accordion.Item eventKey={`${typeIndex}`} key={typeIndex}>
+                                                    <Accordion.Header >{referenceType}</Accordion.Header>
+                                                    <Accordion.Body style={{ backgroundColor: 'black', color: 'whitesmoke' }}>
+                                                        <Col>
+                                                            {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
+                                                                <Row key={linkIndex}>
+                                                                    <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
+                                                                        style={{ fontSize: '15px' }}
+                                                                    >{referenceLinks}</a>
+                                                                </Row>
+                                                            ))}
+                                                        </Col>
+
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                            ))}
+                                        </Accordion>)}
+
                                 </Row>
 
                             </Col>
-                        ))}
-                    </Row>
+                        </Row>
 
+                        <Row style={{ margin: '0' }}>
+                            <hr className='ReferenceBarHR' />
+                            <Col style={{ padding: '0' }} md={8}>
+                                <span className="DescriptionStyle">{`© 2024 Japan Showcase. I have no rights.`}</span>
+                            </Col>
+                            <Col md={3}>
+                                <Row >
+                                    {[`Biscuits`, `Publicity`, `Illegal`].map((extra, index) => (
+                                        <Col key={index} style={{ display: 'flex', justifyContent: 'end' }}>
+                                            <span className="DescriptionStyle" style={{
+                                                textDecoration: 'underline', marginTop: `${more768px ? "0" : "15px"}`
+                                            }}>{extra}</span>
+
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </Col>
+
+                            <Col md={1}>
+                            </Col>
+
+                        </Row>
+                        <span className="DescriptionStyle" style={{
+                            display: 'inline-block', maxWidth: `${more768px ? "50%" : "100%"}`,
+                            marginTop: `${more768px ? "0" : "0px"}`
+                        }}>Information from your device is used to personalize your ad experience.
+
+                            Ur data finna be stolen, its so over.</span>
+                    </Col>
                 </Container>
             </Container >
         </>

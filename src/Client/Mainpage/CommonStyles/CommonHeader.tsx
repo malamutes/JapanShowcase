@@ -4,7 +4,8 @@ import { Row, Col } from 'react-bootstrap'
 interface CommonHeaderProps {
     colour: string,
     header: string,
-    scrollPast: boolean
+    scrollPast: boolean,
+    smallScreen?: boolean
 }
 
 export default function CommonHeader(props: CommonHeaderProps) {
@@ -27,7 +28,7 @@ export default function CommonHeader(props: CommonHeaderProps) {
                 <Col xs="auto">
                     <hr style={{
                         backgroundColor: `${props.colour}`, border: `0.1cqw solid ${props.colour}`
-                    }} className={`CommonHeaderLineRight ${props.scrollPast ? "CommonHeaderLineRightTransform" : ""}`} />
+                    }} className={`CommonHeaderLineRight ${(props.scrollPast || props.smallScreen) ? "CommonHeaderLineRightTransform" : ""}`} />
                 </Col>
             </Row>
         </>

@@ -3,7 +3,7 @@ import EightSpotsCard from "./EightSpotsCard";
 import { PlaceData } from "../Data/EightSpotData";
 import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
 
 export default function EightSpotsSpace() {
@@ -12,10 +12,32 @@ export default function EightSpotsSpace() {
     const EightPlaceRef = useRef<HTMLDivElement>(null);
     const scrollPast = checkScrollPosition((8.5 / 10), EightPlaceRef)
 
+    const [less1920px, setLess1920px] = useState(false);
+
+    useEffect(() => {
+        const handleSmallScreen = () => {
+            if (window.innerWidth < 1920) {
+                setLess1920px(true);
+            }
+            else if (window.innerWidth >= 1920) {
+                setLess1920px(false)
+            }
+
+        }
+
+        handleSmallScreen();
+        window.addEventListener('resize', handleSmallScreen);
+
+        return () => {
+            window.removeEventListener('resize', handleSmallScreen);
+        }
+    }, [])
+
     return (
         <>
             <Container className="CommonContainer" id="Hubs" ref={EightPlaceRef}>
-                <CommonHeader header="Cultural Hubs of Japan" colour="red" scrollPast={scrollPast} />
+                <CommonHeader header="Cultural Hubs of Japan" colour="red" scrollPast={scrollPast}
+                    smallScreen={less1920px} />
                 <Container >
                     <Row >
                         <Col md={6}>
@@ -24,7 +46,8 @@ export default function EightSpotsSpace() {
                                     desc={PD[element].description}
                                     img={PD[element].img}
                                     colour={PD[element].color}
-                                    scrollPast={scrollPast} />
+                                    scrollPast={scrollPast}
+                                    smallScreen={less1920px} />
                             ))}
                         </Col>
 
@@ -34,7 +57,8 @@ export default function EightSpotsSpace() {
                                     desc={PD[element].description}
                                     img={PD[element].img}
                                     colour={PD[element].color}
-                                    scrollPast={scrollPast} />
+                                    scrollPast={scrollPast}
+                                    smallScreen={less1920px} />
                             ))}
                         </Col>
                     </Row>

@@ -1,21 +1,18 @@
-.ReferenceAnchor {
+.ReferenceLinksStyle {
+    width: fit-content !important;
+    margin: 1cqw 1.5cqw;
     text-decoration: none;
-    color: white;
+    color: rgb(200, 200, 200);
     display: inline-block;
-    padding: 0.5cqw 0.5cqw;
     background-color: transparent;
-    text-align: center;
     transition: all 0.3s ease;
     border-radius: 15px;
 }
 
-.ReferenceAnchor:hover {
+.ReferenceLinksStyle:hover {
     background-color: grey;
 }
 
-.SocialAnchor {
-    margin-bottom: 1cqw;
-}
 
 .TopBarText {
     color: black;
@@ -48,22 +45,248 @@
     font-size: 0.95cqw;
 }
 
+.ReferenceBarContainer {
+    margin-top: 50px
+}
+
+.ReferenceBarHR {
+    background-color: white;
+    border: 1px solid white;
+    opacity: 0.8;
+    width: 100%;
+}
+
+.CustomAccordian .accordion-button {
+    background-color: black !important;
+    color: white;
+    border: none;
+}
+
+.CustomAccordian .accordion-button:not(.collapsed) {
+    background-color: black !important;
+    color: white;
+    border: none;
+}
+
+.CustomAccordian .accordion-button::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: auto;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    transform: rotate(135deg);
+    color: white;
+    /* Arrow color */
+}
+
+.CustomAccordian .accordion-button:not(.collapsed)::after {
+    transform: rotate(-45deg);
+    /* Arrow points upwards when expanded */
+    color: white;
+    /* Arrow color for expanded state */
+}
+
+@media(max-width: 1900px) {
+    .ReferenceBarContainer {
+        margin-top: 7.5cqw;
+    }
+
+    .ReferenceLinksColStyle {
+        margin: 1cqw 1cqw
+    }
+
+
+    .ReferenceBarContainer {
+        margin-top: 10cqw;
+    }
+
+
+    .DescriptionStyle {
+        margin-bottom: 0;
+        margin-top: 1.25cqw;
+        font-size: 1.1cqw;
+    }
+
+    .ReferenceBarHR {
+        margin-bottom: 2cqw;
+    }
+
+    .AnchorToTop {
+        margin-bottom: 1.5cqw;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5cqw;
+    }
+
+    .flex-grow-1 .EmailInputText {
+        margin-top: 1.5cqw;
+        font-size: 1cqw;
+    }
+
+    .flex-grow-1 .FormEmailInput {
+        border-radius: 2.5cqw;
+        height: 3cqw;
+        margin-left: 0.75cqw;
+        margin-top: 1.25cqw;
+    }
+
+    .SocialIconRow {
+        margin-bottom: 1.5cqw
+    }
+
+    .ReferenceTitle {
+        font-size: 1cqw;
+        font-weight: 700;
+        margin-bottom: 1.25cqw
+    }
+
+    .ReferenceLinksStyle {
+        font-size: 1cqw;
+        padding: 0;
+        margin: 0.75cqw 0cqw;
+        width: fit-content !important;
+    }
+
+    .JapanTitleStyle {
+        font-size: 1.7cqw;
+    }
+
+    .SocialIcon {
+        transform: scale(1.5);
+    }
+}
+
 
 @media(max-width: 992px) {
     .DropdownText {
         font-size: 1.95cqw;
     }
+
+    .ReferenceTitle {
+        font-size: 1cqw;
+    }
+
+    .ReferenceLinksStyle {
+        font-size: 1cqw;
+    }
+
+    .SocialIcon {
+        transform: scale(1.25);
+    }
+
 }
 
+@media(max-width: 768px) {
+    .JapanTitleStyle {
+        font-size: 17.5px;
+    }
+
+    .DescriptionStyle {
+        font-size: 15px;
+    }
+
+    .flex-grow-1 .EmailInputText {
+        font-size: 15px;
+    }
+
+    .flex-grow-1 .FormEmailInput {
+        text-align: center;
+        border-radius: 50px;
+        height: 50px;
+        width: 500px !important;
+        margin-left: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .SocialIcon {
+        margin-top: 20px;
+        transform: scale(1.5);
+    }
+
+    .AnchorToTop {
+        padding: 2.5cqw 0;
+        font-size: 15px;
+    }
+
+    .DescriptionStyle {
+        margin: 20px 0;
+    }
+
+    .ReferenceBarHR {
+        margin-bottom: 25px;
+    }
+}
 
 @media(max-width: 576px) {
     .DropdownText {
         display: none;
     }
+
+    .DropdownStyle {
+        width: 50px !important;
+    }
 }
 
 @media(min-width: 1920px) {
+    .SocialIcon {
+        transform: scale(1.75);
+    }
+
     .DropdownText {
         font-size: 18px;
+    }
+
+    .ReferenceLinksColStyle {
+        margin: 30px 30px
+    }
+
+
+    .ReferenceBarContainer {
+        margin-top: 150px;
+    }
+
+
+    .DescriptionStyle {
+        margin-top: 25px;
+    }
+
+    .ReferenceBarHR {
+        margin-bottom: 30px;
+    }
+
+    .AnchorToTop {
+        margin-bottom: 25px;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    .ReferenceLinksStyle {
+        padding: 0;
+        margin: 12.5px 0px;
+        width: fit-content !important;
+    }
+
+    .flex-grow-1 .EmailInputText {
+        margin-top: 20px;
+    }
+
+    .flex-grow-1 .FormEmailInput {
+        border-radius: 25px;
+        height: 85%;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .SocialIconRow {
+        margin-bottom: 30px
+    }
+
+    .ReferenceTitle {
+        font-weight: 700;
+        margin-bottom: 20px
     }
 }
