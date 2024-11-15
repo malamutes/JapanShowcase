@@ -9,7 +9,8 @@ interface EightSpotsCardProps {
     img: string,
     colour: string,
     scrollPast: boolean,
-    smallScreen: boolean
+    smallScreen: boolean,
+    onclick: () => void
 }
 
 export default function EightSpotsCard(props: EightSpotsCardProps) {
@@ -17,7 +18,7 @@ export default function EightSpotsCard(props: EightSpotsCardProps) {
     /*  */
     return (
         <>
-            <Container className={`EightSpotCardContainer `}>
+            <Container className={`EightSpotCardContainer `} onClick={props.onclick}>
                 <Row className={`EightSpotCard `} style={{
                     '--colour': props.colour, backgroundColor: props.colour
                 } as React.CSSProperties}>

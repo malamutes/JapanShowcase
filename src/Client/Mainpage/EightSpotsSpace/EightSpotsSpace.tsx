@@ -5,6 +5,7 @@ import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
 import { useRef, useState, useEffect } from "react";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
+import { useNavigate } from "react-router-dom";
 
 export default function EightSpotsSpace() {
     const PD = PlaceData;
@@ -13,6 +14,12 @@ export default function EightSpotsSpace() {
     const scrollPast = checkScrollPosition((8.5 / 10), EightPlaceRef)
 
     const [less1920px, setLess1920px] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleClick = (path: string) => {
+        navigate(`Prefecture/${path}`)
+    }
 
     useEffect(() => {
         const handleSmallScreen = () => {
@@ -47,7 +54,8 @@ export default function EightSpotsSpace() {
                                     img={PD[element].img}
                                     colour={PD[element].color}
                                     scrollPast={scrollPast}
-                                    smallScreen={less1920px} />
+                                    smallScreen={less1920px}
+                                    onclick={() => handleClick(element)} />
                             ))}
                         </Col>
 
@@ -58,7 +66,8 @@ export default function EightSpotsSpace() {
                                     img={PD[element].img}
                                     colour={PD[element].color}
                                     scrollPast={scrollPast}
-                                    smallScreen={less1920px} />
+                                    smallScreen={less1920px}
+                                    onclick={() => handleClick(element)} />
                             ))}
                         </Col>
                     </Row>

@@ -7,6 +7,7 @@ import './Food.css'
 import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
+import { useNavigate } from "react-router-dom";
 
 export default function Food() {
     const FD = FoodData;
@@ -22,6 +23,12 @@ export default function Food() {
     const [moveAlong, setMoveAlong] = useState<number>(0);
     const [activeIndex, setActiveIndex] = useState<number>(1);
 
+    const navigate = useNavigate();
+
+    const handleNavigate = (path: string) => {
+        navigate(`Food/${path}`)
+    }
+
     function handleClick(directionRight: boolean) {
         /* moving right */
         if (directionRight === true) {
@@ -34,6 +41,7 @@ export default function Food() {
         }
 
     }
+
 
     return (
         <>
@@ -74,7 +82,7 @@ export default function Food() {
                                     image={FD[food].img} titleEng={FD[food].titleEng}
                                     titleJap={FD[food].titleJap} desc={FD[food].desc}
                                     scrollPast={scrollPast}
-                                    color={FD[food].color} onclick={() => {
+                                    color={FD[food].color} onclickSwitch={() => {
                                         if (index != activeIndex) {
                                             if (index > activeIndex) {
                                                 setMoveAlong(moveAlong => Math.max((moveAlong - 33.3), -33.3 * (Object.keys(FD).length - 2)));
@@ -84,11 +92,14 @@ export default function Food() {
                                             }
                                             setActiveIndex(index);
                                         }
-                                        else if (index === activeIndex) {
-
+                                    }}
+                                    onclickNav={() => {
+                                        if (index === activeIndex) {
+                                            handleNavigate(food);
                                         }
 
-                                    }} />
+                                    }}
+                                />
                             ))}
                         </div>
                     </div>

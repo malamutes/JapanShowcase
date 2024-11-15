@@ -164,7 +164,7 @@ export default function ReferenceBar() {
                         </Row>
                         <span className="DescriptionStyle" style={{
                             display: 'inline-block', maxWidth: `${more768px ? "50%" : "100%"}`,
-                            marginTop: `${more768px ? "0" : "0px"}`
+                            marginTop: `${more768px ? "25px" : "0px"}`
                         }}>Information from your device is used to personalize your ad experience.
 
                             Ur data finna be stolen, its so over.</span>

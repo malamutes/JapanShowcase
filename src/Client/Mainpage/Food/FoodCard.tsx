@@ -10,7 +10,8 @@ interface FoodCardProps {
     activeElement: boolean,
     color: string,
     scrollPast: boolean,
-    onclick: () => void
+    onclickNav: () => void,
+    onclickSwitch: () => void,
 
 }
 
@@ -19,7 +20,7 @@ export default function FoodCard(props: FoodCardProps) {
         <>
             <Card className={`FoodCardDefault ${props.activeElement ? "FoodCardActive" : ""}`}
                 style={{ cursor: props.activeElement ? "" : "pointer", backgroundColor: 'rgb(50, 50, 50)', color: 'white', '--colour': props.color } as React.CSSProperties}
-                onClick={props.onclick}
+                onClick={props.onclickSwitch}
             >
 
                 <Card.Img src={props.image} draggable={false}
@@ -33,7 +34,7 @@ export default function FoodCard(props: FoodCardProps) {
                     <Card.Text className="DescText">
                         {props.desc}
                     </Card.Text>
-                    {props.activeElement ? (<CommonNavButton text="SOUNDS YUMMY!" color={props.color} onclick={() => console.log(props.titleEng)} />) : (null)}
+                    {props.activeElement ? (<CommonNavButton text="SOUNDS YUMMY!" color={props.color} onclick={props.onclickNav} />) : (null)}
 
                 </Card.Body>
             </Card>

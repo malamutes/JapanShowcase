@@ -23,7 +23,6 @@ function App() {
       <Festival />
       <ReferenceBar />
 
-      {/* hoping that putting top bar at the bottom would let the other elements render first so stuff is already defined */}
 
     </>
   )
