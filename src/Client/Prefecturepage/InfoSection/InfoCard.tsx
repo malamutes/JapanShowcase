@@ -10,7 +10,7 @@ export interface InfoCardProps {
 export default function InfoCard(props: InfoCardProps) {
     return (
         <>
-            <Col style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", margin: props.margin }}>
+            <Col style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", margin: props.margin, aspectRatio: 'auto' }}>
                 <Row style={{ display: 'grid', placeItems: 'center' }}>
                     <Image fluid src={`holder.js/150x150?text=InfoIcon`} style={{ clipPath: "circle(40%)" }} />
                 </Row>

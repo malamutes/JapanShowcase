@@ -28,3 +28,11 @@ body {
   min-height: 100vh;
   /* Ensure the div covers the full viewport height */
 }
+
+.FoodAppRoot {
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+  color: black !important;
+  /* Ensure text is visible on white background */
+  min-height: 100vh;
+  /* Ensure the div covers the full viewport height */
+}
