@@ -20,3 +20,11 @@ body {
   background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
   color: white !important;
 }
+
+.PrefectureAppRoot {
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+  color: black !important;
+  /* Ensure text is visible on white background */
+  min-height: 100vh;
+  /* Ensure the div covers the full viewport height */
+}

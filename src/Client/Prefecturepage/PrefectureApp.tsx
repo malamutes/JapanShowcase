@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom"
-import { useState, useContext } from "react";
-import Dummy from "./dummy";
 import { PrefectureContext } from "./PrefectureAppContext";
+import MainImage from "./MainImage/MainImage";
+import InfoSection from "./InfoSection/InfoSection";
+import TwoTextSection from "./TwoTextSection/TwoTextSection";
+import ImageSection from "./ImageSection/ImageSection";
+import HorizontalCardSection from "./HorizontalCard/HorizontalCardSection";
+import NavigationPrefecture from "./Navigation/NavigationPrefecture";
 
 
 export default function PrefectureApp() {
@@ -13,10 +17,16 @@ export default function PrefectureApp() {
 
     return (
         <>
-            <PrefectureContext.Provider value={CurrentPrefecture!}>
-                <Dummy />
-            </PrefectureContext.Provider>
-
+            <div className="PrefectureAppRoot">
+                <PrefectureContext.Provider value={CurrentPrefecture!}>
+                    <MainImage />
+                    <InfoSection />
+                    <TwoTextSection />
+                    <ImageSection />
+                    <HorizontalCardSection />
+                    <NavigationPrefecture />
+                </PrefectureContext.Provider>
+            </div>
         </>
     )
 }
