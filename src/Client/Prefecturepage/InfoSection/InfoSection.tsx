@@ -9,7 +9,8 @@ export default function InfoSection() {
         subtitle: "Card Subtitle",
         text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.`,
-        margin: '30px 30px'
+        margin: '30px 30px',
+        image: "holder.js/150x150?text=InfoIcon"
     }
 
 
@@ -20,7 +21,8 @@ export default function InfoSection() {
                     {[1, 2, 3, 4].map((element, index) => (
                         <Col key={index} >
                             <InfoCard title={infoCardProps.title} subtitle={infoCardProps.subtitle} text={infoCardProps.text}
-                                margin={infoCardProps.margin} />
+                                margin={infoCardProps.margin} image={infoCardProps.image}
+                                style={{ clipPath: "circle(40%)" }} />
                         </Col>
                     ))}
                 </Row>
