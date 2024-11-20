@@ -1,0 +1,13 @@
+.WheelNavItem {
+    cursor: pointer;
+    opacity: 0.5;
+    filter: blur(1.5px);
+    transition: all 0.5s ease;
+}
+
+
+
+.WheelNavItem:hover {
+    filter: blur(0px);
+    opacity: 1;
+}

@@ -1,0 +1,31 @@
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.nav-tabs .nav-item .nav-link {
+    color: #333;
+    background-color: #f8f9fa;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    margin-bottom: 0;
+    /* Remove bottom margin from links */
+}
+
+.nav-tabs .nav-item .nav-link {
+    background-color: #2e2e2ee1;
+    color: white;
+    opacity: 0.5;
+    border: none;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    background-color: #2e2e2ee1;
+    color: white;
+    opacity: 1;
+}
+
+.tab-pane.active {
+    background-color: #2e2e2ee1;
+    color: whitesmoke;
+    opacity: 1;
+}

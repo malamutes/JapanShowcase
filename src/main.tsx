@@ -11,6 +11,7 @@ import {
 
 import PrefectureApp from './Client/Prefecturepage/PrefectureApp.tsx';
 import FoodApp from './Client/Foodpage/FoodApp.tsx';
+import LandmarkApp from './Client/Landmarkpage/LandmarkApp.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/Food/:CurrentFood",
     element: <FoodApp />
+  },
+  {
+    path: "/Landmark/:CurrentLandmark",
+    element: <LandmarkApp />
   },
 ]);
 

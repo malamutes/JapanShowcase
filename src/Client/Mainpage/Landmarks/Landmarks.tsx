@@ -7,6 +7,7 @@ import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
 import CommonNavButton from "../CommonStyles/CommonNavButton";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Landmarks() {
@@ -31,6 +32,7 @@ export default function Landmarks() {
         console.log(distance);
 
     };
+
 
     useEffect(() => {
         function stopScroll(event: WheelEvent) {
@@ -68,6 +70,13 @@ export default function Landmarks() {
 
     }, []);
 
+    const navigate = useNavigate();
+
+    const handleNavigate = (path: string) => {
+        navigate(`Landmark/${path}`)
+    }
+
+
 
     //need to set height of my elements so its more dyanmic
 
@@ -90,7 +99,7 @@ export default function Landmarks() {
                                             <Card.Text className="DescText" style={{ lineHeight: '2.5' }}>
                                                 {LD[landmark].description}
                                             </Card.Text>
-                                            <CommonNavButton text="TAKE ME THERE!" color='gray' styleButton={{ margin: 'auto' }} />
+                                            <CommonNavButton text="TAKE ME THERE!" color='gray' styleButton={{ margin: 'auto' }} onclick={() => handleNavigate(landmark)} />
                                         </Card.Body>
 
                                     </Card>
@@ -131,7 +140,7 @@ export default function Landmarks() {
                                         </Card.Text>
                                         <CommonNavButton text="TAKE ME THERE!" color='gray'
                                             styleButton={{ minWidth: '25cqw', margin: 'auto' }}
-                                            styleText={{ fontSize: '10px' }} />
+                                            styleText={{ fontSize: '10px' }} onclick={() => handleNavigate(landmark)} />
                                     </Card.Body>
                                 </Card>
                             </Row>
