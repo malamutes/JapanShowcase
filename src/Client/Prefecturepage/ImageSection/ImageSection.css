@@ -1,0 +1,16 @@
+.DescStyle {
+    max-width: 80%;
+    margin: auto
+}
+
+@media(max-width: 576px) {
+    .DescStyle {
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 360px) {
+    .DescStyle {
+        font-size: 3.5cqw
+    }
+}

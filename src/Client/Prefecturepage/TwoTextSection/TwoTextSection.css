@@ -1,0 +1,51 @@
+.DescStyle {
+    line-height: 2;
+    max-width: 75%;
+}
+
+.UpperCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.UpperCardCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+}
+
+.LowerCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.LowerCardCol {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+@media(max-width: 992px) {
+    .UpperCardCol {
+        align-items: center;
+    }
+
+    .LowerCardCol {
+        align-items: center;
+    }
+
+    .UpperCard .DescStyle {
+        margin: 25px 0;
+    }
+
+    .LowerCard .DescStyle {
+        margin: 25px 0;
+    }
+
+
+}
