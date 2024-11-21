@@ -7,12 +7,13 @@ interface InnerFoodDescCardProps {
 export default function InnerFoodDescCard(props: InnerFoodDescCardProps) {
     return (
         <>
-            <Row >
-                <Col style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} xs={8}>
+            <Row style={{ margin: '0' }}>
+                <Col lg={8}
+                    style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <Row style={{ display: 'flex', alignItems: 'center' }}>
                         <p style={{ maxWidth: '80%', margin: 'auto' }}>{props.title}</p>
 
-                        <p style={{ maxWidth: '80%', margin: 'auto' }}>
+                        <p style={{ maxWidth: '90%', margin: 'auto' }}>
                             Curabitur pretium tincidunt lacus. Nulla gravida orci
                             a odio. Nullam varius, turpis et commodo pharetra, est eros
                             bibendum elit, nec luctus magna felis sollicitudin mauris. Integer
@@ -26,14 +27,41 @@ export default function InnerFoodDescCard(props: InnerFoodDescCardProps) {
 
                 </Col>
 
-                <Col xs={4}>
-                    <Row>
-                        <Image src="holder.js/300x300" style={{ padding: '0', marginTop: '50px' }} />
+                <Col lg={4} style={{
+                    padding: '0'
+                }}>
+                    <Row style={{
+                        margin: '0'
+                    }}>
+                        <Col lg={0} >
+                        </Col>
+
+                        <Col lg={12} style={{
+                            margin: '0', display: 'flex',
+                            justifyContent: 'center', width: '100%'
+                        }}>
+                            <Image fluid src="https://placehold.co/300x300" style={{
+                                padding: '0', marginTop: '50px',
+                                maxWidth: '100%', height: 'auto',
+                            }} />
+                        </Col>
+
+                        <Col lg={0} >
+                        </Col>
+
                     </Row>
 
-                    <Row>
-                        <br />
-                        asdsadsd
+                    <Row >
+                        <div style={{ textAlign: 'center' }}>
+                            <span >
+                                asdsadsd <br />
+                                asdsadsd <br />
+                                asdsadsd
+
+                            </span>
+
+                        </div>
+
                     </Row>
 
                 </Col>

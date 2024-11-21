@@ -4,19 +4,19 @@ export default function FoodImageCard() {
     return (
         <>
             <Row style={{ justifyContent: 'center', margin: '0 auto' }}>
-                <Col xs={4} style={{
+                <Col lg={4} style={{
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'end', padding: '0'
                 }}>
-                    <Image src="holder.js/400x300" />
+                    <Image src="https://placehold.co/400x300" fluid style={{ minWidth: '100%', height: 'auto' }} />
                 </Col>
 
-                <Col xs={8} style={{
+                <Col lg={8} style={{
                     backgroundColor: 'lightgray',
                     display: 'flex', flexDirection: 'column',
-                    justifyContent: 'center'
+                    justifyContent: 'center', alignItems: 'center'
                 }}>
-                    <div style={{ marginLeft: '50px' }}>
+                    <div style={{ maxWidth: '80%' }}>
                         <p> <h4>Lorem Ipsum Dolor Sit Amet</h4></p>
 
                         <p>SPICE, THICKNESS, STRENGTH WITH STARS?</p>

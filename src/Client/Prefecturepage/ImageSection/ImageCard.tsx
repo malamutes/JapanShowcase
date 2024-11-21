@@ -11,7 +11,7 @@ export default function TripleImageCard() {
                 position: 'relative', maxWidth: '400px',
                 display: 'flex', justifyContent: 'center',
             }}>
-                <Image fluid src={`holder.js/400x600?text=InfoIcon`} style={{ borderRadius: '50px ' }}
+                <Image fluid src={`https://placehold.co/400x600`} style={{ borderRadius: '50px ' }}
                     onMouseEnter={() => SetHover(true)} onMouseLeave={() => SetHover(false)} />
                 {hover ?
                     (

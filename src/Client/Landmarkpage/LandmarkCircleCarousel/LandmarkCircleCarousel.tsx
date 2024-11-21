@@ -47,7 +47,7 @@ export default function LandmarkCircleCarouselSection() {
                             aspectRatio: '1', alignItems: 'end', transform: 'translateX(60%) translateY(10%)',
                             zIndex: '1'
                         }}>
-                            <LandmarkCircleCarousel width="300" imageArray={["holder.js/300x300", "holder.js/300x300", "holder.js/300x300"]} />
+                            <LandmarkCircleCarousel width="300" imageArray={["https://placehold.co/300x300", "https://placehold.co/300x300", "https://placehold.co/300x300"]} />
 
                         </div>
 
@@ -55,7 +55,7 @@ export default function LandmarkCircleCarouselSection() {
                             maxWidth: '600px', width: 'fit-content',
                             aspectRatio: '1'
                         }}>
-                            <LandmarkCircleCarousel width="600" imageArray={["holder.js/600x600", "holder.js/600x600", "holder.js/600x600"]} />
+                            <LandmarkCircleCarousel width="600" imageArray={["https://placehold.co/600x600", "https://placehold.co/600x600", "https://placehold.co/600x600"]} />
                         </div>
                     </div>
                 </Container>

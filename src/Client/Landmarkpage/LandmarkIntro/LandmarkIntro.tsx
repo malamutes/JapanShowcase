@@ -6,7 +6,7 @@ export default function LandmarkIntro() {
             <Container>
                 <Row>
                     <Col >
-                        <Image src="holder.js/600x600" />
+                        <Image src="https://placehold.co/600x600" />
                     </Col>
 
                     <Col style={{ display: 'flex', alignItems: 'center' }}>

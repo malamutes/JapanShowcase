@@ -39,7 +39,7 @@ export default function LandmarkTab() {
                                 </Col>
 
                                 <Col style={{ display: 'grid', placeItems: 'center' }}>
-                                    <Image src='holder.js/500x500' roundedCircle
+                                    <Image src='https://placehold.co/500x500' roundedCircle
                                         style={{ marginTop: '100px', marginBottom: '100px' }} />
                                 </Col>
                             </Row>

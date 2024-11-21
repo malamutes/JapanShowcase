@@ -65,7 +65,7 @@ export default function LandmarkNavigation() {
                                         display: 'grid', placeItems: 'center', overflow: 'hidden'
                                     }}
                                 >
-                                    <Image src="holder.js/400x400" className="WheelNavItem"
+                                    <Image src="https://placehold.co/400x400" className="WheelNavItem"
                                         style={{
                                             padding: '0', margin: '0',
                                             transform: 'rotate(-45deg) translateY(-15%)'

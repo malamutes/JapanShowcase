@@ -14,7 +14,7 @@ export default function LandmarkCard() {
                                     : ""}`,
                         }}>
                             <InfoCard title="adssad" subtitle="adssad" text="adssad"
-                                image="holder.js/250x250" margin="0px 25px"
+                                image="https://placehold.co/250x250" margin="0px 25px"
                                 style={{ clipPath: "circle(40%)" }} />
                         </Col>
 
