@@ -7,12 +7,14 @@ export default function LandmarkNavigation() {
     return (
         <>
             <Container style={{
-                marginTop: '100px', display: 'grid'
-                , placeItems: 'center', position: 'relative', overflow: 'hidden'
+                marginTop: '50px', display: 'grid'
+                , placeItems: 'center', position: 'relative', overflow: 'hidden',
+                paddingBottom: '50px'
             }}>
                 <Row>
-                    <Col style={{ display: 'flex', justifyContent: 'end', alignItems: 'center' }} xs={6}>
-                        <span style={{ maxWidth: '75%', marginRight: '50px' }}>
+                    <Col xs={{ span: 12, order: 2 }} lg={{ span: 6, order: 2 }}
+                        style={{ display: 'flex', justifyContent: 'end', alignItems: 'center' }} >
+                        <span style={{ maxWidth: '75%', marginRight: '50px', }}>
                             <p>
                                 VERDIT
                             </p>
@@ -31,11 +33,13 @@ export default function LandmarkNavigation() {
 
                     </Col>
 
-                    <Col style={{}} xs={6}>
+                    <Col xs={{ span: 12, order: 1 }} lg={{ span: 6, order: 1 }}
+
+                    >
                         <div style={{
-                            width: '600px', aspectRatio: '1', borderRadius: '50%',
+                            maxWidth: '600px', aspectRatio: '1', borderRadius: '50%',
                             position: 'relative', transformOrigin: 'center', overflow: 'hidden',
-                            transform: 'rotate(-25deg)'
+                            transform: 'rotate(-25deg)', margin: '0 auto'
                         }}>
                             <div style={{
                                 width: '120px',

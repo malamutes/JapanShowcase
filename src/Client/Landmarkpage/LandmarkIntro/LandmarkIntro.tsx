@@ -5,11 +5,11 @@ export default function LandmarkIntro() {
         <>
             <Container>
                 <Row>
-                    <Col >
-                        <Image src="https://placehold.co/600x600" />
+                    <Col style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Image src="https://placehold.co/600x600" fluid style={{ minWidth: '600px' }} />
                     </Col>
 
-                    <Col style={{ display: 'flex', alignItems: 'center' }}>
+                    <Col style={{ display: 'flex', alignItems: 'center', margin: '25px 0', justifyContent: 'center' }}>
                         <span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

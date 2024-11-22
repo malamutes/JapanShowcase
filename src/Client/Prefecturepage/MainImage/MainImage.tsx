@@ -7,12 +7,6 @@ import { Image } from "react-bootstrap";
 export default function MainImage() {
     const CP = useContext(PrefectureContext)
 
-    useEffect(() => {
-        // Trigger holder.js after component mount
-        if (window.Holder) {
-            window.Holder.run(); // Apply the placeholder transformation
-        }
-    }, []); // Empty dependency ensures it runs once after mount
 
     return (
         <>
