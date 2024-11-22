@@ -1,7 +1,8 @@
 import './ReferenceBar.css'
 import { Container, Row, Col, Offcanvas, Accordion, Image, Dropdown, ProgressBar, Button } from 'react-bootstrap'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { TopBarData } from '../Data/ReferenceLinks';
+import { screenWidthBreakpointsContext } from '../../../main';
 
 export default function TopBar() {
     const [show, setShow] = useState(false);
@@ -9,54 +10,11 @@ export default function TopBar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [more1200px, setMore1200px] = useState(true);
-
-    const [more992px, setMore992px] = useState(true);
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
 
     const [currentHover, setCurrentHover] = useState("");
 
     const TBD = TopBarData;
-
-    useEffect(() => {
-        function widthLess1200() {
-            if (window.innerWidth <= 1200) {
-                setMore1200px(false);
-            }
-            else if (window.innerWidth > 1200) {
-                setMore1200px(true);
-            }
-        };
-
-        widthLess1200();
-
-        window.addEventListener('resize', widthLess1200);
-
-        return () => {
-            window.removeEventListener('resize', widthLess1200);
-        };
-
-    }, []);
-
-    useEffect(() => {
-        function widthLess992() {
-            if (window.innerWidth <= 992) {
-                setMore992px(false);
-            }
-            else if (window.innerWidth > 992) {
-                setMore992px(true);
-            }
-        };
-
-        widthLess992();
-
-        window.addEventListener('resize', widthLess992);
-
-        return () => {
-            window.removeEventListener('resize', widthLess992);
-        };
-
-    }, []);
-
 
     const [scrollAmount, setScrollAmount] = useState(0);
 
@@ -229,7 +187,7 @@ export default function TopBar() {
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Col xs={more992px ? 1 : 2} style={{
+                    <Col xs={screenWidthBreakpoints['more992px'] ? 1 : 2} style={{
                         display: 'flex', justifyContent: 'center',
                     }}>
                         <Image fluid src="public\Images\CherryBlossom.png"
@@ -237,9 +195,9 @@ export default function TopBar() {
                             onClick={handleShow}
                         />
 
-                        {more1200px ? (<Offcanvas placement="top" show={show}
+                        {screenWidthBreakpoints['more1200px'] ? (<Offcanvas placement="top" show={show}
                             style={{ maxHeight: '55vh', height: '40cqw' }}
-                            onHide={handleClose}>
+                            onHide={handleClose} scroll={true}>
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title>JAPAN</Offcanvas.Title>
                             </Offcanvas.Header>
@@ -280,7 +238,7 @@ export default function TopBar() {
 
                             (
                                 <Offcanvas placement="start" show={show}
-                                    onHide={handleClose}>
+                                    onHide={handleClose} scroll={true}>
                                     <Offcanvas.Header closeButton>
                                         <Offcanvas.Title>JAPAN</Offcanvas.Title>
                                     </Offcanvas.Header>
@@ -312,7 +270,7 @@ export default function TopBar() {
 
                     </Col>
 
-                    <Col xs={more992px ? 8 : 0} >
+                    <Col xs={screenWidthBreakpoints['more992px'] ? 8 : 0} >
                         <ProgressBar style={{ height: '5px', overflow: 'visible' }} >
                             <ProgressBar now={clamp(scrollAmount, 0, progressHubs)} key={1} style={{
                                 backgroundColor: "red",
@@ -343,11 +301,11 @@ export default function TopBar() {
 
                     </Col>
 
-                    <Col xs={more992px ? 3 : 5} style={{
-                        display: 'flex', justifyContent: `${more992px ? 'center' : 'center'}`,
+                    <Col xs={screenWidthBreakpoints['more992px'] ? 3 : 5} style={{
+                        display: 'flex', justifyContent: `${screenWidthBreakpoints['more992px'] ? 'center' : 'center'}`,
                     }}>
                         <Row>
-                            <Col style={{ marginRight: `${more992px ? "2.5cqw" : ""}` }}>
+                            <Col style={{ marginRight: `${screenWidthBreakpoints['more992px'] ? "2.5cqw" : ""}` }}>
                                 <Dropdown>
                                     <Dropdown.Toggle variant="secondary" id="dropdown-basic"
                                         disabled={window.scrollY === 0 ? true : false}>
@@ -376,11 +334,8 @@ export default function TopBar() {
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Col>
-
                         </Row>
-
                     </Col>
-
                 </Row >
             </Container >
             {/*   {window.scrollY === 0 ?

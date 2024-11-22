@@ -8,17 +8,13 @@ import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
 import { useNavigate } from "react-router-dom";
+import { clamp } from "../../../main";
 
 export default function Food() {
     const FD = FoodData;
 
     const FoodRef = useRef<HTMLDivElement>(null);
     const scrollPast = checkScrollPosition((8.5 / 10), FoodRef)
-
-    function clamp(value: number, min: number, max: number) {
-        return Math.max(min, Math.min(value, max));
-    }
-
 
     const [moveAlong, setMoveAlong] = useState<number>(0);
     const [activeIndex, setActiveIndex] = useState<number>(1);

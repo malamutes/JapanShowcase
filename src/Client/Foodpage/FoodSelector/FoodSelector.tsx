@@ -3,7 +3,7 @@ import FoodSelectorCard from "./FoodSelectorCard";
 import InnerFoodDescCard from "./InnerFoodDescriptionCard";
 
 import { Container, Row, Col } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function FoodSelector() {
     const [currentOuterItem, setCurrentOuterItem] = useState(1);

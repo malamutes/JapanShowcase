@@ -1,4 +1,4 @@
-import { Col, Card, Row, Image } from "react-bootstrap"
+import { Col, Row, Image } from "react-bootstrap"
 
 export default function FoodImageCard() {
     return (

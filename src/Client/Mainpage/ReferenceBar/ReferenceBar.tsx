@@ -3,7 +3,8 @@ import './ReferenceBar.css'
 import { ReferenceData } from '../Data/ReferenceLinks'
 import { faInstagram, faFacebook, faLinkedin, faTiktok, faPinterest, faYoutube, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { screenWidthBreakpointsContext } from '../../../main';
 
 const iconMap: { [key: string]: any } = {
     instagram: faInstagram,
@@ -18,26 +19,7 @@ const iconMap: { [key: string]: any } = {
 
 export default function ReferenceBar() {
     const RD = ReferenceData;
-    const [more768px, setMore768px] = useState(true);
-
-    useEffect(() => {
-        const handleSmallScreen = () => {
-            if (window.innerWidth <= 768) {
-                setMore768px(false);
-            }
-            else if (window.innerWidth > 768) {
-                setMore768px(true)
-            }
-
-        }
-
-        handleSmallScreen();
-        window.addEventListener('resize', handleSmallScreen);
-
-        return () => {
-            window.removeEventListener('resize', handleSmallScreen);
-        }
-    }, [])
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
 
     return (
         <>
@@ -105,7 +87,7 @@ export default function ReferenceBar() {
 
                             <Col md={4} >
                                 <Row >
-                                    {more768px ? (Object.keys(RD).map((referenceType, typeIndex) => (
+                                    {screenWidthBreakpoints['more768px'] ? (Object.keys(RD).map((referenceType, typeIndex) => (
                                         <Col key={typeIndex} className="ReferenceLinksColStyle" >
                                             <h6 className="ReferenceTitle" >{referenceType}</h6>
                                             {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
@@ -150,7 +132,7 @@ export default function ReferenceBar() {
                                     {[`Biscuits`, `Publicity`, `Illegal`].map((extra, index) => (
                                         <Col key={index} style={{ display: 'flex', justifyContent: 'end' }}>
                                             <span className="DescriptionStyle" style={{
-                                                textDecoration: 'underline', marginTop: `${more768px ? "0" : "15px"}`
+                                                textDecoration: 'underline', marginTop: `${screenWidthBreakpoints['more768px'] ? "0" : "15px"}`
                                             }}>{extra}</span>
 
                                         </Col>
@@ -163,8 +145,8 @@ export default function ReferenceBar() {
 
                         </Row>
                         <span className="DescriptionStyle" style={{
-                            display: 'inline-block', maxWidth: `${more768px ? "50%" : "100%"}`,
-                            marginTop: `${more768px ? "25px" : "0px"}`
+                            display: 'inline-block', maxWidth: `${screenWidthBreakpoints['more768px'] ? "50%" : "100%"}`,
+                            marginTop: `${screenWidthBreakpoints['more768px'] ? "25px" : "0px"}`
                         }}>Information from your device is used to personalize your ad experience.
 
                             Ur data finna be stolen, its so over.</span>

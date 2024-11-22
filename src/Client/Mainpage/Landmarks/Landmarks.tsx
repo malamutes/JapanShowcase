@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useContext } from "react"
 import { Col, Container, Row, Card, ProgressBar } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import './Landmarks.css'
@@ -8,6 +8,8 @@ import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
 import CommonNavButton from "../CommonStyles/CommonNavButton";
 import { useNavigate } from "react-router-dom";
+import { clamp } from "../../../main";
+import { screenWidthBreakpointsContext } from "../../../main";
 
 
 export default function Landmarks() {
@@ -15,15 +17,12 @@ export default function Landmarks() {
     const [scroll, canScroll] = useState(true);
     const [currentScreenWidth, setCurrentScreenWidth] = useState(true);
 
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
+
     const LD = LandMarksData;
 
     const LandmarkRef = useRef<HTMLDivElement>(null);
     const scrollPast = checkScrollPosition((8.5 / 10), LandmarkRef)
-
-    function clamp(value: number, min: number, max: number) {
-        return Math.max(min, Math.min(value, max));
-    }
-
 
     const handleWheel = (event: React.WheelEvent) => {
         //20 determines rate of scroll, higher number is slower scroll, small is faster
@@ -84,7 +83,7 @@ export default function Landmarks() {
         <>
             <Container className="CommonContainer" id="Landmarks" ref={LandmarkRef}>
                 <CommonHeader header="Treasured Sites of Japan" colour=" #FFD700" scrollPast={scrollPast} />
-                {currentScreenWidth ? (<Row className="LandmarkRowContainer">
+                {screenWidthBreakpoints['more992px'] ? (<Row className="LandmarkRowContainer">
                     <Col lg={4} className="TextContainer">
                         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
                             {Object.keys(LD).map((landmark, index) => (
@@ -147,8 +146,6 @@ export default function Landmarks() {
                         ))}
                     </Col>
                 )}
-
-
             </Container >
 
         </>

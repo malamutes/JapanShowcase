@@ -1,32 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { FoodContext } from "../PrefectureAppContext";
+import { useContext } from "react";
 import { Image, Container, Row, Col, Card } from "react-bootstrap";
+
+import { screenWidthBreakpointsContext } from "../../../main";
 
 
 
 export default function MainImage() {
-    const CP = useContext(FoodContext)
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext)
 
-    const [more992px, setMore992px] = useState(true);
 
-    useEffect(() => {
-        const swapScroller = () => {
-            if (window.innerWidth > 992) {
-                setMore992px(true);
-            }
-            else if (window.innerWidth <= 992) {
-                setMore992px(false);
-            }
-        }
-
-        swapScroller();
-
-        window.addEventListener('resize', swapScroller);
-
-        return () => {
-            window.removeEventListener('resize', swapScroller);
-        }
-    }, [])
 
     return (
         <>
@@ -47,22 +29,22 @@ export default function MainImage() {
                             <Col lg={5} style={{
                                 display: 'flex',
                                 flexDirection: 'column', justifyContent: 'center',
-                                alignItems: `${more992px ? "start" : "center    "}`,
-                                textAlign: `${more992px ? "start" : "center"}`
+                                alignItems: `${screenWidthBreakpoints['more992px'] ? "start" : "center    "}`,
+                                textAlign: `${screenWidthBreakpoints['more992px'] ? "start" : "center"}`
                             }}>
                                 <Card.Title style={{
-                                    fontSize: `${more992px ? 25 : 17.5}px`, fontWeight: '500',
+                                    fontSize: `${screenWidthBreakpoints['more992px'] ? 25 : 17.5}px`, fontWeight: '500',
 
                                 }}>
                                     Exploratio nova, occasio infinita</Card.Title>
                                 <Card.Text style={{ maxWidth: '70%' }}>
                                     <span style={{
-                                        fontSize: `${more992px ? 35 : 20}px`, fontWeight: '700',
+                                        fontSize: `${screenWidthBreakpoints['more992px'] ? 35 : 20}px`, fontWeight: '700',
                                     }}>
                                         Innovatio et creatio, viam ad futurum</span>
                                 </Card.Text>
                                 <Card.Text style={{
-                                    maxWidth: `${more992px ? 80 : 100}%`,
+                                    maxWidth: `${screenWidthBreakpoints['more992px'] ? 80 : 100}%`,
                                 }}>
                                     Lorem ipsum dolor sit amet,
                                     consectetur adipiscing elit.
@@ -75,7 +57,7 @@ export default function MainImage() {
                                 display: 'flex', justifyContent: 'center'
                             }}>
                                 <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
-                                    style={{ maxWidth: `${more992px ? 100 : 55}%`, }}
+                                    style={{ maxWidth: `${screenWidthBreakpoints['more992px'] ? 100 : 55}%`, }}
                                 />
                             </Col>
                         </Row>

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Image, Carousel } from "react-bootstrap";
+import { screenWidthBreakpointsContext } from "../../../main";
 
 interface LandmarkCircleCarouselProps {
     imageArray: string[], //need to use square images of course
@@ -29,31 +30,13 @@ function LandmarkCircleCarousel(props: LandmarkCircleCarouselProps) {
 
 export default function LandmarkCircleCarouselSection() {
     //will need to consider container's maxwidth with respect to images width
-    const [more992px, setMore992px] = useState(true);
 
-    useEffect(() => {
-        function widthLess992() {
-            if (window.innerWidth <= 992) {
-                setMore992px(false);
-            }
-            else if (window.innerWidth > 992) {
-                setMore992px(true);
-            }
-        };
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
 
-        widthLess992();
-
-        window.addEventListener('resize', widthLess992);
-
-        return () => {
-            window.removeEventListener('resize', widthLess992);
-        };
-
-    }, []);
 
     return (
         <>
-            {more992px ? (
+            {screenWidthBreakpoints['more992px'] ? (
                 <Container style={{ position: 'relative', paddingBottom: '100px', marginTop: '100px', }}>
                     <Container style={{ maxWidth: '900px', padding: '0', }}>
                         <div style={{

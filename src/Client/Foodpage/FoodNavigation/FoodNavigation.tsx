@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { ComplimentaryFoodCard } from "../ComplimentaryFood/ComplimentaryFood";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Col, Button } from "react-bootstrap";
 
 export default function FoodNavigation() {
-    const [moveRight, setMoveRight] = useState(1);
     const [distance, setDistance] = useState(0);
     const [numItemsDisplay, setNumItemsDisplay] = useState(6);
     const totalItems = 8;

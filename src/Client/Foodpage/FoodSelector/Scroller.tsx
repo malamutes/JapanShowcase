@@ -1,8 +1,8 @@
 //slider card with image and then title on the right and star ratings?? on the bottom 3 with something else
 //to fll the empty space, maybe an icon to click or a star idk
-import { useState, useEffect } from "react"
+import { useState, useContext, useEffect } from "react"
 import { Row, Col, Image } from "react-bootstrap"
-
+import { screenWidthBreakpointsContext } from "../../../main"
 
 interface ScrollerCardProps {
     switchMode: boolean
@@ -49,7 +49,8 @@ export default function Scroller(props: ScrollerProps) {
     const [distance, setDistance] = useState(0);
     const [scroll, canScroll] = useState(true);
 
-    const [more992px, setMore992px] = useState(true);
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
+
 
     function clamp(value: number, min: number, max: number) {
         return Math.max(min, Math.min(value, max));
@@ -78,28 +79,10 @@ export default function Scroller(props: ScrollerProps) {
 
     }, [scroll])
 
-    useEffect(() => {
-        const swapScroller = () => {
-            if (window.innerWidth > 992) {
-                setMore992px(true);
-            }
-            else if (window.innerWidth <= 992) {
-                setMore992px(false);
-            }
-        }
-
-        swapScroller();
-
-        window.addEventListener('resize', swapScroller);
-
-        return () => {
-            window.removeEventListener('resize', swapScroller);
-        }
-    }, [])
 
     return (
         <>
-            {more992px ? (
+            {screenWidthBreakpoints['more992px'] ? (
                 <Col style={{ maxHeight: props.height, overflow: 'hidden', backgroundColor: 'rgb(100,100,100)' }}>
                     <div style={{ maxWidth: 'fit-content' }}
                         onMouseEnter={() => canScroll(false)} onMouseLeave={() => canScroll(true)}

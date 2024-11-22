@@ -15,15 +15,12 @@ function App() {
       <TopBar />
       <MainIntroImage />
       <EightSpotsSpace />
-
       <Food />
       <Landmarks />
       <Entertainment />
       <Game />
       <Festival />
       <ReferenceBar />
-
-
     </>
   )
 }

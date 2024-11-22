@@ -71,7 +71,7 @@ export default function Festival() {
                                         <CommonNavButton customClassButton="FestivalNavButton"
                                             customClassText="FestivalNavButtonText"
                                             text="SOUNDS FESTIVE!" color={FD[currFestival].color}
-                                            styleText={{ fontSize: '2cqw' }} />
+                                            styleText={{ fontSize: '2cqw' }} onclick={() => console.log("dummy")} />
                                     </Card.Body>
                                 </Card>
                             </Row>

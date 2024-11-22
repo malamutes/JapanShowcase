@@ -1,36 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Col, Row, Card, Image } from "react-bootstrap";
+import { screenWidthBreakpointsContext } from "../../../main";
 
-interface HorizontalCardProps {
-    switch: boolean
-}
 
-export default function HorizontalCard(props: HorizontalCardProps) {
-    const [more992px, setMore992px] = useState(true);
+export default function HorizontalCard() {
 
-    useEffect(() => {
-        const checkWidth = () => {
-            if (window.innerWidth > 992) {
-                setMore992px(true);
-            }
-            else if (window.innerWidth <= 992) {
-                setMore992px(false);
-            }
-        };
+    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
 
-        checkWidth();
-
-        window.addEventListener('resize', checkWidth);
-
-        return () => {
-            window.removeEventListener('resize', checkWidth);
-        }
-
-    }, [])
 
     return (
         <>
-            {more992px ?
+            {screenWidthBreakpoints['more992px'] ?
                 (
                     <Col style={{ display: 'flex', justifyContent: 'center' }}>
                         <Row >
