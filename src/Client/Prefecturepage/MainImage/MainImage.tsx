@@ -10,7 +10,7 @@ export default function MainImage() {
 
     return (
         <>
-            <Image fluid src={`holder.js/1920x900?text=${CP}`} />
+            <Image fluid src={`https://placehold.co/1920x900`} />
         </>
     );
 }

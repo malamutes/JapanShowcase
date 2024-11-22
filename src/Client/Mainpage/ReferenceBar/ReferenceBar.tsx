@@ -1,4 +1,4 @@
-import { Container, Row, Col, Form, Button, Image, Accordion } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button, Accordion } from 'react-bootstrap'
 import './ReferenceBar.css'
 import { ReferenceData } from '../Data/ReferenceLinks'
 import { faInstagram, faFacebook, faLinkedin, faTiktok, faPinterest, faYoutube, faXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -23,7 +23,7 @@ export default function ReferenceBar() {
 
     return (
         <>
-            <Container className="ReferenceBarContainer" style={{ backgroundColor: 'rgb(25, 25, 25)' }} fluid id="ReferenceBar">
+            <Container className="ReferenceBarContainer" style={{ backgroundColor: 'rgb(25, 25, 25)', color: 'white' }} fluid id="ReferenceBar">
                 <Container style={{ paddingTop: '2cqw', paddingBottom: '2cqw' }}>
                     <Col>
                         <Row >
@@ -92,7 +92,7 @@ export default function ReferenceBar() {
                                             <h6 className="ReferenceTitle" >{referenceType}</h6>
                                             {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
                                                 <Row key={linkIndex} style={{}}>
-                                                    <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}</a>
+                                                    <a href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}</a>
                                                 </Row>
                                             ))}
                                         </Col>

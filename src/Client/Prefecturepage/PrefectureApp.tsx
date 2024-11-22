@@ -6,6 +6,8 @@ import TwoTextSection from "./TwoTextSection/TwoTextSection";
 import ImageSection from "./ImageSection/ImageSection";
 import HorizontalCardSection from "./HorizontalCard/HorizontalCardSection";
 import NavigationPrefecture from "./Navigation/NavigationPrefecture";
+import CommonNavCompTop from "../CommonNavigationComponents/CommonNavComp";
+import ReferenceBar from "../Mainpage/ReferenceBar/ReferenceBar";
 
 
 export default function PrefectureApp() {
@@ -19,12 +21,14 @@ export default function PrefectureApp() {
         <>
             <div className="PrefectureAppRoot">
                 <PrefectureContext.Provider value={CurrentPrefecture!}>
+                    <CommonNavCompTop />
                     <MainImage />
                     <InfoSection />
                     <TwoTextSection />
                     <ImageSection />
                     <HorizontalCardSection />
                     <NavigationPrefecture />
+                    <ReferenceBar />
                 </PrefectureContext.Provider>
             </div>
         </>
