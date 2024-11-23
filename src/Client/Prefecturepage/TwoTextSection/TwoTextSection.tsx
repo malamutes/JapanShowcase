@@ -1,11 +1,13 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import './TwoTextSection.css'
+import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 
 export default function TwoTextSection() {
 
     return (
         <>
-            <Container style={{ marginTop: '100px' }}>
+            <Container >
+                <CommonDividers />
                 <Col >
                     <Row >
                         <Col lg={6}

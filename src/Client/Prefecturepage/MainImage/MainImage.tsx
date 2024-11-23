@@ -3,7 +3,6 @@ import { PrefectureContext } from "../PrefectureAppContext";
 import { Image } from "react-bootstrap";
 
 
-
 export default function MainImage() {
     const CP = useContext(PrefectureContext)
 

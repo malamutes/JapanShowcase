@@ -9,13 +9,11 @@ import NavigationPrefecture from "./Navigation/NavigationPrefecture";
 import CommonNavCompTop from "../CommonNavigationComponents/CommonNavComp";
 import ReferenceBar from "../Mainpage/ReferenceBar/ReferenceBar";
 
-
 export default function PrefectureApp() {
     const { CurrentPrefecture } = useParams();
 
     //get data using current prefecture and then pass the data into sub components using value 
     //we will need to redefine the type in context provider
-
 
     return (
         <>

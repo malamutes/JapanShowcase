@@ -12,6 +12,7 @@ import PrefectureApp from './Client/Prefecturepage/PrefectureApp.tsx';
 import FoodApp from './Client/Foodpage/FoodApp.tsx';
 import LandmarkApp from './Client/Landmarkpage/LandmarkApp.tsx';
 import { useState, createContext } from 'react';
+import { ScrollRestoration } from 'react-router-dom';
 
 export const screenWidthBreakpointsContext = createContext<{ [key: string]: boolean }>({
   less576px: false,
@@ -30,15 +31,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/Prefecture/:CurrentPrefecture",
-    element: <PrefectureApp />
+    element: (
+      <>
+        <ScrollRestoration />
+        <PrefectureApp />
+      </>)
   },
   {
     path: "/Food/:CurrentFood",
-    element: <FoodApp />
+    element: (
+      <>
+        <ScrollRestoration />
+        <FoodApp />
+      </>)
   },
   {
     path: "/Landmark/:CurrentLandmark",
-    element: <LandmarkApp />
+    element: (
+      <>
+        <ScrollRestoration />
+        <LandmarkApp />
+      </>)
   },
 ]);
 
