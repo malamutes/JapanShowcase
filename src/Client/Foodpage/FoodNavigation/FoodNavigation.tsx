@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ComplimentaryFoodCard } from "../ComplimentaryFood/ComplimentaryFood";
 import { Container, Col, Button } from "react-bootstrap";
+import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2";
 
 export default function FoodNavigation() {
     const [distance, setDistance] = useState(0);
@@ -41,6 +42,7 @@ export default function FoodNavigation() {
     return (
         <>
             <Container style={{ marginTop: '50px' }}>
+                <CommonDividersV2 />
                 <div style={{ overflowX: 'hidden' }}>
                     <div style={{
                         display: 'flex', transition: 'transform 1s ease-in-out',

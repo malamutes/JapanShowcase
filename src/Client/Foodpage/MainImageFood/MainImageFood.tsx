@@ -4,7 +4,6 @@ import { Image, Container, Row, Col, Card } from "react-bootstrap";
 import { screenWidthBreakpointsContext } from "../../../main";
 
 
-
 export default function MainImage() {
     const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext)
 
@@ -18,6 +17,7 @@ export default function MainImage() {
                 backgroundImage: `url("https://placehold.co/1500x950")`,
                 backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
             }}>
+
                 <Row>
                     <Col style={{
                         display: 'flex', flexDirection: 'column', alignItems: 'center',
