@@ -17,6 +17,19 @@
     background-color: white;
 }
 
+.DiamondContainerRow {
+    max-width: 30%;
+    margin: auto;
+    justify-content: center;
+}
+
+@media(max-width: 768px) {
+    .DiamondContainerRow {
+        max-width: 100%;
+    }
+}
+
+
 @media(max-width: 992px) {
     .DividerV2HR {
         display: none;

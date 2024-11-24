@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ComplimentaryFoodCard } from "../ComplimentaryFood/ComplimentaryFood";
 import { Container, Col, Button } from "react-bootstrap";
 import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 
 export default function FoodNavigation() {
     const [distance, setDistance] = useState(0);
     const [numItemsDisplay, setNumItemsDisplay] = useState(6);
     const totalItems = 8;
+
+    const [scrollPast, setScrollPast] = useState(false);
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+
+    console.log(checkHasScrollPast);
 
     function clamp(value: number, min: number, max: number) {
         return Math.max(min, Math.min(value, max));
@@ -38,10 +46,9 @@ export default function FoodNavigation() {
     }, [])
     //on the scrollbit need to set it so its dynamic when adapting to scrolling so i cant go over bounds
 
-    console.log(numItemsDisplay / totalItems * 100);
     return (
         <>
-            <Container style={{ marginTop: '50px' }}>
+            <Container style={{ marginTop: '50px' }} ref={ComponentRef}>
                 <CommonDividersV2 />
                 <div style={{ overflowX: 'hidden' }}>
                     <div style={{

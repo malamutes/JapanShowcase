@@ -15,7 +15,6 @@ import { screenWidthBreakpointsContext } from "../../../main";
 export default function Landmarks() {
     const [distance, setDistance] = useState(0);
     const [scroll, canScroll] = useState(true);
-    const [currentScreenWidth, setCurrentScreenWidth] = useState(true);
 
     const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
 
@@ -49,26 +48,6 @@ export default function Landmarks() {
 
     }, [scroll])
 
-    useEffect(() => {
-        function widthLess992() {
-            if (window.innerWidth <= 992) {
-                setCurrentScreenWidth(false);
-            }
-            else if (window.innerWidth > 992) {
-                setCurrentScreenWidth(true);
-            }
-        };
-
-        widthLess992();
-
-        window.addEventListener('resize', widthLess992);
-
-        return () => {
-            window.removeEventListener('resize', widthLess992);
-        };
-
-    }, []);
-
     const navigate = useNavigate();
 
     const handleNavigate = (path: string) => {
@@ -84,7 +63,7 @@ export default function Landmarks() {
             <Container className="CommonContainer" id="Landmarks" ref={LandmarkRef}>
                 <CommonHeader header="Treasured Sites of Japan" colour=" #FFD700" scrollPast={scrollPast} />
                 {screenWidthBreakpoints['more992px'] ? (<Row className="LandmarkRowContainer">
-                    <Col lg={4} className="TextContainer">
+                    <Col className="TextContainer">
                         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', overflow: 'hidden' }}>
                             {Object.keys(LD).map((landmark, index) => (
                                 <div key={index} style={{

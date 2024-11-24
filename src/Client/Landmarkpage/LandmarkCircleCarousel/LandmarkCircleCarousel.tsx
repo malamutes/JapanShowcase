@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Image, Carousel } from "react-bootstrap";
 import { screenWidthBreakpointsContext } from "../../../main";
+import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 
 interface LandmarkCircleCarouselProps {
     imageArray: string[], //need to use square images of course
@@ -36,110 +37,114 @@ export default function LandmarkCircleCarouselSection() {
 
     return (
         <>
-            {screenWidthBreakpoints['more992px'] ? (
-                <Container style={{ position: 'relative', paddingBottom: '100px', marginTop: '100px', }}>
-                    <Container style={{ maxWidth: '900px', padding: '0', }}>
-                        <div style={{
-                            maxWidth: '30%', position: 'absolute', zIndex: '1'
-                            , marginTop: '25px',
-                        }}>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                                Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-                                Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
-                                Vestibulum lacinia arcu eget.
-                            </p>
-
-                            <p style={{ maxWidth: '75%' }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                                Sed nisi.  Fusce nec tellus sed augue semper porta. Mauris massa.
-                                Vestibulum lacinia arcu eget nulla.
-                            </p>
-
-
-                        </div>
-
-                        <div style={{ display: 'flex' }}>
-
+            <Container >
+                <CommonDividersV3 />
+                {screenWidthBreakpoints['more992px'] ? (
+                    <Container style={{ position: 'relative', paddingBottom: '100px', marginTop: '100px', }}>
+                        <Container style={{ maxWidth: '900px', padding: '0', }}>
                             <div style={{
-                                maxWidth: '300px', width: 'fit-content', display: 'flex',
-                                aspectRatio: '1', alignItems: 'end', transform: 'translateX(60%) translateY(10%)',
-                                zIndex: '1'
+                                maxWidth: '30%', position: 'absolute', zIndex: '1'
+                                , marginTop: '25px',
                             }}>
-                                <LandmarkCircleCarousel width="300"
-                                    imageArray={["https://placehold.co/300x300",
-                                        "https://placehold.co/300x300",
-                                        "https://placehold.co/300x300"]} />
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                                    Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+                                    Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+                                    Vestibulum lacinia arcu eget.
+                                </p>
+
+                                <p style={{ maxWidth: '75%' }}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                                    Sed nisi.  Fusce nec tellus sed augue semper porta. Mauris massa.
+                                    Vestibulum lacinia arcu eget nulla.
+                                </p>
+
 
                             </div>
 
-                            <div style={{
-                                maxWidth: '600px', width: 'fit-content',
-                                aspectRatio: '1', marginLeft: '15px'
-                            }}>
-                                <LandmarkCircleCarousel width="600"
-                                    imageArray={["https://placehold.co/600x600",
-                                        "https://placehold.co/600x600",
-                                        "https://placehold.co/600x600"]} />
-                            </div>
-                        </div>
-                    </Container>
-                </Container>
-            )
-                :
-                (
-                    <Container>
-                        <Col>
-                            <Row >
-                                <LandmarkCircleCarousel width="600"
-                                    imageArray={["https://placehold.co/600x600",
-                                        "https://placehold.co/600x600",
-                                        "https://placehold.co/600x600"]} />
+                            <div style={{ display: 'flex' }}>
 
-                            </Row>
-
-                            <Row style={{ marginTop: '25px' }}>
-                                <Col sm={5} style={{
-                                    padding: '0', display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
+                                <div style={{
+                                    maxWidth: '300px', width: 'fit-content', display: 'flex',
+                                    aspectRatio: '1', alignItems: 'end', transform: 'translateX(60%) translateY(10%)',
+                                    zIndex: '1'
                                 }}>
                                     <LandmarkCircleCarousel width="300"
                                         imageArray={["https://placehold.co/300x300",
                                             "https://placehold.co/300x300",
                                             "https://placehold.co/300x300"]} />
-                                </Col>
 
-                                <Col sm={7} style={{
-                                    display: 'flex', alignItems: 'center',
-                                }} >
-                                    <span style={{ margin: 'auto', maxWidth: '90%' }}>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                                            Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-                                            Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
-                                            Vestibulum lacinia arcu eget nulla.
+                                </div>
 
-                                        </p>
-
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                                            Sed nisi.  Fusce nec tellus sed augue semper porta. Mauris massa.
-                                            Vestibulum lacinia arcu eget nulla.
-                                        </p>
-                                    </span>
-                                </Col>
-
-                            </Row>
-                        </Col>
+                                <div style={{
+                                    maxWidth: '600px', width: 'fit-content',
+                                    aspectRatio: '1', marginLeft: '15px'
+                                }}>
+                                    <LandmarkCircleCarousel width="600"
+                                        imageArray={["https://placehold.co/600x600",
+                                            "https://placehold.co/600x600",
+                                            "https://placehold.co/600x600"]} />
+                                </div>
+                            </div>
+                        </Container>
                     </Container>
+                )
+                    :
+                    (
+                        <Container>
+                            <Col>
+                                <Row >
+                                    <LandmarkCircleCarousel width="600"
+                                        imageArray={["https://placehold.co/600x600",
+                                            "https://placehold.co/600x600",
+                                            "https://placehold.co/600x600"]} />
 
-                )}
+                                </Row>
 
+                                <Row style={{ marginTop: '25px' }}>
+                                    <Col sm={5} style={{
+                                        padding: '0', display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}>
+                                        <LandmarkCircleCarousel width="300"
+                                            imageArray={["https://placehold.co/300x300",
+                                                "https://placehold.co/300x300",
+                                                "https://placehold.co/300x300"]} />
+                                    </Col>
+
+                                    <Col sm={7} style={{
+                                        display: 'flex', alignItems: 'center',
+                                    }} >
+                                        <span style={{ margin: 'auto', maxWidth: '90%' }}>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                                                Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+                                                Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+                                                Vestibulum lacinia arcu eget nulla.
+
+                                            </p>
+
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                                                Sed nisi.  Fusce nec tellus sed augue semper porta. Mauris massa.
+                                                Vestibulum lacinia arcu eget nulla.
+                                            </p>
+                                        </span>
+                                    </Col>
+
+                                </Row>
+                            </Col>
+                        </Container>
+
+                    )}
+
+
+            </Container>
 
         </>
     )

@@ -1,5 +1,7 @@
 import { Row, Col, Container, Image } from "react-bootstrap"
 import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2"
+import { useState, useRef } from "react"
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect"
 
 interface ComplimentaryFoodCardProps {
     image: string,
@@ -28,9 +30,16 @@ export function ComplimentaryFoodCard(props: ComplimentaryFoodCardProps) {
 }
 
 export default function ComplimentaryFood() {
+    const [scrollPast, setScrollPast] = useState(false);
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+
+    console.log(checkHasScrollPast);
+
     return (
         <>
-            <Container style={{ marginTop: '100px' }}>
+            <Container style={{ marginTop: '100px' }} ref={ComponentRef}>
                 <CommonDividersV2 />
                 <Row>
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((element, index) => (

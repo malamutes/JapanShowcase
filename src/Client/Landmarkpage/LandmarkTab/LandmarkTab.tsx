@@ -1,4 +1,5 @@
 //use tabs from react bootstrap and paly around with it
+import CommonDividersV3 from '../../CommonNavigationComponents/CommonDividersV3';
 import './LandmarkTab.css'
 import { Row, Col, Container, Tab, Tabs, Image } from "react-bootstrap"
 
@@ -7,6 +8,7 @@ export default function LandmarkTab() {
     return (
         <>
             <Container style={{ marginTop: '100px' }}>
+                <CommonDividersV3 />
                 <Tabs
                     defaultActiveKey={loremTable[0]}
                     id="uncontrolled-tab-example"

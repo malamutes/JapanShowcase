@@ -6,7 +6,7 @@ export default function CommonDividersV2() {
         <>
             <Col style={{
                 width: '100%', margin: '150px auto 50px auto', position: 'relative',
-                maxWidth: '1400px'
+                maxWidth: '1400px',
             }}>
                 <Row style={{
                     display: 'flex', justifyContent: 'center', alignItems: 'center'

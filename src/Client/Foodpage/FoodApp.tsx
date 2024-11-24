@@ -8,12 +8,14 @@ import FoodNavigation from "./FoodNavigation/FoodNavigation";
 import CommonNavCompTop from "../CommonNavigationComponents/CommonNavComp";
 import ReferenceBar from "../Mainpage/ReferenceBar/ReferenceBar";
 
+
 export default function FoodApp() {
     const { CurrentFood } = useParams();
 
     return (
         <>
             <div className="FoodAppRoot">
+
                 <FoodContext.Provider value={CurrentFood!}>
                     <CommonNavCompTop />
                     <MainImageFood />
@@ -23,6 +25,8 @@ export default function FoodApp() {
                     <FoodNavigation />
                     <ReferenceBar />
                 </FoodContext.Provider>
+
+
             </div>
         </>
     )

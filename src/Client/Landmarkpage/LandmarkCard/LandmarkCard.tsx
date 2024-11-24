@@ -1,3 +1,4 @@
+import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3"
 import InfoCard from "../../Prefecturepage/InfoSection/InfoCard"
 import { Container, Row, Col } from "react-bootstrap"
 
@@ -5,6 +6,7 @@ export default function LandmarkCard() {
     return (
         <>
             <Container style={{ marginTop: '100px' }}>
+                <CommonDividersV3 />
                 <Row>
                     {['red', 'orange', 'blue'].map((item, index) => (
                         <Col lg={4}

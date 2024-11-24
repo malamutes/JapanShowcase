@@ -21,6 +21,8 @@
     background-color: rgba(255, 255, 255, 0.75);
     height: 800px;
     padding: 0;
+    border: none;
+    border-radius: 0;
 }
 
 .LandmarkRowContainer .ImageContainer {

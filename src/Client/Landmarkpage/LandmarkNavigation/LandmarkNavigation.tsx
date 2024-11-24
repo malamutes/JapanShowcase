@@ -1,5 +1,6 @@
 import { Container, Row, Col, Image } from "react-bootstrap"
 import './LandmarkNavigation.css'
+import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 
 export default function LandmarkNavigation() {
     const colors = ['green', 'red', 'blue', 'cyan', "purple"];
@@ -11,6 +12,7 @@ export default function LandmarkNavigation() {
                 , placeItems: 'center', position: 'relative', overflow: 'hidden',
                 paddingBottom: '50px'
             }}>
+                <CommonDividersV3 />
                 <Row>
                     <Col xs={{ span: 12, order: 2 }} lg={{ span: 6, order: 2 }}
                         style={{ display: 'flex', justifyContent: 'end', alignItems: 'center' }} >
