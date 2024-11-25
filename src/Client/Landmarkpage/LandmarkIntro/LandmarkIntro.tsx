@@ -3,7 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 export default function LandmarkIntro() {
     return (
         <>
-            <Container>
+            <Container style={{ position: 'relative', top: '100px', marginBottom: '200px' }}>
                 <Row>
                     <Col style={{ display: 'flex', justifyContent: 'center' }}>
                         <Image src="https://placehold.co/600x600" fluid style={{ minWidth: '600px' }} />

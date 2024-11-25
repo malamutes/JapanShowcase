@@ -21,7 +21,6 @@ export default function PrefectureApp() {
                 <PrefectureContext.Provider value={CurrentPrefecture!}>
                     <CommonNavCompTop />
                     <MainImage />
-                    <InfoSection />
                     <TwoTextSection />
                     <ImageSection />
                     <HorizontalCardSection />

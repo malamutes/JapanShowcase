@@ -6,7 +6,7 @@ export default function CommonDividers() {
     const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
     return (
         <>
-            <Col style={{ maxWidth: '60%', margin: '50px auto' }}>
+            <Col style={{ maxWidth: '60%', margin: '50px auto', padding: '75px 0 50px 0' }}>
                 <Row style={{ maxWidth: '87.5%', margin: 'auto' }}>
                     <Col style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',

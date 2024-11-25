@@ -7,20 +7,33 @@ import { Offcanvas } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { screenWidthBreakpointsContext } from '../../main';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 export default function CommonNavCompTop() {
     const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
 
     const [show, setShow] = useState(false);
+    const [top, setTop] = useState(true);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    useEffect(() => {
+        const checkNoScroll = () => {
+            if (window.scrollY === 0) {
+                setTop(true);
+            }
+            else {
+                setTop(false);
+            }
+        }
+        window.addEventListener('scroll', checkNoScroll);
+    })
+
 
     return (
         <>
-            <Container fluid style={{ position: 'fixed', padding: '0', zIndex: '3' }}>
+            <Container fluid style={{ position: 'fixed', padding: '0', zIndex: '10', opacity: top ? 0.1 : 1 }}>
                 <Navbar expand="lg" className="bg-body-tertiary">
                     <Container style={{ minHeight: '50px' }}>
                         <Navbar.Brand href="#">Japan Showcase</Navbar.Brand>

@@ -18,20 +18,21 @@ export default function InfoSection() {
 
     return (
         <>
-            <Container >
-                <CommonDividers />
-                <Container style={{ boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)", padding: '25px' }}>
-                    <Row >
-                        {[1, 2, 3, 4].map((element, index) => (
-                            <Col key={index} sm={6} xl={3}>
-                                <InfoCard title={infoCardProps.title} subtitle={infoCardProps.subtitle} text={infoCardProps.text}
-                                    margin={infoCardProps.margin} image={infoCardProps.image}
-                                    style={infoCardProps.style} />
-                            </Col>
-                        ))}
-                    </Row>
+            <Container style={{ marginTop: '-50px' }}>
+                <Container style={{ top: '37.5px', position: 'relative', marginBottom: '100px' }}>
+                    <CommonDividers />
+                    <Container style={{ boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)", padding: '25px' }}>
+                        <Row >
+                            {[1, 2, 3, 4].map((element, index) => (
+                                <Col key={index} sm={6} xl={3}>
+                                    <InfoCard title={infoCardProps.title} subtitle={infoCardProps.subtitle} text={infoCardProps.text}
+                                        margin={infoCardProps.margin} image={infoCardProps.image}
+                                        style={infoCardProps.style} />
+                                </Col>
+                            ))}
+                        </Row>
+                    </Container>
                 </Container>
-
             </Container>
 
         </>
