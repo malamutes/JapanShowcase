@@ -1,6 +1,7 @@
 .DescStyle {
     line-height: 2;
     max-width: 75%;
+    overflow-y: hidden;
 }
 
 .UpperCard {
@@ -28,6 +29,40 @@
     display: flex;
     flex-direction: column;
     padding: 0;
+}
+
+.DescStyle .HRTwoText {
+    border: 1px solid black;
+    opacity: 1;
+    margin: 0;
+    transition-property: opacity, transform;
+    transition-duration: 2s, 2s;
+    opacity: 0.1;
+    transform: scale(0.1);
+}
+
+.DescStyle .HRTwoTextShow {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.DescStyle .TwoTextDesc {
+    transition-property: opacity, transform;
+    transition-duration: 2s, 2s;
+    opacity: 0.1;
+    transform: translateY(var(--translation-prop));
+}
+
+.DescStyle .TwoTextDescShow {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.TwoTextImageStyle {
+    max-width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+    padding: 10px;
 }
 
 @media(max-width: 992px) {

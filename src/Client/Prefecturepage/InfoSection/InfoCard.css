@@ -1,0 +1,12 @@
+.InfoCardDefault {
+    transition-property: opacity, transform;
+    transition-duration: var(--transition-duration), var(--transition-duration);
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    opacity: 0;
+    transform: translateY(125%);
+}
+
+.InfoCardDefaultShow {
+    opacity: 1;
+    transform: translateY(0%);
+}

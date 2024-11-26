@@ -1,12 +1,21 @@
 import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 import HorizontalCard from "./HorizontalCard";
-import { Container, Col, Row, Card, Image } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
+import { useState, useRef } from "react";
+
 
 export default function HorizontalCardSection() {
+
+    const [scrollPast, setScrollPast] = useState(false);
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+
     return (
         <>
-            <Container >
-                <CommonDividers />
+            <Container ref={ComponentRef}>
+                <CommonDividers onScroll={checkHasScrollPast} />
                 <Col>
                     {[true, false].map(() => (
                         <Row style={{ margin: '50px 0' }}>

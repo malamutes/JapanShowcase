@@ -1,15 +1,22 @@
 import { Container, Row, Col } from "react-bootstrap";
 import InfoCard from "../InfoSection/InfoCard";
-import { InfoCardProps } from "../InfoSection/InfoCard";
 import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
+import { useState, useRef } from "react";
 
 export default function NavigationPrefecture() {
+
+    const [scrollPast, setScrollPast] = useState(false);
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+
     return (
         <>
-            <Container >
+            <Container ref={ComponentRef}>
                 <Col style={{ maxWidth: '1200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Row>
-                        <CommonDividers />
+                        <CommonDividers onScroll={checkHasScrollPast} />
                     </Row>
 
                     <Row style={{ maxWidth: '90%' }}>

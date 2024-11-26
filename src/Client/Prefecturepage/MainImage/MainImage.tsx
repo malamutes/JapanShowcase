@@ -3,6 +3,8 @@ import { PrefectureContext } from "../PrefectureAppContext";
 import { Image } from "react-bootstrap";
 import { clamp } from "../../../main";
 import InfoSection from "../InfoSection/InfoSection";
+import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
+import { Container } from "react-bootstrap";
 
 export default function MainImage() {
     const CP = useContext(PrefectureContext)
@@ -68,7 +70,6 @@ export default function MainImage() {
         window.scrollTo(0, 0);
     }
 
-
     return (
         <>
             <div>
@@ -104,13 +105,18 @@ export default function MainImage() {
                             Dolor Sit Amet
                         </p>
                         <span style={{ fontSize: '20px' }}>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis."
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vivamus luctus urna sed urna ultricies ac tempor dui sagittis."
                         </span>
                     </div>
                 </div>
             </div>
-
-            <InfoSection />
+            <Container style={{ marginTop: '-50px' }}>
+                <Container style={{ top: '200px', position: 'relative', marginBottom: '200px' }}>
+                    <CommonDividers onScroll={!isDisplay} />
+                </Container>
+            </Container>
+            <InfoSection onScroll={!isDisplay} />
         </>
     );
 }

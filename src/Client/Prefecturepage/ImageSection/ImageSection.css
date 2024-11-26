@@ -3,6 +3,32 @@
     margin: auto
 }
 
+.ImageSectionCardStyle {
+    position: absolute;
+    left: 0;
+    bottom: 0%;
+    width: 100%;
+    border-radius: 0 0 50px 50px;
+    pointer-events: none;
+    transition: opacity 1s, transform 1s;
+    opacity: 0.1;
+    transform: translateY(100%);
+}
+
+.ImageSectionCardStyleShow {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.ImageSectionImageStyle {
+    transition: filter 0.5s;
+}
+
+.ImageSectionImageStyleShow {
+
+    filter: blur(50px);
+}
+
 @media(max-width: 576px) {
     .DescStyle {
         max-width: 100%;

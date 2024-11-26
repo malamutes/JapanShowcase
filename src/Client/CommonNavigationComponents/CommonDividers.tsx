@@ -2,36 +2,41 @@ import { Row, Col } from "react-bootstrap"
 import { screenWidthBreakpointsContext } from "../../main"
 import { useContext } from "react"
 
-export default function CommonDividers() {
+interface CommonDividersProps {
+    onScroll: boolean
+}
+
+export default function CommonDividers(props: CommonDividersProps) {
     const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
     return (
         <>
-            <Col style={{ maxWidth: '60%', margin: '50px auto', padding: '75px 0 50px 0' }}>
-                <Row style={{ maxWidth: '87.5%', margin: 'auto' }}>
+            <Col style={{ maxWidth: '60%', margin: '50px auto', padding: '75px 0 50px 0', }}>
+                <Row style={{ maxWidth: '87.5%', margin: 'auto', }}>
                     <Col style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',
                         minWidth: `${screenWidthBreakpoints['more992px'] ? "auto" : "100%"}`
                     }}>
-                        <hr style={{ border: '1.25px solid black', opacity: '1', width: '100%' }} />
+                        <hr className={`DividerOneHR ${props.onScroll ? "DividerOneHRShow" : ""}`}
+                            style={{ transformOrigin: 'center right' }} />
                     </Col>
 
                     <Col style={{
-                        whiteSpace: `${screenWidthBreakpoints['more992px'] ? "nowrap" : "normal"}`, maxWidth: 'fit-content',
-                        margin: 'auto', textAlign: 'center',
+                        margin: 'auto', textAlign: 'center', overflowY: 'hidden'
                     }}>
-                        <span style={{ fontSize: '25px', fontWeight: '500' }}>Dolor Sit Amet Consectetur</span>
+                        <span className={`DividerOneTitle ${props.onScroll ? "DividerOneTitleShow" : ""}`}>Dolor Sit Amet</span>
                     </Col>
 
                     <Col style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',
                         minWidth: `${screenWidthBreakpoints['more992px'] ? "auto" : "100%"}`
                     }}>
-                        <hr style={{ border: '1.25px solid black', opacity: '1', width: '100%', }} />
+                        <hr className={`DividerOneHR ${props.onScroll ? "DividerOneHRShow" : ""}`}
+                            style={{ transformOrigin: 'center left' }} />
                     </Col>
                 </Row>
 
-                <Row >
-                    <span style={{ textAlign: 'center', maxWidth: '90%', margin: 'auto', fontStyle: "italic" }}>
+                <Row style={{ overflowY: 'hidden' }}>
+                    <span className={`DividerOneText ${props.onScroll ? "DividerOneTextShow" : ""}`}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
                         luctus eros aliquet odio gravida, vel facilisis elit suscipit.
                         Mauris non nisi id est vulputate vestibulum ut id justo.

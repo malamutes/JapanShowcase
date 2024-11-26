@@ -4,6 +4,7 @@ interface ObserverIntersectionUseEffectProps {
     scrollPast: boolean;
     setScrollPast: React.Dispatch<React.SetStateAction<boolean>>;
     compRef: React.RefObject<HTMLDivElement>;
+    threshold: number
 }
 
 export default function ObserverIntersectionUseEffect(props: ObserverIntersectionUseEffectProps) {
@@ -19,7 +20,7 @@ export default function ObserverIntersectionUseEffect(props: ObserverIntersectio
             });
         }
             ,
-            { threshold: 0.1 }
+            { threshold: props.threshold }
         )
 
         if (compRef.current && scrollPast === false) {

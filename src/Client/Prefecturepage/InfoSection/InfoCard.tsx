@@ -1,4 +1,6 @@
 import { Card, Row, Col, Image } from "react-bootstrap"
+import './InfoCard.css'
+import React from "react"
 
 export interface InfoCardProps {
     title: string,
@@ -6,13 +8,19 @@ export interface InfoCardProps {
     subtitle: string,
     margin: string,
     image: string,
-    style: React.CSSProperties
+    style: React.CSSProperties,
+    onScroll: boolean,
+    timing: string
 }
 
 export default function InfoCard(props: InfoCardProps) {
     return (
         <>
-            <Col style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", margin: props.margin, aspectRatio: 'auto' }}>
+            <Col style={{
+                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", margin: props.margin, aspectRatio: 'auto',
+                '--transition-duration': props.timing,
+            } as React.CSSProperties}
+                className={`InfoCardDefault ${props.onScroll ? 'InfoCardDefaultShow' : ""}`}>
                 <Row style={{ display: 'grid', placeItems: 'center', margin: '0', padding: '0' }}>
                     <Image src={props.image} style={{ padding: '0', ...props.style }} />
                 </Row>

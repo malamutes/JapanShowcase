@@ -23,12 +23,57 @@
     justify-content: center;
 }
 
+.DividerOneTitle {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 500;
+    transition-property: opacity, transform;
+    transition-duration: 1s, 1s;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.DividerOneTitleShow {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.DividerOneHR {
+    border: 1.25px solid black;
+    opacity: 1;
+    width: 100%;
+    transition-property: opacity, transform;
+    transition-duration: 1s, 1s;
+    opacity: 0;
+    transform: scale(0.1);
+}
+
+.DividerOneHRShow {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.DividerOneText {
+    text-align: center;
+    max-width: 90%;
+    margin: auto;
+    font-style: italic;
+    transition-property: opacity, transform;
+    transition-duration: 1s, 1s;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.DividerOneTextShow {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
 @media(max-width: 768px) {
     .DiamondContainerRow {
         max-width: 100%;
     }
 }
-
 
 @media(max-width: 992px) {
     .DividerV2HR {
