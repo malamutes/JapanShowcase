@@ -10,7 +10,10 @@ export default function HorizontalCardSection() {
     const [scrollPast, setScrollPast] = useState(false);
     const ComponentRef = useRef<HTMLDivElement>(null);
 
-    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef,
+        threshold: 0.2
+    });
 
     return (
         <>

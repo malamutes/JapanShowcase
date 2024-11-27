@@ -77,7 +77,7 @@ export default function MainImage() {
                     alt="DownArrow"
                     style={{
                         position: 'fixed',
-                        zIndex: 10,
+                        zIndex: 1,
                         bottom: '50px',
                         right: '50px',
                         width: '55px',
@@ -94,7 +94,7 @@ export default function MainImage() {
                 </Image>
                 <div style={{
                     width: '100vw', height: '100vh', position: 'absolute', transform: `translateY(-${scrollAmount}%)`, zIndex: 5,
-                    backgroundColor: 'red', backgroundImage: 'url(https://placehold.co/1920x968)',
+                    backgroundImage: 'url(https://placehold.co/1920x968)',
                     backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
                 }}>
                     <div style={{
