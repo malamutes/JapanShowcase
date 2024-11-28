@@ -1,0 +1,39 @@
+.ComplimentaryFoodCardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 750px;
+    max-width: fit-content;
+}
+
+.SideContainer {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15)
+}
+
+.FrontSide {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.BackSide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: rotateY(180deg);
+    padding: 0 10px;
+}
+
+.ComplimentaryFoodCardContainer:hover .SideContainer {
+    transform: rotateY(180deg);
+}

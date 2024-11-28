@@ -1,9 +1,21 @@
 import { Col, Row, Image } from "react-bootstrap"
+import './FoodImageCard.css'
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect"
+import { useRef, useState } from "react"
 
 export default function FoodImageCard() {
+    const [scrollPast, setScrollPast] = useState(false);
+
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.1
+    })
+
     return (
         <>
-            <Row style={{ justifyContent: 'center', margin: '0 auto' }}>
+            <Row className={`FoodImageCardDefault ${checkScrollPast ? "FoodImageCardShow" : ""}`} ref={ComponentRef}>
                 <Col lg={4} style={{
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'end', padding: '0'

@@ -31,16 +31,14 @@ export default function FoodImageSection() {
 
     return (
         <>
-            <Container style={{ padding: '0' }} ref={ComponentRef}>
+            <Container style={{ padding: '0', overflow: 'hidden' }} ref={ComponentRef}>
                 <CommonDividersV2 />
                 <Row style={{ margin: '0' }} >
                     {[1, 2, 3, 4, 5, 6].map((element, index) => (
                         <Col key={index} style={{ margin: '25px 0px', }} md={6} lg={12}>
                             <FoodImageCard />
                         </Col>
-
                     ))}
-
                 </Row>
             </Container>
 

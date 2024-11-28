@@ -1,0 +1,14 @@
+.FoodImageCardDefault {
+    transition-property: opacity, transform;
+    transition-duration: 1s, 1s;
+    opacity: 0;
+    justify-content: center;
+    margin: 0 auto;
+    transform: translateY(50%);
+}
+
+.FoodImageCardShow {
+    opacity: 1;
+    transform: translateY(0%);
+
+}
