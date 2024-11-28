@@ -69,6 +69,7 @@
     transform: translateY(0%);
 }
 
+
 @media(max-width: 768px) {
     .DiamondContainerRow {
         max-width: 100%;

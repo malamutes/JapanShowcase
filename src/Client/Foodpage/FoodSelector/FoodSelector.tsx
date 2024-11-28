@@ -15,14 +15,17 @@ export default function FoodSelector() {
     const [scrollPast, setScrollPast] = useState(false);
     const ComponentRef = useRef<HTMLDivElement>(null);
 
-    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.1
+    });
 
     console.log(checkHasScrollPast);
 
     return (
         <>
             <Container style={{ maxWidth: '1800px', backgroundColor: 'red' }} ref={ComponentRef} >
-                <CommonDividersV2 />
+                <CommonDividersV2 onScroll={checkHasScrollPast} />
                 <Container style={{
                     height: 'fit-content',
                     maxWidth: '1800px', display: 'flex', justifyContent: 'center', paddingTop: '25px'

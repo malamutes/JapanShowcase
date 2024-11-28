@@ -51,7 +51,7 @@ export default function FoodNavigation() {
     return (
         <>
             <Container style={{ marginTop: '50px', overflow: 'hidden' }} ref={ComponentRef}>
-                <CommonDividersV2 />
+                <CommonDividersV2 onScroll={checkScrollPast} />
                 <div style={{
                     overflowX: 'hidden', transition: 'transform 1.25s ease',
                     transform: `translateX(-${checkScrollPast ? 0 : 100}%)`

@@ -30,35 +30,58 @@ export default function MainImage() {
                                 display: 'flex',
                                 flexDirection: 'column', justifyContent: 'center',
                                 alignItems: `${screenWidthBreakpoints['more992px'] ? "start" : "center    "}`,
-                                textAlign: `${screenWidthBreakpoints['more992px'] ? "start" : "center"}`
+                                textAlign: `${screenWidthBreakpoints['more992px'] ? "start" : "center"}`,
                             }}>
-                                <Card.Title style={{
-                                    fontSize: `${screenWidthBreakpoints['more992px'] ? 25 : 17.5}px`, fontWeight: '500',
+                                <div style={{
+                                    padding: '25px',
+                                    background: 'rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '16px',
+                                    boxShadow: '0 0px 30px rgba(0, 0, 0, 0.25)',
+                                    backdropFilter: 'blur(5px)',
+                                    WebkitBackdropFilter: 'blur(5px)',
+                                    border: '1px solid rgba(255, 255, 255, 0.5)',
+                                }}>
+                                    <Card.Title style={{
+                                        fontSize: `${screenWidthBreakpoints['more992px'] ? 25 : 17.5}px`, fontWeight: '500',
 
-                                }}>
-                                    Exploratio nova, occasio infinita</Card.Title>
-                                <Card.Text style={{ maxWidth: '70%' }}>
-                                    <span style={{
-                                        fontSize: `${screenWidthBreakpoints['more992px'] ? 35 : 20}px`, fontWeight: '700',
                                     }}>
-                                        Innovatio et creatio, viam ad futurum</span>
-                                </Card.Text>
-                                <Card.Text style={{
-                                    maxWidth: `${screenWidthBreakpoints['more992px'] ? 80 : 100}%`,
-                                }}>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Sed do eiusmod tempor incididunt ut
-                                    labore et dolore magna aliqua.</Card.Text>
+                                        Exploratio nova, occasio infinita</Card.Title>
+                                    <Card.Text style={{ maxWidth: '70%' }}>
+                                        <span style={{
+                                            fontSize: `${screenWidthBreakpoints['more992px'] ? 35 : 20}px`, fontWeight: '700',
+                                        }}>
+                                            Innovatio et creatio, viam ad futurum</span>
+                                    </Card.Text>
+                                    <Card.Text style={{
+                                        maxWidth: `${screenWidthBreakpoints['more992px'] ? 80 : 100}%`,
+                                    }}>
+                                        Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit.
+                                        Sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua.</Card.Text>
+                                </div>
+
                             </Col>
 
                             <Col lg={6} style={{
                                 textAlign: 'end',
                                 display: 'flex', justifyContent: 'center'
                             }}>
-                                <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
-                                    style={{ maxWidth: `${screenWidthBreakpoints['more992px'] ? 100 : 55}%`, }}
-                                />
+                                <div style={{
+                                    background: 'rgba(255, 255, 255, 0.25)',
+                                    backdropFilter: 'blur(5px)',
+                                    WebkitBackdropFilter: 'blur(5px)',
+                                    borderRadius: '50%'
+                                }}>
+                                    <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
+                                        style={{
+
+                                            maxWidth: `${screenWidthBreakpoints['more992px'] ? 100 : 55}%`,
+                                            opacity: 0.75,
+                                        }}
+                                    />
+                                </div>
+
                             </Col>
                         </Row>
                     </Col>

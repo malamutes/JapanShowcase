@@ -5,6 +5,14 @@
     align-items: center;
     perspective: 750px;
     max-width: fit-content;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity: 0;
+    transform: translateY(25%);
+}
+
+.ComplimentaryFoodCardContainerShow {
+    opacity: 1;
+    transform: translateY(0%);
 }
 
 .SideContainer {

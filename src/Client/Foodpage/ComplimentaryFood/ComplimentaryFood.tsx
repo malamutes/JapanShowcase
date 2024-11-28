@@ -2,18 +2,30 @@ import { Row, Col, Container, Image } from "react-bootstrap"
 import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2"
 import { useState, useRef } from "react"
 import './ComplimentaryFood.css'
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect"
 
 interface ComplimentaryFoodCardProps {
     image: string,
     style?: React.CSSProperties,
-    title: string
-
+    title: string,
 }
 
 export function ComplimentaryFoodCard(props: ComplimentaryFoodCardProps) {
+
+    const [scrollPastCol, setScrollPastCol] = useState(false);
+
+    const ComponentColRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPastCol = ObserverIntersectionUseEffect({
+        scrollPast: scrollPastCol, setScrollPast: setScrollPastCol,
+        compRef: ComponentColRef, threshold: 0.1
+    });
+
     return (
         <>
-            <Col className="ComplimentaryFoodCardContainer">
+            <Col className={`ComplimentaryFoodCardContainer 
+                ${checkHasScrollPastCol ? "ComplimentaryFoodCardContainerShow" : ""}`}
+                ref={ComponentColRef}>
                 <div className="SideContainer">
                     <div className="BackSide">
                         <p>TITLE</p>
@@ -50,19 +62,24 @@ export function ComplimentaryFoodCard(props: ComplimentaryFoodCardProps) {
 
 export default function ComplimentaryFood() {
     const [scrollPast, setScrollPast] = useState(false);
+
     const ComponentRef = useRef<HTMLDivElement>(null);
 
-    //const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.25
+    });
+
 
     return (
         <>
             <Container style={{ marginTop: '100px' }} ref={ComponentRef}>
-                <CommonDividersV2 />
+                <CommonDividersV2 onScroll={checkHasScrollPast} />
                 <Row >
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((element, index) => (
                         <Col style={{
-                            display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px'
-                        }} sm={6} md={4} lg={3}>
+                            display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px',
+                        }} sm={6} md={4} lg={3} >
                             <ComplimentaryFoodCard image="https://placehold.co/300x300" title="adsadasd" />
                         </Col>
                     ))}
