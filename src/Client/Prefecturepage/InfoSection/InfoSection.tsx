@@ -22,7 +22,8 @@ export default function InfoSection(props: InfoSectionProps) {
                                         image="https://placehold.co/150x150"
                                         style={{ clipPath: "circle(40%)", maxWidth: '150px' }}
                                         onScroll={props.onScroll}
-                                        timing={timing} />
+                                        timing={timing}
+                                        transitionTimingFunc="cubic-bezier(0.42, 0, 0.58, 1)" />
                                 </Col>
                             ))}
                         </Row>

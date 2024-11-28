@@ -9,7 +9,10 @@ export default function NavigationPrefecture() {
     const [scrollPast, setScrollPast] = useState(false);
     const ComponentRef = useRef<HTMLDivElement>(null);
 
-    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef });
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.2
+    });
 
     return (
         <>
@@ -20,10 +23,11 @@ export default function NavigationPrefecture() {
                     </Row>
 
                     <Row style={{ maxWidth: '90%' }}>
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map((element, index) => (
+                        {["0.75s", "0.9s", "1.05s", "1.2s", "1.35s", "1.5s", "1.65s", "1.8s"].map((timing, index) => (
                             <Col key={index} xs={6} sm={4} md={3}>
-                                <InfoCard title={element.toString()} subtitle="" text="" margin="25px 25px" image={`https://placehold.co/150x150`}
-                                    style={{ clipPath: "circle(40%)", maxWidth: '150px' }} />
+                                <InfoCard title={timing} subtitle="" text="" margin="25px 25px" image={`https://placehold.co/150x150`}
+                                    style={{ clipPath: "circle(40%)", maxWidth: '150px' }} onScroll={checkHasScrollPast}
+                                    timing={timing} transitionTimingFunc="cubic-bezier(0.25, 2, 0.5, 1)" />
                             </Col>
                         ))}
                     </Row>

@@ -24,14 +24,6 @@ export default function HorizontalCard() {
         const enlarge = (e: WheelEvent | MouseEvent) => {
             if (enlargeSubImage1 || enlargeSubImage2) {
                 e.preventDefault();
-                if (e instanceof WheelEvent) {
-                    setEnlargeSubImage1(false);
-                    setEnlargeSubImage2(false);
-                }
-            }
-
-            if (show && e instanceof WheelEvent) {
-                setShow(false);
             }
         };
 
@@ -52,9 +44,8 @@ export default function HorizontalCard() {
                 (
                     <>
 
-                        <div className={`HorizontalCardOverlay ${enlargeSubImage1 || enlargeSubImage2 ? "HorizontalCardOverlayDark" : ""}`}>
-
-                        </div>
+                        <div className={`HorizontalCardOverlay ${enlargeSubImage1 || enlargeSubImage2 ? "HorizontalCardOverlayDark" : ""}`}
+                            onClick={() => { setEnlargeSubImage1(false); setEnlargeSubImage2(false) }}> </div>
                         <Col style={{ display: 'flex', justifyContent: 'center' }}
                         >
                             <Row >
@@ -67,11 +58,11 @@ export default function HorizontalCard() {
                                                 <Row className={`HorizontalCardTextRow ${showLargeImage ? "HorizontalCardTextRowHide" : ""}`}>
                                                     <Card.Title><p>Card title</p></Card.Title>
                                                     <Card.Text>
-                                                        <p style={{ fontSize: '15px' }}>
+                                                        <span style={{ fontSize: '15px' }}>
                                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                                             Cras suscipit elit vel sapien luctus, at fermentum justo hendrerit.
                                                             Sed ac sem facilisis, sollicitudin nunc ut, laoreet eros.
-                                                        </p>
+                                                        </span>
 
                                                     </Card.Text>
                                                     <blockquote className="blockquote mb-0">
@@ -126,7 +117,6 @@ export default function HorizontalCard() {
                                                             Sed pretium, nisi vitae facilisis luctus, odio justo cursus lectus, nec elementum risus libero id risus.
                                                             Cras feugiat, sapien non fermentum fringilla, felis eros sollicitudin tortor, id lacinia nisi nunc ac orci.
                                                             Morbi ut dui nec ante malesuada viverra a et odio.
-
                                                         </span>) : null}
                                                     </div>
                                                 </Row>
@@ -140,76 +130,100 @@ export default function HorizontalCard() {
                     </>
                 ) :
                 (
-                    <Col >
-                        <Row>
-                            <Image
-                                src="https://placehold.co/1400x500"
-                                alt="Card image"
-                                style={{ borderRadius: '25px', maxWidth: '100%', height: 'auto' }}
-                            />
-                        </Row>
+                    <>
+                        <div className={`HorizontalCardOverlay ${enlargeSubImage1 || enlargeSubImage2 ? "HorizontalCardOverlayDark" : ""}`}
+                            onClick={() => { setEnlargeSubImage1(false); setEnlargeSubImage2(false) }}> </div>
+                        <Col >
+                            <Row>
+                                <Image
+                                    src="https://placehold.co/1400x500"
+                                    alt="Card image"
+                                    style={{ borderRadius: '25px', maxWidth: '100%', height: 'auto' }}
+                                />
+                            </Row>
 
-                        <Row style={{ marginTop: '25px' }}>
-                            <Col xs={6} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                                <p>Card title</p>
-                                <p style={{ fontSize: '15px' }}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Cras suscipit elit vel sapien luctus, at fermentum justo hendrerit.
-                                    Sed ac sem facilisis, sollicitudin nunc ut, laoreet eros.
-                                </p>
-
-
-
-                            </Col>
-
-                            <Col xs={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Row >
-                                    <Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <Image src="https://placehold.co/225x300/black/white"
-                                            style={{
-                                                borderRadius: '25px', maxWidth: '100px', height: 'auto', paddingLeft: '0',
-                                                paddingTop: '2.5px', paddingBottom: '2.5px', cursor: 'pointer'
-
-                                            }} onClick={handleShow} />
-                                    </Col>
-
-                                    <Col style={{ display: 'flex', justifyContent: 'center' }}>
-                                        <Image src="https://placehold.co/225x300/black/white"
-                                            style={{
-                                                borderRadius: '25px', maxWidth: '100px', height: 'auto', paddingLeft: '0',
-                                                paddingTop: '2.5px', paddingBottom: '2.5px', cursor: 'pointer'
-                                            }} onClick={handleShow} />
-                                    </Col>
-                                </Row>
-
-                            </Col>
-
-                            <Offcanvas show={show} onHide={handleClose} placement="bottom" scroll={true}>
-                                <Offcanvas.Header closeButton>
-                                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-                                </Offcanvas.Header>
-                                <Offcanvas.Body>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Cras suscipit elit vel sapien luctus, at fermentum justo hendrerit.
-                                    Sed ac sem facilisis, sollicitudin nunc ut, laoreet eros.
-                                </Offcanvas.Body>
-                            </Offcanvas>
-
-                        </Row >
-                        <Row style={{ marginTop: '10px' }}>
-                            <blockquote className="blockquote mb-0">
-                                <p style={{ fontSize: '15px' }}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                                    posuere erat a ante.
-                                </p>
-                                <footer className="blockquote-footer" style={{ fontSize: '15px' }}>
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                </footer>
-                            </blockquote>
-                        </Row>
+                            <Row style={{ marginTop: '25px' }}>
+                                <Col xs={6} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                    <p>Card title</p>
+                                    <p style={{ fontSize: '15px' }}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Cras suscipit elit vel sapien luctus, at fermentum justo hendrerit.
+                                        Sed ac sem facilisis, sollicitudin nunc ut, laoreet eros.
+                                    </p>
 
 
-                    </Col >
+
+                                </Col>
+
+                                <Col xs={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <Row >
+                                        <Row style={{ margin: '0', height: '100%', display: 'flex', justifyContent: 'center' }}
+                                            className={`HorizontalCardImageRow ${showLargeImage ? "HorizontalCardImageRowHide" : ""}`}>
+                                            <div
+                                                className={`HorizontalCardSubImageContainer ${enlargeSubImage1 ? "HorizontalCardSubImageContainerEnlarge" : ""}`}>
+                                                <Image src="https://placehold.co/225x300/black/white"
+                                                    className={`HorizontalCardSubImage ${enlargeSubImage1 ? "HorizontalCardSubImageEnlarge" : ""}`}
+                                                    onClick={() => {
+                                                        setEnlargeSubImage1(enlargeSubImage1 => !enlargeSubImage1);
+                                                    }} />
+                                                {enlargeSubImage1 ? (<span className="HorizontalCardSubImageText">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Quisque tincidunt purus sit amet dui suscipit, et suscipit turpis suscipit.
+                                                    Sed pretium, nisi vitae facilisis luctus, odio justo cursus lectus, nec elementum risus libero id risus.
+                                                    Cras feugiat, sapien non fermentum fringilla, felis eros sollicitudin tortor, id lacinia nisi nunc ac orci.
+                                                    Morbi ut dui nec ante malesuada viverra a et odio.
+
+                                                </span>) : null}
+                                            </div>
+
+                                            <div
+                                                className={`HorizontalCardSubImageContainer ${enlargeSubImage2 ? "HorizontalCardSubImageContainerEnlarge" : ""}`}>
+                                                <Image src="https://placehold.co/225x300/black/white"
+                                                    className={`HorizontalCardSubImage ${enlargeSubImage2 ? "HorizontalCardSubImageEnlarge" : ""}`}
+                                                    onClick={() => {
+                                                        setEnlargeSubImage2(enlargeSubImage2 => !enlargeSubImage2);
+                                                    }} />
+                                                {enlargeSubImage2 ? (<span className="HorizontalCardSubImageText">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Quisque tincidunt purus sit amet dui suscipit, et suscipit turpis suscipit.
+                                                    Sed pretium, nisi vitae facilisis luctus, odio justo cursus lectus, nec elementum risus libero id risus.
+                                                    Cras feugiat, sapien non fermentum fringilla, felis eros sollicitudin tortor, id lacinia nisi nunc ac orci.
+                                                    Morbi ut dui nec ante malesuada viverra a et odio.
+                                                </span>) : null}
+                                            </div>
+                                        </Row>
+                                    </Row>
+
+                                </Col>
+
+                                <Offcanvas show={show} onHide={handleClose} placement="bottom" scroll={true}>
+                                    <Offcanvas.Header closeButton>
+                                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                                    </Offcanvas.Header>
+                                    <Offcanvas.Body>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Cras suscipit elit vel sapien luctus, at fermentum justo hendrerit.
+                                        Sed ac sem facilisis, sollicitudin nunc ut, laoreet eros.
+                                    </Offcanvas.Body>
+                                </Offcanvas>
+
+                            </Row >
+                            <Row style={{ marginTop: '10px' }}>
+                                <blockquote className="blockquote mb-0">
+                                    <p style={{ fontSize: '15px' }}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                                        posuere erat a ante.
+                                    </p>
+                                    <footer className="blockquote-footer" style={{ fontSize: '15px' }}>
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </footer>
+                                </blockquote>
+                            </Row>
+
+
+                        </Col >
+
+                    </>
                 )
             }
         </>

@@ -5,6 +5,7 @@ import { clamp } from "../../../main";
 import InfoSection from "../InfoSection/InfoSection";
 import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 import { Container } from "react-bootstrap";
+import './MainImage.css'
 
 export default function MainImage() {
     const CP = useContext(PrefectureContext)
@@ -72,7 +73,7 @@ export default function MainImage() {
 
     return (
         <>
-            <div>
+            <div style={{ position: 'relative' }}>
                 <Image src="/Images/right_arrow.png"
                     alt="DownArrow"
                     style={{
@@ -93,14 +94,9 @@ export default function MainImage() {
                 >
                 </Image>
                 <div style={{
-                    width: '100vw', height: '100vh', position: 'absolute', transform: `translateY(-${scrollAmount}%)`, zIndex: 5,
-                    backgroundImage: 'url(https://placehold.co/1920x968)',
-                    backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
-                }}>
-                    <div style={{
-                        position: 'absolute', zIndex: 5, margin: 'auto', top: '50%', left: '50%',
-                        transform: 'translate(-50%, -50%)', textAlign: 'center'
-                    }}>
+                    transform: `translateX(-50%) translateY(-${scrollAmount}%)`, zIndex: 5,
+                }} className="PrefectureAppMainImage">
+                    <div className="PrefectureAppMainImageText">
                         <p style={{ fontSize: '35px' }}>
                             Dolor Sit Amet
                         </p>

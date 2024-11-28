@@ -10,7 +10,8 @@ export interface InfoCardProps {
     image: string,
     style: React.CSSProperties,
     onScroll: boolean,
-    timing: string
+    timing: string,
+    transitionTimingFunc: string
 }
 
 export default function InfoCard(props: InfoCardProps) {
@@ -18,7 +19,7 @@ export default function InfoCard(props: InfoCardProps) {
         <>
             <Col style={{
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", margin: props.margin, aspectRatio: 'auto',
-                '--transition-duration': props.timing,
+                '--transition-duration': props.timing, '--transition-timing-func': props.transitionTimingFunc
             } as React.CSSProperties}
                 className={`InfoCardDefault ${props.onScroll ? 'InfoCardDefaultShow' : ""}`}>
                 <Row style={{ display: 'grid', placeItems: 'center', margin: '0', padding: '0' }}>
