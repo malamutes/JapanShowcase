@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { PrefectureContext } from "../PrefectureAppContext";
 import { Image } from "react-bootstrap";
-import { clamp } from "../../../main";
+import clamp from "../../../Clamp";
 import InfoSection from "../InfoSection/InfoSection";
 import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 import { Container } from "react-bootstrap";

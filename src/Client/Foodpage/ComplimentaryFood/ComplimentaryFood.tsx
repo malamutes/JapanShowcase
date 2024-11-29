@@ -79,7 +79,7 @@ export default function ComplimentaryFood() {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((element, index) => (
                         <Col style={{
                             display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px',
-                        }} sm={6} md={4} lg={3} >
+                        }} sm={6} md={4} lg={3} key={element}>
                             <ComplimentaryFoodCard image="https://placehold.co/300x300" title="adsadasd" />
                         </Col>
                     ))}

@@ -29,7 +29,7 @@ export default function Entertainment() {
                                     transition: 'flex 1s', cursor: 'pointer',
                                     flex: `${screenWidthBreakpoints['more768px'] === true ? (currentHover === index ? 1.5 : 1) : ''}`,
                                     marginBottom: `${screenWidthBreakpoints['more768px'] ? "" : "2.5cqw"}`
-                                }}>
+                                }} key={entertainment}>
                                 <EntertainmentCard
                                     color={GE[entertainment].color}
                                     title={GE[entertainment].title}
@@ -49,7 +49,7 @@ export default function Entertainment() {
                                     transition: 'flex 1s', cursor: 'pointer',
                                     flex: `${screenWidthBreakpoints['more768px'] === true ? (currentHover === index + 3 ? 1.5 : 1) : ''}`,
                                     marginBottom: `${screenWidthBreakpoints['more768px'] ? "" : "2.5cqw"}`
-                                }}>
+                                }} key={entertainment}>
                                 <EntertainmentCard
                                     color={GE[entertainment].color}
                                     title={GE[entertainment].title}

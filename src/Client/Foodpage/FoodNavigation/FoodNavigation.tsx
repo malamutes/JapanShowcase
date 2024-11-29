@@ -64,7 +64,7 @@ export default function FoodNavigation() {
                             <Col xs={6} sm={4} md={3} lg={2} style={{
                                 display: 'flex', flexDirection: 'column',
                                 alignItems: 'center'
-                            }}>
+                            }} key={index}>
                                 <div style={{
                                     maxWidth: '150px', // Match your image dimensions
                                     maxHeight: '150px',

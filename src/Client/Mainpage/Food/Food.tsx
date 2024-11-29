@@ -8,7 +8,7 @@ import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
 import { useNavigate } from "react-router-dom";
-import { clamp } from "../../../main";
+import clamp from "../../../Clamp";
 
 export default function Food() {
     const FD = FoodData;

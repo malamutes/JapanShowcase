@@ -19,8 +19,8 @@ export default function FoodImageSection() {
             <Container style={{ padding: '0', overflow: 'hidden' }} ref={ComponentRef}>
                 <CommonDividersV2 onScroll={checkScrollPast} />
                 <Row style={{ margin: '0' }} >
-                    {[1, 2, 3, 4, 5, 6].map((element, index) => (
-                        <Col key={index} style={{ margin: '25px 0px', }} md={6} lg={12}>
+                    {["item1", "item2", "item3", "item4", "item5", "item6",].map((element, index) => (
+                        <Col key={element} style={{ margin: '25px 0px', }} md={6} lg={12}>
                             <FoodImageCard />
                         </Col>
                     ))}

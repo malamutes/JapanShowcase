@@ -29,11 +29,11 @@ export default function FoodImageCard() {
                     justifyContent: 'center', alignItems: 'center'
                 }}>
                     <div style={{ maxWidth: '80%' }}>
-                        <p> <h4>Lorem Ipsum Dolor Sit Amet</h4></p>
+                        <h4>Lorem Ipsum Dolor Sit Amet</h4>
 
                         <p>SPICE, THICKNESS, STRENGTH WITH STARS?</p>
 
-                        <p>   <h5>Sed Ut Perspiciatis Unde Omnis</h5></p>
+                        <h5>Sed Ut Perspiciatis Unde Omnis</h5>
 
                         <h6 style={{ maxWidth: '90%' }}>Lorem ipsum dolor sit amet,
                             consectetur adipiscing elit. Sed do eiusmod tempor incididunt

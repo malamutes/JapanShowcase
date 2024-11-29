@@ -19,8 +19,8 @@ export default function TripleImageSection() {
                         <CommonDividers onScroll={checkHasScrollPast} />
                     </Row>
                     <Row style={{ width: '100%' }}>
-                        {[1, 2, 3].map((index) => (
-                            <Col key={index} xl={4} style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
+                        {["asdsad", "13123", 'hehexd'].map((mapItem) => (
+                            <Col key={mapItem} xl={4} style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
                                 <TripleImageCard />
                             </Col>
                         ))}

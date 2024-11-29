@@ -32,9 +32,7 @@ export default function LandmarkTab() {
                                     {title}
                                 </Col>
                             </Row>
-                        }
-
-                        >
+                        } key={title}>
                             <Row style={{ margin: '0' }}>
                                 <Col xs={{ span: 12, order: 2 }} lg={6}
                                     style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

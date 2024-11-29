@@ -48,7 +48,7 @@ export default function CommonNavCompTop() {
                                     navbarScroll
                                 >
                                     {['Home', 'Attractions', 'Experiences', 'Contact', 'About'].map((item, index) => (
-                                        <NavDropdown title={item} key={index} style={{ flexGrow: '1' }}>
+                                        <NavDropdown title={item} key={item} style={{ flexGrow: '1' }}>
                                             {""}
                                         </NavDropdown>
                                     ))}

@@ -66,7 +66,7 @@ export default function ReferenceBar() {
 
                                 <Row className="SocialIconRow" style={{ maxWidth: '85%' }}>
                                     {["facebook", "twitter", "instagram", "youTube", "linkedIn", "tikTok"].map((social, socialIndex) => (
-                                        <Col key={socialIndex} xs={2}>
+                                        <Col key={social} xs={2}>
                                             <a target="_blank" href={`https://${social}.com`} >
                                                 <FontAwesomeIcon icon={iconMap[social]} className='SocialIcon' />
                                             </a>
@@ -88,10 +88,10 @@ export default function ReferenceBar() {
                             <Col md={4} >
                                 <Row >
                                     {screenWidthBreakpoints['more768px'] ? (Object.keys(RD).map((referenceType, typeIndex) => (
-                                        <Col key={typeIndex} className="ReferenceLinksColStyle" >
+                                        <Col key={referenceType} className="ReferenceLinksColStyle" >
                                             <h6 className="ReferenceTitle" >{referenceType}</h6>
                                             {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
-                                                <Row key={linkIndex} style={{}}>
+                                                <Row key={referenceLinks} style={{}}>
                                                     <a href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}</a>
                                                 </Row>
                                             ))}
@@ -104,7 +104,7 @@ export default function ReferenceBar() {
                                                     <Accordion.Body style={{ backgroundColor: 'black', color: 'whitesmoke' }}>
                                                         <Col>
                                                             {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
-                                                                <Row key={linkIndex}>
+                                                                <Row key={referenceLinks}>
                                                                     <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
                                                                         style={{ fontSize: '15px' }}
                                                                     >{referenceLinks}</a>
@@ -130,7 +130,7 @@ export default function ReferenceBar() {
                             <Col md={3}>
                                 <Row >
                                     {[`Biscuits`, `Publicity`, `Illegal`].map((extra, index) => (
-                                        <Col key={index} style={{ display: 'flex', justifyContent: 'end' }}>
+                                        <Col key={extra} style={{ display: 'flex', justifyContent: 'end' }}>
                                             <span className="DescriptionStyle" style={{
                                                 textDecoration: 'underline', marginTop: `${screenWidthBreakpoints['more768px'] ? "0" : "15px"}`
                                             }}>{extra}</span>

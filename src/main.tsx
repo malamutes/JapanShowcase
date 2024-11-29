@@ -108,7 +108,7 @@ function ContextWrapper() {
     });
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     handleScreenResize(); // Set initial state based on current window size
     window.addEventListener('resize', handleScreenResize);
 
@@ -122,11 +122,6 @@ function ContextWrapper() {
       <RouterProvider router={router} />
     </screenWidthBreakpointsContext.Provider>
   );
-}
-
-
-export function clamp(value: number, min: number, max: number) {
-  return Math.max(min, Math.min(value, max));
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

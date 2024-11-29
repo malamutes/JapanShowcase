@@ -9,7 +9,7 @@ export default function LandmarkCard() {
                 <CommonDividersV3 />
                 <Row>
                     {['red', 'orange', 'blue'].map((item, index) => (
-                        <Col lg={4}
+                        <Col lg={4} key={item}
                             style={{
                                 borderRight: 'solid transparent', borderImage:
                                     `${index < 2

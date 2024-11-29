@@ -8,7 +8,7 @@ import CommonHeader from "../CommonStyles/CommonHeader";
 import checkScrollPosition from "../CommonStyles/ScrollPast";
 import CommonNavButton from "../CommonStyles/CommonNavButton";
 import { useNavigate } from "react-router-dom";
-import { clamp } from "../../../main";
+import clamp from "../../../Clamp";
 import { screenWidthBreakpointsContext } from "../../../main";
 
 

@@ -14,7 +14,7 @@ export default function CommonDividersV3() {
                         <div style={{
                             width: '10px', aspectRatio: '1', backgroundColor: "black",
                             position: 'relative', margin: '10px 10px', padding: '0', transform: 'rotate(45deg)'
-                        }}>
+                        }} key={item}>
                         </div>
                     ))}
                 </Row>

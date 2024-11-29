@@ -20,8 +20,8 @@ export default function HorizontalCardSection() {
             <Container ref={ComponentRef}>
                 <CommonDividers onScroll={checkHasScrollPast} />
                 <Col>
-                    {[true, false].map((item, index) => (
-                        <Row style={{ margin: '50px 0' }} key={index}>
+                    {["true", "false"].map((item, index) => (
+                        <Row style={{ margin: '50px 0' }} key={item}>
                             <HorizontalCard />
                         </Row>
                     ))}
