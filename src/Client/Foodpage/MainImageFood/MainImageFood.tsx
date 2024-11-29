@@ -22,15 +22,15 @@ export default function MainImage() {
                     <Col style={{
                         display: 'flex', flexDirection: 'column', alignItems: 'center',
                         justifyContent: 'center', height: '100%'
-                    }}>
-                        <Row style={{ width: '90%' }}>
-                            <Col xs={0} lg={1}>
-                            </Col>
+                    }} >
+                        <Row style={{ width: '90%', }}>
+
                             <Col lg={5} style={{
                                 display: 'flex',
                                 flexDirection: 'column', justifyContent: 'center',
                                 alignItems: `${screenWidthBreakpoints['more992px'] ? "start" : "center    "}`,
                                 textAlign: `${screenWidthBreakpoints['more992px'] ? "start" : "center"}`,
+                                marginBottom: `${screenWidthBreakpoints['more992px'] ? "0px" : "25px"}`
                             }}>
                                 <div style={{
                                     padding: '25px',
@@ -63,25 +63,16 @@ export default function MainImage() {
 
                             </Col>
 
-                            <Col lg={6} style={{
-                                textAlign: 'end',
-                                display: 'flex', justifyContent: 'center'
+                            <Col lg={7} style={{
+                                textAlign: 'end', display: 'flex', justifyContent: 'center',
                             }}>
-                                <div style={{
-                                    background: 'rgba(255, 255, 255, 0.25)',
-                                    backdropFilter: 'blur(5px)',
-                                    WebkitBackdropFilter: 'blur(5px)',
-                                    borderRadius: '50%'
-                                }}>
-                                    <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
-                                        style={{
 
-                                            maxWidth: `${screenWidthBreakpoints['more992px'] ? 100 : 55}%`,
-                                            opacity: 0.75,
-                                        }}
-                                    />
-                                </div>
-
+                                <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
+                                    style={{
+                                        maxWidth: `${screenWidthBreakpoints['more992px'] ? 100 : 55}%`,
+                                        opacity: 0.75,
+                                    }}
+                                />
                             </Col>
                         </Row>
                     </Col>

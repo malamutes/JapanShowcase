@@ -1,0 +1,51 @@
+.ImageScale:hover {
+    transform: scale(1.2);
+}
+
+.GlassmorphismEffect {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ScrollCardVerticalDefault {
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+    transform: translateY(50%);
+    overflow: hidden;
+}
+
+.ScrollCardVerticalShow {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.FoodSelectorCardDefault {
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+    transform: translateY(50%);
+    overflow: hidden;
+    transition-delay: 0.5s;
+}
+
+.FoodSelectorCardShow {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.InnerFoodDescCardDefault {
+    transition: transform 1s ease, opacity 1s ease;
+    opacity: 0;
+    transform: translateY(50%);
+    overflow: hidden;
+    transition-delay: 1s;
+    /* 2s + 2.5s = 4.5-second delay */
+}
+
+.InnerFoodDescCardShow {
+    opacity: 1;
+    transform: translateY(0%);
+}

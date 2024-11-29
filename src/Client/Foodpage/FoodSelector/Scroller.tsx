@@ -5,13 +5,15 @@ import { Row, Col, Image } from "react-bootstrap"
 import { screenWidthBreakpointsContext } from "../../../main"
 
 interface ScrollerCardProps {
-    switchMode: boolean
+    switchMode: boolean,
+    onScroll: boolean
 }
 
 export function ScrollerCard(props: ScrollerCardProps) {
     return (
         <>
-            <Col style={{ maxWidth: '300px', padding: '0', margin: '0 15px' }}>
+            <Col style={{ maxWidth: '300px', padding: '0', margin: '0 15px' }}
+                className={`ScrollCardVerticalDefault ${props.onScroll ? "ScrollCardVerticalShow" : ""}`}>
                 <Row style={{ margin: '0' }}>
                     <Image src="https://placehold.co/300x200" style={{
                         padding: '0', height: 'auto',
@@ -41,57 +43,22 @@ export function ScrollerCard(props: ScrollerCardProps) {
 interface ScrollerProps {
     height: string,
     identifier: number[],
-    onClick: (currentId: number) => void
-
+    onClick: (currentId: number) => void,
+    onScroll: boolean
 }
 
 export default function Scroller(props: ScrollerProps) {
-    const [distance, setDistance] = useState(0);
-    const [scroll, canScroll] = useState(true);
-
     const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
-
-
-    function clamp(value: number, min: number, max: number) {
-        return Math.max(min, Math.min(value, max));
-    }
-
-    const handleWheel = (event: React.WheelEvent) => {
-        //20 determines rate of scroll, higher number is slower scroll, small is faster
-        setDistance(clamp(distance + event.deltaY / 5, 0, 100 * (7.175 - 1)));
-
-
-    };
-
-    useEffect(() => {
-        function stopScroll(event: WheelEvent) {
-            if (scroll === false) {
-                event.preventDefault()
-            }
-        };
-
-        window.addEventListener("wheel", stopScroll, { passive: false });
-
-        return () => {
-            window.removeEventListener("wheel", stopScroll);
-        };
-
-
-    }, [scroll])
-
-
     return (
         <>
             {screenWidthBreakpoints['more992px'] ? (
-                <Col style={{ maxHeight: props.height, overflow: 'hidden', backgroundColor: 'rgb(100,100,100)' }}>
-                    <div style={{ maxWidth: 'fit-content' }}
-                        onMouseEnter={() => canScroll(false)} onMouseLeave={() => canScroll(true)}
-                        onWheel={(event) => handleWheel(event)}>
+                <Col style={{ maxHeight: props.height, overflow: 'auto', backgroundColor: 'rgb(100,100,100)' }}>
+                    <div style={{ maxWidth: 'fit-content' }}>
                         {props.identifier.map((element, index) => (
-                            <Row key={element} style={{ margin: '25px 0', transform: `translateY(-${distance}%)` }}
+                            <Row key={element} style={{ margin: '25px 0' }}
                                 onClick={() => console.log(element)}>
                                 <div style={{ cursor: 'pointer', padding: '0' }} onClick={() => props.onClick(element)}>
-                                    <ScrollerCard switchMode={false} />
+                                    <ScrollerCard switchMode={false} onScroll={props.onScroll} />
                                 </div>
 
                             </Row>
@@ -103,18 +70,15 @@ export default function Scroller(props: ScrollerProps) {
                 :
                 (
                     <Col style={{
-                        maxHeight: props.height, overflow: 'hidden', backgroundColor: 'rgb(100,100,100)',
+                        maxHeight: props.height, overflow: 'auto', backgroundColor: 'rgb(100,100,100)',
                         maxWidth: '100%'
                     }}>
-                        <div style={{ maxWidth: 'fit-content', display: 'flex' }}
-                            onMouseEnter={() => canScroll(false)} onMouseLeave={() => canScroll(true)}
-                            onWheel={(event) => handleWheel(event)}>
-
+                        <div style={{ maxWidth: 'fit-content', display: 'flex' }}>
                             {props.identifier.map((element, index) => (
-                                <div key={element} style={{ margin: '25px 0', transform: `translateX(-${distance}%)` }}
+                                <div key={element} style={{ margin: '25px 0', }}
                                     onClick={() => console.log(element)}>
                                     <div style={{ cursor: 'pointer', padding: '0' }} onClick={() => props.onClick(element)}>
-                                        <ScrollerCard switchMode={true} />
+                                        <ScrollerCard switchMode={true} onScroll={props.onScroll} />
                                     </div>
 
                                 </div>
