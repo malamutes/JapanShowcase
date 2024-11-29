@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom"
 import { PrefectureContext } from "./PrefectureAppContext";
 import MainImage from "./MainImage/MainImage";
-import InfoSection from "./InfoSection/InfoSection";
 import TwoTextSection from "./TwoTextSection/TwoTextSection";
 import ImageSection from "./ImageSection/ImageSection";
 import HorizontalCardSection from "./HorizontalCard/HorizontalCardSection";

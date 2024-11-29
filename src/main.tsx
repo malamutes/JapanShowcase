@@ -12,7 +12,9 @@ import PrefectureApp from './Client/Prefecturepage/PrefectureApp.tsx';
 import FoodApp from './Client/Foodpage/FoodApp.tsx';
 import LandmarkApp from './Client/Landmarkpage/LandmarkApp.tsx';
 import { useState, createContext } from 'react';
-import { ScrollRestoration } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+
+import { useLocation } from 'react-router-dom';
 
 export const screenWidthBreakpointsContext = createContext<{ [key: string]: boolean }>({
   less576px: false,
@@ -24,6 +26,17 @@ export const screenWidthBreakpointsContext = createContext<{ [key: string]: bool
   more1920px: true
 });
 
+function ScrollToTop() {
+  const location = useLocation();
+
+  // useLayoutEffect runs synchronously before the browser paints
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location]);
+
+  return null;
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +46,7 @@ const router = createBrowserRouter([
     path: "/Prefecture/:CurrentPrefecture",
     element: (
       <>
-        <ScrollRestoration />
+        <ScrollToTop />
         <PrefectureApp />
       </>)
   },
@@ -41,7 +54,7 @@ const router = createBrowserRouter([
     path: "/Food/:CurrentFood",
     element: (
       <>
-        <ScrollRestoration />
+        <ScrollToTop />
         <FoodApp />
       </>)
   },
@@ -49,136 +62,68 @@ const router = createBrowserRouter([
     path: "/Landmark/:CurrentLandmark",
     element: (
       <>
-        <ScrollRestoration />
+        <ScrollToTop />
         <LandmarkApp />
       </>)
   },
 ]);
 
 function ContextWrapper() {
-  const [screenWidthBreakpoints, setScreenWidthBreakpoints] = useState<{ [key: string]: boolean }>(
-    {
-      less576px: false,
-      more576px: false,
-      more768px: false,
-      more992px: false,
-      more1200px: false,
-      more1400px: false,
-      more1920px: false
-    }
-  );
+  const [screenWidthBreakpoints, setScreenWidthBreakpoints] = useState<{ [key: string]: boolean }>({
+    less576px: false,
+    more576px: false,
+    more768px: false,
+    more992px: false,
+    more1200px: false,
+    more1400px: false,
+    more1920px: false
+  });
 
-  useEffect(() => {
-    const handleScreenResize = () => {
-      if (window.innerWidth < 576) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: true,
-            more576px: false,
-            more768px: false,
-            more992px: false,
-            more1200px: false,
-            more1400px: false,
-            more1920px: false
-          }
-        )
-      }
-      else if (window.innerWidth >= 576 && window.innerWidth < 768) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: false,
-            more576px: true,
-            more768px: false,
-            more992px: false,
-            more1200px: false,
-            more1400px: false,
-            more1920px: false
-          }
-        )
-      }
-      else if (window.innerWidth >= 768 && window.innerWidth < 992) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: false,
-            more576px: true,
-            more768px: true,
-            more992px: false,
-            more1200px: false,
-            more1400px: false,
-            more1920px: false
-          }
-        )
-      }
-      else if (window.innerWidth >= 992 && window.innerWidth < 1200) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: false,
-            more576px: true,
-            more768px: true,
-            more992px: true,
-            more1200px: false,
-            more1400px: false,
-            more1920px: false
-          }
-        )
-      }
-      else if (window.innerWidth >= 1200 && window.innerWidth < 1400) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: false,
-            more576px: true,
-            more768px: true,
-            more992px: true,
-            more1200px: true,
-            more1400px: false,
-            more1920px: false
-          }
-        )
-      }
-      else if (window.innerWidth >= 1400 && window.innerWidth < 1920) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: false,
-            more576px: true,
-            more768px: true,
-            more992px: true,
-            more1200px: true,
-            more1400px: true,
-            more1920px: false
-          }
-        )
-      }
-      else if (window.innerWidth >= 1920) {
-        setScreenWidthBreakpoints(
-          {
-            less576px: false,
-            more576px: true,
-            more768px: true,
-            more992px: true,
-            more1200px: true,
-            more1400px: true,
-            more1920px: true
-          }
-        )
-      }
-    }
+  const handleScreenResize = () => {
+    const newScreenWidthBreakpoints = {
+      less576px: window.innerWidth < 576,
+      more576px: window.innerWidth >= 576,
+      more768px: window.innerWidth >= 768,
+      more992px: window.innerWidth >= 992,
+      more1200px: window.innerWidth >= 1200,
+      more1400px: window.innerWidth >= 1400,
+      more1920px: window.innerWidth >= 1920
+    };
 
-    handleScreenResize();
+    // Only update state if the breakpoints have changed
+    setScreenWidthBreakpoints((prevState) => {
+      // Compare current breakpoints with the previous ones to avoid unnecessary updates
+      if (
+        prevState.less576px !== newScreenWidthBreakpoints.less576px ||
+        prevState.more576px !== newScreenWidthBreakpoints.more576px ||
+        prevState.more768px !== newScreenWidthBreakpoints.more768px ||
+        prevState.more992px !== newScreenWidthBreakpoints.more992px ||
+        prevState.more1200px !== newScreenWidthBreakpoints.more1200px ||
+        prevState.more1400px !== newScreenWidthBreakpoints.more1400px ||
+        prevState.more1920px !== newScreenWidthBreakpoints.more1920px
+      ) {
+        return newScreenWidthBreakpoints;
+      }
+      return prevState; // Return the previous state if no change
+    });
+  };
 
-
+  useLayoutEffect(() => {
+    handleScreenResize(); // Set initial state based on current window size
     window.addEventListener('resize', handleScreenResize);
 
     return () => {
       window.removeEventListener('resize', handleScreenResize);
-    }
+    };
   }, []);
 
   return (
     <screenWidthBreakpointsContext.Provider value={screenWidthBreakpoints}>
       <RouterProvider router={router} />
     </screenWidthBreakpointsContext.Provider>
-  )
+  );
 }
+
 
 export function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(value, max));

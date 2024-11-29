@@ -18,7 +18,8 @@ export default function EightSpotsSpace() {
     const navigate = useNavigate();
 
     const handleClick = (path: string) => {
-        navigate(`Prefecture/${path}`)
+        window.scrollTo(0, 0);
+        navigate(`Prefecture/${path}`);
     }
 
     useEffect(() => {
