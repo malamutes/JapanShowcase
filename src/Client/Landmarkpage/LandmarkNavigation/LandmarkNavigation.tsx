@@ -1,9 +1,21 @@
 import { Container, Row, Col, Image } from "react-bootstrap"
 import './LandmarkNavigation.css'
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
+import { useRef, useState } from "react";
 
 export default function LandmarkNavigation() {
     const colors = ['green', 'red', 'blue', 'cyan', "purple"];
+
+
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const [scrollPast, setScrollPast] = useState(false);
+
+    const checkScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.1
+    })
 
     return (
         <>
@@ -11,8 +23,8 @@ export default function LandmarkNavigation() {
                 marginTop: '50px', display: 'grid'
                 , placeItems: 'center', position: 'relative', overflow: 'hidden',
                 paddingBottom: '50px'
-            }}>
-                <CommonDividersV3 />
+            }} ref={ComponentRef}>
+                <CommonDividersV3 onScroll={checkScrollPast} />
                 <Row>
                     <Col xs={{ span: 12, order: 2 }} lg={{ span: 6, order: 2 }}
                         style={{ display: 'flex', justifyContent: 'end', alignItems: 'center' }} >

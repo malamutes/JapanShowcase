@@ -1,28 +1,44 @@
 .nav-tabs {
     border-bottom: 0;
+
 }
 
 .nav-tabs .nav-item .nav-link {
-    color: #333;
-    background-color: #f8f9fa;
+    background-color: #969696e8;
+    color: white;
+    border: none;
     margin-right: 10px;
     margin-bottom: 0px;
     margin-bottom: 0;
-    /* Remove bottom margin from links */
+    padding: 0;
 }
 
+.TabWrapper {
+    background-color: red;
+}
 
-.nav-tabs .nav-item .nav-link {
+.nav-tabs .nav-item .nav-link:hover {
     background-color: #2e2e2ee1;
-    color: white;
-    opacity: 0.5;
-    border: none;
 }
 
 .nav-tabs .nav-item .nav-link.active {
     background-color: #2e2e2ee1;
     color: white;
     opacity: 1;
+}
+
+@keyframes activeReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.tab-pane.active .TabReveal {
+    animation: activeReveal 1.5s forwards;
 }
 
 .tab-pane.active {

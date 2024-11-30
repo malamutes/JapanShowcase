@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Container, Row, Col, Image, Carousel } from "react-bootstrap";
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 
 interface LandmarkCircleCarouselProps {
     imageArray: string[], //need to use square images of course
@@ -35,11 +36,19 @@ export default function LandmarkCircleCarouselSection() {
     const [more992px, setMore992px] = useState(false);
     const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
 
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const [scrollPast, setScrollPast] = useState(false);
+
+    const checkScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.1
+    })
 
     return (
         <>
-            <Container >
-                <CommonDividersV3 />
+            <Container ref={ComponentRef}>
+                <CommonDividersV3 onScroll={checkScrollPast} />
                 {checkMore992px ? (
                     <Container style={{ position: 'relative', paddingBottom: '100px', marginTop: '100px', }}>
                         <Container style={{ maxWidth: '900px', padding: '0', }}>
