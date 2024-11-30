@@ -6,6 +6,7 @@ import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
+  ScrollRestoration,
 } from "react-router-dom";
 
 import PrefectureApp from './Client/Prefecturepage/PrefectureApp.tsx';
@@ -109,7 +110,7 @@ function ContextWrapper() {
   };
 
   useEffect(() => {
-    handleScreenResize(); // Set initial state based on current window size
+    handleScreenResize(); // Set initial st ate based on current window size
     window.addEventListener('resize', handleScreenResize);
 
     return () => {

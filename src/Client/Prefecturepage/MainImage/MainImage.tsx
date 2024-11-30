@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useLayoutEffect } from "react";
 import { PrefectureContext } from "../PrefectureAppContext";
 import { Image } from "react-bootstrap";
 import clamp from "../../../Clamp";
@@ -10,7 +10,14 @@ import './MainImage.css'
 export default function MainImage() {
     const CP = useContext(PrefectureContext)
     const [isDisplay, setIsDisplay] = useState(true);
+
     const [scrollAmount, setScrollAmount] = useState(0);
+
+    useLayoutEffect(() => {
+        history.scrollRestoration = 'manual'; // Prevents browser from restoring scroll position
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, []);
+
 
     useEffect(() => {
         const handleWheel = (e: WheelEvent) => {

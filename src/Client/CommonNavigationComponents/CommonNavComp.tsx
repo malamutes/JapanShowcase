@@ -6,11 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Offcanvas } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import { screenWidthBreakpointsContext } from '../../main';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import MatchmediaQuery from '../CommonLogic(NON-UI)/MatchmediaQuery';
 
 export default function CommonNavCompTop() {
-    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
+    const [more992px, setMore992px] = useState(false);
+    const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
 
     const [show, setShow] = useState(false);
     const [top, setTop] = useState(true);
@@ -30,6 +32,10 @@ export default function CommonNavCompTop() {
         window.addEventListener('scroll', checkNoScroll);
     })
 
+    useEffect(() => {
+        console.log(checkMore992px);
+    }, [checkMore992px])
+
 
     return (
         <>
@@ -37,7 +43,7 @@ export default function CommonNavCompTop() {
                 <Navbar expand="lg" className="bg-body-tertiary">
                     <Container style={{ minHeight: '50px' }}>
                         <Navbar.Brand href="#">Japan Showcase</Navbar.Brand>
-                        {screenWidthBreakpoints['more992px'] ? (
+                        {more992px ? (
                             <>
                                 <Nav
                                     className="me-auto my-2 my-lg-0"

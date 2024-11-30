@@ -1,7 +1,7 @@
 import FoodImageCard from "./FoodImageCard"
 import { Container, Col, Row } from "react-bootstrap"
 import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2"
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 
 export default function FoodImageSection() {

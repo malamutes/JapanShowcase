@@ -1,13 +1,12 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { Image, Container, Row, Col, Card } from "react-bootstrap";
 
-import { screenWidthBreakpointsContext } from "../../../main";
-
+import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 
 export default function MainImage() {
-    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext)
 
-
+    const [more992px, setMore992px] = useState(false);
+    const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
 
     return (
         <>
@@ -28,9 +27,9 @@ export default function MainImage() {
                             <Col lg={5} style={{
                                 display: 'flex',
                                 flexDirection: 'column', justifyContent: 'center',
-                                alignItems: `${screenWidthBreakpoints['more992px'] ? "start" : "center    "}`,
-                                textAlign: `${screenWidthBreakpoints['more992px'] ? "start" : "center"}`,
-                                marginBottom: `${screenWidthBreakpoints['more992px'] ? "0px" : "25px"}`
+                                alignItems: `${checkMore992px ? "start" : "center    "}`,
+                                textAlign: `${checkMore992px ? "start" : "center"}`,
+                                marginBottom: `${checkMore992px ? "0px" : "25px"}`
                             }}>
                                 <div style={{
                                     padding: '25px',
@@ -42,18 +41,18 @@ export default function MainImage() {
                                     border: '1px solid rgba(255, 255, 255, 0.5)',
                                 }}>
                                     <Card.Title style={{
-                                        fontSize: `${screenWidthBreakpoints['more992px'] ? 25 : 17.5}px`, fontWeight: '500',
+                                        fontSize: `${checkMore992px ? 25 : 17.5}px`, fontWeight: '500',
 
                                     }}>
                                         Exploratio nova, occasio infinita</Card.Title>
                                     <Card.Text style={{ maxWidth: '70%' }}>
                                         <span style={{
-                                            fontSize: `${screenWidthBreakpoints['more992px'] ? 35 : 20}px`, fontWeight: '700',
+                                            fontSize: `${checkMore992px ? 35 : 20}px`, fontWeight: '700',
                                         }}>
                                             Innovatio et creatio, viam ad futurum</span>
                                     </Card.Text>
                                     <Card.Text style={{
-                                        maxWidth: `${screenWidthBreakpoints['more992px'] ? 80 : 100}%`,
+                                        maxWidth: `${checkMore992px ? 80 : 100}%`,
                                     }}>
                                         Lorem ipsum dolor sit amet,
                                         consectetur adipiscing elit.
@@ -69,7 +68,7 @@ export default function MainImage() {
 
                                 <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
                                     style={{
-                                        maxWidth: `${screenWidthBreakpoints['more992px'] ? 100 : 55}%`,
+                                        maxWidth: `${checkMore992px ? 100 : 55}%`,
                                         opacity: 0.75,
                                     }}
                                 />

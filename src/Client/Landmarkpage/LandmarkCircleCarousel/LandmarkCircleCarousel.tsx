@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { Container, Row, Col, Image, Carousel } from "react-bootstrap";
-import { screenWidthBreakpointsContext } from "../../../main";
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
+import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 
 interface LandmarkCircleCarouselProps {
     imageArray: string[], //need to use square images of course
@@ -32,14 +32,15 @@ function LandmarkCircleCarousel(props: LandmarkCircleCarouselProps) {
 export default function LandmarkCircleCarouselSection() {
     //will need to consider container's maxwidth with respect to images width
 
-    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
+    const [more992px, setMore992px] = useState(false);
+    const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
 
 
     return (
         <>
             <Container >
                 <CommonDividersV3 />
-                {screenWidthBreakpoints['more992px'] ? (
+                {checkMore992px ? (
                     <Container style={{ position: 'relative', paddingBottom: '100px', marginTop: '100px', }}>
                         <Container style={{ maxWidth: '900px', padding: '0', }}>
                             <div style={{
