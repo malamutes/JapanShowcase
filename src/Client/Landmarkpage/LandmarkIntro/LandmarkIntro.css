@@ -27,3 +27,55 @@
     height: fit-content;
 
 }
+
+.LandmarkIntroRow {
+    display: flex;
+    align-items: center;
+    padding: 25px 0px 100px 0px;
+    max-width: 1500px;
+    max-height: 1000px;
+}
+
+.LandmarkIntroCol {
+    display: grid;
+    place-items: center;
+    position: relative;
+    min-height: 100%;
+}
+
+.Above978pxContainer {
+    position: relative;
+    top: 100px;
+    margin-bottom: 200px;
+    margin-top: -75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Below768pxContainer {
+    display: none;
+}
+
+@media(max-width: 1200px) {
+    .LandmarkIntroRow {
+        padding: 200px 0px 150px 0;
+        max-width: 85%;
+    }
+
+    .LandmarkIntroCol {
+        margin-bottom: 250px;
+    }
+}
+
+@media(max-width: 978px) {
+    .Above978pxContainer {
+        display: none;
+    }
+
+    .Below768pxContainer {
+        display: flex;
+        flex-direction: column;
+
+    }
+}

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Accordion } from "react-bootstrap";
 import '../LandmarkApp.css'
 import { useEffect, useState } from "react";
 import './LandmarkIntro.css'
@@ -13,7 +13,6 @@ export default function LandmarkIntro() {
     const [rotationDeg, setRotationDeg] = useState(0);
     const [initialLoad, setInitialLoad] = useState(false);
     const [fakeFlag, setFakeFlag] = useState(true);
-    const [openMenu, setOpenMenu] = useState(false);
 
     const handleClick = (index: number) => {
         let rotationChange = -(index - currItem) * angle;
@@ -37,39 +36,35 @@ export default function LandmarkIntro() {
 
     return (
         <>
-            <Container style={{
-                position: 'relative', top: '100px', marginBottom: '200px', maxWidth: '1500px', marginTop: '-75px'
-            }}>
+            <Container className="Above978pxContainer">
                 <CommonDividersV3 onScroll={initialLoad} />
-                <Row style={{ display: 'flex', alignItems: 'center', padding: '100px 0 150px 0' }}>
-                    <Col style={{ display: 'grid', placeItems: 'center', position: 'relative' }} xs={6}>
-                        <Image src="https://placehold.co/250x250" style={{
-                            borderRadius: '50%', boxShadow: "0px 0px 25px rgb(0, 0, 0, 0.5)"
-                        }} />
-                        <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }}>
-                            {arr.map((item, index) => (
-                                <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }}>
-                                    <Image src={`https://placehold.co/150x150?text=${index}`} fluid
-                                        className={`CircularMenuItems ${index === currItem ? "CircularMenuItemsCurr" : ""}`}
-                                        style={{
-                                            maxWidth: '150px', height: '150px', borderRadius: '50%',
-                                            position: 'absolute', transition: 'transform 0.5s ease, opacity 1s ease',
-                                            transform: `rotate(${rotationDeg}deg) 
+                <Row className="LandmarkIntroRow">
+                    <Col className="LandmarkIntroCol" xl={6}>
+                        <Image src="https://placehold.co/200x200" style={{
+                            borderRadius: '50%', boxShadow: "0px 0px 25px rgb(0, 0, 0, 0.5)", maxWidth: '70%'
+                        }} fluid />
+
+                        {arr.map((item, index) => (
+                            <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }}>
+                                <Image src={`https://placehold.co/135x135?text=${index}`} fluid
+                                    className={`CircularMenuItems ${index === currItem ? "CircularMenuItemsCurr" : ""}`}
+                                    style={{
+                                        maxWidth: '25vw', aspectRatio: '1', borderRadius: '50%',
+                                        position: 'absolute', transition: 'transform 0.5s ease, opacity 1s ease',
+                                        transform: `rotate(${rotationDeg}deg) 
                                              translate(${initialLoad ? distance * Math.cos((angle * index) * Math.PI / 180) : 0}%, 
                                         ${initialLoad ? distance * Math.sin((angle * index) * Math.PI / 180) : 0}%)`,
-                                            opacity: initialLoad ? 1 : 0, transitionDelay: `${fakeFlag ? 0.25 * index : 0}s`,
-                                            cursor: 'pointer',
-                                        }}
-                                        onClick={() => handleClick(index)}
-                                    />
-                                </div>
-
-                            ))}
-                        </div>
+                                        opacity: initialLoad ? 1 : 0, transitionDelay: `${fakeFlag ? 0.25 * index : 0}s`,
+                                        cursor: 'pointer',
+                                    }}
+                                    onClick={() => handleClick(index)}
+                                />
+                            </div>
+                        ))}
                     </Col>
-                    <Col xs={1}>
+                    <Col xl={1} xs={0}>
                     </Col>
-                    <Col xs={5} style={{ display: 'flex', alignItems: 'center', margin: '25px 0', justifyContent: 'center' }}
+                    <Col xl={5} style={{ display: 'flex', alignItems: 'center', margin: '25px 0', justifyContent: 'center', }}
                         key={currItem} className="CurrDescContainer">
                         <span className="CurrDesc">
                             <p>{currItem} ITEM</p>
@@ -88,10 +83,47 @@ export default function LandmarkIntro() {
                                 id tincidunt sapien risus a quam. Maecenas fermentum consequat mi.
                             </p>
                         </span>
-
                     </Col>
                 </Row>
             </Container >
+
+            <Container className="Below768pxContainer">
+                <CommonDividersV3 onScroll={initialLoad} />
+                <Accordion style={{ overflow: 'hidden', }}>
+                    {arr.map((item, index) => (
+                        <Accordion.Item eventKey={index.toString()} key={index} style={{
+                            transition: 'transform 1s ease',
+                            transform: `translateX(-${initialLoad ? 0 : 100}%)`,
+                            transitionDelay: `${0.25 * index}s`
+
+                        }}>
+                            <Accordion.Header >
+                                Accordion Item #{item}</Accordion.Header>
+                            <Accordion.Body style={{
+                                maxHeight: '200px', overflow: 'auto', textAlign: 'center'
+                            }}>
+                                <Image src={`https://placehold.co/200x200?text=${index}`} fluid style={{
+                                    margin: '25px', borderRadius: '50%'
+                                }} />
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                                <p>
+                                    Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius,
+                                    turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+                                    Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit.
+                                    Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis,
+                                    id tincidunt sapien risus a quam. Maecenas fermentum consequat mi.
+                                </p>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    ))}
+                </Accordion>
+            </Container>
         </>
     )
 }
