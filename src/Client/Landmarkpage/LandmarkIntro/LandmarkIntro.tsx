@@ -98,7 +98,7 @@ export default function LandmarkIntro() {
 
                         }}>
                             <Accordion.Header >
-                                Accordion Item #{item}</Accordion.Header>
+                                <span style={{ fontSize: '20px' }}>Accordion Item #{item}</span> </Accordion.Header>
                             <Accordion.Body style={{
                                 maxHeight: '200px', overflow: 'auto', textAlign: 'center'
                             }}>

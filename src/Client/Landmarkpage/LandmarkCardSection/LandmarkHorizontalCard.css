@@ -1,0 +1,156 @@
+@keyframes BouncingAnimDown {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(25%);
+    }
+}
+
+@keyframes BouncingAnimUp {
+    from {
+        transform: translateY(0%) rotate(180deg);
+    }
+
+    to {
+        transform: translateY(-25%) rotate(180deg);
+    }
+}
+
+.LandmarkCardComponentImageDown {
+    animation: BouncingAnimDown ease-in-out 1.5s infinite alternate;
+    cursor: pointer;
+}
+
+.LandmarkCardComponentImageUp {
+    animation: BouncingAnimUp ease-in-out 1.5s infinite alternate;
+    cursor: pointer;
+}
+
+.LandmarkHorizCardComponentDesc {
+    border-radius: 0 0 50px 50px;
+    transform-origin: center top;
+    max-width: 92.5%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    padding: 25px 25px 15px 25px;
+    opacity: 1;
+
+    transition: opacity 1s ease, clip-path 1s ease, transform 1s ease;
+    transform: translateY(-105%);
+}
+
+.LandmarkHorizCardComponentDescShow {
+    transform: translateY(-2.5%);
+}
+
+.LandmarkHorizCardComponentTitle {
+    margin: auto 0 auto 0;
+    padding-right: 25px;
+}
+
+.CardContainer {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.ComponentCardContainer {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 125px 50px 50px 125px;
+}
+
+.ArrowImageContainer {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.LandmarkHorizCardComponentDescWrapper {
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+
+.LandmarkCardComponentFlexWrapper {
+    transition: max-height 0.75s ease-out, transform 1.5s ease, opacity 1.5s ease;
+    opacity: 0;
+    transform: translateX(-125%);
+    max-height: 200px;
+}
+
+.LandmarkCardComponentOnScroll {
+    opacity: 1;
+    transform: translateX(-0%);
+}
+
+.LandmarkCardComponentFlexWrapperShow {
+    max-height: 450px;
+}
+
+@media(max-width: 1400px) {
+    .LandmarkCardComponentFlexWrapperShow {
+        max-height: 500px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .LandmarkHorizCardComponentTitle {
+        padding-left: 25px;
+    }
+}
+
+@media(max-width: 992px) {
+    .LandmarkHorizCardComponentTitle {
+        padding-left: 50px;
+    }
+}
+
+@media(max-width: 576px) {
+    .CardContainer {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .LandmarkHorizCardComponentTitle {
+        text-align: center;
+    }
+
+    .ComponentCardContainer {
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 50px;
+    }
+
+    .ArrowImageContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .LandmarkHorizCardComponentDesc {
+        border-radius: 0 0 50px 50px;
+        transform-origin: center top;
+        max-width: 95%;
+        box-shadow: 2.5px 5px 5px rgba(0, 0, 0, 0.25);
+        padding: 50px 25px 15px 17.5px;
+    }
+
+    .LandmarkCardComponentFlexWrapper {
+        max-height: 450px;
+    }
+
+    .LandmarkCardComponentFlexWrapperShow {
+        max-height: 725px;
+    }
+}
+
+@media(max-width: 360px) {
+    .LandmarkCardComponentFlexWrapper {
+        max-height: 475px;
+    }
+
+    .LandmarkCardComponentFlexWrapperShow {
+        max-height: 800px;
+    }
+}

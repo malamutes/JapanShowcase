@@ -1,5 +1,5 @@
 import LandmarkIntro from "./LandmarkIntro/LandmarkIntro"
-import LandmarkCircleCarouselSection from "./LandmarkCircleCarousel/LandmarkCircleCarousel"
+import LandmarkCardSection from "./LandmarkCardSection/LandmarkHorizontalCard"
 import LandmarkTab from "./LandmarkTab/LandmarkTab"
 import LandmarkCard from "./LandmarkCard/LandmarkCard"
 import LandmarkNavigation from "./LandmarkNavigation/LandmarkNavigation"
@@ -12,7 +12,7 @@ export default function LandmarkApp() {
             <div className="LandmarkAppRoot">
                 <CommonNavCompTop />
                 <LandmarkIntro />
-                <LandmarkCircleCarouselSection />
+                <LandmarkCardSection />
                 <LandmarkTab />
                 <LandmarkCard />
                 <LandmarkNavigation />
