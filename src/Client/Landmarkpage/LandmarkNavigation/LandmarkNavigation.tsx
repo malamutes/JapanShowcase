@@ -2,10 +2,69 @@ import { Container, Row, Col, Image } from "react-bootstrap"
 import './LandmarkNavigation.css'
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 
 export default function LandmarkNavigation() {
-    const colors = ['green', 'red', 'blue', 'cyan', "purple"];
+    const menuArray = ['Mochi', 'Ramen', 'Sushi', 'Yakisoba', 'Udon',
+    ];
+
+    const [itemHover, setItemHover] = useState(-1);
+
+    const [outerRadius, setOuterRadius] = useState(250);
+    const [more768px, setMore768px] = useState(true);
+    const [more576px, setMore576px] = useState(true);
+    const [more360px, setMore360px] = useState(true);
+
+    const more768 = MatchmediaQuery({ size: 768, more: more768px, setMore: setMore768px });
+    const more576 = MatchmediaQuery({ size: 576, more: more576px, setMore: setMore576px });
+    const more360 = MatchmediaQuery({ size: 360, more: more360px, setMore: setMore360px });
+
+    useEffect(() => {
+        if (!more768) {
+            if (more576) {
+                setOuterRadius(200);
+            }
+            else if (!more576) {
+                if (more360) {
+                    setOuterRadius(140);
+                }
+                else if (!more360) {
+                    setOuterRadius(125);
+                }
+            }
+
+        }
+        else if (more768) {
+            setOuterRadius(250);
+        }
+    }, [more768, more576, more360]);
+
+    const numItems = menuArray.length;
+    const sectorAngle = 360 / numItems;
+
+    //outer radius also serves as "halfway mark" for the bounding view box of the svg due to symmetry
+
+    const innerRadius = 0.6 * outerRadius;
+    //factor here is the driver which controls width of menu items
+
+    //outerRadius is 50px for now, half of width of container rect 
+    const horizDistanceOuter = outerRadius * Math.sin((sectorAngle / 2) * Math.PI / 180);
+    const vertDistanceFromTopOuter = outerRadius - (outerRadius * Math.cos((sectorAngle / 2) * Math.PI / 180))
+
+    const startingPositionOuterHoriz = outerRadius - horizDistanceOuter;
+    const endingPositionOuterHoriz = outerRadius + horizDistanceOuter
+
+    const menuItemHeight = outerRadius - innerRadius;
+    //menuitemheight is the same as distnace between outer circumference and inner circumferece
+
+    const horizDistanceInner = innerRadius * Math.sin((sectorAngle / 2) * Math.PI / 180);
+    const vertDistanceFromTopInner = innerRadius - (innerRadius * Math.cos((sectorAngle / 2) * Math.PI / 180))
+
+    const vertDistanceFromTopInnerTotal = vertDistanceFromTopInner + menuItemHeight;
+
+    const startingPositionInnerHoriz = outerRadius + horizDistanceInner;
+    const endingPositionInnerHoriz = outerRadius - horizDistanceInner
 
 
     const ComponentRef = useRef<HTMLDivElement>(null);
@@ -19,82 +78,84 @@ export default function LandmarkNavigation() {
 
     return (
         <>
-            <Container style={{
-                marginTop: '50px', display: 'grid'
-                , placeItems: 'center', position: 'relative', overflow: 'hidden',
-                paddingBottom: '50px'
-            }} ref={ComponentRef}>
+            <Container ref={ComponentRef} >
                 <CommonDividersV3 onScroll={checkScrollPast} />
-                <Row>
-                    <Col xs={{ span: 12, order: 2 }} lg={{ span: 6, order: 2 }}
-                        style={{ display: 'flex', justifyContent: 'end', alignItems: 'center' }} >
-                        <span style={{ maxWidth: '75%', marginRight: '50px', }}>
-                            <p>
-                                VERDIT
-                            </p>
+                <div className="CircularMenuWrapper">
+                    <svg width={`${outerRadius * 2}px`} height={`${outerRadius * 2}px`} xmlns="http://www.w3.org/2000/svg">
+                        {menuArray.map((colour, index) => (
 
-                            <p>
-                                SAMUR SAMERI TATI RETUO
-                            </p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Vestibulum auctor nisl nec felis tincidunt, id malesuada risus efficitur.
-                            Aliquam erat volutpat. Integer et risus at tortor sollicitudin sodales. Suspendisse potenti.
-                            Phasellus a lectus vel ipsum luctus viverra vel at velit. Aenean aliquam sapien eu tincidunt feugiat.
-                            Sed nec nulla euismod, vulputate ligula id, pharetra libero. Mauris ut efficitur mi, ac auctor nisl.
-                            Vivamus nec malesuada turpis. Curabitur euismod
-                            sem id nulla viverra, nec vulputate ex blandit.
-                        </span>
-
-                    </Col>
-
-                    <Col xs={{ span: 12, order: 1 }} lg={{ span: 6, order: 1 }}
-
-                    >
-                        <div style={{
-                            maxWidth: '600px', aspectRatio: '1', borderRadius: '50%',
-                            position: 'relative', transformOrigin: 'center', overflow: 'hidden',
-                            transform: 'rotate(-25deg)', margin: '0 auto'
-                        }}>
-                            <div style={{
-                                width: '120px',
-                                backgroundColor: 'blue',
-                                aspectRatio: '1',
-                                borderRadius: '50%',
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                zIndex: '10',
-                                display: 'grid',
-                                placeItems: 'center'
-                            }}>
-                                asd
-                            </div>
-                            {colors.map((color, index) => (
-                                <div
+                            <>
+                                <path
                                     key={index}
                                     style={{
-                                        position: 'absolute',
-                                        width: '50%',
-                                        aspectRatio: '1',
-                                        transformOrigin: 'bottom right',
-                                        transform: `rotate(calc(${360 / colors.length}deg * ${index}))`,
-                                        clipPath: "polygon(00% 0%, 85% 0%, 100% 100%, 0% 85%)",
-                                        display: 'grid', placeItems: 'center', overflow: 'hidden'
+                                        transformOrigin: 'center', transition: 'transform 0.5s ease',
+                                        transform: `rotate(${sectorAngle * index}deg) 
+                                    scale(${index === itemHover ? 1 : 0.9})`,
+                                        pointerEvents: 'auto',
+                                        cursor: 'pointer',
                                     }}
-                                >
-                                    <Image src="https://placehold.co/400x400" className="WheelNavItem"
-                                        style={{
-                                            padding: '0', margin: '0',
-                                            transform: 'rotate(-45deg) translateY(-15%)'
-                                        }} />
-                                </div>
-                            ))}
-                        </div>
-                    </Col>
-                </Row>
+                                    fill="white"
+                                    d={`M ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
+                                        A ${outerRadius}, ${outerRadius}, 0, 0, 1, ${endingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
+                                        L ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
+                                        M ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
+                                        A ${innerRadius}, ${innerRadius}, 0, 0, 0, ${endingPositionInnerHoriz} 
+                                        ${vertDistanceFromTopInnerTotal}
+                                        L ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}`}
+                                    onMouseEnter={() => setItemHover(index)} onMouseLeave={() => setItemHover(-1)}
+                                />
 
-            </Container>
+                                <defs >
+                                    <mask id={`mask-${index}`} x="0" y="0" width="100%" height="100%">
+                                        <path
+                                            key={index}
+                                            style={{
+                                                transformOrigin: 'center', transition: 'transform 0.5s ease',
+                                                transform: `rotate(${sectorAngle * index}deg) 
+                                    scale(${index === itemHover ? 1 : 0.9})`,
+                                            }}
+                                            fill="white"
+                                            d={`M ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
+                                        A ${outerRadius}, ${outerRadius}, 0, 0, 1, ${endingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
+                                        L ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
+                                        M ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
+                                        A ${innerRadius}, ${innerRadius}, 0, 0, 0, ${endingPositionInnerHoriz} 
+                                        ${vertDistanceFromTopInnerTotal}
+                                        L ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}`}
+                                        />
+                                    </mask>
+                                </defs>
+
+                                <image
+                                    href={`/Images/FoodImages/${colour}.webp`}
+                                    x="0" y="0" width="100%" height="100%"
+                                    mask={`url(#mask-${index})`} // Apply the mask
+                                    style={{ pointerEvents: 'none' }}
+                                />
+
+                            </>
+
+                        ))}
+                    </svg>
+                </div>
+                <div style={{
+                    textAlign: 'center', maxWidth: '80%', margin: 'auto',
+                }}>
+                    <span   >
+                        <p style={{ fontWeight: '700', fontSize: '20px' }}>Lorem Ipsum Dolor {itemHover}</p>
+                        <p style={{ fontWeight: '500', fontSize: '18px', fontStyle: 'italic', color: 'grey' }}>
+                            Sed ut perspiciatis unde omnis
+                        </p>
+
+                        <p style={{ fontSize: '16px', fontStyle: 'italic' }}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                        </p>
+                    </span>
+                </div>
+
+            </Container >
         </>
     )
 }

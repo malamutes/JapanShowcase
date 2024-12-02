@@ -154,3 +154,13 @@
         max-height: 800px;
     }
 }
+
+@media(max-width: 300px) {
+    .LandmarkCardComponentFlexWrapper {
+        max-height: 600px;
+    }
+
+    .LandmarkCardComponentFlexWrapperShow {
+        max-height: 1000px;
+    }
+}

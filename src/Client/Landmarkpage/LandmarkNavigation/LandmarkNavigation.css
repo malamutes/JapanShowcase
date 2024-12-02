@@ -1,13 +1,44 @@
-.WheelNavItem {
-    cursor: pointer;
-    opacity: 0.5;
-    filter: blur(1.5px);
-    transition: all 0.5s ease;
+.CircularMenuWrapper {
+    position: relative;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.CircularMenuItem {
+    background-color: transparent;
+    aspect-ratio: 1;
+    position: absolute;
+    transform-origin: center center;
+    transition: transform 1s ease, opacity 1.5s ease;
+}
 
+.CircularMenuInnerItem {
+    transition: transform 1s ease;
+    cursor: pointer;
+}
 
-.WheelNavItem:hover {
-    filter: blur(0px);
-    opacity: 1;
+.CircularMenuInnerItem:hover {
+    transform: scale(1.25);
+}
+
+@media(max-width: 768px) {
+    .CircularMenuWrapper {
+        height: 450px;
+    }
+}
+
+@media(max-width: 576px) {
+    .CircularMenuWrapper {
+        height: 325px;
+    }
+
+}
+
+@media(max-width: 360px) {
+    .CircularMenuWrapper {
+        height: 300px;
+    }
+
 }
