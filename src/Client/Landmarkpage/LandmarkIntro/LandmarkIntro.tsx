@@ -45,7 +45,7 @@ export default function LandmarkIntro() {
                         }} fluid />
 
                         {arr.map((item, index) => (
-                            <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }}>
+                            <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }} key={index}>
                                 <Image src={`https://placehold.co/135x135?text=${index}`} fluid
                                     className={`CircularMenuItems ${index === currItem ? "CircularMenuItemsCurr" : ""}`}
                                     style={{

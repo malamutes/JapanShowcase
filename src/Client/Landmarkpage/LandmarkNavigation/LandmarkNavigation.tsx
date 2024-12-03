@@ -4,10 +4,14 @@ import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3"
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 import { useEffect, useRef, useState } from "react";
 import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
+import React from "react";
 
 export default function LandmarkNavigation() {
-    const menuArray = ['Mochi', 'Ramen', 'Sushi', 'Yakisoba', 'Udon',
+    const menuArray = ['red', 'green', 'blue', 'purple',
     ];
+
+    //make first item always the current screen
+
 
     const [itemHover, setItemHover] = useState(-1);
 
@@ -83,18 +87,19 @@ export default function LandmarkNavigation() {
                 <div className="CircularMenuWrapper">
                     <svg width={`${outerRadius * 2}px`} height={`${outerRadius * 2}px`} xmlns="http://www.w3.org/2000/svg">
                         {menuArray.map((colour, index) => (
-
-                            <>
+                            <React.Fragment key={`FragmentWrapper-${index}`}>
                                 <path
-                                    key={index}
+                                    key={`Path ${index}`}
                                     style={{
-                                        transformOrigin: 'center', transition: 'transform 0.5s ease',
-                                        transform: `rotate(${sectorAngle * index}deg) 
+                                        transformOrigin: 'center', transition: 'transform 1s ease, opacity 1s ease',
+                                        transform: `rotate(${checkScrollPast ? sectorAngle * index : 0}deg) 
                                     scale(${index === itemHover ? 1 : 0.9})`,
                                         pointerEvents: 'auto',
                                         cursor: 'pointer',
+                                        opacity: `${checkScrollPast ? 1 : 0}`
                                     }}
-                                    fill="white"
+                                    fill={colour} strokeWidth={2.5} stroke={colour} strokeOpacity={0.5}
+                                    fillOpacity={0.05}
                                     d={`M ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
                                         A ${outerRadius}, ${outerRadius}, 0, 0, 1, ${endingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
                                         L ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
@@ -104,57 +109,55 @@ export default function LandmarkNavigation() {
                                         L ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}`}
                                     onMouseEnter={() => setItemHover(index)} onMouseLeave={() => setItemHover(-1)}
                                 />
-
-                                <defs >
-                                    <mask id={`mask-${index}`} x="0" y="0" width="100%" height="100%">
-                                        <path
-                                            key={index}
-                                            style={{
-                                                transformOrigin: 'center', transition: 'transform 0.5s ease',
-                                                transform: `rotate(${sectorAngle * index}deg) 
-                                    scale(${index === itemHover ? 1 : 0.9})`,
-                                            }}
-                                            fill="white"
-                                            d={`M ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
-                                        A ${outerRadius}, ${outerRadius}, 0, 0, 1, ${endingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
-                                        L ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
-                                        M ${startingPositionInnerHoriz}, ${vertDistanceFromTopInnerTotal}
-                                        A ${innerRadius}, ${innerRadius}, 0, 0, 0, ${endingPositionInnerHoriz} 
-                                        ${vertDistanceFromTopInnerTotal}
-                                        L ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}`}
-                                        />
-                                    </mask>
-                                </defs>
-
-                                <image
-                                    href={`/Images/FoodImages/${colour}.webp`}
-                                    x="0" y="0" width="100%" height="100%"
-                                    mask={`url(#mask-${index})`} // Apply the mask
-                                    style={{ pointerEvents: 'none' }}
+                                <mask id={`ImageCircleMask-${index}`}>
+                                    <circle cx={(startingPositionOuterHoriz + endingPositionOuterHoriz) / 2}
+                                        cy={vertDistanceFromTopInnerTotal / 2} r={outerRadius / 7.5} fill="white"
+                                        key={`CircleMask ${index}`}
+                                    />
+                                </mask>
+                                <image key={`Image ${index}`}
+                                    href="https://placehold.co/300x300"
+                                    x={(startingPositionOuterHoriz + endingPositionOuterHoriz) / 2 - (outerRadius / 7.5)}
+                                    y={vertDistanceFromTopInnerTotal / 2 - (outerRadius / 7.5)}
+                                    width={outerRadius / 7.5 * 2}
+                                    height={outerRadius / 7.5 * 2}
+                                    style={{
+                                        transformOrigin: 'center', transition: 'transform 1s ease, opacity 1s ease',
+                                        transform: `rotate(${checkScrollPast ? sectorAngle * index : 0}deg) 
+                                        scale(${index === itemHover ? 1.125 : 1})`,
+                                        pointerEvents: 'none',
+                                        opacity: `${checkScrollPast ? 1 : 0}`,
+                                        mask: `url(#ImageCircleMask-${index})`,
+                                    }}
                                 />
-
-                            </>
-
+                            </React.Fragment>
                         ))}
                     </svg>
+
+                    <Image src={`https://placehold.co/600x600?text=${itemHover}`} style={{
+                        position: 'absolute', maxWidth: `${outerRadius / 1.25}px`,
+                        maxHeight: `${outerRadius / 1.25}px`, borderRadius: '50%'
+                    }} />
                 </div>
                 <div style={{
                     textAlign: 'center', maxWidth: '80%', margin: 'auto',
                 }}>
-                    <span   >
-                        <p style={{ fontWeight: '700', fontSize: '20px' }}>Lorem Ipsum Dolor {itemHover}</p>
+                    <span>
+                        <p style={{ fontWeight: '700', fontSize: '20px' }}>
+                            {itemHover === -1 ? "Hover A Destination!" : `Lorem Ipsum ${itemHover}`}
+                        </p>
                         <p style={{ fontWeight: '500', fontSize: '18px', fontStyle: 'italic', color: 'grey' }}>
-                            Sed ut perspiciatis unde omnis
+                            {itemHover === -1 ? "Sub Description!" : `Sed ut perspiciatis unde omnis ${itemHover}`}
                         </p>
 
                         <p style={{ fontSize: '16px', fontStyle: 'italic' }}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            {itemHover === -1 ? "Main Description!" : `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.`}
+
                         </p>
                     </span>
-                </div>
-
+                </div >
             </Container >
         </>
     )
