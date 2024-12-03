@@ -2,7 +2,7 @@ import './ReferenceBar.css'
 import { Container, Row, Col, Offcanvas, Accordion, Image, Dropdown, ProgressBar, Button } from 'react-bootstrap'
 import { useState, useEffect, useContext } from 'react';
 import { TopBarData } from '../Data/ReferenceLinks';
-import { screenWidthBreakpointsContext } from '../../../main';
+import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
 
 export default function TopBar() {
     const [show, setShow] = useState(false);
@@ -10,7 +10,10 @@ export default function TopBar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
+    const [more992, setMore992] = useState((window.innerWidth >= 992));
+    const more992px = MatchmediaQuery({ size: 992, more: more992, setMore: setMore992 });
+
+    const [showBottom, setShowBottom] = useState(false);
 
     const [currentHover, setCurrentHover] = useState("");
 
@@ -67,7 +70,6 @@ export default function TopBar() {
         setEntertainment(document.getElementById("Entertainment") as HTMLDivElement | null);
         setGames(document.getElementById("Cult Favourites") as HTMLDivElement | null);
         setFestival(document.getElementById("Festival") as HTMLDivElement | null);
-        console.log("adhuiashihd");
     }, [initialScroll]);
 
     useEffect(() => {
@@ -187,7 +189,7 @@ export default function TopBar() {
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Col xs={screenWidthBreakpoints['more992px'] ? 1 : 2} style={{
+                    <Col xs={more992px ? 1 : 2} style={{
                         display: 'flex', justifyContent: 'center',
                     }}>
                         <Image fluid src="public\Images\CherryBlossom.png"
@@ -195,42 +197,80 @@ export default function TopBar() {
                             onClick={handleShow}
                         />
 
-                        {screenWidthBreakpoints['more1200px'] ? (<Offcanvas placement="top" show={show}
-                            style={{ maxHeight: '55vh', height: '40cqw' }}
+                        {more992px ? (<Offcanvas placement="top" show={show}
+                            style={{ maxHeight: '52.5vh', height: '52.5cqh', backgroundColor: 'rgb(200, 200, 200)' }}
                             onHide={handleClose} scroll={true}>
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title>JAPAN</Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body>
                                 <Container style={{ maxWidth: '1824px' }}>
-                                    <Row >
-                                        <Col xs={8}>
-                                            <Row>
-                                                {Object.keys(TBD).map((topBarDataItem, index) => (
-                                                    <Col key={index} style={{ padding: '0' }} xs={2}>
-                                                        <h6 style={{ marginBottom: '1cqw', marginLeft: '-0.25cqw' }}>{topBarDataItem}</h6>
-                                                        <Row >
-                                                            {Object.keys(TBD[topBarDataItem]).map((topBarDataInnerItem, innerIndex) => (
-                                                                <Col xs={12} style={{ marginBottom: '0.8cqw', marginLeft: '0cqw' }} key={innerIndex}>
-                                                                    <span className='TopBarText' onMouseEnter={() => setCurrentHover(TBD[topBarDataItem][topBarDataInnerItem].image)}
-                                                                        onMouseLeave={() => setCurrentHover("")}
-                                                                    >{TBD[topBarDataItem][topBarDataInnerItem].title}</span>
-                                                                </Col>
-                                                            ))}
-                                                        </Row>
+                                    <Row>
+                                        <Col xs={7} style={{
+                                            maxHeight: '40vh', overflowY: 'hidden'
+                                        }}>
+                                            <Row style={{
+                                                minHeight: '100%',
+                                                transition: 'transform 1s ease',
+                                                transform: `translateY(${showBottom ? -100 : 0}%)`
+                                            }}>
+                                                {Object.keys(TBD).slice(0, 3).map((TBDOuterItem, index) => (
+                                                    <Col key={index}>
+                                                        <h6 style={{
+                                                            marginBottom: '1cqw', marginLeft: '-0.25cqw',
+                                                            fontSize: '20px'
+                                                        }}>{TBDOuterItem}</h6>
+                                                        {Object.keys(TBD[TBDOuterItem]).map((TBDInnerItem, InnerIndex) => (
+                                                            <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}>
+                                                                <span className='TopBarText'
+                                                                    onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
+                                                                    onMouseLeave={() => setCurrentHover("")}
+                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span>
+                                                            </Row>
+                                                        ))}
                                                     </Col>
-
                                                 ))}
+                                            </Row>
+
+                                            <Row style={{
+                                                minHeight: '100%',
+                                                transition: 'transform 1s ease',
+                                                transform: `translateY(${showBottom ? -100 : 0}%)`
+                                            }}>
+                                                {Object.keys(TBD).slice(3, Object.keys(TBD).length).map((TBDOuterItem, index) => (
+                                                    <Col key={index}>
+                                                        <h6 style={{
+                                                            marginBottom: '1cqw', marginLeft: '-0.25cqw',
+                                                            fontSize: '20px'
+                                                        }}>{TBDOuterItem}</h6>
+                                                        {Object.keys(TBD[TBDOuterItem]).map((TBDInnerItem, InnerIndex) => (
+                                                            <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}>
+                                                                <span className='TopBarText'
+                                                                    onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
+                                                                    onMouseLeave={() => setCurrentHover("")}
+                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span>
+                                                            </Row>
+                                                        ))}
+                                                    </Col>
+                                                ))}
+
                                             </Row>
 
                                         </Col>
 
-                                        <Col xs={4}>
-                                            <Image src={currentHover} style={{ maxWidth: '90%', aspectRatio: '1.5' }} />
+                                        <Col xs={5} style={{ maxHeight: '40vh' }}>
+                                            <Image src={currentHover} style={{ maxWidth: '100%', maxHeight: '100%' }} fluid />
                                         </Col>
 
                                     </Row>
                                 </Container>
+                                <Image style={{
+                                    position: 'absolute', top: '90%', left: '2%', cursor: 'pointer',
+                                    maxWidth: '35px', transition: 'transform 0.5s ease',
+                                    transform: `rotate(${showBottom ? 180 : 0}deg)`
+                                }}
+                                    src='/Images/DownArrow.png'
+                                    onClick={() => setShowBottom(showBottom => !showBottom)} />
                             </Offcanvas.Body>
                         </Offcanvas>)
 
@@ -238,9 +278,9 @@ export default function TopBar() {
 
                             (
                                 <Offcanvas placement="start" show={show}
-                                    onHide={handleClose} scroll={true}>
-                                    <Offcanvas.Header closeButton>
-                                        <Offcanvas.Title>JAPAN</Offcanvas.Title>
+                                    onHide={handleClose} scroll={true} style={{ backgroundColor: 'rgb(200,200,200)' }}>
+                                    <Offcanvas.Header closeButton >
+                                        <Offcanvas.Title >JAPAN</Offcanvas.Title>
                                     </Offcanvas.Header>
                                     <Offcanvas.Body >
                                         <Container style={{ maxWidth: '1824px' }} >
@@ -248,7 +288,7 @@ export default function TopBar() {
                                                 {Object.keys(TBD).map((topBarDataItem, accordionIndex) => (
                                                     <Accordion.Item eventKey={`${accordionIndex}`} key={accordionIndex} >
                                                         <Accordion.Header >{topBarDataItem}</Accordion.Header>
-                                                        <Accordion.Body >
+                                                        <Accordion.Body style={{ backgroundColor: 'rgb(200,200,200)' }}>
                                                             <Col>
                                                                 {Object.keys(TBD[topBarDataItem]).map((topBarDataInnerItem, accordionInnerIndex) => (
                                                                     <Row key={accordionInnerIndex}>
@@ -267,10 +307,9 @@ export default function TopBar() {
                                 </Offcanvas>
                             )}
 
-
                     </Col>
 
-                    <Col xs={screenWidthBreakpoints['more992px'] ? 8 : 0} >
+                    <Col xs={more992px ? 8 : 0} >
                         <ProgressBar style={{ height: '5px', overflow: 'visible' }} >
                             <ProgressBar now={clamp(scrollAmount, 0, progressHubs)} key={1} style={{
                                 backgroundColor: "red",
@@ -301,11 +340,11 @@ export default function TopBar() {
 
                     </Col>
 
-                    <Col xs={screenWidthBreakpoints['more992px'] ? 3 : 5} style={{
-                        display: 'flex', justifyContent: `${screenWidthBreakpoints['more992px'] ? 'center' : 'center'}`,
+                    <Col xs={more992px ? 3 : 5} style={{
+                        display: 'flex', justifyContent: `${more992px ? 'center' : 'center'}`,
                     }}>
                         <Row>
-                            <Col style={{ marginRight: `${screenWidthBreakpoints['more992px'] ? "2.5cqw" : ""}` }}>
+                            <Col style={{ marginRight: `${more992px ? "2.5cqw" : ""}` }}>
                                 <Dropdown>
                                     <Dropdown.Toggle variant="secondary" id="dropdown-basic"
                                         disabled={window.scrollY === 0 ? true : false}>

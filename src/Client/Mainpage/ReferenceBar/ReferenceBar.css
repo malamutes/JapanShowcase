@@ -23,6 +23,7 @@
     transition: all 0.3s ease;
     border-radius: 15px;
     cursor: pointer;
+    margin: 0 0 10px 10px;
 }
 
 .TopBarText:hover {
@@ -84,8 +85,26 @@
 .CustomAccordian .accordion-button:not(.collapsed)::after {
     transform: rotate(-45deg);
     /* Arrow points upwards when expanded */
-    color: white;
+    color: rgb(99, 99, 99);
     /* Arrow color for expanded state */
+}
+
+.accordion-button {
+    background-color: rgb(163, 162, 162) !important;
+    /* Change to your desired color */
+    color: white !important;
+    /* Optional: Change text color */
+}
+
+/* Optional: To change the active button when the accordion is expanded */
+.accordion-button:not(.collapsed) {
+    background-color: rgb(107, 107, 107) !important;
+    /* Change for active state */
+}
+
+.accordion-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 @media(max-width: 1900px) {
