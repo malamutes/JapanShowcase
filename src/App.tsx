@@ -8,19 +8,30 @@ import Game from './Client/Mainpage/Game/Game'
 import Festival from './Client/Mainpage/Festival/Festival'
 import ReferenceBar from './Client/Mainpage/ReferenceBar/ReferenceBar'
 import TopBar from './Client/Mainpage/ReferenceBar/TopBar'
+import { LightThemeContext } from './ThemeContext'
+import { useContext } from 'react'
+//import './index.css'
+
+//some stuff to fix before using this
 
 function App() {
+  const { light } = useContext(LightThemeContext);
+
   return (
     <>
-      <TopBar />
-      <MainIntroImage />
-      <EightSpotsSpace />
-      <Food />
-      <Landmarks />
-      <Entertainment />
-      <Game />
-      <Festival />
-      <ReferenceBar />
+
+      <div className={`${light ? "" : "SubpageAppRoot"}`}>
+        <TopBar />
+        <MainIntroImage />
+        <EightSpotsSpace />
+        <Food />
+        <Landmarks />
+        <Entertainment />
+        <Game />
+        <Festival />
+        <ReferenceBar />
+      </div>
+
     </>
   )
 }

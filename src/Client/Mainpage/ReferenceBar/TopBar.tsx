@@ -3,6 +3,7 @@ import { Container, Row, Col, Offcanvas, Accordion, Image, Dropdown, ProgressBar
 import { useState, useEffect, useContext } from 'react';
 import { TopBarData } from '../Data/ReferenceLinks';
 import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
+import { LightThemeContext } from '../../../ThemeContext';
 
 export default function TopBar() {
     const [show, setShow] = useState(false);
@@ -175,6 +176,9 @@ export default function TopBar() {
             console.log("Scroll Amount:", scrollAmount);
         }, [scrollAmount]);
     */
+
+    const { light, setLight } = useContext(LightThemeContext);
+
     return (
         <>
             <Container style={{
@@ -184,6 +188,7 @@ export default function TopBar() {
                 opacity: `${window.scrollY === 0 ? "0.1" : "1"}`,
                 backgroundColor: `${window.scrollY === 0 ? "" : "rgb(25,25,25)"}`
             }} fluid className="TopBarContainer">
+                <Button onClick={() => setLight(light => !light)}>teheme swap</Button>
                 <Row style={{
                     height: '100%',
                     display: 'flex',

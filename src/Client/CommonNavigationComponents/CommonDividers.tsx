@@ -1,6 +1,7 @@
 import { Row, Col } from "react-bootstrap"
 import MatchmediaQuery from "../CommonLogic(NON-UI)/MatchmediaQuery";
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { LightThemeContext } from "../../ThemeContext";
 
 interface CommonDividersProps {
     onScroll: boolean
@@ -8,6 +9,8 @@ interface CommonDividersProps {
 
 export default function CommonDividers(props: CommonDividersProps) {
     const [more992, setMore992] = useState(true);
+
+    const { light } = useContext(LightThemeContext);
 
     const checkmore992px = MatchmediaQuery({ size: 992, more: more992, setMore: setMore992 });
 
@@ -19,7 +22,7 @@ export default function CommonDividers(props: CommonDividersProps) {
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',
                         minWidth: `${checkmore992px ? "auto" : "100%"}`
                     }}>
-                        <hr className={`DividerOneHR ${props.onScroll ? "DividerOneHRShow" : ""}`}
+                        <hr className={`DividerOneHR ${light ? "DividerOneHRLight" : "DividerOneHRDark"} ${props.onScroll ? "DividerOneHRShow" : ""}`}
                             style={{ transformOrigin: 'center right' }} />
                     </Col>
 
@@ -33,7 +36,7 @@ export default function CommonDividers(props: CommonDividersProps) {
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',
                         minWidth: `${checkmore992px ? "auto" : "100%"}`
                     }}>
-                        <hr className={`DividerOneHR ${props.onScroll ? "DividerOneHRShow" : ""}`}
+                        <hr className={`DividerOneHR ${light ? "DividerOneHRLight" : "DividerOneHRDark"} ${props.onScroll ? "DividerOneHRShow" : ""}`}
                             style={{ transformOrigin: 'center left' }} />
                     </Col>
                 </Row>

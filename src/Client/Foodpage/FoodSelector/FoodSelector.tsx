@@ -43,13 +43,13 @@ export default function FoodSelector() {
                     <Row style={{ width: '90%', boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)" }}>
                         <Col lg={3} style={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center',
-                            backgroundColor: 'lightgrey',
+                            backgroundColor: 'lightgrey', color: 'black'
 
                         }}>
                             <Scroller height="800px" identifier={[1, 2, 3, 4, 5, 6, 7, 8,]}
                                 onClick={(number) => setCurrentOuterItem(number)} onScroll={checkHasScrollPast} />
                         </Col>
-                        <Col lg={9} style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Col lg={9} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
                             <Row style={{
                                 backgroundColor: 'darkgrey', display: 'flex', justifyContent: 'center',
                                 flexGrow: '1'

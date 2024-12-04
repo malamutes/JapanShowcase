@@ -1,10 +1,14 @@
 import { Row, Col } from "react-bootstrap"
+import { useContext } from "react"
+import { LightThemeContext } from "../../ThemeContext"
 
 interface CommonDividersV3Props {
     onScroll: boolean
 }
 
 export default function CommonDividersV3(props: CommonDividersV3Props) {
+    const { light } = useContext(LightThemeContext);
+
     return (
         <>
             <Col style={{ maxWidth: '60%', margin: '75px auto', }}>
@@ -20,7 +24,7 @@ export default function CommonDividersV3(props: CommonDividersV3Props) {
                     className="DiamondContainerRow">
                     {['black', 'blue', 'green', 'yellow',].map((item, index) => (
                         <div style={{
-                            width: '10px', aspectRatio: '1', backgroundColor: "black",
+                            width: '10px', aspectRatio: '1', backgroundColor: `${light ? "black" : "whitesmoke"}`,
                             transition: 'opacity 0.5s ease, transform 0.5s ease',
                             transitionDelay: `${0.3 * index}s`,
                             position: 'relative', margin: '10px 10px', padding: '0',

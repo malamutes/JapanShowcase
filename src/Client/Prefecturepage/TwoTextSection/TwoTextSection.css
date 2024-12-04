@@ -32,13 +32,20 @@
 }
 
 .DescStyle .HRTwoText {
-    border: 1px solid black;
     opacity: 1;
     margin: 0;
     transition-property: opacity, transform;
     transition-duration: 2s, 2s;
     opacity: 0.1;
     transform: scale(0.1);
+}
+
+.DescStyle .HRTwoTextLight {
+    border: 1.5px solid black;
+}
+
+.DescStyle .HRTwoTextDark {
+    border: 1.5px solid rgb(200, 200, 200);
 }
 
 .DescStyle .HRTwoTextShow {

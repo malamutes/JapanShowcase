@@ -61,6 +61,13 @@
     border-radius: 125px 50px 50px 125px;
 }
 
+.ComponentCardContainerDark {
+    box-shadow: 10px 10px 10px rgba(200, 200, 200, 0.5);
+    border-radius: 125px 50px 50px 125px;
+    background-color: grey;
+    color: black;
+}
+
 .ArrowImageContainer {
     display: flex;
     align-items: center;

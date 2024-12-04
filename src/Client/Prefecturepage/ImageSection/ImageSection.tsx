@@ -5,7 +5,6 @@ import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUse
 import { useState, useRef, useContext, useEffect } from "react";
 import { PrefectureContext } from "../PrefectureAppContext";
 
-
 export default function TripleImageSection() {
 
     const CP = useContext(PrefectureContext)

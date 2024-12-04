@@ -33,7 +33,7 @@ export default function FoodImageCard() {
                 <Col lg={8} style={{
                     backgroundColor: 'lightgray',
                     display: 'flex', flexDirection: 'column',
-                    justifyContent: 'center', alignItems: 'center'
+                    justifyContent: 'center', alignItems: 'center', color: 'black'
                 }}>
                     <div style={{ maxWidth: '80%' }}>
                         <h4>Lorem Ipsum Dolor Sit Amet</h4>

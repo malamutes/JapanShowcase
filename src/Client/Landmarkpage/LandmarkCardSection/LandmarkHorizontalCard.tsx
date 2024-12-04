@@ -4,8 +4,7 @@ import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3"
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 import './LandmarkHorizontalCard.css'
 import { LandmarkContext } from "../LandmarkAppContext";
-
-
+import { LightThemeContext } from "../../../ThemeContext";
 
 
 function LandmarkCardComponent() {
@@ -19,6 +18,7 @@ function LandmarkCardComponent() {
         setScrollPast(false);
     }, [LC]);
 
+    const { light } = useContext(LightThemeContext);
 
     const checkScrollPast = ObserverIntersectionUseEffect({
         scrollPast: scrollPast, setScrollPast: setScrollPast,
@@ -37,7 +37,7 @@ function LandmarkCardComponent() {
                 ${checkScrollPast ? "LandmarkCardComponentOnScroll" : ""}`}
                 >
                     <Col >
-                        <Row className="ComponentCardContainer">
+                        <Row className={light ? "ComponentCardContainer" : "ComponentCardContainerDark"}>
                             <Col sm={2} className="CardContainer">
                                 <Image src="https://placehold.co/125x125" roundedCircle fluid
                                     style={{

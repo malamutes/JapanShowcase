@@ -5,10 +5,13 @@ import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUse
 import { useState, useRef, useContext, useEffect } from "react";
 import './TwoTextSection.css'
 import { PrefectureContext } from "../PrefectureAppContext";
+import { LightThemeContext } from "../../../ThemeContext";
 
 export default function TwoTextSection() {
     const CP = useContext(PrefectureContext)
     const [scrollPast, setScrollPast] = useState(false);
+
+    const { light } = useContext(LightThemeContext);
 
     useEffect(() => {
         setScrollPast(false);
@@ -37,7 +40,8 @@ export default function TwoTextSection() {
                         <Col lg={6}
                             className="UpperCard">
                             <div className="DescStyle">
-                                <p className={`TwoTextDesc ${checkHasScrollPast ? "TwoTextDescShow" : ""} `}
+                                <p className={`TwoTextDesc  
+                                ${checkHasScrollPast ? "TwoTextDescShow" : ""} `}
                                     style={{ '--translation-prop': '225%' } as React.CSSProperties}>
                                     Lorem ipsum dolor sit amet,
                                     consectetur adipiscing elit. Sed euismod velit ac neque tincidunt, et ultricies lorem aliquet.
@@ -52,7 +56,9 @@ export default function TwoTextSection() {
                                     Donec scelerisque, ipsum eget vehicula auctor, libero eros ultricies felis,
                                     vel auctor sapien felis non neque. Aliquam erat volutpat.
                                 </p>
-                                <hr className={`HRTwoText ${checkHasScrollPast ? "HRTwoTextShow" : ""}`} style={{ transformOrigin: 'center left' }} />
+                                <hr className={`HRTwoText ${light ? "HRTwoTextLight" : "HRTwoTextDark"} 
+                                ${checkHasScrollPast ? "HRTwoTextShow" : ""}`}
+                                    style={{ transformOrigin: 'center left' }} />
                             </div>
 
                         </Col>
@@ -64,7 +70,9 @@ export default function TwoTextSection() {
                         <Col lg={6}
                             className="LowerCard"  >
                             <div className="DescStyle">
-                                <hr className={`HRTwoText ${checkHasScrollPast ? "HRTwoTextShow" : ""}`} style={{ transformOrigin: 'center right' }} />
+                                <hr className={`HRTwoText ${light ? "HRTwoTextLight" : "HRTwoTextDark"} 
+                                    ${checkHasScrollPast ? "HRTwoTextShow" : ""}`}
+                                    style={{ transformOrigin: 'center right' }} />
                                 <p className={`TwoTextDesc ${checkHasScrollPast ? "TwoTextDescShow" : ""} `}
                                     style={{ '--translation-prop': '-225%' } as React.CSSProperties}>
                                     Lorem ipsum dolor sit amet,

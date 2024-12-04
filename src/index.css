@@ -23,9 +23,16 @@ body {
 }
 
 .SubpageAppRoot {
-  background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+  background-image: linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245));
   color: black !important;
   /* Ensure text is visible on white background */
   min-height: 100vh;
   /* Ensure the div covers the full viewport height */
+}
+
+.SubpageAppRootDark {
+  background-image: linear-gradient(rgb(10, 10, 10), rgb(25, 25, 25));
+  color: rgb(200, 200, 200) !important;
+  /* Ensure text is visible on white background */
+  min-height: 100vh;
 }

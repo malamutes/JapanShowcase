@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import './LandmarkIntro.css'
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 import { LandmarkContext } from "../LandmarkAppContext";
+import { LightThemeContext } from "../../../ThemeContext";
 
 export default function LandmarkIntro() {
     const arr = [1, 2, 3, 4, 5];
@@ -34,6 +35,7 @@ export default function LandmarkIntro() {
 
         setCurrItem(index);
     }
+    const { light } = useContext(LightThemeContext);
 
     return (
         <>
@@ -42,13 +44,14 @@ export default function LandmarkIntro() {
                 <Row className="LandmarkIntroRow">
                     <Col className="LandmarkIntroCol" xl={6}>
                         <Image src="https://placehold.co/200x200" style={{
-                            borderRadius: '50%', boxShadow: "0px 0px 25px rgb(0, 0, 0, 0.5)", maxWidth: '70%'
+                            borderRadius: '50%', boxShadow: `0px 0px 25px rgb(${light ? "0, 0, 0" : "255,255,255"}, 0.5)`, maxWidth: '70%'
                         }} fluid />
 
                         {arr.map((item, index) => (
                             <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }} key={index}>
                                 <Image src={`https://placehold.co/135x135?text=${index}`} fluid
-                                    className={`CircularMenuItems ${index === currItem ? "CircularMenuItemsCurr" : ""}`}
+                                    className={`${light ? "CircularMenuItems" : "CircularMenuItemsDark"} ${index === currItem ?
+                                        `${light ? "CircularMenuItemsCurr" : "CircularMenuItemsCurrDark"}` : ""}`}
                                     style={{
                                         maxWidth: '25vw', aspectRatio: '1', borderRadius: '50%',
                                         position: 'absolute', transition: 'transform 0.5s ease, opacity 1s ease',
@@ -66,7 +69,7 @@ export default function LandmarkIntro() {
                     <Col xl={1} xs={0}>
                     </Col>
                     <Col xl={5} style={{ display: 'flex', alignItems: 'center', margin: '25px 0', justifyContent: 'center', }}
-                        key={currItem} className="CurrDescContainer">
+                        key={currItem} className={light ? "CurrDescContainer" : "CurrDescContainerDark"}>
                         <span className="CurrDesc">
                             <p>{LC} ITEM</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.

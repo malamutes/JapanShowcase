@@ -1,9 +1,12 @@
 import { Col, Card, Image } from "react-bootstrap"
 import './ImageSection.css'
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { LightThemeContext } from "../../../ThemeContext";
 
 export default function TripleImageCard() {
     const [hover, SetHover] = useState(false);
+
+    const { light } = useContext(LightThemeContext);
 
     return (
         <>
@@ -11,7 +14,7 @@ export default function TripleImageCard() {
                 position: 'relative', maxWidth: '400px',
                 display: 'flex', justifyContent: 'center', overflowY: 'hidden', borderRadius: '50px',
                 transition: "box-shadow 0.3s ease",
-                boxShadow: `10px 10px 15px rgba(0, 0, 0, ${hover ? 0.5 : 0})`
+                boxShadow: `10px 10px 15px rgba(${light ? "0, 0, 0" : "200,200,200"}, ${hover ? 0.5 : 0})`
             }}>
                 <Image fluid src={`https://placehold.co/400x600`}
                     onMouseEnter={() => SetHover(true)} onMouseLeave={() => SetHover(false)}

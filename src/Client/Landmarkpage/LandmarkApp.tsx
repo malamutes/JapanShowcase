@@ -7,13 +7,15 @@ import CommonNavCompTop from "../CommonNavigationComponents/CommonNavComp"
 import ReferenceBar from "../Mainpage/ReferenceBar/ReferenceBar"
 import { useParams } from "react-router-dom"
 import { LandmarkContext } from "./LandmarkAppContext"
+import { LightThemeContext } from "../../ThemeContext"
+import { useContext } from "react"
 
 export default function LandmarkApp() {
     const { CurrentLandmark } = useParams();
-
+    const { light } = useContext(LightThemeContext);
     return (
         <>
-            <div className="SubpageAppRoot">
+            <div className={`${light ? "SubpageAppRoot" : "SubpageAppRootDark"}`}>
                 <LandmarkContext.Provider value={CurrentLandmark!}>
                     <CommonNavCompTop />
                     <LandmarkIntro />

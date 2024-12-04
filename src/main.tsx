@@ -61,7 +61,7 @@ const router = createBrowserRouter([
 ]);
 
 function ThemeWrapper() {
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
 
   return (
     <LightThemeContext.Provider value={{ light: light, setLight: setLight }}>

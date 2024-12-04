@@ -89,7 +89,10 @@ export default function ReferenceBar() {
 
     return (
         <>
-            <Container className="ReferenceBarContainer" style={{ backgroundColor: 'rgb(25, 25, 25)', color: 'white' }} fluid id="ReferenceBar">
+            <Container className="ReferenceBarContainer" style={{
+                backgroundColor: 'rgb(25, 25, 25)', color: 'white',
+                borderTop: '0.1px solid white'
+            }} fluid id="ReferenceBar">
                 <Container style={{ paddingTop: '2cqw', paddingBottom: '2cqw' }}>
                     <Col>
                         <Row >

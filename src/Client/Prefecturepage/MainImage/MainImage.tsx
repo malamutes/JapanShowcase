@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useLayoutEffect } from "react";
+import { useContext, useEffect, useState, useLayoutEffect, } from "react";
 import { PrefectureContext } from "../PrefectureAppContext";
 import { Image } from "react-bootstrap";
 import clamp from "../../../Clamp";
@@ -6,10 +6,13 @@ import InfoSection from "../InfoSection/InfoSection";
 import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 import { Container } from "react-bootstrap";
 import './MainImage.css'
+import { LightThemeContext } from "../../../ThemeContext";
+
 
 export default function MainImage() {
     const CP = useContext(PrefectureContext)
     const [isDisplay, setIsDisplay] = useState(true);
+
 
     const [scrollAmount, setScrollAmount] = useState(0);
 
@@ -84,6 +87,8 @@ export default function MainImage() {
         window.scrollTo(0, 0);
     }
 
+    const { light } = useContext(LightThemeContext);
+
     return (
         <>
             <div style={{ position: 'relative' }}>
@@ -97,7 +102,8 @@ export default function MainImage() {
                         width: '55px',
                         display: `${isDisplay === true ? 'none' : 'inline-block'}`,
                         transform: 'rotate(-90deg)',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        filter: `${light ? "" : "invert(0.75)"}`
                     }}
                     onClick={() => {
                         handleClick();

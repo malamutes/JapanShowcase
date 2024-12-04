@@ -49,7 +49,7 @@ export default function HorizontalCard() {
                         <Col style={{ display: 'flex', justifyContent: 'center' }}
                         >
                             <Row >
-                                <Card style={{ border: 'none', }}>
+                                <Card style={{ border: 'none', backgroundColor: 'transparent' }}>
                                     <Card.Img src="https://placehold.co/1400x500" alt="Card image"
                                         style={{ borderRadius: '25px', maxWidth: '100%', height: 'auto' }} />
                                     <Card.ImgOverlay>

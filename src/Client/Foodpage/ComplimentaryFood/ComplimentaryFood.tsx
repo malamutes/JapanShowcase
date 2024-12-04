@@ -12,8 +12,6 @@ interface ComplimentaryFoodCardProps {
 }
 
 export function ComplimentaryFoodCard(props: ComplimentaryFoodCardProps) {
-
-
     const CF = useContext(FoodContext);
 
     const [scrollPastCol, setScrollPastCol] = useState(false);
@@ -91,7 +89,7 @@ export default function ComplimentaryFood() {
             <Container style={{ marginTop: '100px' }} ref={ComponentRef}>
                 <CommonDividersV2 onScroll={checkHasScrollPast} />
                 <Row >
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((element, index) => (
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((element) => (
                         <Col style={{
                             display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px',
                         }} sm={6} md={4} lg={3} key={element}>

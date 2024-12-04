@@ -1,6 +1,7 @@
 import { Row, Col, Image } from "react-bootstrap"
 import './CommonDividers.css'
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
+import { LightThemeContext } from "../../ThemeContext";
 
 interface CommonDividersV2Props {
     onScroll: boolean
@@ -9,6 +10,7 @@ interface CommonDividersV2Props {
 export default function CommonDividersV2(props: CommonDividersV2Props) {
     const textRef = useRef<SVGTextElement>(null);
 
+    const { light } = useContext(LightThemeContext);
     //set attributing is descrinbing instructions on how to render stuff on the screen and this is equivalent to doing <animate> tag down below
     //except this actually interacts with react DOM states as compared to regular svg elements which don't
     useEffect(() => {
@@ -51,7 +53,7 @@ export default function CommonDividersV2(props: CommonDividersV2Props) {
                     display: 'flex', justifyContent: 'center', alignItems: 'center'
                 }}>
 
-                    <div className="TextContainer">
+                    <div className={`TextContainer ${light ? "TextContainerLight" : "TextContainerDark"}`}>
                         <svg width="200" height="200" style={{
                             position: 'absolute', top: '-100px', left: '50%',
                             transform: 'translateX(-50%)',
@@ -63,7 +65,7 @@ export default function CommonDividersV2(props: CommonDividersV2Props) {
                                 />
                             </defs>
                             <text fontSize="20" fontWeight="700" textDecoration="underline"
-                                textAnchor="middle" fill="black" ref={textRef} opacity="0"
+                                textAnchor="middle" fill={`${light ? "black" : "white"}`} ref={textRef} opacity="0"
                                 textLength="0.1%">
                                 <textPath
                                     href="#upperSemiCircle"

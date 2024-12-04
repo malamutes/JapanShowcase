@@ -5,6 +5,7 @@ import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUse
 import { FoodData } from "../../Mainpage/Data/FoodData";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../FoodAppContext";
+import { LightThemeContext } from "../../../ThemeContext";
 
 export default function FoodNavigation() {
     const [distance, setDistance] = useState(0);
@@ -17,6 +18,7 @@ export default function FoodNavigation() {
 
 
     const CF = useContext(FoodContext);
+    const { light } = useContext(LightThemeContext);
 
     const [scrollPast, setScrollPast] = useState(false);
 
@@ -83,7 +85,7 @@ export default function FoodNavigation() {
                                     maxWidth: '150px', // Match your image dimensions
                                     maxHeight: '150px',
                                     margin: '15px',
-                                    border: '2px solid black', // Border styling
+                                    border: `2px solid ${light ? "black" : "purple"}`, // Border styling
                                     borderRadius: '50%', // Matches the roundedCircle effect
                                     overflow: 'hidden', // Ensures only the image content scales
                                     display: 'inline-block',
@@ -104,7 +106,7 @@ export default function FoodNavigation() {
 
                                 <div style={{
                                     backgroundColor: 'darkgrey', padding: '10px', width: 'fit-content',
-                                    transform: 'translateY(-100%)'
+                                    transform: 'translateY(-100%)', color: 'black'
                                 }}>
                                     {food}
                                 </div>
@@ -116,10 +118,13 @@ export default function FoodNavigation() {
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Image src="/Images/right_arrow.png" onClick={() => setDistance(
                         distance => clamp(distance + 100, -((1 / (numItemsDisplay / totalItems)) - 1) * 100, 0))}
-                        style={{ cursor: 'pointer', transform: 'rotate(180deg)', maxWidth: '40px', marginRight: '10px' }} />
+                        style={{
+                            cursor: 'pointer', transform: 'rotate(180deg)', maxWidth: '40px', marginRight: '10px',
+                            filter: `${light ? "" : "invert(0.9)"}`
+                        }} />
                     <Image src="/Images/right_arrow.png" onClick={() => setDistance(
                         distance => clamp(distance - 100, -((1 / (numItemsDisplay / totalItems)) - 1) * 100, 0))}
-                        style={{ cursor: 'pointer', maxWidth: '40px' }}
+                        style={{ cursor: 'pointer', maxWidth: '40px', filter: `${light ? "" : "invert(0.9)"}` }}
                     />
                 </div>
             </Container>

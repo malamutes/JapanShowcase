@@ -5,13 +5,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Offcanvas, Row, Col } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useEffect, useState } from 'react';
-
+import { useContext, useEffect, useState } from 'react';
 import './CommonDividers.css'
+import { LightThemeContext } from '../../ThemeContext';
 
 export default function CommonNavCompTop() {
     const [show, setShow] = useState(false);
     const [top, setTop] = useState(true);
+
+    const { light, setLight } = useContext(LightThemeContext);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -93,6 +95,10 @@ export default function CommonNavCompTop() {
                         </div>
                     </Container>
                 </Navbar>
+
+                <Button onClick={() => setLight(light => !light)}>
+                    asdsad
+                </Button>
             </Container>
 
         </>

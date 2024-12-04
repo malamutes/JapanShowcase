@@ -47,7 +47,7 @@ export default function InnerFoodDescCard(props: InnerFoodDescCardProps) {
                     }}>
                     <Row style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <div className="GlassmorphismEffect" style={{
-                            maxWidth: '75%', padding: '25px',
+                            maxWidth: '90%', padding: '25px',
                         }}>
                             <p style={{ margin: 'auto' }}>{props.title}</p>
 

@@ -12,7 +12,7 @@ export default function MainImage() {
                 margin: '0 auto', padding: '0', maxWidth: '1500px', overflowX: 'hidden',
                 height: `50vw`, minHeight: '700px', maxHeight: '950px', display: 'grid', placeItems: 'center',
                 backgroundImage: `url("https://placehold.co/1500x950")`,
-                backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
+                backgroundPosition: 'center', backgroundRepeat: 'no-repeat', color: 'black'
             }} id="Home">
 
                 <Row>

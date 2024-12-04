@@ -11,3 +11,17 @@
     opacity: 1;
     transform: translateY(0%);
 }
+
+.InfoSectionContainer {
+    padding: 25px;
+    overflow-y: hidden;
+}
+
+.InfoSectionContainerLight {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+}
+
+.InfoSectionContainerDark {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+
+}
