@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { FoodContext } from "./PrefectureAppContext";
+import { FoodContext } from "./FoodAppContext";
 import MainImageFood from './MainImageFood/MainImageFood'
 import FoodImageSection from "./FoodImageCard/FoodImageSection";
 import FoodSelector from "./FoodSelector/FoodSelector";
@@ -14,8 +14,7 @@ export default function FoodApp() {
 
     return (
         <>
-            <div className="FoodAppRoot">
-
+            <div className="SubpageAppRoot">
                 <FoodContext.Provider value={CurrentFood!}>
                     <CommonNavCompTop />
                     <MainImageFood />
@@ -25,8 +24,6 @@ export default function FoodApp() {
                     <FoodNavigation />
                     <ReferenceBar />
                 </FoodContext.Provider>
-
-
             </div>
         </>
     )

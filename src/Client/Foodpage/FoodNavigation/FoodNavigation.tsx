@@ -1,16 +1,30 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import { Container, Col, Image } from "react-bootstrap";
 import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
+import { FoodData } from "../../Mainpage/Data/FoodData";
+import { useNavigate } from "react-router-dom";
+import { FoodContext } from "../FoodAppContext";
 
 export default function FoodNavigation() {
     const [distance, setDistance] = useState(0);
     const [numItemsDisplay, setNumItemsDisplay] = useState(6);
-    const totalItems = 8;
+    const totalItems = Object.keys(FoodData).length;
+
+    const navigate = useNavigate();
 
     const [hover, setHover] = useState(-1);
 
+
+    const CF = useContext(FoodContext);
+
     const [scrollPast, setScrollPast] = useState(false);
+
+    useEffect(() => {
+        setScrollPast(false);
+    }, [CF])
+
+
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const checkScrollPast = ObserverIntersectionUseEffect({
@@ -60,7 +74,7 @@ export default function FoodNavigation() {
                         display: 'flex', transition: 'transform 1s ease-in-out',
                         transform: `translateX(${distance}%)`
                     }}>
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map((element, index) => (
+                        {Object.keys(FoodData).map((food, index) => (
                             <Col xs={6} sm={4} md={3} lg={2} style={{
                                 display: 'flex', flexDirection: 'column',
                                 alignItems: 'center'
@@ -84,6 +98,7 @@ export default function FoodNavigation() {
                                         }}
                                         onMouseEnter={() => setHover(index)}
                                         onMouseLeave={() => setHover(-1)}
+                                        onClick={() => { navigate(`/Food/${food}`) }}
                                     />
                                 </div>
 
@@ -91,7 +106,7 @@ export default function FoodNavigation() {
                                     backgroundColor: 'darkgrey', padding: '10px', width: 'fit-content',
                                     transform: 'translateY(-100%)'
                                 }}>
-                                    asdsad
+                                    {food}
                                 </div>
                             </Col>
                         ))}

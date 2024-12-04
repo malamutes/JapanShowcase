@@ -1,17 +1,27 @@
-import { Container, Row, Col, Image } from "react-bootstrap"
+import { Container, Image } from "react-bootstrap"
 import './LandmarkNavigation.css'
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { LandMarksData } from "../../Mainpage/Data/LandmarksData";
+import { LandmarkContext } from "../LandmarkAppContext";
 
 export default function LandmarkNavigation() {
-    const menuArray = ['red', 'green', 'blue', 'purple',
-    ];
+    const LC = useContext(LandmarkContext);
 
+    const navigate = useNavigate();
+
+    const menuArray = Object.keys(LandMarksData).filter(key => key !== LC);
+    const colours = ['red', 'blue', 'purple', 'green'];
     //make first item always the current screen
+    const [scrollPast, setScrollPast] = useState(false);
 
+    useEffect(() => {
+        setScrollPast(false);
+    }, [LC]);
 
     const [itemHover, setItemHover] = useState(-1);
 
@@ -73,7 +83,6 @@ export default function LandmarkNavigation() {
 
     const ComponentRef = useRef<HTMLDivElement>(null);
 
-    const [scrollPast, setScrollPast] = useState(false);
 
     const checkScrollPast = ObserverIntersectionUseEffect({
         scrollPast: scrollPast, setScrollPast: setScrollPast,
@@ -86,10 +95,11 @@ export default function LandmarkNavigation() {
                 <CommonDividersV3 onScroll={checkScrollPast} />
                 <div className="CircularMenuWrapper">
                     <svg width={`${outerRadius * 2}px`} height={`${outerRadius * 2}px`} xmlns="http://www.w3.org/2000/svg">
-                        {menuArray.map((colour, index) => (
+                        {menuArray.map((landmark, index) => (
                             <React.Fragment key={`FragmentWrapper-${index}`}>
                                 <path
                                     key={`Path ${index}`}
+                                    onClick={() => { navigate(`/Landmark/${landmark}`) }}
                                     style={{
                                         transformOrigin: 'center', transition: 'transform 1s ease, opacity 1s ease',
                                         transform: `rotate(${checkScrollPast ? sectorAngle * index : 0}deg) 
@@ -98,7 +108,7 @@ export default function LandmarkNavigation() {
                                         cursor: 'pointer',
                                         opacity: `${checkScrollPast ? 1 : 0}`
                                     }}
-                                    fill={colour} strokeWidth={2.5} stroke={colour} strokeOpacity={0.5}
+                                    fill={colours[index]} strokeWidth={2.5} stroke={colours[index]} strokeOpacity={0.5}
                                     fillOpacity={0.05}
                                     d={`M ${startingPositionOuterHoriz}, ${vertDistanceFromTopOuter}
                                         A ${outerRadius}, ${outerRadius}, 0, 0, 1, ${endingPositionOuterHoriz}, ${vertDistanceFromTopOuter}

@@ -9,12 +9,10 @@ interface CommonDividersV2Props {
 export default function CommonDividersV2(props: CommonDividersV2Props) {
     const textRef = useRef<SVGTextElement>(null);
 
-
-
     //set attributing is descrinbing instructions on how to render stuff on the screen and this is equivalent to doing <animate> tag down below
     //except this actually interacts with react DOM states as compared to regular svg elements which don't
     useEffect(() => {
-        if (textRef.current) {
+        if (textRef.current && props.onScroll) {
             // Create textLength animation
             const animateLength = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
             animateLength.setAttribute('attributeName', 'textLength');
@@ -35,13 +33,11 @@ export default function CommonDividersV2(props: CommonDividersV2Props) {
             animateOpacity.setAttribute('fill', 'freeze');
             animateOpacity.setAttribute('repeatCount', '1');
 
-            if (props.onScroll) {
-                textRef.current.appendChild(animateLength);
-                textRef.current.appendChild(animateOpacity);
+            textRef.current.appendChild(animateLength);
+            textRef.current.appendChild(animateOpacity);
 
-                animateLength.beginElement();
-                animateOpacity.beginElement();
-            }
+            animateLength.beginElement();
+            animateOpacity.beginElement();
         }
     }, [props.onScroll]);
 

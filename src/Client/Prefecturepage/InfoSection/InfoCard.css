@@ -4,6 +4,7 @@
     transition-timing-function: var(--transition-timing-func);
     opacity: 0;
     transform: translateY(125%);
+    cursor: pointer;
 }
 
 .InfoCardDefaultShow {

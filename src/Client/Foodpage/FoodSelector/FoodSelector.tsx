@@ -3,16 +3,25 @@ import FoodSelectorCard from "./FoodSelectorCard";
 import InnerFoodDescCard from "./InnerFoodDescriptionCard";
 
 import { Container, Row, Col } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import CommonDividersV2 from "../../CommonNavigationComponents/CommonNavDividersV2";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
+import { FoodContext } from "../FoodAppContext";
 
 
 export default function FoodSelector() {
+
+    const CF = useContext(FoodContext);
+
+    const [scrollPast, setScrollPast] = useState(false);
+
+    useEffect(() => {
+        setScrollPast(false);
+    }, [CF])
+
     const [currentOuterItem, setCurrentOuterItem] = useState(1);
     const [currentInnerItem, setCurrentInnerItem] = useState(1);
 
-    const [scrollPast, setScrollPast] = useState(false);
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const checkHasScrollPast = ObserverIntersectionUseEffect({

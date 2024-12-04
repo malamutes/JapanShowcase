@@ -1,7 +1,8 @@
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
-import { useRef, useState } from "react";
+import { useRef, useState, useContext, useEffect } from "react";
+import { LandmarkContext } from "../LandmarkAppContext";
 
 export default function LandmarkCard() {
 
@@ -9,6 +10,11 @@ export default function LandmarkCard() {
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const [scrollPast, setScrollPast] = useState(false);
+    const LC = useContext(LandmarkContext);
+    useEffect(() => {
+        setScrollPast(false);
+    }, [LC]);
+
 
     const checkScrollPast = ObserverIntersectionUseEffect({
         scrollPast: scrollPast, setScrollPast: setScrollPast,

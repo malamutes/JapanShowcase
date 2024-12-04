@@ -1,9 +1,9 @@
-//use tabs from react bootstrap and paly around with it
 import CommonDividersV3 from '../../CommonNavigationComponents/CommonDividersV3';
 import './LandmarkTab.css'
 import { Row, Col, Container, Tab, Tabs, Image } from "react-bootstrap"
 import ObserverIntersectionUseEffect from '../../CommonLogic(NON-UI)/ObserverUseEffect';
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext, useEffect } from 'react';
+import { LandmarkContext } from '../LandmarkAppContext';
 
 export default function LandmarkTab() {
     const loremTable = ["Lorem", "Ipsum", "Dolor", "Sit", "Amet"];
@@ -11,6 +11,11 @@ export default function LandmarkTab() {
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const [scrollPast, setScrollPast] = useState(false);
+    const LC = useContext(LandmarkContext);
+    useEffect(() => {
+        setScrollPast(false);
+    }, [LC]);
+
 
     const checkScrollPast = ObserverIntersectionUseEffect({
         scrollPast: scrollPast, setScrollPast: setScrollPast,

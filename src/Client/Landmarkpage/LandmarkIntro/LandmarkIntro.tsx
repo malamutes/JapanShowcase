@@ -1,9 +1,9 @@
 import { Container, Row, Col, Image, Accordion } from "react-bootstrap";
 import '../LandmarkApp.css'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import './LandmarkIntro.css'
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
+import { LandmarkContext } from "../LandmarkAppContext";
 
 export default function LandmarkIntro() {
     const arr = [1, 2, 3, 4, 5];
@@ -13,6 +13,11 @@ export default function LandmarkIntro() {
     const [rotationDeg, setRotationDeg] = useState(0);
     const [initialLoad, setInitialLoad] = useState(false);
     const [fakeFlag, setFakeFlag] = useState(true);
+
+    const LC = useContext(LandmarkContext);
+    useEffect(() => {
+        setInitialLoad(true);
+    }, []);
 
     const handleClick = (index: number) => {
         let rotationChange = -(index - currItem) * angle;
@@ -29,10 +34,6 @@ export default function LandmarkIntro() {
 
         setCurrItem(index);
     }
-
-    useEffect(() => {
-        setInitialLoad(true);
-    }, []);
 
     return (
         <>
@@ -67,7 +68,7 @@ export default function LandmarkIntro() {
                     <Col xl={5} style={{ display: 'flex', alignItems: 'center', margin: '25px 0', justifyContent: 'center', }}
                         key={currItem} className="CurrDescContainer">
                         <span className="CurrDesc">
-                            <p>{currItem} ITEM</p>
+                            <p>{LC} ITEM</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi

@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import CommonDividersV3 from "../../CommonNavigationComponents/CommonDividersV3";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 import './LandmarkHorizontalCard.css'
+import { LandmarkContext } from "../LandmarkAppContext";
 
 
 //<a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a>
@@ -13,6 +14,11 @@ function LandmarkCardComponent() {
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const [scrollPast, setScrollPast] = useState(false);
+    const LC = useContext(LandmarkContext);
+    useEffect(() => {
+        setScrollPast(false);
+    }, [LC]);
+
 
     const checkScrollPast = ObserverIntersectionUseEffect({
         scrollPast: scrollPast, setScrollPast: setScrollPast,
@@ -110,6 +116,11 @@ export default function LandmarkCardSection() {
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const [scrollPast, setScrollPast] = useState(false);
+    const LC = useContext(LandmarkContext);
+    useEffect(() => {
+        setScrollPast(false);
+    }, [LC]);
+
 
     const checkScrollPast = ObserverIntersectionUseEffect({
         scrollPast: scrollPast, setScrollPast: setScrollPast,

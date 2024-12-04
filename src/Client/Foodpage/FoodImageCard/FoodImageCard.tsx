@@ -1,10 +1,17 @@
 import { Col, Row, Image } from "react-bootstrap"
 import './FoodImageCard.css'
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect"
-import { useRef, useState } from "react"
+import { useRef, useState, useContext, useEffect } from "react"
+import { FoodContext } from "../FoodAppContext"
 
 export default function FoodImageCard() {
+    const CF = useContext(FoodContext);
+
     const [scrollPast, setScrollPast] = useState(false);
+
+    useEffect(() => {
+        setScrollPast(false);
+    }, [CF])
 
     const ComponentRef = useRef<HTMLDivElement>(null);
 

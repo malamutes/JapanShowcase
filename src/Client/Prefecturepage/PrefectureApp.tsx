@@ -16,7 +16,7 @@ export default function PrefectureApp() {
 
     return (
         <>
-            <div className="PrefectureAppRoot">
+            <div className="SubpageAppRoot">
                 <PrefectureContext.Provider value={CurrentPrefecture!}>
                     <CommonNavCompTop />
                     <MainImage />

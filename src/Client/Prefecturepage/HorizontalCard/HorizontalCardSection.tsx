@@ -2,12 +2,18 @@ import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 import HorizontalCard from "./HorizontalCard";
 import { Container, Col, Row } from "react-bootstrap";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
+import { PrefectureContext } from "../PrefectureAppContext";
 
 
 export default function HorizontalCardSection() {
-
+    const CP = useContext(PrefectureContext)
     const [scrollPast, setScrollPast] = useState(false);
+
+    useEffect(() => {
+        setScrollPast(false);
+    }, [CP])
+
     const ComponentRef = useRef<HTMLDivElement>(null);
 
     const checkHasScrollPast = ObserverIntersectionUseEffect({

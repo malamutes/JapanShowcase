@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Image, Container, Row, Col, Card } from "react-bootstrap";
+import { FoodContext } from "../FoodAppContext";
 
 import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 
 export default function MainImage() {
+    const CF = useContext(FoodContext);
 
     const [more992px, setMore992px] = useState(false);
     const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
@@ -49,7 +51,7 @@ export default function MainImage() {
                                         <span style={{
                                             fontSize: `${checkMore992px ? 35 : 20}px`, fontWeight: '700',
                                         }}>
-                                            Innovatio et creatio, viam ad futurum</span>
+                                            Innovatio et creatio, viam ad futurum, {CF}</span>
                                     </Card.Text>
                                     <Card.Text style={{
                                         maxWidth: `${checkMore992px ? 80 : 100}%`,

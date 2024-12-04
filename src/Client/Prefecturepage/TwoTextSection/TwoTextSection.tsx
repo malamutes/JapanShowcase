@@ -2,15 +2,25 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import './TwoTextSection.css'
 import CommonDividers from "../../CommonNavigationComponents/CommonDividers";
 import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import './TwoTextSection.css'
+import { PrefectureContext } from "../PrefectureAppContext";
 
 export default function TwoTextSection() {
-
+    const CP = useContext(PrefectureContext)
     const [scrollPast, setScrollPast] = useState(false);
+
+    useEffect(() => {
+        setScrollPast(false);
+    }, [CP])
+
     const ComponentRef = useRef<HTMLDivElement>(null);
 
-    const checkHasScrollPast = ObserverIntersectionUseEffect({ scrollPast: scrollPast, setScrollPast: setScrollPast, compRef: ComponentRef, threshold: 0.3 });
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.3
+    });
+
 
     return (
         <>

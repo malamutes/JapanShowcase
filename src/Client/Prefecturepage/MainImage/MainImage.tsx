@@ -20,6 +20,12 @@ export default function MainImage() {
 
 
     useEffect(() => {
+        setIsDisplay(true);
+        setScrollAmount(0);
+    }, [CP])
+
+
+    useEffect(() => {
         const handleWheel = (e: WheelEvent) => {
             if (isDisplay) {
                 e.preventDefault(); // Prevent scrolling
@@ -105,7 +111,7 @@ export default function MainImage() {
                 }} className="PrefectureAppMainImage">
                     <div className="PrefectureAppMainImageText">
                         <p style={{ fontSize: '35px' }}>
-                            Dolor Sit Amet
+                            Welcome to <h1>{CP}</h1>
                         </p>
                         <span style={{ fontSize: '20px' }}>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
