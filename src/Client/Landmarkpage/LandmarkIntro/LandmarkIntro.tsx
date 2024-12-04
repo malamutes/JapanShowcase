@@ -37,7 +37,7 @@ export default function LandmarkIntro() {
 
     return (
         <>
-            <Container className="Above978pxContainer">
+            <Container className="Above978pxContainer" id="Home">
                 <CommonDividersV3 onScroll={initialLoad} />
                 <Row className="LandmarkIntroRow">
                     <Col className="LandmarkIntroCol" xl={6}>

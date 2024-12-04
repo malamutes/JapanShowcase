@@ -17,7 +17,7 @@ export default function MainImage() {
                 height: `50vw`, minHeight: '700px', maxHeight: '950px', display: 'grid', placeItems: 'center',
                 backgroundImage: `url("https://placehold.co/1500x950")`,
                 backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
-            }}>
+            }} id="Home">
 
                 <Row>
                     <Col style={{

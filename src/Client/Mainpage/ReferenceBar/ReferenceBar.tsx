@@ -1,10 +1,11 @@
-import { Container, Row, Col, Form, Button, Accordion } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button, Accordion, Toast } from 'react-bootstrap'
 import './ReferenceBar.css'
 import { ReferenceData } from '../Data/ReferenceLinks'
 import { faInstagram, faFacebook, faLinkedin, faTiktok, faPinterest, faYoutube, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
+import '../../Prefecturepage/HorizontalCard/HorizontalCard.css'
 
 const iconMap: { [key: string]: any } = {
     instagram: faInstagram,
@@ -16,6 +17,69 @@ const iconMap: { [key: string]: any } = {
     twitter: faXTwitter,
 };
 
+
+function EmailInput() {
+    const [showToast, setShowToast] = useState(false);
+    const [email, setEmail] = useState("");
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const [valid, setValid] = useState(false);
+
+    const handleEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    }
+
+    return (
+        <>
+            <div className={`HorizontalCardOverlay ${showToast ? "HorizontalCardOverlayDark" : ""}`}
+                onClick={() => { setShowToast(false); setEmail(""); }} />
+            <Toast show={showToast} onClose={() => {
+                setShowToast(false);
+                setEmail("");
+            }}
+                style={{
+                    position: 'fixed', top: '50vh', left: '50vw',
+                    transform: 'translate(-50%, -50%)', zIndex: 5
+                }}>
+                <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
+                    <strong className="me-auto">Thanks for Subscribing!</strong>
+                    <small>Japan Showcase</small>
+                </Toast.Header>
+                <Toast.Body style={{ color: 'black' }}>{valid ? `Woohoo, ${email} is now a subscriber!` : "Invalid Email"}</Toast.Body>
+            </Toast>
+
+            <Form.Control
+                type="text"
+                id="EmailInputForm"
+                aria-describedby="EmailInputForm"
+                placeholder='Email'
+                value={email}
+                onChange={handleEmailInput}
+                className="FormEmailInput"
+                style={{
+                    width: '50%'
+                }}
+            />
+
+            <Button variant="danger"
+                className="FormEmailInput"
+                style={{
+                    width: '25%', padding: '0'
+                }}
+                onClick={() => {
+                    if (emailRegex.test(email)) {
+                        setValid(true);
+                    }
+                    else {
+                        setValid(false);
+                    }
+                    setShowToast(true);
+                }}
+            ><span className='EmailInputText'
+            >GIVE</span></Button>
+
+        </>
+    )
+}
 
 export default function ReferenceBar() {
     const RD = ReferenceData;
@@ -44,24 +108,10 @@ export default function ReferenceBar() {
                                 <Row className="flex-grow-1" style={{
                                     display: 'flex', flexDirection: 'column', justifyContent: 'start',
                                 }}>
-                                    <span className="EmailInputText">Give me your email.</span>
+                                    <span className="EmailInputText"
+                                    >Give me your email.</span>
                                     <Row>
-                                        <Form.Control
-                                            type="text"
-                                            id="inputPassword5"
-                                            aria-describedby="passwordHelpBlock"
-                                            placeholder='Email'
-                                            className="FormEmailInput"
-                                            style={{
-                                                width: '40%'
-                                            }}
-                                        />
-
-                                        <Button variant="danger"
-                                            className="FormEmailInput"
-                                            style={{
-                                                width: '25%', padding: '0'
-                                            }} ><span className='EmailInputText'>GIVE</span></Button>
+                                        <EmailInput />
                                     </Row>
 
                                 </Row>
@@ -93,8 +143,11 @@ export default function ReferenceBar() {
                                         <Col key={referenceType} className="ReferenceLinksColStyle" >
                                             <h6 className="ReferenceTitle" >{referenceType}</h6>
                                             {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
-                                                <Row key={referenceLinks} style={{}}>
-                                                    <a href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}</a>
+                                                <Row key={referenceLinks} >
+                                                    <a
+                                                        target={`${["IconReferences", "ImageReferences"].includes(referenceType) ? "_blank" : ""}`}
+                                                        href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}
+                                                    </a>
                                                 </Row>
                                             ))}
                                         </Col>

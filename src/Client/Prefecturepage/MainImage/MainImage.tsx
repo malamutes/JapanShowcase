@@ -110,8 +110,8 @@ export default function MainImage() {
                     transform: `translateX(-50%) translateY(-${scrollAmount}%)`, zIndex: 5,
                 }} className="PrefectureAppMainImage">
                     <div className="PrefectureAppMainImageText">
-                        <p style={{ fontSize: '35px' }}>
-                            Welcome to <h1>{CP}</h1>
+                        <p style={{ fontSize: '35px', fontWeight: '700' }}>
+                            Welcome to {CP}
                         </p>
                         <span style={{ fontSize: '20px' }}>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -120,7 +120,7 @@ export default function MainImage() {
                     </div>
                 </div>
             </div>
-            <Container style={{ marginTop: '-50px' }}>
+            <Container style={{ marginTop: '-50px' }} id="Home">
                 <Container style={{ top: '200px', position: 'relative', marginBottom: '200px' }}>
                     <CommonDividers onScroll={!isDisplay} />
                 </Container>

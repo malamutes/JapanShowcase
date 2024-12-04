@@ -117,7 +117,6 @@
         top: 50%;
         transform: translateY(-45%);
         pointer-events: none;
-        background-color: red;
     }
 
     .HorizontalCardSubImageText {
@@ -145,7 +144,6 @@
         top: 50%;
         transform: translateY(-45%);
         pointer-events: none;
-        background-color: red;
     }
 
     .HorizontalCardSubImageText {

@@ -6,7 +6,7 @@ import './LandmarkHorizontalCard.css'
 import { LandmarkContext } from "../LandmarkAppContext";
 
 
-//<a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a>
+
 
 function LandmarkCardComponent() {
     const [open, setOpen] = useState(false);

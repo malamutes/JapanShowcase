@@ -36,6 +36,10 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
             title: "Shrine",
             link: "https://www.freepik.com/icon/dojo_13890178#fromView=search&page=1&position=4&uuid=c0989b94-c0ff-4fdb-9bfc-769d8177edfd"
         },
+        DownArrow: {
+            title: 'DownArrow',
+            link: "https://www.flaticon.com/free-icons/arrow"
+        }
     },
     ImageReferences: {
         Fontawesome: {
@@ -58,33 +62,37 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
             title: "Alphacoder",
             link: "https://alphacoders.com/"
         },
-    },
-    QuickNavOne: {
-        CulturalHubs: {
-            title: "Hubs",
-            link: "#Hubs"
-        },
-        TreasuredSites: {
-            title: "Landmarks",
-            link: "#Landmarks"
-        },
-        Festivals: {
-            title: "Festivals",
-            link: "#Festivals"
+        Placehold: {
+            title: "Placehold",
+            link: "https://placehold.co/"
         }
     },
-    QuickNavTwo: {
-        TasteOfJapan: {
+    LocationNav: {
+        Prefecture: {
+            title: "Prefecture",
+            link: "/Prefecture/Tokyo"
+        },
+        Festival: {
+            title: "Festival",
+            link: ""
+        },
+        Landmark: {
+            title: "Landmark",
+            link: "/Landmark/Fujisan"
+        }
+    },
+    ExperienceNav: {
+        Game: {
+            title: "Game",
+            link: "#/Food/Sushi"
+        },
+        Food: {
             title: "Food",
-            link: "#Food"
+            link: "/Food/Sushi"
         },
         Entertainment: {
             title: "Entertainment",
-            link: "#Entertainment"
-        },
-        CultFavorites: {
-            title: "Cult Favorites",
-            link: "#Cult Favourites"
+            link: ""
         },
     },
 }
