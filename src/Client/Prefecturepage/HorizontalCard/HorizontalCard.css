@@ -68,7 +68,7 @@
     padding-left: 0;
     cursor: pointer;
     width: 100%;
-    max-width: 1000px;
+    max-width: 225px;
 }
 
 .HorizontalCardSubImageEnlarge {
@@ -96,10 +96,10 @@
         position: fixed;
         transition: transform 0.3s ease, max-width 0.3s ease, top 0.3s ease, left 0.3s ease;
         max-width: 25%;
-        left: 45% !important;
-        z-index: 5;
-        top: 40% !important;
-        transform: translateY(-45%);
+    }
+
+    .HorizontalCardSubImageEnlarge {
+        max-width: 20%;
     }
 }
 
@@ -111,18 +111,18 @@
         justify-content: center;
         position: fixed;
         transition: transform 0.3s ease, max-width 0.3s ease, top 0.3s ease, left 0.3s ease;
-        max-width: 70%;
-        left: 15%;
+        min-width: 70%;
+        left: 50vw;
         z-index: 5;
-        top: 50%;
-        transform: translateY(-45%);
+        top: 50vh;
+        transform: translate(-50%, -50%);
         pointer-events: none;
     }
 
     .HorizontalCardSubImageText {
         color: white;
         margin-left: 50px;
-        max-width: 40%;
+        max-width: 50%;
         line-height: 2;
         transition: clip-path 1s ease;
         animation-name: ShowText;
@@ -138,11 +138,11 @@
         justify-content: center;
         position: fixed;
         transition: transform 0.3s ease, max-width 0.3s ease, top 0.3s ease, left 0.3s ease;
-        max-width: 70%;
-        left: 15%;
+        min-width: 80%;
+        left: 50vw;
         z-index: 5;
-        top: 50%;
-        transform: translateY(-45%);
+        top: 50vh;
+        transform: translate(-50%, -50%);
         pointer-events: none;
     }
 
@@ -165,6 +165,7 @@
 
     .HorizontalCardSubImageContainerEnlarge {
         flex-direction: column;
+
     }
 
     .HorizontalCardSubImageText {
@@ -179,6 +180,33 @@
         pointer-events: all;
     }
 }
+
+@media(max-width: 576px) {
+
+    .HorizontalCardSubImageContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .HorizontalCardSubImage {
+        padding: 15px;
+        max-width: 175px;
+    }
+}
+
+@media(max-width: 360px) {
+
+    .HorizontalCardSubImageContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .HorizontalCardSubImage {
+        padding: 5px;
+        max-width: 175px;
+    }
+}
+
 
 
 @keyframes ShowText {

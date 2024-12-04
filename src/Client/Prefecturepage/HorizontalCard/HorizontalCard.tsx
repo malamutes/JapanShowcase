@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Col, Row, Card, Image, Offcanvas } from "react-bootstrap";
-import './HorizontalCard.css'
 import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
+import './HorizontalCard.css'
 
 
 //<a href="https://www.flaticon.com/free-icons/visible" title="visible icons">Visible icons created by uicon - Flaticon</a>
@@ -33,7 +33,6 @@ export default function HorizontalCard() {
             window.removeEventListener('click', enlarge);
         }
     }, [enlargeSubImage1, enlargeSubImage2, show])
-
 
     const [more992, setMore992] = useState(true);
 
@@ -88,7 +87,7 @@ export default function HorizontalCard() {
                                             <Col xs={5} style={{ overflow: 'hidden' }}>
                                                 <Row style={{ margin: '0', height: '100%', display: 'flex', justifyContent: 'center' }}
                                                     className={`HorizontalCardImageRow ${showLargeImage ? "HorizontalCardImageRowHide" : ""}`}>
-                                                    <div
+                                                    <Col sm={6}
                                                         className={`HorizontalCardSubImageContainer ${enlargeSubImage1 ? "HorizontalCardSubImageContainerEnlarge" : ""}`}>
                                                         <Image src="https://placehold.co/225x300/black/white"
                                                             className={`HorizontalCardSubImage ${enlargeSubImage1 ? "HorizontalCardSubImageEnlarge" : ""}`}
@@ -103,9 +102,9 @@ export default function HorizontalCard() {
                                                             Morbi ut dui nec ante malesuada viverra a et odio.
 
                                                         </span>) : null}
-                                                    </div>
+                                                    </Col>
 
-                                                    <div
+                                                    <Col sm={6}
                                                         className={`HorizontalCardSubImageContainer ${enlargeSubImage2 ? "HorizontalCardSubImageContainerEnlarge" : ""}`}>
                                                         <Image src="https://placehold.co/225x300/black/white"
                                                             className={`HorizontalCardSubImage ${enlargeSubImage2 ? "HorizontalCardSubImageEnlarge" : ""}`}
@@ -119,7 +118,7 @@ export default function HorizontalCard() {
                                                             Cras feugiat, sapien non fermentum fringilla, felis eros sollicitudin tortor, id lacinia nisi nunc ac orci.
                                                             Morbi ut dui nec ante malesuada viverra a et odio.
                                                         </span>) : null}
-                                                    </div>
+                                                    </Col>
                                                 </Row>
 
                                             </Col>
@@ -160,7 +159,7 @@ export default function HorizontalCard() {
                                     <Row >
                                         <Row style={{ margin: '0', height: '100%', display: 'flex', justifyContent: 'center' }}
                                             className={`HorizontalCardImageRow ${showLargeImage ? "HorizontalCardImageRowHide" : ""}`}>
-                                            <div
+                                            <Col sm={6}
                                                 className={`HorizontalCardSubImageContainer ${enlargeSubImage1 ? "HorizontalCardSubImageContainerEnlarge" : ""}`}>
                                                 <Image src="https://placehold.co/225x300/black/white"
                                                     className={`HorizontalCardSubImage ${enlargeSubImage1 ? "HorizontalCardSubImageEnlarge" : ""}`}
@@ -175,9 +174,9 @@ export default function HorizontalCard() {
                                                     Morbi ut dui nec ante malesuada viverra a et odio.
 
                                                 </span>) : null}
-                                            </div>
+                                            </Col>
 
-                                            <div
+                                            <Col sm={6}
                                                 className={`HorizontalCardSubImageContainer ${enlargeSubImage2 ? "HorizontalCardSubImageContainerEnlarge" : ""}`}>
                                                 <Image src="https://placehold.co/225x300/black/white"
                                                     className={`HorizontalCardSubImage ${enlargeSubImage2 ? "HorizontalCardSubImageEnlarge" : ""}`}
@@ -191,7 +190,7 @@ export default function HorizontalCard() {
                                                     Cras feugiat, sapien non fermentum fringilla, felis eros sollicitudin tortor, id lacinia nisi nunc ac orci.
                                                     Morbi ut dui nec ante malesuada viverra a et odio.
                                                 </span>) : null}
-                                            </div>
+                                            </Col>
                                         </Row>
                                     </Row>
 

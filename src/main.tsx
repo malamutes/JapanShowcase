@@ -6,16 +6,16 @@ import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
-  ScrollRestoration,
 } from "react-router-dom";
 
 import PrefectureApp from './Client/Prefecturepage/PrefectureApp.tsx';
 import FoodApp from './Client/Foodpage/FoodApp.tsx';
 import LandmarkApp from './Client/Landmarkpage/LandmarkApp.tsx';
-import { useState, createContext } from 'react';
+import { useState } from 'react';
 import { useLayoutEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
+import { LightThemeContext } from './ThemeContext.tsx';
 
 
 function ScrollToTop() {
@@ -60,10 +60,19 @@ const router = createBrowserRouter([
   },
 ]);
 
+function ThemeWrapper() {
+  const [light, setLight] = useState(false);
+
+  return (
+    <LightThemeContext.Provider value={{ light: light, setLight: setLight }}>
+      <RouterProvider router={router} />
+    </LightThemeContext.Provider>
+  )
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeWrapper />
   </StrictMode>
 );
 
