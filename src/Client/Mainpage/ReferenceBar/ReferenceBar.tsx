@@ -138,41 +138,48 @@ export default function ReferenceBar() {
                             </Col>
 
                             <Col md={4} >
-                                <Row >
-                                    {more768px ? (Object.keys(RD).map((referenceType, typeIndex) => (
-                                        <Col key={referenceType} className="ReferenceLinksColStyle" >
-                                            <h6 className="ReferenceTitle" >{referenceType}</h6>
-                                            {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
-                                                <Row key={referenceLinks} >
-                                                    <a
-                                                        target={`${["IconReferences", "ImageReferences"].includes(referenceType) ? "_blank" : ""}`}
-                                                        href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}
-                                                    </a>
-                                                </Row>
-                                            ))}
-                                        </Col>
-                                    ))) :
-                                        (<Accordion style={{ marginBottom: '25px' }} className='CustomAccordian'>
-                                            {Object.keys(RD).map((referenceType, typeIndex) => (
-                                                <Accordion.Item eventKey={`${typeIndex}`} key={typeIndex}>
-                                                    <Accordion.Header >{referenceType}</Accordion.Header>
-                                                    <Accordion.Body style={{ backgroundColor: 'black', color: 'whitesmoke' }}>
-                                                        <Col>
-                                                            {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
-                                                                <Row key={referenceLinks}>
-                                                                    <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
-                                                                        style={{ fontSize: '15px' }}
-                                                                    >{referenceLinks}</a>
-                                                                </Row>
-                                                            ))}
-                                                        </Col>
 
-                                                    </Accordion.Body>
-                                                </Accordion.Item>
-                                            ))}
-                                        </Accordion>)}
+                                <div className='LargeScreenBottomBar'>
+                                    <Row>
+                                        {Object.keys(RD).map((referenceType, typeIndex) => (
+                                            <Col key={referenceType} className="ReferenceLinksColStyle">
+                                                <h6 className="ReferenceTitle" >{referenceType}</h6>
+                                                {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
+                                                    <Row key={referenceLinks} >
+                                                        <a
+                                                            target={`${["IconReferences", "ImageReferences"].includes(referenceType) ? "_blank" : ""}`}
+                                                            href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}
+                                                        </a>
+                                                    </Row>
+                                                ))}
+                                            </Col>
+                                        ))}
+                                    </Row>
 
-                                </Row>
+                                </div>
+
+                                <div className='SmallScreenBottomBar'>
+                                    <Accordion style={{ marginBottom: '25px' }} className='CustomAccordian'>
+                                        {Object.keys(RD).map((referenceType, typeIndex) => (
+                                            <Accordion.Item eventKey={`${typeIndex}`} key={typeIndex}>
+                                                <Accordion.Header >{referenceType}</Accordion.Header>
+                                                <Accordion.Body style={{ backgroundColor: 'black', color: 'whitesmoke' }}>
+                                                    <Col>
+                                                        {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
+                                                            <Row key={referenceLinks}>
+                                                                <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
+                                                                    style={{ fontSize: '15px' }}
+                                                                >{referenceLinks}</a>
+                                                            </Row>
+                                                        ))}
+                                                    </Col>
+
+                                                </Accordion.Body>
+                                            </Accordion.Item>
+                                        ))}
+                                    </Accordion>
+                                </div>
+
 
                             </Col>
                         </Row>

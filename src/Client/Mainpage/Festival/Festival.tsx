@@ -3,36 +3,42 @@ import './Festival.css'
 import { FestivalData } from "../Data/Festival";
 import { useState, useRef } from "react";
 import CommonHeader from "../CommonStyles/CommonHeader";
-import checkScrollPosition from "../CommonStyles/ScrollPast";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 import CommonNavButton from "../CommonStyles/CommonNavButton";
 
 export default function Festival() {
     const FD = FestivalData;
     const [currFestival, setCurrFestival] = useState("SapporoSnowFestival");
 
-    const FestivalRef = useRef<HTMLDivElement>(null);
-    const scrollPast = checkScrollPosition((8.5 / 10), FestivalRef)
+    const [scrollPast, setScrollPast] = useState(false);
+
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.1
+    });
 
 
     //ive just abused !important for commonnavbutton for now
     //will come back to fix it later but not a priority atm
     return (
         <>
-            <Container className="CommonContainer" id="Festival" ref={FestivalRef}>
-                <CommonHeader header="Festivals & Traditions" colour=" #1E90FF" scrollPast={scrollPast} />
+            <Container className="CommonContainer" id="Festival" ref={ComponentRef}>
+                <CommonHeader header="Festivals & Traditions" colour=" #1E90FF" scrollPast={checkHasScrollPast} />
                 <Container >
                     <Row >
                         <Col md={6}>
                             <hr style={{
                                 border: `1px solid ${FD[currFestival].color}`
-                            }} className={`HRLine ${scrollPast ? "HRLineShow" : ""}`} />
+                            }} className={`HRLine ${checkHasScrollPast ? "HRLineShow" : ""}`} />
                             <Row>
                                 <Carousel controls={false} className="custom-carousel" interval={3000}>
                                     {FD[currFestival].images.map((image, index) => (
                                         <CarouselItem key={index}>
                                             <Image src={image} alt={image}
                                                 className={`ImageCarousel ImageCarouselHide 
-                                                ${scrollPast ? "ImageCarouselShow" : "ImageCarouselHide"}`} />
+                                                ${checkHasScrollPast ? "ImageCarouselShow" : "ImageCarouselHide"}`} />
                                         </CarouselItem>
                                     ))}
                                 </Carousel>
@@ -40,7 +46,7 @@ export default function Festival() {
 
                             <hr style={{
                                 height: '0.1cqw', border: `1px solid ${FD[currFestival].color}`,
-                            }} className={`HRLine ${scrollPast ? "HRLineShow" : ""}`} />
+                            }} className={`HRLine ${checkHasScrollPast ? "HRLineShow" : ""}`} />
                         </Col>
 
                         <Col style={{ border: `5px double ${FD[currFestival].color}`, backgroundColor: 'rgb(15, 15, 15)' }}>

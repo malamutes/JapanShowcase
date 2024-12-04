@@ -9,7 +9,6 @@ interface EightSpotsCardProps {
     img: string,
     colour: string,
     scrollPast: boolean,
-    smallScreen: boolean,
     onclick: () => void
 }
 
@@ -23,7 +22,7 @@ export default function EightSpotsCard(props: EightSpotsCardProps) {
                     '--colour': props.colour, backgroundColor: props.colour
                 } as React.CSSProperties}>
                     <Row style={{ padding: '0' }} className={`EightSpotHide
-                     ${(props.scrollPast || props.smallScreen) ? "EightSpotShow" : ""}`}>
+                     ${(props.scrollPast) ? "EightSpotShow" : ""}`}>
                         <Col xs={8} style={{
                             backgroundColor: 'rgb(24,24,24)', display: 'flex',
                             alignItems: 'center', padding: '0', justifyContent: 'center'

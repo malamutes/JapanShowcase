@@ -107,6 +107,12 @@
     box-shadow: none !important;
 }
 
+.LargeScreenBottomBar {}
+
+.SmallScreenBottomBar {
+    display: none;
+}
+
 @media(max-width: 1900px) {
     .ReferenceBarContainer {
         margin-top: 7.5cqw;
@@ -236,6 +242,15 @@
 
     .ReferenceBarHR {
         margin-bottom: 25px;
+    }
+
+    .LargeScreenBottomBar {
+        display: none;
+
+    }
+
+    .SmallScreenBottomBar {
+        display: block;
     }
 }
 

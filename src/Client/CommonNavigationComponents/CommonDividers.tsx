@@ -1,20 +1,23 @@
 import { Row, Col } from "react-bootstrap"
-import { screenWidthBreakpointsContext } from "../../main"
-import { useContext } from "react"
+import MatchmediaQuery from "../CommonLogic(NON-UI)/MatchmediaQuery";
+import { useState } from "react"
 
 interface CommonDividersProps {
     onScroll: boolean
 }
 
 export default function CommonDividers(props: CommonDividersProps) {
-    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
+    const [more992, setMore992] = useState(true);
+
+    const checkmore992px = MatchmediaQuery({ size: 992, more: more992, setMore: setMore992 });
+
     return (
         <>
             <Col style={{ maxWidth: '60%', margin: '50px auto', padding: '75px 0 50px 0', }}>
                 <Row style={{ maxWidth: '87.5%', margin: 'auto', }}>
                     <Col style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',
-                        minWidth: `${screenWidthBreakpoints['more992px'] ? "auto" : "100%"}`
+                        minWidth: `${checkmore992px ? "auto" : "100%"}`
                     }}>
                         <hr className={`DividerOneHR ${props.onScroll ? "DividerOneHRShow" : ""}`}
                             style={{ transformOrigin: 'center right' }} />
@@ -28,7 +31,7 @@ export default function CommonDividers(props: CommonDividersProps) {
 
                     <Col style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1',
-                        minWidth: `${screenWidthBreakpoints['more992px'] ? "auto" : "100%"}`
+                        minWidth: `${checkmore992px ? "auto" : "100%"}`
                     }}>
                         <hr className={`DividerOneHR ${props.onScroll ? "DividerOneHRShow" : ""}`}
                             style={{ transformOrigin: 'center left' }} />

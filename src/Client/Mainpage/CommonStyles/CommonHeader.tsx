@@ -5,7 +5,6 @@ interface CommonHeaderProps {
     colour: string,
     header: string,
     scrollPast: boolean,
-    smallScreen?: boolean
 }
 
 export default function CommonHeader(props: CommonHeaderProps) {
@@ -28,7 +27,7 @@ export default function CommonHeader(props: CommonHeaderProps) {
                 <Col xs="auto">
                     <hr style={{
                         backgroundColor: `${props.colour}`, border: `0.1cqw solid ${props.colour}`
-                    }} className={`CommonHeaderLineRight ${(props.scrollPast || props.smallScreen) ? "CommonHeaderLineRightTransform" : ""}`} />
+                    }} className={`CommonHeaderLineRight ${(props.scrollPast) ? "CommonHeaderLineRightTransform" : ""}`} />
                 </Col>
             </Row>
         </>

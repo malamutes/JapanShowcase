@@ -6,15 +6,21 @@ import { Image } from "react-bootstrap";
 import './Food.css'
 import '../CommonStyles/CommonStyles.css'
 import CommonHeader from "../CommonStyles/CommonHeader";
-import checkScrollPosition from "../CommonStyles/ScrollPast";
+import ObserverIntersectionUseEffect from "../../CommonLogic(NON-UI)/ObserverUseEffect";
 import { useNavigate } from "react-router-dom";
 import clamp from "../../../Clamp";
 
 export default function Food() {
     const FD = FoodData;
 
-    const FoodRef = useRef<HTMLDivElement>(null);
-    const scrollPast = checkScrollPosition((8.5 / 10), FoodRef)
+    const [scrollPast, setScrollPast] = useState(false);
+
+    const ComponentRef = useRef<HTMLDivElement>(null);
+
+    const checkHasScrollPast = ObserverIntersectionUseEffect({
+        scrollPast: scrollPast, setScrollPast: setScrollPast,
+        compRef: ComponentRef, threshold: 0.1
+    });
 
     const [moveAlong, setMoveAlong] = useState<number>(0);
     const [activeIndex, setActiveIndex] = useState<number>(1);
@@ -38,12 +44,11 @@ export default function Food() {
 
     }
 
-
     return (
         <>
 
-            <Container className="CommonContainer" id="Food" ref={FoodRef}>
-                <CommonHeader header="Taste of Japan" colour="green" scrollPast={scrollPast} />
+            <Container className="CommonContainer" id="Food" ref={ComponentRef}>
+                <CommonHeader header="Taste of Japan" colour="green" scrollPast={checkHasScrollPast} />
                 <Container className="FoodContainer" >
 
                     <div className="NavDiv">
@@ -77,7 +82,7 @@ export default function Food() {
                                 <FoodCard key={index} activeElement={index === activeIndex}
                                     image={FD[food].img} titleEng={FD[food].titleEng}
                                     titleJap={FD[food].titleJap} desc={FD[food].desc}
-                                    scrollPast={scrollPast}
+                                    scrollPast={checkHasScrollPast}
                                     color={FD[food].color} onclickSwitch={() => {
                                         if (index != activeIndex) {
                                             if (index > activeIndex) {

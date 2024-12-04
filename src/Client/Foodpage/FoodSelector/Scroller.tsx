@@ -1,8 +1,4 @@
-//slider card with image and then title on the right and star ratings?? on the bottom 3 with something else
-//to fll the empty space, maybe an icon to click or a star idk
-import { useState, useContext, useEffect } from "react"
 import { Row, Col, Image } from "react-bootstrap"
-import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery"
 
 interface ScrollerCardProps {
     switchMode: boolean,
@@ -48,11 +44,9 @@ interface ScrollerProps {
 }
 
 export default function Scroller(props: ScrollerProps) {
-    const [more992px, setMore992px] = useState(false);
-    const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
     return (
         <>
-            {checkMore992px ? (
+            <div className="LargeScreenScroller">
                 <Col style={{ maxHeight: props.height, overflow: 'auto', backgroundColor: 'rgb(100,100,100)' }}>
                     <div style={{ maxWidth: 'fit-content' }}>
                         {props.identifier.map((element, index) => (
@@ -67,28 +61,27 @@ export default function Scroller(props: ScrollerProps) {
                         ))}
                     </div>
                 </Col>
-            )
-                :
-                (
-                    <Col style={{
-                        maxHeight: props.height, overflow: 'auto', backgroundColor: 'rgb(100,100,100)',
-                        maxWidth: '100%'
-                    }}>
-                        <div style={{ maxWidth: 'fit-content', display: 'flex' }}>
-                            {props.identifier.map((element, index) => (
-                                <div key={element} style={{ margin: '25px 0', }}
-                                    onClick={() => console.log(element)}>
-                                    <div style={{ cursor: 'pointer', padding: '0' }} onClick={() => props.onClick(element)}>
-                                        <ScrollerCard switchMode={true} onScroll={props.onScroll} />
-                                    </div>
+            </div>
 
+            <div className="SmallScreenScroller">
+                <Col style={{
+                    maxHeight: props.height, overflow: 'auto', backgroundColor: 'rgb(100,100,100)',
+                    maxWidth: '100%'
+                }}>
+                    <div style={{ maxWidth: 'fit-content', display: 'flex' }}>
+                        {props.identifier.map((element, index) => (
+                            <div key={element} style={{ margin: '25px 0', }}
+                                onClick={() => console.log(element)}>
+                                <div style={{ cursor: 'pointer', padding: '0' }} onClick={() => props.onClick(element)}>
+                                    <ScrollerCard switchMode={true} onScroll={props.onScroll} />
                                 </div>
 
-                            ))}
-                        </div>
-                    </Col>
-                )}
+                            </div>
 
+                        ))}
+                    </div>
+                </Col>
+            </div>
         </>
     )
 }

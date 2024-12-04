@@ -99,7 +99,7 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
 
 const TopBarData: { [outerKey: string]: { [innerKey: string]: { title: string; image: string } } } = {
 
-    Place: {
+    Prefecture: {
         Tokyo: { title: "Tokyo", image: '/Public/Images/EightCardImages/Tokyo.webp' },
         Kyoto: { title: "Kyoto", image: '/Public/Images/EightCardImages/Kyoto.webp' },
         Osaka: { title: "Osaka", image: '/Public/Images/EightCardImages/Osaka.webp' },
@@ -119,7 +119,7 @@ const TopBarData: { [outerKey: string]: { [innerKey: string]: { title: string; i
         Mochi: { title: "Mochi", image: "/Public/Images/FoodImages/Mochi.webp" },
         Udon: { title: "Udon", image: "/Public/Images/FoodImages/Udon.webp" }
     },
-    Landmarks: {
+    Landmark: {
         Fujisan: { title: "Mount Fuji", image: "/Public/Images/LandmarkImages/MountFuji.webp" },
         Sensoji: { title: "Sensō-ji Temple", image: "/Public/Images/LandmarkImages/SensoJiTemple.webp" },
         FushimiInari: { title: "Fushimi Inari Shrine", image: "/Public/Images/LandmarkImages/FushimiInariShrine.webp" },

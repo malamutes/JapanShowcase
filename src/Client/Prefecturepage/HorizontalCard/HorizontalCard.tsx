@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Row, Card, Image, Offcanvas } from "react-bootstrap";
-import { screenWidthBreakpointsContext } from "../../../main";
 import './HorizontalCard.css'
+import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 
 
 //<a href="https://www.flaticon.com/free-icons/visible" title="visible icons">Visible icons created by uicon - Flaticon</a>
@@ -9,8 +9,6 @@ import './HorizontalCard.css'
 //need to do clicking outside to close effect
 //nav next
 export default function HorizontalCard() {
-
-    const screenWidthBreakpoints = useContext(screenWidthBreakpointsContext);
     const [showLargeImage, setShowLargeImage] = useState(false);
     const [enlargeSubImage1, setEnlargeSubImage1] = useState(false);
     const [enlargeSubImage2, setEnlargeSubImage2] = useState(false);
@@ -37,10 +35,13 @@ export default function HorizontalCard() {
     }, [enlargeSubImage1, enlargeSubImage2, show])
 
 
+    const [more992, setMore992] = useState(true);
+
+    const checkmore992px = MatchmediaQuery({ size: 992, more: more992, setMore: setMore992 });
 
     return (
         <>
-            {screenWidthBreakpoints['more992px'] ?
+            {checkmore992px ?
                 (
                     <>
 

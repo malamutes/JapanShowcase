@@ -76,6 +76,22 @@
     font-size: 2cqw;
 }
 
+.LargeDeviceHorizCarousel {}
+
+.SmallDeviceHorizCarousel {
+    display: none;
+}
+
+@media(max-width: 992px) {
+    .LargeDeviceHorizCarousel {
+        display: none;
+    }
+
+    .SmallDeviceHorizCarousel {
+        display: block;
+    }
+
+}
 
 @media (max-width: 576px) {
     .LandmarkColContainer .CardContainer {

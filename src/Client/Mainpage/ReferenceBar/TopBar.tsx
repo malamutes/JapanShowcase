@@ -222,10 +222,10 @@ export default function TopBar() {
                                                         }}>{TBDOuterItem}</h6>
                                                         {Object.keys(TBD[TBDOuterItem]).map((TBDInnerItem, InnerIndex) => (
                                                             <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}>
-                                                                <span className='TopBarText'
+                                                                <a href={`/${TBDOuterItem}/${TBDInnerItem}`}> <span className='TopBarText'
                                                                     onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
                                                                     onMouseLeave={() => setCurrentHover("")}
-                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span>
+                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span></a>
                                                             </Row>
                                                         ))}
                                                     </Col>
@@ -245,10 +245,11 @@ export default function TopBar() {
                                                         }}>{TBDOuterItem}</h6>
                                                         {Object.keys(TBD[TBDOuterItem]).map((TBDInnerItem, InnerIndex) => (
                                                             <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}>
-                                                                <span className='TopBarText'
+                                                                <a href={`/${TBDOuterItem}/${TBDInnerItem}`}> <span className='TopBarText'
                                                                     onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
                                                                     onMouseLeave={() => setCurrentHover("")}
-                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span>
+                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span></a>
+
                                                             </Row>
                                                         ))}
                                                     </Col>

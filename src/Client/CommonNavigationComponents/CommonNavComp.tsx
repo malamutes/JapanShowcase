@@ -3,17 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Offcanvas } from 'react-bootstrap';
+import { Offcanvas, Row, Col } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
 import { useEffect, useState } from 'react';
 
-import MatchmediaQuery from '../CommonLogic(NON-UI)/MatchmediaQuery';
+import './CommonDividers.css'
 
 export default function CommonNavCompTop() {
-    const [more992px, setMore992px] = useState(false);
-    const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
-
     const [show, setShow] = useState(false);
     const [top, setTop] = useState(true);
 
@@ -32,65 +28,69 @@ export default function CommonNavCompTop() {
         window.addEventListener('scroll', checkNoScroll);
     })
 
-    useEffect(() => {
-        console.log(checkMore992px);
-    }, [checkMore992px])
-
-
     return (
         <>
             <Container fluid style={{ position: 'fixed', padding: '0', zIndex: '10', opacity: top ? 0.1 : 1 }}>
-                <Navbar expand="lg" className="bg-body-tertiary">
+                <Navbar expand="lg" className="bg-body-tertiary" >
                     <Container style={{ minHeight: '50px' }}>
-                        <Navbar.Brand href="#">Japan Showcase</Navbar.Brand>
-                        {more992px ? (
-                            <>
-                                <Nav
-                                    className="me-auto my-2 my-lg-0"
-                                    style={{
-                                        maxHeight: '100px', width: '50%',
-                                        display: 'flex', justifyContent: 'center', margin: 'auto'
-                                    }}
-                                    navbarScroll
-                                >
-                                    {['Home', 'Attractions', 'Experiences', 'Contact', 'About'].map((item, index) => (
-                                        <NavDropdown title={item} key={item} style={{ flexGrow: '1' }}>
-                                            {""}
-                                        </NavDropdown>
-                                    ))}
+                        <div className='LargeScreenTopNav'>
+                            <Row style={{ display: 'flex', maxWidth: '100%', }}>
+                                <Col >
+                                    <Navbar.Brand href="#" >Japan Showcase</Navbar.Brand>
+                                </Col>
+                                <Col >
+                                    <Nav
+                                        className="me-auto my-2 my-lg-0"
+                                        style={{
+                                            maxHeight: '100px', width: '50%',
+                                            display: 'flex', justifyContent: 'center', margin: 'auto'
+                                        }}
+                                        navbarScroll
+                                    >
+                                        <a href="/">Home</a>
+                                        {['Attractions', 'Experiences', 'Contact', 'About'].map((item, index) => (
+                                            <NavDropdown title={item} key={item} style={{ flexGrow: '1' }}>
+                                                {""}
+                                            </NavDropdown>
+                                        ))}
 
-                                </Nav>
-                                <Form className="d-flex">
-                                    <Form.Control
-                                        type="search"
-                                        placeholder="Search"
-                                        className="me-2"
-                                        aria-label="Search"
-                                        style={{ borderRadius: '50px' }}
-                                    />
-                                    <Button variant="outline-success" style={{ borderRadius: '50px' }}>Search</Button>
-                                </Form>
-                            </>
-                        )
-                            :
-                            (
-                                <>
-                                    <Button variant="primary" onClick={handleShow}>
-                                        STUFF
-                                    </Button>
+                                    </Nav>
 
-                                    <Offcanvas show={show} onHide={handleClose} scroll={true}
-                                        placement="end">
-                                        <Offcanvas.Header closeButton>
-                                            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-                                        </Offcanvas.Header>
-                                        <Offcanvas.Body>
-                                            Some text as placeholder. In real life you can have the elements you
-                                            have chosen. Like, text, images, lists, etc.
-                                        </Offcanvas.Body>
-                                    </Offcanvas>
-                                </>
-                            )}
+                                </Col>
+
+                                <Col >
+                                    <Form className="d-flex">
+                                        <Form.Control
+                                            type="search"
+                                            placeholder="Search"
+                                            className="me-2"
+                                            aria-label="Search"
+                                            style={{ borderRadius: '50px' }}
+                                        />
+                                        <Button variant="outline-success" style={{ borderRadius: '50px' }}>Search</Button>
+                                    </Form>
+                                </Col>
+                            </Row>
+                        </div>
+
+                        <div className='SmallScreenTopNav'>
+                            <Navbar.Brand href="#" >Japan Showcase</Navbar.Brand>
+
+                            <Button variant="primary" onClick={handleShow}>
+                                STUFF
+                            </Button>
+
+                            <Offcanvas show={show} onHide={handleClose} scroll={true}
+                                placement="end">
+                                <Offcanvas.Header closeButton>
+                                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                                </Offcanvas.Header>
+                                <Offcanvas.Body>
+                                    Some text as placeholder. In real life you can have the elements you
+                                    have chosen. Like, text, images, lists, etc.
+                                </Offcanvas.Body>
+                            </Offcanvas>
+                        </div>
                     </Container>
                 </Navbar>
             </Container>

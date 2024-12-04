@@ -1,14 +1,10 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Image, Container, Row, Col, Card } from "react-bootstrap";
 import { FoodContext } from "../FoodAppContext";
-
-import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
+import './MainImageFood.css'
 
 export default function MainImage() {
     const CF = useContext(FoodContext);
-
-    const [more992px, setMore992px] = useState(false);
-    const checkMore992px = MatchmediaQuery({ size: 992, more: more992px, setMore: setMore992px });
 
     return (
         <>
@@ -26,13 +22,7 @@ export default function MainImage() {
                     }} >
                         <Row style={{ width: '90%', }}>
 
-                            <Col lg={5} style={{
-                                display: 'flex',
-                                flexDirection: 'column', justifyContent: 'center',
-                                alignItems: `${checkMore992px ? "start" : "center    "}`,
-                                textAlign: `${checkMore992px ? "start" : "center"}`,
-                                marginBottom: `${checkMore992px ? "0px" : "25px"}`
-                            }}>
+                            <Col lg={5} className="TextCol">
                                 <div style={{
                                     padding: '25px',
                                     background: 'rgba(255, 255, 255, 0.2)',
@@ -42,24 +32,20 @@ export default function MainImage() {
                                     WebkitBackdropFilter: 'blur(5px)',
                                     border: '1px solid rgba(255, 255, 255, 0.5)',
                                 }}>
-                                    <Card.Title style={{
-                                        fontSize: `${checkMore992px ? 25 : 17.5}px`, fontWeight: '500',
+                                    <Card.Title className="card-title">
+                                        Exploratio nova, occasio infinita
+                                    </Card.Title>
 
-                                    }}>
-                                        Exploratio nova, occasio infinita</Card.Title>
-                                    <Card.Text style={{ maxWidth: '70%' }}>
-                                        <span style={{
-                                            fontSize: `${checkMore992px ? 35 : 20}px`, fontWeight: '700',
-                                        }}>
-                                            Innovatio et creatio, viam ad futurum, {CF}</span>
+                                    <Card.Text className="card-text">
+                                        <span className="card-text-strong">
+                                            Innovatio et creatio, viam ad futurum, {CF}
+                                        </span>
                                     </Card.Text>
-                                    <Card.Text style={{
-                                        maxWidth: `${checkMore992px ? 80 : 100}%`,
-                                    }}>
-                                        Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit.
-                                        Sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua.</Card.Text>
+
+                                    <Card.Text className="card-description">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </Card.Text>
                                 </div>
 
                             </Col>
@@ -67,12 +53,10 @@ export default function MainImage() {
                             <Col lg={7} style={{
                                 textAlign: 'end', display: 'flex', justifyContent: 'center',
                             }}>
-
-                                <Image fluid src="https://placehold.co/700x700/grey/white" roundedCircle
-                                    style={{
-                                        maxWidth: `${checkMore992px ? 100 : 55}%`,
-                                        opacity: 0.75,
-                                    }}
+                                <Image
+                                    fluid
+                                    src="https://placehold.co/700x700/grey/white"
+                                    className="image-rounded-circle"
                                 />
                             </Col>
                         </Row>
