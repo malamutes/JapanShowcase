@@ -92,7 +92,7 @@ export default function ReferenceBar() {
             <Container className="ReferenceBarContainer" style={{
                 backgroundColor: 'rgb(25, 25, 25)', color: 'white',
                 borderTop: '0.1px solid white'
-            }} fluid id="ReferenceBar">
+            }} fluid id="Site map">
                 <Container style={{ paddingTop: '2cqw', paddingBottom: '2cqw' }}>
                     <Col>
                         <Row >
@@ -194,7 +194,7 @@ export default function ReferenceBar() {
                             </Col>
                             <Col md={3}>
                                 <Row >
-                                    {[`Biscuits`, `Publicity`, `Illegal`].map((extra, index) => (
+                                    {[`About Me`, `Interests`, `Credentials`].map((extra, index) => (
                                         <Col key={extra} style={{ display: 'flex', justifyContent: 'end' }}>
                                             <span className="DescriptionStyle" style={{
                                                 textDecoration: 'underline', marginTop: `${more768px ? "0" : "15px"}`

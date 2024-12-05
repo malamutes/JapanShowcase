@@ -22,7 +22,7 @@ export default function MainIntroImage() {
                         <span> JAPAN IS SO COOL WTF</span>
                     </Col>
                     <div className="DownArrowMainImage">
-                        <a href="#Hubs">
+                        <a href="#Prefecture">
                             <Image
                                 style={{
                                     position: 'absolute',

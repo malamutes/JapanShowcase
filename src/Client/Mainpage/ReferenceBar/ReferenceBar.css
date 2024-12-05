@@ -39,7 +39,7 @@
 }
 
 .SagaFlag:hover {
-    transform: scale(1);
+    transform: scale(0.95);
 }
 
 .DropdownText {
@@ -113,6 +113,17 @@
     display: none;
 }
 
+.NavMenuNavText {
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.NavMenuRowContainer {
+    width: 50%;
+    height: 100%;
+}
+
 @media(max-width: 1900px) {
     .ReferenceBarContainer {
         margin-top: 7.5cqw;
@@ -183,10 +194,25 @@
     }
 }
 
+@media(max-width: 1400px) {
+    .NavMenuRowContainer {
+        width: 60%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .NavMenuRowContainer {
+        width: 70%;
+    }
+}
 
 @media(max-width: 992px) {
     .DropdownText {
         font-size: 1.95cqw;
+    }
+
+    .NavMenuRowContainer {
+        width: 75%;
     }
 
     .ReferenceTitle {
@@ -201,9 +227,20 @@
         transform: scale(1.25);
     }
 
+    .NavMenuNavText {
+        font-size: 13px;
+    }
+
+
 }
 
+
 @media(max-width: 768px) {
+    .NavMenuNavText {
+        font-size: 20px;
+    }
+
+
     .JapanTitleStyle {
         font-size: 17.5px;
     }

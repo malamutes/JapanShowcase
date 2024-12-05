@@ -26,7 +26,7 @@ export default function EightSpotsSpace() {
 
     return (
         <>
-            <Container className="CommonContainer" id="Hubs" ref={ComponentRef}>
+            <Container className="CommonContainer" id="Prefecture" ref={ComponentRef}>
                 <CommonHeader header="Cultural Hubs of Japan" colour="red" scrollPast={checkHasScrollPast} />
                 <Container >
                     <Row >

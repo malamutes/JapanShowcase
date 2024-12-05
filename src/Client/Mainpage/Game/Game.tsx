@@ -253,7 +253,7 @@ export default function Games() {
 
     return (
         <>
-            <Container className="CommonContainer" id="Cult Favourites" ref={ComponentRef}>
+            <Container className="CommonContainer" id="Game" ref={ComponentRef}>
                 <CommonHeader header="Cult Favourites" colour=" #800080" scrollPast={checkHasScrollPast} />
                 <Container >
                     <Row >

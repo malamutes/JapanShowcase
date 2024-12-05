@@ -58,7 +58,7 @@ export default function Landmarks() {
 
     return (
         <>
-            <Container className="CommonContainer" id="Landmarks" ref={ComponentRef}>
+            <Container className="CommonContainer" id="Landmark" ref={ComponentRef}>
                 <CommonHeader header="Treasured Sites of Japan" colour=" #FFD700" scrollPast={checkHasScrollPast} />
                 <div className="LargeDeviceHorizCarousel">
                     <Row className="LandmarkRowContainer">

@@ -1,9 +1,18 @@
 import './ReferenceBar.css'
-import { Container, Row, Col, Offcanvas, Accordion, Image, Dropdown, ProgressBar, Button } from 'react-bootstrap'
+import { Container, Row, Col, Offcanvas, Accordion, Image, ProgressBar } from 'react-bootstrap'
 import { useState, useEffect, useContext } from 'react';
 import { TopBarData } from '../Data/ReferenceLinks';
 import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
-import { LightThemeContext } from '../../../ThemeContext';
+
+const navMenuData: { [key: string]: string } = {
+    "Prefecture": "red",
+    "Food": "green",
+    "Landmark": "rgb(255, 215, 0)",
+    "Entertainment": "rgb(255, 20, 147)",
+    "Game": "purple",
+    "Festival": "blue",
+    "Site map": 'cyan'
+}
 
 export default function TopBar() {
     const [show, setShow] = useState(false);
@@ -14,9 +23,17 @@ export default function TopBar() {
     const [more992, setMore992] = useState((window.innerWidth >= 992));
     const more992px = MatchmediaQuery({ size: 992, more: more992, setMore: setMore992 });
 
+    const [more768, setMore768] = useState((window.innerWidth >= 768));
+    const more768px = MatchmediaQuery({ size: 768, more: more768, setMore: setMore768 });
+
     const [showBottom, setShowBottom] = useState(false);
 
     const [currentHover, setCurrentHover] = useState("");
+
+    const [showNavMenu, setShowNavMenu] = useState(false);
+    const handleCloseNavOffCanvas = () => setShowNavMenu(false);
+
+    const [anchorLinkHover, setAnchorLinkHover] = useState("");
 
     const TBD = TopBarData;
 
@@ -65,11 +82,11 @@ export default function TopBar() {
     }, [initialScroll]); // Dependency on initialScroll to update on the first scroll
 
     useEffect(() => {
-        setHubs(document.getElementById("Hubs") as HTMLDivElement | null);
+        setHubs(document.getElementById("Prefecture") as HTMLDivElement | null);
         setFood(document.getElementById("Food") as HTMLDivElement | null);
-        setLandmarks(document.getElementById("Landmarks") as HTMLDivElement | null);
+        setLandmarks(document.getElementById("Landmark") as HTMLDivElement | null);
         setEntertainment(document.getElementById("Entertainment") as HTMLDivElement | null);
-        setGames(document.getElementById("Cult Favourites") as HTMLDivElement | null);
+        setGames(document.getElementById("Game") as HTMLDivElement | null);
         setFestival(document.getElementById("Festival") as HTMLDivElement | null);
     }, [initialScroll]);
 
@@ -160,24 +177,6 @@ export default function TopBar() {
 
         }
     }, [hubsTop, hubsBottom, festivalBottom, foodBottom, landmarksBottom, entertainmentBottom, gamesBottom])
-    /*
-        useEffect(() => {
-            console.log(scrollAmount);
-    
-        }, [scrollAmount])
-    
-        useEffect(() => {
-            console.log("Scroll Y:", window.scrollY);
-            console.log("Festival Bottom:", festivalBottom);
-            console.log("Hubs Top:", hubsTop);
-        }, [festivalBottom, hubsTop]);
-    
-        useEffect(() => {
-            console.log("Scroll Amount:", scrollAmount);
-        }, [scrollAmount]);
-    */
-
-    const { light, setLight } = useContext(LightThemeContext);
 
     return (
         <>
@@ -188,31 +187,30 @@ export default function TopBar() {
                 opacity: `${window.scrollY === 0 ? "0.1" : "1"}`,
                 backgroundColor: `${window.scrollY === 0 ? "" : "rgb(25,25,25)"}`
             }} fluid className="TopBarContainer">
-                <Button onClick={() => setLight(light => !light)}>teheme swap</Button>
                 <Row style={{
                     height: '100%',
                     display: 'flex',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}>
-                    <Col xs={more992px ? 1 : 2} style={{
+                    <Col lg={1} xs={3} style={{
                         display: 'flex', justifyContent: 'center',
                     }}>
                         <Image fluid src="public\Images\CherryBlossom.png"
                             className='SagaFlag'
                             onClick={handleShow}
                         />
-
                         {more992px ? (<Offcanvas placement="top" show={show}
                             style={{ maxHeight: '52.5vh', height: '52.5cqh', backgroundColor: 'rgb(200, 200, 200)' }}
                             onHide={handleClose} scroll={true}>
-                            <Offcanvas.Header closeButton>
-                                <Offcanvas.Title>JAPAN</Offcanvas.Title>
+                            <Offcanvas.Header closeButton style={{ padding: '15px 5px 0px 25px' }}>
+                                <Offcanvas.Title >JAPAN</Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body>
                                 <Container style={{ maxWidth: '1824px' }}>
-                                    <Row>
+                                    <Row >
                                         <Col xs={7} style={{
-                                            maxHeight: '40vh', overflowY: 'hidden'
+                                            maxHeight: '40vh', overflowY: 'hidden',
                                         }}>
                                             <Row style={{
                                                 minHeight: '100%',
@@ -279,9 +277,7 @@ export default function TopBar() {
                                     onClick={() => setShowBottom(showBottom => !showBottom)} />
                             </Offcanvas.Body>
                         </Offcanvas>)
-
                             :
-
                             (
                                 <Offcanvas placement="start" show={show}
                                     onHide={handleClose} scroll={true} style={{ backgroundColor: 'rgb(200,200,200)' }}>
@@ -312,10 +308,9 @@ export default function TopBar() {
                                     </Offcanvas.Body>
                                 </Offcanvas>
                             )}
-
                     </Col>
 
-                    <Col xs={more992px ? 8 : 0} >
+                    <Col lg={10} xs={6} >
                         <ProgressBar style={{ height: '5px', overflow: 'visible' }} >
                             <ProgressBar now={clamp(scrollAmount, 0, progressHubs)} key={1} style={{
                                 backgroundColor: "red",
@@ -346,41 +341,69 @@ export default function TopBar() {
 
                     </Col>
 
-                    <Col xs={more992px ? 3 : 5} style={{
-                        display: 'flex', justifyContent: `${more992px ? 'center' : 'center'}`,
+                    <Col lg={1} xs={3} style={{
+                        display: 'flex', justifyContent: 'end',
                     }}>
-                        <Row>
-                            <Col style={{ marginRight: `${more992px ? "2.5cqw" : ""}` }}>
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic"
-                                        disabled={window.scrollY === 0 ? true : false}>
-                                        <span className="DropdownText">About Me</span>
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="">Background</Dropdown.Item>
-                                        <Dropdown.Item href="">Interests</Dropdown.Item>
-                                        <Dropdown.Item href="">Contact Me</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-
-                            <Col >
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic"
-                                        disabled={window.scrollY === 0 ? true : false}>
-                                        <span className="DropdownText">Motivations</span>
-                                    </Dropdown.Toggle>
-
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="">References</Dropdown.Item>
-                                        <Dropdown.Item href="">Engaging UI</Dropdown.Item>
-                                        <Dropdown.Item href="">Site speed</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Col>
-                        </Row>
+                        <Image src='/Images/MenuIcon.png' style={{
+                            maxWidth: '32px', maxHeight: '32px',
+                            marginRight: '15px', filter: 'invert(1)', cursor: 'pointer',
+                            zIndex: '100'
+                        }} onClick={() => setShowNavMenu(showNavMenu => !showNavMenu)} />
                     </Col>
+
+                    {more768px ? (<div style={{
+                        width: '100vw', height: '7.5vh', position: 'absolute',
+                        top: '0', transition: 'transform 0.5s ease', backgroundColor: 'rgb(25,25,25)',
+                        transform: `translateY(${showNavMenu ? 0 : -100}%)`,
+                        display: 'flex', justifyContent: 'center',
+                    }}>
+                        <Row className='NavMenuRowContainer'>
+                            {Object.keys(navMenuData).map((anchor) => (
+                                <Col key={anchor} style={{
+                                    display: 'flex', alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <a onMouseEnter={() => setAnchorLinkHover(anchor)}
+                                        onMouseLeave={() => setAnchorLinkHover("")}
+                                        href={`#${anchor}`}
+                                        style={{ textDecoration: 'none', color: 'white' }}
+                                    ><span style={{
+                                        color: `${anchorLinkHover === anchor ? navMenuData[anchor] : ""}`
+                                    }} className='NavMenuNavText'>{anchor}</span></a>
+                                </Col>
+                            ))}
+                        </Row>
+
+                    </div>
+                    ) : (
+                        <Offcanvas show={showNavMenu} onHide={handleCloseNavOffCanvas} placement='end'
+                            scroll={true}>
+                            <Offcanvas.Header closeButton>
+                            </Offcanvas.Header>
+                            <Offcanvas.Body style={{ display: 'flex', alignItems: 'center' }}>
+                                <Col style={{
+                                    height: '50%',
+                                    display: 'grid', placeItems: 'center'
+                                }}>
+                                    {Object.keys(navMenuData).map((anchor) => (
+                                        <Row key={anchor} >
+                                            <a onMouseEnter={() => setAnchorLinkHover(anchor)}
+                                                onMouseLeave={() => setAnchorLinkHover("")}
+                                                href={`#${anchor}`}
+                                                style={{
+                                                    textDecoration: 'none', color: 'black',
+                                                }}
+                                            ><span style={{
+                                                color: `${anchorLinkHover === anchor ? navMenuData[anchor] : ""}`,
+                                            }} className='NavMenuNavText'>{anchor}</span></a>
+                                        </Row>
+                                    ))}
+                                </Col>
+                            </Offcanvas.Body>
+                        </Offcanvas>)}
+
+
+
                 </Row >
             </Container >
             {/*   {window.scrollY === 0 ?
