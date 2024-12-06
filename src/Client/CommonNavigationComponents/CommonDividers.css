@@ -105,6 +105,52 @@
     display: block;
 }
 
+.CommonTopCompNavMenuAnchor {
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    transition: color 0.5s ease;
+    cursor: pointer;
+}
+
+.CommonTopCompNavMenuAnchorDisabled {
+    color: rgb(189, 189, 189);
+    cursor: text;
+    pointer-events: none;
+}
+
+.CommonTopCompNavMenuAnchorSmall {
+    font-size: 20px;
+    margin: 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(46, 46, 46);
+    transition: color 0.5s ease;
+}
+
+.CommonTopCompNavMenuAnchorSmall:hover {
+    font-weight: 600;
+    color: black;
+}
+
+.CommonTopCompNavMenuAnchor:hover {
+    color: black;
+    font-weight: 600;
+}
+
+.accordion-button {
+    background-color: transparent !important;
+    border: none;
+    box-shadow: none !important;
+    color: black !important;
+}
+
+.accordion-button:focus {
+    background-color: transparent !important;
+    border: none;
+    box-shadow: none !important;
+    color: black !important;
+}
+
 @media(max-width: 992px) {
     .DividerV2HR {
         display: none;
