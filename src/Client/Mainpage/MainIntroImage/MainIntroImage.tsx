@@ -1,33 +1,106 @@
-import { Container, Row, Col, Image, } from "react-bootstrap";
+import { Container, Row, Col, Image, Carousel } from "react-bootstrap";
 import '../CommonStyles/CommonStyles.css'
 import './MainIntroImage.css'
+import { useEffect, useState } from "react";
 
 //<a href="https://www.flaticon.com/free-icons/next" title="next icons">Next icons created by th studio - Flaticon</a>
 
 export default function MainIntroImage() {
+
+    const nameHandleClick = () => {
+        window.open('https://github.com/malamutes', '_blank')
+    };
+
+    const [isUnderlined, setIsUnderlined] = useState(false);
+
+    useEffect(() => {
+        setIsUnderlined(true);
+    }, []);
+
     return (
         <>
-            <Container style={{ overflow: 'hidden', maxWidth: '1920px', width: '100%' }} className="CommonContainer" id="Home">
+            <Container style={{ overflow: 'hidden', maxWidth: '1920px', width: '100%' }}
+                className="CommonContainer" id="Home">
+
+                <div className="MainImageTextContainer">
+                    <div style={{
+                        position: 'absolute',
+                        width: '100%', height: '100%',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        borderRadius: '16px',
+                        boxShadow: '0 0px 30px rgba(0, 0, 0, 0.25)',
+                        backdropFilter: 'blur(5px)',
+                        WebkitBackdropFilter: 'blur(5px)',
+                        border: '1px solid rgba(255, 255, 255, 0.5)',
+                        zIndex: '1', minWidth: '100px'
+                    }}>
+                    </div>
+
+                    <div className="MainImageTextWrapper">
+                        <p className="title">
+                            Front-End Design: Japan
+                        </p>
+
+                        <p className="made-by" >
+                            Made by <span className="NameTag" onClick={nameHandleClick}>
+                                malamutes
+                            </span>.
+                        </p>
+
+                        <span className="description">
+                            This portfolio highlights my front-end development skills with a Japan-inspired design,
+                            showcasing my expertise in <span
+                                className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`} >HTML</span>, <span
+                                    className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>CSS</span>, <span
+                                        className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>TypeScript</span>, <span
+                                            className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>React</span>, <span
+                                                className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>interactive</span>, and <span
+                                                    className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>responsive</span> layout.
+
+                        </span>
+
+                        <span className="descriptionTwo">
+                            Responsive, interactive UI built with HTML, CSS, TypeScript, and React.
+                        </span>
+                    </div>
+
+                </div>
+
                 <Row>
-                    <Col xs={10} >
-                        <Image fluid alt="Japan-Night-Image" src="/Images/CanvaJapanNight.webp"
-                            style={{ transform: 'scale(1.2)', minWidth: '400px' }} />
+                    <Col style={{ padding: '0', margin: '0', }}>
+
+                        <Carousel controls={false} interval={null}
+                            style={{ maxHeight: '100vh' }}>
+                            <Carousel.Item>
+                                <Image src="/Images/JapanNight.webp" className="ImageStyle" />
+
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <Image src="/Images/IntroFood.webp" className="ImageStyle" />
+
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <Image src="/Images/IntroFestival.jpg" className="ImageStyle" />
+
+                            </Carousel.Item>
+                        </Carousel>
+
+                        <div style={{
+                            width: '100vw', height: '100vh',
+                            background: 'linear-gradient(to bottom, transparent 0%, transparent 90%, black 100%)',
+                            position: 'absolute', top: '0'
+                        }}>
+
+                        </div>
                     </Col>
 
-                    <Col xs={2} style={{
-                        display: 'grid',
-                        alignContent: 'center',
-                        zIndex: '2'
-                    }}>
-                        <span> JAPAN IS SO COOL WTF</span>
-                    </Col>
-                    <div className="DownArrowMainImage">
+                    <div >
                         <a href="#Prefecture">
                             <Image
                                 style={{
                                     position: 'absolute',
-                                    right: '100px',
-                                    top: '800px',
+                                    right: '75px',
+                                    top: '85%',
                                     width: '50px',
                                     maxWidth: '100px',
                                     transform: 'rotate(90deg)',
@@ -39,9 +112,7 @@ export default function MainIntroImage() {
                             />
                         </a>
                     </div>
-
                 </Row>
-
             </Container >
         </>
     )

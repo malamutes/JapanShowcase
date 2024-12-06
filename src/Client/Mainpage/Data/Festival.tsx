@@ -18,13 +18,13 @@ const FestivalData: { [key: string]: FestivalTypes } = {
         location: "Sapporo",
         description: `The Sapporo Snow Festival showcases stunning snow and ice sculptures and attracts visitors from around the world. Key highlights include the Snow Sculpture Contest and massive sculptures at Odori Park, illuminated at night. This festival began in 1950 as a local event created by high school students.`,
         images: [
-            "/Public/Images/FestivalImages/SapporoSnowOne.webp",
-            "/Public/Images/FestivalImages/SapporoSnowTwo.webp",
-            "/Public/Images/FestivalImages/SapporoSnowThree.webp",
-            "/Public/Images/FestivalImages/SapporoSnowFour.webp",
-            "/Public/Images/FestivalImages/SapporoSnowFive.webp"
+            "/Images/FestivalImages/SapporoSnowOne.webp",
+            "/Images/FestivalImages/SapporoSnowTwo.webp",
+            "/Images/FestivalImages/SapporoSnowThree.webp",
+            "/Images/FestivalImages/SapporoSnowFour.webp",
+            "/Images/FestivalImages/SapporoSnowFive.webp"
         ],
-        icons: "/Public/Images/FestivalImages/Snowflake.png",
+        icons: "/Images/FestivalImages/Snowflake.png",
         color: "#00BFFF", // Deep Sky Blue
         textColor: "rgb(225, 240, 255)" // Subtle text color
     },
@@ -35,13 +35,13 @@ const FestivalData: { [key: string]: FestivalTypes } = {
         location: "Kyoto",
         description: `Gion Matsuri, held in July, features grand float processions called yamaboko to ward off plagues. Key events include the vibrant parades and the lively Yoiyama night filled with food stalls and traditional performances. Originating in the 9th century, it is closely linked to the Yasaka Shrine.`,
         images: [
-            "/Public/Images/FestivalImages/GionMatsuriOne.webp",
-            "/Public/Images/FestivalImages/GionMatsuriTwo.webp",
-            "/Public/Images/FestivalImages/GionMatsuriThree.jpg",
-            "/Public/Images/FestivalImages/GionMatsuriFour.jpg",
-            "/Public/Images/FestivalImages/GionMatsuriFive.webp"
+            "/Images/FestivalImages/GionMatsuriOne.webp",
+            "/Images/FestivalImages/GionMatsuriTwo.webp",
+            "/Images/FestivalImages/GionMatsuriThree.jpg",
+            "/Images/FestivalImages/GionMatsuriFour.jpg",
+            "/Images/FestivalImages/GionMatsuriFive.webp"
         ],
-        icons: "/Public/Images/FestivalImages/Lantern.png",
+        icons: "/Images/FestivalImages/Lantern.png",
         color: "#FF4C4C", // Vibrant Red
         textColor: "rgb(255, 230, 230)" // Subtle text color
     },
@@ -52,12 +52,12 @@ const FestivalData: { [key: string]: FestivalTypes } = {
         location: "Aomori",
         description: `The Aomori Nebuta Festival features large illuminated floats that depict warriors and folklore. It includes vibrant night parades with dancers and traditional taiko drumming. The festival, rooted in the 18th century, celebrates summer and illuminates the streets with colorful displays.`,
         images: [
-            "/Public/Images/FestivalImages/AomoriNebutaOne.jpg",
-            "/Public/Images/FestivalImages/AomoriNebutaTwo.webp",
-            "/Public/Images/FestivalImages/AomoriNebutaThree.webp",
-            "/Public/Images/FestivalImages/AomoriNebutaFour.webp"
+            "/Images/FestivalImages/AomoriNebutaOne.jpg",
+            "/Images/FestivalImages/AomoriNebutaTwo.webp",
+            "/Images/FestivalImages/AomoriNebutaThree.webp",
+            "/Images/FestivalImages/AomoriNebutaFour.webp"
         ],
-        icons: "/Public/Images/FestivalImages/Mask.png",
+        icons: "/Images/FestivalImages/Mask.png",
         color: "#FFD700", // Gold
         textColor: "rgb(255, 245, 230)" // Subtle text color
     },
@@ -68,12 +68,12 @@ const FestivalData: { [key: string]: FestivalTypes } = {
         location: "Tokyo",
         description: `Kanda Matsuri celebrates prosperity and good fortune and features a procession of mikoshi (portable shrines) through Tokyo. The festival includes vibrant parades with traditional music and dance, reflecting its historical ties to the Tokugawa shogunate. This lively event is held every odd-numbered year in mid-May.`,
         images: [
-            "/Public/Images/FestivalImages/KandaMatsuriOne.webp",
-            "/Public/Images/FestivalImages/KandaMatsuriTwo.webp",
-            "/Public/Images/FestivalImages/KandaMatsuriThree.webp",
-            "/Public/Images/FestivalImages/KandaMatsuriFour.webp"
+            "/Images/FestivalImages/KandaMatsuriOne.webp",
+            "/Images/FestivalImages/KandaMatsuriTwo.webp",
+            "/Images/FestivalImages/KandaMatsuriThree.webp",
+            "/Images/FestivalImages/KandaMatsuriFour.webp"
         ],
-        icons: "/Public/Images/FestivalImages/Shrine.png",
+        icons: "/Images/FestivalImages/Shrine.png",
         color: "#8A2BE2", // Blue Violet
         textColor: "rgb(240, 225, 255)" // Subtle text color
     },
@@ -84,13 +84,13 @@ const FestivalData: { [key: string]: FestivalTypes } = {
         location: "Takayama",
         description: `Takayama Matsuri features ornately decorated floats and celebrates seasonal changes. The festival includes puppet performances and traditional music, highlighting Edo-period craftsmanship. A notable event is the night-time parade where beautifully lit floats create a magical atmosphere.`,
         images: [
-            "/Public/Images/FestivalImages/TakayamaMatsuriOne.webp",
-            "/Public/Images/FestivalImages/TakayamaMatsuriTwo.webp",
-            "/Public/Images/FestivalImages/TakayamaMatsuriThree.webp",
-            "/Public/Images/FestivalImages/TakayamaMatsuriFour.jpg",
-            "/Public/Images/FestivalImages/TakayamaMatsuriFive.webp"
+            "/Images/FestivalImages/TakayamaMatsuriOne.webp",
+            "/Images/FestivalImages/TakayamaMatsuriTwo.webp",
+            "/Images/FestivalImages/TakayamaMatsuriThree.webp",
+            "/Images/FestivalImages/TakayamaMatsuriFour.jpg",
+            "/Images/FestivalImages/TakayamaMatsuriFive.webp"
         ],
-        icons: "/Public/Images/FestivalImages/Drum.png",
+        icons: "/Images/FestivalImages/Drum.png",
         color: "#FF8C00", // Dark Orange
         textColor: "rgb(255, 235, 190)" // Subtle text color
     }

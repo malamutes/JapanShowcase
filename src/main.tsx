@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode } from 'react'
 import './index.css'
 import App from './App.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css';

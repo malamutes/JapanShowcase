@@ -51,7 +51,6 @@ function App() {
           <Festival />
           <ReferenceBar />
         </>) : (null)}
-
       </div>
     </>
   )

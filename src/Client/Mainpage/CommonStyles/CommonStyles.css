@@ -9,6 +9,7 @@
     font-weight: 500;
     font-size: 2.5cqw;
     text-shadow: 0px 0px var(--shadowRadius) var(--shadowColour);
+    margin: 0 30px 0 30px;
 }
 
 .CommonHeaderRow {
@@ -95,6 +96,10 @@
         width: 40cqw;
     }
 
+    .CommonHeaderLineRight {
+        transform: scale(0.1);
+    }
+
     .CommonHeaderLineRightTransform {
         transform: scaleX(1);
     }
@@ -109,4 +114,9 @@
         padding: 0;
         margin: 0;
     }
+
+    .CommonHeaderTitle {
+        margin: 10px;
+    }
+
 }

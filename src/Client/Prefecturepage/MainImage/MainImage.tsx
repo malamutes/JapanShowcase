@@ -127,7 +127,7 @@ export default function MainImage() {
                 </div>
             </div>
             <Container style={{ marginTop: '-50px' }} id="Home">
-                <Container style={{ top: '200px', position: 'relative', marginBottom: '200px' }}>
+                <Container style={{ top: '75px', position: 'relative', marginBottom: '100px' }}>
                     <CommonDividers onScroll={!isDisplay} />
                 </Container>
             </Container>

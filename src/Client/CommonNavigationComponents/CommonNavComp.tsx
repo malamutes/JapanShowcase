@@ -112,8 +112,7 @@ export default function CommonNavCompTop() {
                                     height="40"
                                 />
                                 <span style={{
-                                    fontSize: '20px', marginLeft: '15px',
-
+                                    fontSize: '20px', marginLeft: '15px', color: 'black'
                                 }}>
                                     Japan Showcase
                                 </span>

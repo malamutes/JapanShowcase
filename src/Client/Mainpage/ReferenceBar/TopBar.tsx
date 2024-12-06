@@ -1,6 +1,6 @@
 import './ReferenceBar.css'
 import { Container, Row, Col, Offcanvas, Accordion, Image, ProgressBar } from 'react-bootstrap'
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { TopBarData } from '../Data/ReferenceLinks';
 import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
 
@@ -196,7 +196,7 @@ export default function TopBar() {
                     <Col lg={1} xs={3} style={{
                         display: 'flex', justifyContent: 'center',
                     }}>
-                        <Image fluid src="public\Images\CherryBlossom.png"
+                        <Image fluid src="/Images/CherryBlossom.png"
                             className='SagaFlag'
                             onClick={handleShow}
                         />

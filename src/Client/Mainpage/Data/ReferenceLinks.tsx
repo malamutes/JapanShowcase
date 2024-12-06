@@ -100,53 +100,53 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
 const TopBarData: { [outerKey: string]: { [innerKey: string]: { title: string; image: string } } } = {
 
     Prefecture: {
-        Tokyo: { title: "Tokyo", image: '/Public/Images/EightCardImages/Tokyo.webp' },
-        Kyoto: { title: "Kyoto", image: '/Public/Images/EightCardImages/Kyoto.webp' },
-        Osaka: { title: "Osaka", image: '/Public/Images/EightCardImages/Osaka.webp' },
-        Hiroshima: { title: "Hiroshima", image: '/Public/Images/EightCardImages/Hiroshima.webp' },
-        Sapporo: { title: "Sapporo", image: '/Public/Images/EightCardImages/Sapporo.webp' },
-        Fukuoka: { title: "Fukuoka", image: '/Public/Images/EightCardImages/Fukuoka.webp' },
-        Nagoya: { title: "Nagoya", image: '/Public/Images/EightCardImages/Nagoya.webp' },
-        Nara: { title: "Nara", image: '/Public/Images/EightCardImages/Nara.webp' }
+        Tokyo: { title: "Tokyo", image: '/Images/EightCardImages/Tokyo.webp' },
+        Kyoto: { title: "Kyoto", image: '/Images/EightCardImages/Kyoto.webp' },
+        Osaka: { title: "Osaka", image: '/Images/EightCardImages/Osaka.webp' },
+        Hiroshima: { title: "Hiroshima", image: '/Images/EightCardImages/Hiroshima.webp' },
+        Sapporo: { title: "Sapporo", image: '/Images/EightCardImages/Sapporo.webp' },
+        Fukuoka: { title: "Fukuoka", image: '/Images/EightCardImages/Fukuoka.webp' },
+        Nagoya: { title: "Nagoya", image: '/Images/EightCardImages/Nagoya.webp' },
+        Nara: { title: "Nara", image: '/Images/EightCardImages/Nara.webp' }
     },
     Food: {
-        Ramen: { title: "Ramen", image: "/Public/Images/FoodImages/Ramen.webp" },
-        Sushi: { title: "Sushi", image: "/Public/Images/FoodImages/Sushi.webp" },
-        Tempura: { title: "Tempura", image: "/Public/Images/FoodImages/Tempura.webp" },
-        Okonomiyaki: { title: "Okonomiyaki", image: "/Public/Images/FoodImages/Okonomiyaki.webp" },
-        Yakisoba: { title: "Yakisoba", image: "/Public/Images/FoodImages/Yakisoba.webp" },
-        Sashimi: { title: "Sashimi", image: "/Public/Images/FoodImages/Sashimi.webp" },
-        Mochi: { title: "Mochi", image: "/Public/Images/FoodImages/Mochi.webp" },
-        Udon: { title: "Udon", image: "/Public/Images/FoodImages/Udon.webp" }
+        Ramen: { title: "Ramen", image: "/Images/FoodImages/Ramen.webp" },
+        Sushi: { title: "Sushi", image: "/Images/FoodImages/Sushi.webp" },
+        Tempura: { title: "Tempura", image: "/Images/FoodImages/Tempura.webp" },
+        Okonomiyaki: { title: "Okonomiyaki", image: "/Images/FoodImages/Okonomiyaki.webp" },
+        Yakisoba: { title: "Yakisoba", image: "/Images/FoodImages/Yakisoba.webp" },
+        Sashimi: { title: "Sashimi", image: "/Images/FoodImages/Sashimi.webp" },
+        Mochi: { title: "Mochi", image: "/Images/FoodImages/Mochi.webp" },
+        Udon: { title: "Udon", image: "/Images/FoodImages/Udon.webp" }
     },
     Landmark: {
-        Fujisan: { title: "Mount Fuji", image: "/Public/Images/LandmarkImages/MountFuji.webp" },
-        Sensoji: { title: "Sensō-ji Temple", image: "/Public/Images/LandmarkImages/SensoJiTemple.webp" },
-        FushimiInari: { title: "Fushimi Inari Shrine", image: "/Public/Images/LandmarkImages/FushimiInariShrine.webp" },
-        Kinkakuji: { title: "Golden Pavilion", image: "/Public/Images/LandmarkImages/KinkakuJi.webp" },
-        HiroshimaPeacePark: { title: "Hiroshima Peace Memorial Park", image: "/Public/Images/LandmarkImages/HiroshimaPeaceMemorialPark.webp" }
+        Fujisan: { title: "Mount Fuji", image: "/Images/LandmarkImages/MountFuji.webp" },
+        Sensoji: { title: "Sensō-ji Temple", image: "/Images/LandmarkImages/SensoJiTemple.webp" },
+        FushimiInari: { title: "Fushimi Inari Shrine", image: "/Images/LandmarkImages/FushimiInariShrine.webp" },
+        Kinkakuji: { title: "Golden Pavilion", image: "/Images/LandmarkImages/KinkakuJi.webp" },
+        HiroshimaPeacePark: { title: "Hiroshima Peace Memorial Park", image: "/Images/LandmarkImages/HiroshimaPeaceMemorialPark.webp" }
     },
     Entertainment: {
-        Anime: { title: "Anime", image: '/Public/Images/EntertainmentImages/anime.webp' },
-        JDrama: { title: "J-Drama", image: '/Public/Images/EntertainmentImages/AOTFront.webp' },
-        TraditionalArt: { title: "Japanese Traditional Art", image: '/Public/Images/EntertainmentImages/MonsterBack.webp' },
-        JMusic: { title: "J-Music", image: '/Public/Images/EntertainmentImages/MonsterBack.webp' },
-        Manga: { title: "Manga", image: '/Public/Images/EntertainmentImages/MonsterBack.webp' }
+        Anime: { title: "Anime", image: '/Images/EntertainmentImages/anime.webp' },
+        JDrama: { title: "J-Drama", image: '/Images/EntertainmentImages/AOTFront.webp' },
+        TraditionalArt: { title: "Japanese Traditional Art", image: '/Images/EntertainmentImages/MonsterBack.webp' },
+        JMusic: { title: "J-Music", image: '/Images/EntertainmentImages/MonsterBack.webp' },
+        Manga: { title: "Manga", image: '/Images/EntertainmentImages/MonsterBack.webp' }
     },
     Game: {
-        Bloodborne: { title: "Bloodborne", image: "/Public/Images/GameImages/Bloodborne.webp" },
-        SMTThree: { title: "Shin Megami Tensei III: Nocturne", image: "/Public/Images/GameImages/SMTThree.webp" },
-        YakuzaZero: { title: "Yakuza Zero", image: "/Public/Images/GameImages/YakuzaZero.webp" },
-        PersonaFive: { title: "Persona 5", image: "/Public/Images/GameImages/PersonaFive.webp" },
-        MGR: { title: "Metal Gear Rising", image: "/Public/Images/GameImages/MGR.webp" }
+        Bloodborne: { title: "Bloodborne", image: "/Images/GameImages/Bloodborne.webp" },
+        SMTThree: { title: "Shin Megami Tensei III: Nocturne", image: "/Images/GameImages/SMTThree.webp" },
+        YakuzaZero: { title: "Yakuza Zero", image: "/Images/GameImages/YakuzaZero.webp" },
+        PersonaFive: { title: "Persona 5", image: "/Images/GameImages/PersonaFive.webp" },
+        MGR: { title: "Metal Gear Rising", image: "/Images/GameImages/MGR.webp" }
     },
 
     Festival: {
-        SapporoSnowFestival: { title: "Sapporo Snow Festival", image: "/Public/Images/FestivalImages/SapporoSnowOne.webp" },
-        GionMatsuri: { title: "Gion Festival", image: "/Public/Images/FestivalImages/GionMatsuriOne.webp" },
-        AomoriNebutaMatsuri: { title: "Aomori Nebuta Festival", image: "/Public/Images/FestivalImages/AomoriNebutaOne.jpg" },
-        KandaMatsuri: { title: "Kanda Festival", image: "/Public/Images/FestivalImages/KandaMatsuriOne.webp" },
-        TakayamaMatsuri: { title: "Takayama Matsuri", image: "/Public/Images/FestivalImages/TakayamaMatsuriOne.webp" }
+        SapporoSnowFestival: { title: "Sapporo Snow Festival", image: "/Images/FestivalImages/SapporoSnowOne.webp" },
+        GionMatsuri: { title: "Gion Festival", image: "/Images/FestivalImages/GionMatsuriOne.webp" },
+        AomoriNebutaMatsuri: { title: "Aomori Nebuta Festival", image: "/Images/FestivalImages/AomoriNebutaOne.jpg" },
+        KandaMatsuri: { title: "Kanda Festival", image: "/Images/FestivalImages/KandaMatsuriOne.webp" },
+        TakayamaMatsuri: { title: "Takayama Matsuri", image: "/Images/FestivalImages/TakayamaMatsuriOne.webp" }
     },
 
 };

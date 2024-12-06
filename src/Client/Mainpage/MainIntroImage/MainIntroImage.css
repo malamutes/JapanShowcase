@@ -1,5 +1,158 @@
-@media(max-width: 1900px) {
-    .DownArrowMainImage {
+.NameTag {
+    cursor: pointer;
+    display: inline;
+    font-style: italic;
+}
+
+.NameTag:hover {
+    font-weight: 700;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+/* Styling for Made by section */
+.made-by {
+    font-size: 17.5px;
+}
+
+/* Styling for description */
+.MainImageTextContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding: 25px;
+    min-width: 250px;
+    z-index: 1;
+}
+
+.MainImageTextWrapper {
+    z-index: 2;
+}
+
+.descriptionTwo {
+    display: none;
+}
+
+.ImageStyle {
+    min-width: 1920px;
+}
+
+.description {
+    font-size: 15px;
+}
+
+.UnderlineEffectText {
+    position: relative;
+    display: inline-block;
+}
+
+.UnderlineEffectText::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.5s ease;
+}
+
+.UnderlineEffectText.underlined::after {
+    width: 100%;
+    left: 0;
+}
+
+.description .UnderlineEffectText:nth-child(1)::after {
+    transition-delay: 0s;
+    background-color: #E34F26;
+}
+
+.description .UnderlineEffectText:nth-child(2)::after {
+    transition-delay: 0.45s;
+    background-color: #200ec0;
+}
+
+.description .UnderlineEffectText:nth-child(3)::after {
+    transition-delay: 0.9s;
+    background-color: #154a83;
+}
+
+.description .UnderlineEffectText:nth-child(4)::after {
+    transition-delay: 1.35s;
+    background-color: #61DAFB;
+}
+
+.description .UnderlineEffectText:nth-child(5)::after {
+    transition-delay: 1.8s;
+    background-color: #9B59B6;
+}
+
+.description .UnderlineEffectText:nth-child(6)::after {
+    transition-delay: 2.25s;
+    background-color: #28A745;
+}
+
+.carousel-indicators [data-bs-target] {
+    margin-bottom: 25px;
+}
+
+@media(max-width: 992px) {
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    /* Styling for Made by section */
+    .made-by {
+        font-size: 15px;
+    }
+
+    /* Styling for description */
+}
+
+
+@media(max-width: 768px) {
+    .MainImageTextWrapper {
+        padding: 5px 15px 5px 15px;
+    }
+
+    .MainImageTextWrapper {
+        line-height: 1;
+    }
+
+}
+
+@media(max-width: 576px) {
+    .MainImageTextContainer {
+        padding: 5px;
+    }
+
+    .title {
+        font-size: 17.5px;
+        font-weight: 600;
+    }
+
+    /* Styling for Made by section */
+    .made-by {
+        font-size: 14px;
+    }
+
+    .description {
         display: none;
+    }
+
+    .descriptionTwo {
+        display: inline;
+    }
+
+    .NameTag {
+        font-weight: 700;
     }
 }

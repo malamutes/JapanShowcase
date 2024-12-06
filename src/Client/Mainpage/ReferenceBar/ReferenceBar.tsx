@@ -194,7 +194,7 @@ export default function ReferenceBar() {
                             </Col>
                             <Col md={3}>
                                 <Row >
-                                    {[`About Me`, `Interests`, `Credentials`].map((extra, index) => (
+                                    {[`About`, `Interests`, `Credentials`].map((extra, index) => (
                                         <Col key={extra} style={{ display: 'flex', justifyContent: 'end' }}>
                                             <span className="DescriptionStyle" style={{
                                                 textDecoration: 'underline', marginTop: `${more768px ? "0" : "15px"}`
