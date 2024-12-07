@@ -199,7 +199,7 @@ export default function TopBar() {
                     <Col lg={1} xs={3} style={{
                         display: 'flex', justifyContent: 'center',
                     }}>
-                        <Image fluid src="/Images/CherryBlossom.png"
+                        <Image fluid src="/Images/CherryBlossom.png" alt='CherryBlossomLogo'
                             className='SagaFlag'
                             onClick={handleShow}
                         />
@@ -349,7 +349,7 @@ export default function TopBar() {
                     <Col lg={1} xs={3} style={{
                         display: 'flex', justifyContent: 'end',
                     }}>
-                        <Image src='/Images/MenuIcon.png' style={{
+                        <Image src='/Images/MenuIcon.png' alt="MenuIconHamburger" style={{
                             maxWidth: '32px', maxHeight: '32px',
                             marginRight: '15px', filter: 'invert(1)', cursor: 'pointer',
                             zIndex: '100'

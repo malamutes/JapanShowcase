@@ -26,7 +26,7 @@ export default function EntertainmentCard(props: EntertainmentCardProps) {
                 </div>
 
                 <div className='Div2' >
-                    <Image src={props.image} style={{ minWidth: '100%' }} />
+                    <Image src={props.image} style={{ minWidth: '100%' }} alt={props.title} />
                 </div>
 
             </div>

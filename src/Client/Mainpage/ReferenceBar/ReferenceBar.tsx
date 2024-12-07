@@ -168,16 +168,11 @@ export default function ReferenceBar() {
                                                     } else {
                                                         return (
                                                             <Row key={referenceLinks}>
-                                                                <a
-                                                                    onClick={(e) => {
-                                                                        e.preventDefault(); // Prevent the default anchor behavior
-                                                                        navigate(RD[referenceType][referenceLinks].link); // Use navigate for internal links
-                                                                    }}
-                                                                    className="ReferenceLinksStyle"
+                                                                <span className="ReferenceLinksStyle"
                                                                     style={{ cursor: 'pointer' }}
-                                                                >
+                                                                    onClick={() => navigate(`${RD[referenceType][referenceLinks].link}`)}>
                                                                     {referenceLinks}
-                                                                </a>
+                                                                </span>
                                                             </Row>
                                                         );
                                                     }
@@ -185,7 +180,6 @@ export default function ReferenceBar() {
                                             </Col>
                                         ))}
                                     </Row>
-
                                 </div>
 
                                 <div className='SmallScreenBottomBar'>
@@ -197,20 +191,18 @@ export default function ReferenceBar() {
                                                     <Col>
                                                         {Object.keys(RD[referenceType]).map((referenceLinks) => (
                                                             <Row key={referenceLinks}>
-                                                                <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
+                                                                <a target={["IconReferences", "ImageReferences"].includes(referenceType) ? "_blank" : ""}
+                                                                    href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
                                                                     style={{ fontSize: '15px' }}
                                                                 >{referenceLinks}</a>
                                                             </Row>
                                                         ))}
                                                     </Col>
-
                                                 </Accordion.Body>
                                             </Accordion.Item>
                                         ))}
                                     </Accordion>
                                 </div>
-
-
                             </Col>
                         </Row>
 
@@ -226,7 +218,6 @@ export default function ReferenceBar() {
                                             <span className="DescriptionStyle" style={{
                                                 textDecoration: 'underline', marginTop: `${checkMore768px ? "0" : "15px"}`
                                             }}>{extra}</span>
-
                                         </Col>
                                     ))}
                                 </Row>
@@ -240,7 +231,6 @@ export default function ReferenceBar() {
                             display: 'inline-block', maxWidth: `${checkMore768px ? "50%" : "100%"}`,
                             marginTop: `${checkMore768px ? "25px" : "0px"}`
                         }}>Information from your device is used to personalize your ad experience.
-
                             Ur data finna be stolen, its so over.</span>
                     </Col>
                 </Container>

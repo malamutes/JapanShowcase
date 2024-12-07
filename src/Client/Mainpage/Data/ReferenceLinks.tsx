@@ -44,7 +44,7 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
     ImageReferences: {
         Fontawesome: {
             title: "Fontawesome",
-            link: "//https://fontawesome.com/"
+            link: "https://fontawesome.com/"
         },
         Unsplash: {
             title: "Unsplash",

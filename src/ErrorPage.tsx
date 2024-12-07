@@ -36,25 +36,23 @@ export default function ErrorPage() {
                     </p>
 
                     <p className='TransitionTextClass'>
-                        Don’t worry, it’s not you, it’s me.
                         The page you’re looking for has either been <br />
                         <span
                             className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>moved</span>, <span
                                 className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>deleted</span>,
                         or is just playing <span
-                            className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>hide-and-seek</span> (not addded yet). <br />
-
-
+                            className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>hide-and-seek</span> (not added yet). <br />
                     </p>
 
                     <p className='TransitionTextClass'>
                         🕵️‍♂️ Try heading back to the homepage: <br />
-
                     </p>
 
                     <p className='TransitionTextClass' >
                         <Image src='/Images/I8Home.png' className='I8Icon I8Icon1'
-                            onClick={() => navigate('/')} />
+                            onClick={() => navigate('/')}
+                            alt="I8Home"
+                        />
                     </p>
 
                     <p className='TransitionTextClass'>
@@ -65,27 +63,29 @@ export default function ErrorPage() {
                         <div className='TransitionTextClass'>
                             <Image src='/Images/I8Location.png'
                                 className='I8Icon I8Icon2'
-                                onClick={() => navigate('/Prefecture/Tokyo')} />
+                                onClick={() => navigate('/Prefecture/Tokyo')}
+                                alt="I8Location"
+                            />
                         </div>
 
                         <div className='TransitionTextClass'>
                             <Image src='/Images/I8Sushi.png'
                                 className='I8Icon I8Icon3'
-                                onClick={() => navigate('/Food/Sushi')} />
+                                onClick={() => navigate('/Food/Sushi')}
+                                alt="I8Sushi"
+                            />
                         </div>
 
                         <div className='TransitionTextClass'>
 
                             <Image src='/Images/I8Mountain.png'
                                 className='I8Icon I8Icon4'
-                                onClick={() => navigate('/Landmark/Fujisan')} />
+                                onClick={() => navigate('/Landmark/Fujisan')}
+                                alt="I8Mountain"
+                            />
                         </div>
                     </div>
-
-
-
                 </div>
-
             </div >
         </>
     )

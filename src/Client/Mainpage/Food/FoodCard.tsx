@@ -24,7 +24,7 @@ export default function FoodCard(props: FoodCardProps) {
             >
 
                 <Card.Img src={props.image} draggable={false}
-                    className={`FoodImage ${props.scrollPast ? "FoodImageShow" : ""}`} />
+                    className={`FoodImage ${props.scrollPast ? "FoodImageShow" : ""}`} alt={props.titleEng} />
 
 
                 <Card.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

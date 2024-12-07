@@ -1,19 +1,30 @@
 .animated-border {
     position: relative;
     overflow: hidden;
-
     width: 100%;
 }
 
-.SMTImage {
-    transform: scaleY(0.95) scaleX(1.15);
-    overflow: hidden
+.GameImageStyle {
+    filter: grayscale(1);
+    transition: grayscale 1s ease, transform 1s ease;
+    cursor: pointer;
 }
 
-@media(max-width: 1400px) {
-    .SMTImage {
-        transform: scaleY(0.95) scaleX(1.025);
-    }
+.GameImageStyleSMT {
+    filter: grayscale(1);
+    transition: grayscale 1s ease, transform 1s ease;
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+.GameImageStyle:hover {
+    filter: grayscale(0);
+    transform: scale(1.15);
+}
+
+.GameImageStyleSMT:hover {
+    filter: grayscale(0);
+    transform: scale(1.3);
 }
 
 @media(max-width: 1920px) {

@@ -76,15 +76,15 @@ export default function MainIntroImage() {
 
                         <Carousel controls={false} interval={null}>
                             <Carousel.Item className="CarouselImageContainer">
-                                <Image src="/Images/JapanNight.webp" className="ImageStyle" />
+                                <Image src="/Images/JapanNight.webp" className="ImageStyle" alt="JapanNight" />
 
                             </Carousel.Item>
                             <Carousel.Item className="CarouselImageContainer">
-                                <Image src="/Images/IntroFood.webp" className="ImageStyle" />
+                                <Image src="/Images/IntroFood.webp" className="ImageStyle" alt="JapanFoodIntro" />
 
                             </Carousel.Item>
                             <Carousel.Item className="CarouselImageContainer">
-                                <Image src="/Images/IntroFestival.jpg" className="ImageStyle" />
+                                <Image src="/Images/IntroFestival.jpg" className="ImageStyle" alt="JapanFestivalIntro" />
 
                             </Carousel.Item>
                         </Carousel>
