@@ -123,7 +123,7 @@ export default function ReferenceBar() {
                                 <Row className="SocialIconRow" style={{ maxWidth: '85%' }}>
                                     {["facebook", "twitter", "instagram", "youTube", "linkedIn", "tikTok"].map((social) => (
                                         <Col key={social} xs={2}>
-                                            <a target="_blank" href={`https://${social}.com`} >
+                                            <a target="_blank" href={`https://${social}.com`} aria-label={social}>
                                                 <FontAwesomeIcon icon={iconMap[social]} className='SocialIcon' />
                                             </a>
                                         </Col>
