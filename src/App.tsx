@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIntro(true);
-    }, 100);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
