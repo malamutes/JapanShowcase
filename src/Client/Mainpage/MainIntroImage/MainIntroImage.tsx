@@ -60,7 +60,12 @@ export default function MainIntroImage() {
                         </span>
 
                         <span className="descriptionTwo">
-                            Responsive, interactive UI built with HTML, CSS, TypeScript, and React.
+                            <span className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>Responsive</span>, <span className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>interactive
+                            </span> UI built with <span
+                                className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`} >HTML</span>, <span
+                                    className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>CSS</span>, <span
+                                        className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>TypeScript</span>, <span
+                                            className={`UnderlineEffectText ${isUnderlined ? 'underlined' : ''}`}>React</span>.
                         </span>
                     </div>
 
@@ -69,17 +74,16 @@ export default function MainIntroImage() {
                 <Row>
                     <Col style={{ padding: '0', margin: '0', }}>
 
-                        <Carousel controls={false} interval={null}
-                            style={{ maxHeight: '100vh' }}>
-                            <Carousel.Item>
+                        <Carousel controls={false} interval={null}>
+                            <Carousel.Item className="CarouselImageContainer">
                                 <Image src="/Images/JapanNight.webp" className="ImageStyle" />
 
                             </Carousel.Item>
-                            <Carousel.Item>
+                            <Carousel.Item className="CarouselImageContainer">
                                 <Image src="/Images/IntroFood.webp" className="ImageStyle" />
 
                             </Carousel.Item>
-                            <Carousel.Item>
+                            <Carousel.Item className="CarouselImageContainer">
                                 <Image src="/Images/IntroFestival.jpg" className="ImageStyle" />
 
                             </Carousel.Item>

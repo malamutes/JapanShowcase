@@ -40,8 +40,17 @@
     display: none;
 }
 
+.CarouselImageContainer {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
 .ImageStyle {
-    min-width: 1920px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    object-position: center;
 }
 
 .description {
@@ -57,7 +66,7 @@
     content: '';
     position: absolute;
     width: 0;
-    height: 3px;
+    height: 2px;
     bottom: 0;
     left: 0;
     background-color: white;
@@ -98,6 +107,40 @@
     transition-delay: 2.25s;
     background-color: #28A745;
 }
+
+
+.descriptionTwo .UnderlineEffectText:nth-child(1)::after {
+    transition-delay: 0s;
+    background-color: #28A745;
+}
+
+.descriptionTwo .UnderlineEffectText:nth-child(2)::after {
+    transition-delay: 0.45s;
+    background-color: #9B59B6;
+}
+
+.descriptionTwo .UnderlineEffectText:nth-child(3)::after {
+    transition-delay: 0.9s;
+    background-color: #E34F26;
+}
+
+.descriptionTwo .UnderlineEffectText:nth-child(4)::after {
+    transition-delay: 1.35s;
+    background-color: #200ec0;
+}
+
+.descriptionTwo .UnderlineEffectText:nth-child(5)::after {
+    transition-delay: 1.8s;
+    background-color: #154a83;
+
+}
+
+.descriptionTwo .UnderlineEffectText:nth-child(6)::after {
+    transition-delay: 2.25s;
+    background-color: #61DAFB;
+}
+
+
 
 .carousel-indicators [data-bs-target] {
     margin-bottom: 25px;
@@ -155,4 +198,6 @@
     .NameTag {
         font-weight: 700;
     }
+
+
 }

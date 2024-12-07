@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function WebsiteIntro() {
-    const [intro, setIntro] = useState(false);
+    const [intro, setIntro] = useState(true);
 
     const [ended, SetEnded] = useState(false);
 
@@ -12,6 +12,7 @@ export default function WebsiteIntro() {
         else {
             document.documentElement.style.setProperty('--scrollbar-display', 'block');
         }
+
     }, [intro]);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ export default function WebsiteIntro() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIntro(false);
-        }, 3000);
+        }, 3250);
         return () => clearTimeout(timer);
     }, []);
 
@@ -62,9 +63,11 @@ export default function WebsiteIntro() {
                 position: 'fixed', zIndex: '10000',
                 transition: 'clip-path 1.5s ease-out',
                 clipPath: `inset(0 0 0 ${intro ? 0 : 100}%)`,
-                display: `${ended ? 'none' : 'block'}`
+                display: `${ended ? 'none' : 'grid'}`, placeItems: 'center'
             }}>
-                <video autoPlay muted playsInline style={{ transform: "translateY(-7.5%)" }} >
+                <video autoPlay muted playsInline style={{
+                    width: '100vw', height: '100vh', objectFit: 'cover'
+                }} >
                     <source src="/Images/IntroIconVideo.mp4" type="video/mp4" />
                 </video>
             </div>
