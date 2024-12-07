@@ -89,6 +89,16 @@ export default function MainImage() {
 
     const { light } = useContext(LightThemeContext);
 
+    useEffect(() => {
+        if (isDisplay) {
+            document.documentElement.style.setProperty('--scrollbar-display', 'none');
+        }
+        else {
+            document.documentElement.style.setProperty('--scrollbar-display', 'block');
+        }
+
+    }, [isDisplay]);
+
     return (
         <>
             <div style={{ position: 'relative' }}>

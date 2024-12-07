@@ -10,6 +10,29 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  --scrollbar-display: none;
+}
+
+:root::-webkit-scrollbar {
+  display: var(--scrollbar-display);
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #757575;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #4d4d4d;
 }
 
 html,

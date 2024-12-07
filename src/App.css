@@ -1,0 +1,146 @@
+.ErrorPageContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.ErrorPageWrapper {
+    max-width: 80%;
+}
+
+.ErrorTagTitle {
+    font-size: 100px;
+    font-weight: 700;
+}
+
+.ErrorTagSubtitle {
+    font-size: 20px;
+    font-style: italic;
+    font-stretch: ultra-expanded;
+}
+
+@keyframes ErrorTextTransition {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.TransitionTextClass:nth-child(n):not(:first-child) {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.ErrorPageContainer .TransitionTextClass:nth-child(2) {
+    animation: ErrorTextTransition 1s ease-in-out 0.5s forwards;
+}
+
+.ErrorPageContainer .TransitionTextClass:nth-child(3) {
+    animation: ErrorTextTransition 1s ease-in-out 1s forwards;
+}
+
+.ErrorPageContainer .TransitionTextClass:nth-child(4) {
+    animation: ErrorTextTransition 1s ease-in-out 1.5s forwards;
+}
+
+.ErrorPageContainer .TransitionTextClass:nth-child(5) {
+    animation: ErrorTextTransition 1s ease-in-out 2s forwards;
+}
+
+.ErrorPageContainer .TransitionTextClass:nth-child(6) {
+    animation: ErrorTextTransition 1s ease-in-out 2.5s forwards;
+}
+
+.ErrorPageContainer .TransitionTextClass:nth-child(7) {
+    animation: ErrorTextTransition 1s ease-in-out 3s forwards;
+}
+
+.TransitionImageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.TransitionImageContainer .TransitionTextClass {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.TransitionImageContainer .TransitionTextClass:nth-child(1) {
+    animation: ErrorTextTransition 1s ease-in-out 3.5s forwards;
+}
+
+.TransitionImageContainer .TransitionTextClass:nth-child(2) {
+    animation: ErrorTextTransition 1s ease-in-out 4s forwards;
+}
+
+.TransitionImageContainer .TransitionTextClass:nth-child(3) {
+    animation: ErrorTextTransition 1s ease-in-out 4.5s forwards;
+}
+
+.I8Icon {
+    font-size: 24px;
+    filter: invert(1) sepia(0) saturate(0) hue-rotate(0deg);
+    transition: transform 0.5s ease, filter 0.5s ease;
+    cursor: pointer;
+    margin: 0 5px 0 5px;
+}
+
+
+.I8Icon1:hover {
+    transform: scale(1.1);
+    filter: invert(1) sepia(100) saturate(500) hue-rotate(-120deg);
+}
+
+.I8Icon2:hover {
+    transform: scale(1.1);
+    filter: invert(1) sepia(100) saturate(500) hue-rotate(135deg);
+}
+
+.I8Icon3:hover {
+    transform: scale(1.1);
+    filter: invert(1) sepia(100) saturate(500) hue-rotate(50deg);
+}
+
+.I8Icon4:hover {
+    transform: scale(1.1);
+    filter: invert(1) sepia(1) saturate(500) hue-rotate(0deg);
+}
+
+.UnderlineEffectText::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.5s ease;
+}
+
+.UnderlineEffectText.underlined::after {
+    width: 100%;
+    left: 0;
+}
+
+.TransitionTextClass .UnderlineEffectText:nth-child(2)::after {
+    transition-delay: 2s;
+    background-color: #3326e3;
+}
+
+.TransitionTextClass .UnderlineEffectText:nth-child(3)::after {
+    transition-delay: 2.5s;
+    background-color: #c00e0e;
+}
+
+.TransitionTextClass .UnderlineEffectText:nth-child(4)::after {
+    transition-delay: 3s;
+    background-color: #198315;
+}

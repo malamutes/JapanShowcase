@@ -110,10 +110,14 @@ export default function CommonNavCompTop() {
                                     src="/Images/CherryBlossom.png"
                                     width="40"
                                     height="40"
+
+                                    onClick={() => { window.scrollTo(0, 0) }}
+                                    style={{ cursor: 'pointer' }}
                                 />
                                 <span style={{
-                                    fontSize: '20px', marginLeft: '15px', color: 'black'
-                                }}>
+                                    fontSize: '20px', marginLeft: '15px', color: 'black', cursor: 'pointer'
+                                }}
+                                    onClick={() => { window.scrollTo(0, 0) }}>
                                     Japan Showcase
                                 </span>
                             </Container>

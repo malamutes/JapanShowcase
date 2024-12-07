@@ -74,7 +74,7 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
         },
         Festival: {
             title: "Festival",
-            link: ""
+            link: "/Festival/TBA"
         },
         Landmark: {
             title: "Landmark",
@@ -84,7 +84,7 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
     ExperienceNav: {
         Game: {
             title: "Game",
-            link: "#/Food/Sushi"
+            link: "/Game/TBA"
         },
         Food: {
             title: "Food",
@@ -92,7 +92,7 @@ const ReferenceData: { [key: string]: { [key: string]: ReferenceDataInterface } 
         },
         Entertainment: {
             title: "Entertainment",
-            link: ""
+            link: "/Entertainment/TBA"
         },
     },
 }

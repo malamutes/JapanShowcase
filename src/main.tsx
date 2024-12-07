@@ -11,6 +11,7 @@ import {
 import PrefectureApp from './Client/Prefecturepage/PrefectureApp.tsx';
 import FoodApp from './Client/Foodpage/FoodApp.tsx';
 import LandmarkApp from './Client/Landmarkpage/LandmarkApp.tsx';
+import ErrorPage from './ErrorPage.tsx';
 import { useState } from 'react';
 import { useLayoutEffect } from 'react';
 
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/Prefecture/:CurrentPrefecture",
@@ -40,7 +42,8 @@ const router = createBrowserRouter([
       <>
         <ScrollToTop />
         <PrefectureApp />
-      </>)
+      </>),
+    errorElement: <ErrorPage />
   },
   {
     path: "/Food/:CurrentFood",
@@ -48,7 +51,8 @@ const router = createBrowserRouter([
       <>
         <ScrollToTop />
         <FoodApp />
-      </>)
+      </>),
+    errorElement: <ErrorPage />
   },
   {
     path: "/Landmark/:CurrentLandmark",
@@ -56,7 +60,8 @@ const router = createBrowserRouter([
       <>
         <ScrollToTop />
         <LandmarkApp />
-      </>)
+      </>),
+    errorElement: <ErrorPage />
   },
 ]);
 

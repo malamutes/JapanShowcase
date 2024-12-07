@@ -6,6 +6,40 @@ export default function WebsiteIntro() {
     const [ended, SetEnded] = useState(false);
 
     useEffect(() => {
+        if (intro) {
+            document.documentElement.style.setProperty('--scrollbar-display', 'none');
+        }
+        else {
+            document.documentElement.style.setProperty('--scrollbar-display', 'block');
+        }
+    }, [intro]);
+
+    useEffect(() => {
+        const handleWheel = (e: WheelEvent) => {
+            if (intro) {
+                e.preventDefault();
+            }
+        };
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const keysToPrevent = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", "Space"];
+            if (keysToPrevent.includes(e.key) && intro) {
+                e.preventDefault();
+            }
+        };
+
+        if (intro) {
+            window.addEventListener("wheel", handleWheel, { passive: false });
+            window.addEventListener("keydown", handleKeyDown);
+        }
+
+        return () => {
+            window.removeEventListener("wheel", handleWheel);
+        };
+
+    }, [intro])
+
+    useEffect(() => {
         const timer = setTimeout(() => {
             setIntro(false);
         }, 3000);
