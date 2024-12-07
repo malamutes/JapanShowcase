@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
 import '../../Prefecturepage/HorizontalCard/HorizontalCard.css'
+import { useNavigate } from 'react-router-dom';
 
 const iconMap: { [key: string]: any } = {
     instagram: faInstagram,
@@ -147,14 +148,40 @@ export default function ReferenceBar() {
                                         {Object.keys(RD).map((referenceType) => (
                                             <Col key={referenceType} className="ReferenceLinksColStyle">
                                                 <h6 className="ReferenceTitle" >{referenceType}</h6>
-                                                {Object.keys(RD[referenceType]).map((referenceLinks) => (
-                                                    <Row key={referenceLinks} >
-                                                        <a
-                                                            target={`${["IconReferences", "ImageReferences"].includes(referenceType) ? "_blank" : ""}`}
-                                                            href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle">{referenceLinks}
-                                                        </a>
-                                                    </Row>
-                                                ))}
+
+                                                {Object.keys(RD[referenceType]).map((referenceLinks) => {
+                                                    const navigate = useNavigate();
+
+                                                    // Check if the reference type is "IconReferences" or "ImageReferences"
+                                                    if (["IconReferences", "ImageReferences"].includes(referenceType)) {
+                                                        return (
+                                                            <Row key={referenceLinks}>
+                                                                <a
+                                                                    target="_blank"
+                                                                    href={RD[referenceType][referenceLinks].link}
+                                                                    className="ReferenceLinksStyle"
+                                                                >
+                                                                    {referenceLinks}
+                                                                </a>
+                                                            </Row>
+                                                        );
+                                                    } else {
+                                                        return (
+                                                            <Row key={referenceLinks}>
+                                                                <a
+                                                                    onClick={(e) => {
+                                                                        e.preventDefault(); // Prevent the default anchor behavior
+                                                                        navigate(RD[referenceType][referenceLinks].link); // Use navigate for internal links
+                                                                    }}
+                                                                    className="ReferenceLinksStyle"
+                                                                    style={{ cursor: 'pointer' }}
+                                                                >
+                                                                    {referenceLinks}
+                                                                </a>
+                                                            </Row>
+                                                        );
+                                                    }
+                                                })}
                                             </Col>
                                         ))}
                                     </Row>

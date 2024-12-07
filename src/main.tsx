@@ -63,6 +63,10 @@ const router = createBrowserRouter([
       </>),
     errorElement: <ErrorPage />
   },
+  {
+    path: "*",
+    element: <ErrorPage /> // Fallback error page for all unmatched routes
+  }
 ]);
 
 function ThemeWrapper() {

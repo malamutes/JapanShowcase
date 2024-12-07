@@ -3,6 +3,7 @@ import { Container, Row, Col, Offcanvas, Accordion, Image, ProgressBar } from 'r
 import { useState, useEffect } from 'react';
 import { TopBarData } from '../Data/ReferenceLinks';
 import MatchmediaQuery from '../../CommonLogic(NON-UI)/MatchmediaQuery';
+import { useNavigate } from 'react-router-dom';
 
 const navMenuData: { [key: string]: string } = {
     "Prefecture": "red",
@@ -16,6 +17,8 @@ const navMenuData: { [key: string]: string } = {
 
 export default function TopBar() {
     const [show, setShow] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -225,10 +228,11 @@ export default function TopBar() {
                                                         }}>{TBDOuterItem}</h6>
                                                         {Object.keys(TBD[TBDOuterItem]).map((TBDInnerItem, InnerIndex) => (
                                                             <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}>
-                                                                <a href={`/${TBDOuterItem}/${TBDInnerItem}`}> <span className='TopBarText'
+                                                                <span className='TopBarText'
                                                                     onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
                                                                     onMouseLeave={() => setCurrentHover("")}
-                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span></a>
+                                                                    onClick={() => navigate(`/${TBDOuterItem}/${TBDInnerItem}`)}
+                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span>
                                                             </Row>
                                                         ))}
                                                     </Col>
@@ -247,11 +251,11 @@ export default function TopBar() {
                                                             fontSize: '20px'
                                                         }}>{TBDOuterItem}</h6>
                                                         {Object.keys(TBD[TBDOuterItem]).map((TBDInnerItem, InnerIndex) => (
-                                                            <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}>
-                                                                <a href={`/${TBDOuterItem}/${TBDInnerItem}`}> <span className='TopBarText'
-                                                                    onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
-                                                                    onMouseLeave={() => setCurrentHover("")}
-                                                                >{TBD[TBDOuterItem][TBDInnerItem].title}</span></a>
+                                                            <Row key={InnerIndex} style={{ margin: '0', maxWidth: 'fit-content' }}><span className='TopBarText'
+                                                                onMouseEnter={() => setCurrentHover(TBD[TBDOuterItem][TBDInnerItem].image)}
+                                                                onMouseLeave={() => setCurrentHover("")}
+                                                                onClick={() => navigate(`/${TBDOuterItem}/${TBDInnerItem}`)}
+                                                            >{TBD[TBDOuterItem][TBDInnerItem].title}</span>
 
                                                             </Row>
                                                         ))}
@@ -294,7 +298,8 @@ export default function TopBar() {
                                                             <Col>
                                                                 {Object.keys(TBD[topBarDataItem]).map((topBarDataInnerItem, accordionInnerIndex) => (
                                                                     <Row key={accordionInnerIndex}>
-                                                                        <Image style={{ cursor: 'pointer', marginBottom: '2.5cqw' }} src={TBD[topBarDataItem][topBarDataInnerItem].image} />
+                                                                        <Image style={{ cursor: 'pointer', marginBottom: '2.5cqw' }} src={TBD[topBarDataItem][topBarDataInnerItem].image}
+                                                                            onClick={() => navigate(`/${topBarDataItem}/${topBarDataInnerItem}`)} />
                                                                     </Row>
                                                                 ))}
                                                             </Col>
