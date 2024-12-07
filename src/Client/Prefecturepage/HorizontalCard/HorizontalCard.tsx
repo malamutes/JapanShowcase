@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Row, Card, Image, Offcanvas } from "react-bootstrap";
 import MatchmediaQuery from "../../CommonLogic(NON-UI)/MatchmediaQuery";
 import './HorizontalCard.css'
@@ -16,7 +16,6 @@ export default function HorizontalCard() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     useEffect(() => {
         const enlarge = (e: WheelEvent | MouseEvent) => {
