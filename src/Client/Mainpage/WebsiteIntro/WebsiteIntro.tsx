@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function WebsiteIntro() {
-    const [intro, setIntro] = useState(true);
+    const [intro, setIntro] = useState(false);
 
     const [ended, SetEnded] = useState(false);
 

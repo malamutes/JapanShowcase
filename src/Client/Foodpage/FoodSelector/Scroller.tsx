@@ -49,7 +49,7 @@ export default function Scroller(props: ScrollerProps) {
             <div className="LargeScreenScroller">
                 <Col style={{ maxHeight: props.height, overflow: 'auto', backgroundColor: 'rgb(100,100,100)' }}>
                     <div style={{ maxWidth: 'fit-content' }}>
-                        {props.identifier.map((element, index) => (
+                        {props.identifier.map((element) => (
                             <Row key={element} style={{ margin: '25px 0' }}
                                 onClick={() => console.log(element)}>
                                 <div style={{ cursor: 'pointer', padding: '0' }} onClick={() => props.onClick(element)}>
@@ -69,7 +69,7 @@ export default function Scroller(props: ScrollerProps) {
                     maxWidth: '100%'
                 }}>
                     <div style={{ maxWidth: 'fit-content', display: 'flex' }}>
-                        {props.identifier.map((element, index) => (
+                        {props.identifier.map((element) => (
                             <div key={element} style={{ margin: '25px 0', }}
                                 onClick={() => console.log(element)}>
                                 <div style={{ cursor: 'pointer', padding: '0' }} onClick={() => props.onClick(element)}>

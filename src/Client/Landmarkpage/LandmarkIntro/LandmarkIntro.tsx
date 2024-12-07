@@ -47,7 +47,7 @@ export default function LandmarkIntro() {
                             borderRadius: '50%', boxShadow: `0px 0px 25px rgb(${light ? "0, 0, 0" : "255,255,255"}, 0.5)`, maxWidth: '70%'
                         }} fluid />
 
-                        {arr.map((item, index) => (
+                        {arr.map((index) => (
                             <div style={{ position: 'absolute', display: 'grid', placeItems: 'center' }} key={index}>
                                 <Image src={`https://placehold.co/135x135?text=${index}`} fluid
                                     className={`${light ? "CircularMenuItems" : "CircularMenuItemsDark"} ${index === currItem ?

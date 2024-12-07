@@ -28,7 +28,7 @@ export default function LandmarkCard() {
             <Container style={{ marginTop: '100px' }} ref={ComponentRef}>
                 <CommonDividersV3 onScroll={checkScrollPast} />
                 <Row>
-                    {['red', 'orange', 'blue'].map((item, index) => (
+                    {['red', 'orange', 'blue'].map((item) => (
                         <Col lg={4} key={item} >
                             <Card style={{
                                 border: 'none', margin: 'auto', textAlign: 'center',

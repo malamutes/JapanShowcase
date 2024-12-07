@@ -120,7 +120,7 @@ export default function ReferenceBar() {
                                 </Row>
 
                                 <Row className="SocialIconRow" style={{ maxWidth: '85%' }}>
-                                    {["facebook", "twitter", "instagram", "youTube", "linkedIn", "tikTok"].map((social, socialIndex) => (
+                                    {["facebook", "twitter", "instagram", "youTube", "linkedIn", "tikTok"].map((social) => (
                                         <Col key={social} xs={2}>
                                             <a target="_blank" href={`https://${social}.com`} >
                                                 <FontAwesomeIcon icon={iconMap[social]} className='SocialIcon' />
@@ -144,10 +144,10 @@ export default function ReferenceBar() {
 
                                 <div className='LargeScreenBottomBar'>
                                     <Row>
-                                        {Object.keys(RD).map((referenceType, typeIndex) => (
+                                        {Object.keys(RD).map((referenceType) => (
                                             <Col key={referenceType} className="ReferenceLinksColStyle">
                                                 <h6 className="ReferenceTitle" >{referenceType}</h6>
-                                                {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
+                                                {Object.keys(RD[referenceType]).map((referenceLinks) => (
                                                     <Row key={referenceLinks} >
                                                         <a
                                                             target={`${["IconReferences", "ImageReferences"].includes(referenceType) ? "_blank" : ""}`}
@@ -162,13 +162,13 @@ export default function ReferenceBar() {
                                 </div>
 
                                 <div className='SmallScreenBottomBar'>
-                                    <Accordion style={{ marginBottom: '25px' }} className='CustomAccordian'>
+                                    <Accordion style={{ marginBottom: '25px', }} className='CustomAccordian'>
                                         {Object.keys(RD).map((referenceType, typeIndex) => (
                                             <Accordion.Item eventKey={`${typeIndex}`} key={typeIndex}>
-                                                <Accordion.Header >{referenceType}</Accordion.Header>
+                                                <Accordion.Header style={{ color: 'white !important' }}>{referenceType}</Accordion.Header>
                                                 <Accordion.Body style={{ backgroundColor: 'black', color: 'whitesmoke' }}>
                                                     <Col>
-                                                        {Object.keys(RD[referenceType]).map((referenceLinks, linkIndex) => (
+                                                        {Object.keys(RD[referenceType]).map((referenceLinks) => (
                                                             <Row key={referenceLinks}>
                                                                 <a target="_blank" href={RD[referenceType][referenceLinks].link} className="ReferenceLinksStyle"
                                                                     style={{ fontSize: '15px' }}
@@ -197,7 +197,7 @@ export default function ReferenceBar() {
                                     {[`About`, `Interests`, `Credentials`].map((extra, index) => (
                                         <Col key={extra} style={{ display: 'flex', justifyContent: 'end' }}>
                                             <span className="DescriptionStyle" style={{
-                                                textDecoration: 'underline', marginTop: `${more768px ? "0" : "15px"}`
+                                                textDecoration: 'underline', marginTop: `${checkMore768px ? "0" : "15px"}`
                                             }}>{extra}</span>
 
                                         </Col>
@@ -210,8 +210,8 @@ export default function ReferenceBar() {
 
                         </Row>
                         <span className="DescriptionStyle" style={{
-                            display: 'inline-block', maxWidth: `${more768px ? "50%" : "100%"}`,
-                            marginTop: `${more768px ? "25px" : "0px"}`
+                            display: 'inline-block', maxWidth: `${checkMore768px ? "50%" : "100%"}`,
+                            marginTop: `${checkMore768px ? "25px" : "0px"}`
                         }}>Information from your device is used to personalize your ad experience.
 
                             Ur data finna be stolen, its so over.</span>
