@@ -53,7 +53,7 @@ export default function Food() {
 
                     <div className="NavDiv">
 
-                        <Image fluid src="/public/Images/RightArrow.png" style={{
+                        <Image fluid src="/Images/RightArrow.png" style={{
                             cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)',
                             transform: 'rotate(180deg)'
                         }}
@@ -66,7 +66,7 @@ export default function Food() {
                         }} />
 
 
-                        <Image fluid src="/public/Images/RightArrow.png" style={{ cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)' }}
+                        <Image fluid src="/Images/RightArrow.png" style={{ cursor: 'pointer', zIndex: '1', filter: 'invert(100%) brightness(75%)' }}
                             onClick={() => handleClick(true)} />
 
 

@@ -266,7 +266,7 @@ export default function Games() {
                                 }}>
                                 <div style={{ transform: 'scale(0.975)', overflow: 'hidden' }}
                                     className={`ImageOne ${checkHasScrollPast ? "ImageOneShow" : ""}`}>
-                                    <Image src="/Public/Images/GameImages/Bloodborne.webp" alt="Bloodborne" fluid style={{
+                                    <Image src="/Images/GameImages/Bloodborne.webp" alt="Bloodborne" fluid style={{
                                         filter: `grayscale(${hoverDurationOne === 150 ? "0%" : "100%"})`,
                                         transition: 'transform 1s', transform: `scale(${hoverDurationOne === 150 ? 1.15 : 1})`
                                     }} />
@@ -286,7 +286,7 @@ export default function Games() {
                                         display: 'grid', placeItems: 'center'
                                     }}>
                                     <div className={`ImageTwo SMTImage ${checkHasScrollPast ? "ImageOneShow" : ""}`}>
-                                        <Image src="/Public/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
+                                        <Image src="/Images/GameImages/SMTThree.webp" alt="SMTThree" fluid style={{
                                             filter: `grayscale(${hoverDurationTwo === 150 ? "0%" : "100%"})`,
                                             transition: 'transform 1s', transform: `scale(${hoverDurationTwo === 150 ? 1.1 : 1})`
                                         }} />
@@ -306,7 +306,7 @@ export default function Games() {
                                             }}>
                                             <div style={{ transform: 'scaleY(0.90) ', overflow: 'hidden' }}
                                                 className={`ImageFive ${checkHasScrollPast ? "ImageOneShow" : ""}`}>
-                                                <Image src="/Public/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
+                                                <Image src="/Images/GameImages/YakuzaZero.webp" alt="YakuzaZero" fluid style={{
                                                     filter: `grayscale(${hoverDurationThree === 150 ? "0%" : "100%"})`,
                                                     transition: 'transform 1s', transform: `scale(${hoverDurationThree === 150 ? 1.15 : 1})`
                                                 }} />
@@ -324,7 +324,7 @@ export default function Games() {
                                             }}>
                                             <div style={{ transform: 'scaleY(0.90)', overflow: 'hidden' }}
                                                 className={`ImageFour ${checkHasScrollPast ? "ImageOneShow" : ""}`}>
-                                                <Image src="/Public/Images/GameImages/PersonaFive.webp" alt="PersonaFive" fluid style={{
+                                                <Image src="/Images/GameImages/PersonaFive.webp" alt="PersonaFive" fluid style={{
                                                     filter: `grayscale(${hoverDurationFour === 150 ? "0%" : "100%"})`,
                                                     transition: 'transform 1s', transform: `scale(${hoverDurationFour === 150 ? 1.15 : 1})`
                                                 }} />
@@ -343,7 +343,7 @@ export default function Games() {
                                         }}>
                                         <div style={{ transform: 'scale(0.95)', overflow: 'hidden' }}
                                             className={`ImageThree ${checkHasScrollPast ? "ImageOneShow" : ""}`}>
-                                            <Image src="/Public/Images/GameImages/MGR.webp" alt="MGR" fluid style={{
+                                            <Image src="/Images/GameImages/MGR.webp" alt="MGR" fluid style={{
                                                 filter: `grayscale(${hoverDurationFive === 150 ? "0%" : "100%"})`,
                                                 transition: 'transform 1s', transform: `scale(${hoverDurationFive === 150 ? 1.1 : 1})`
                                             }} />
