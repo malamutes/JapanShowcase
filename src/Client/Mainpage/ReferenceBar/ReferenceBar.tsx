@@ -100,7 +100,7 @@ export default function ReferenceBar() {
                 style={{
                     position: 'fixed', top: '50vh', left: '50vw',
                     transform: 'translate(-50%, -50%)', zIndex: 5,
-                    width: '80vw', // For small screens
+                    width: 'fit-content',
                     minWidth: '200px', // Ensures it's not too small
                 }}>
                 <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
@@ -133,7 +133,7 @@ export default function ReferenceBar() {
                 style={{
                     position: 'fixed', top: '50vh', left: '50vw',
                     transform: 'translate(-50%, -50%)', zIndex: 5,
-                    width: '80vw', // For small screens
+                    width: 'fit-content',
                     minWidth: '200px', // Ensures it's not too small
                 }}>
                 <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
@@ -173,8 +173,8 @@ export default function ReferenceBar() {
                     left: '50vw',
                     transform: 'translate(-50%, -50%)',
                     zIndex: 5,
-                    width: '80vw', // For small screens
-                    minWidth: '200px', // Ensures it's not too small
+                    width: 'fit-content',
+                    minWidth: '275px', // Ensures it's not too small
                 }}>
                 <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
                     <strong className="me-auto" style={{ fontSize: '15px' }}>Literature I Strongly Recommend</strong>
@@ -183,7 +183,7 @@ export default function ReferenceBar() {
                     <p style={{ marginBottom: '15px' }}>
                         Here are three books I consider must-reads. These works have deeply influenced my perspective on life, morality, and the human condition:
                     </p>
-                    <ul style={{ paddingLeft: '30px', marginBottom: '10px', paddingRight: '30px' }}>
+                    <ul style={{ paddingLeft: '15px', marginBottom: '10px', paddingRight: '15px' }}>
                         <li>
                             <strong>Crime and Punishment</strong> by Fyodor Dostoevsky
                             A gripping exploration of morality, guilt, and redemption through the life of Raskolnikov.
