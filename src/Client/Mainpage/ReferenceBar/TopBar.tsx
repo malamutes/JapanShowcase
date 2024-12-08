@@ -406,9 +406,6 @@ export default function TopBar() {
                                 </Col>
                             </Offcanvas.Body>
                         </Offcanvas>)}
-
-
-
                 </Row >
             </Container >
             {/*   {window.scrollY === 0 ?

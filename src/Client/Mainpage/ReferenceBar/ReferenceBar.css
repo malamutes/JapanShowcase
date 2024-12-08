@@ -107,8 +107,6 @@
     box-shadow: none !important;
 }
 
-.LargeScreenBottomBar {}
-
 .SmallScreenBottomBar {
     display: none;
 }
@@ -122,6 +120,14 @@
 .NavMenuRowContainer {
     width: 50%;
     height: 100%;
+}
+
+.DescriptionStyle {
+    cursor: pointer;
+}
+
+.DescriptionStyle:hover {
+    text-decoration: underline;
 }
 
 @media(max-width: 1900px) {
@@ -233,7 +239,6 @@
 
 
 }
-
 
 @media(max-width: 768px) {
     .NavMenuNavText {

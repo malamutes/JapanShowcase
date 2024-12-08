@@ -88,8 +88,124 @@ export default function ReferenceBar() {
     const [more768px, setMore768px] = useState(false);
     const checkMore768px = MatchmediaQuery({ size: 768, more: more768px, setMore: setMore768px });
 
+    const [showToastCredentials, setShowToastCredentials] = useState(false);
+    const [showToastAbout, setShowToastAbout] = useState(false);
+    const [showToastLiterature, setShowToastLiterature] = useState(false);
+
     return (
         <>
+            <Toast show={showToastCredentials} onClose={() => {
+                setShowToastCredentials(false);
+            }}
+                style={{
+                    position: 'fixed', top: '50vh', left: '50vw',
+                    transform: 'translate(-50%, -50%)', zIndex: 5,
+                    width: '80vw', // For small screens
+                    minWidth: '200px', // Ensures it's not too small
+                }}>
+                <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
+                    <strong className="me-auto" style={{ fontSize: '15px' }}>Credentials</strong>
+                </Toast.Header>
+                <Toast.Body style={{ color: 'black', backgroundColor: 'white' }}>
+                    <p>
+                        <a href='https://drive.google.com/file/d/1klAWXehLNdKPer9q0E71ipcYmX24JpwZ/view?usp=sharing' target='_blank'>
+                            <span style={{ fontWeight: '700' }}>Resume</span> <br />
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href='https://drive.google.com/file/d/11AqSF4j4__v57n-ruYofhacIRA7s6jjV/view?usp=sharing' target='_blank'>
+                            <span style={{ fontWeight: '700' }}>Academic Transcript</span> <br />
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href='https://www.artstation.com/malamoots' target='_blank'>
+                            <span style={{ fontWeight: '700' }}>3D Art</span> <br />
+                        </a>
+                    </p>
+                </Toast.Body>
+            </Toast>
+
+            <Toast show={showToastAbout} onClose={() => {
+                setShowToastAbout(false);
+            }}
+                style={{
+                    position: 'fixed', top: '50vh', left: '50vw',
+                    transform: 'translate(-50%, -50%)', zIndex: 5,
+                    width: '80vw', // For small screens
+                    minWidth: '200px', // Ensures it's not too small
+                }}>
+                <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
+                    <strong className="me-auto" style={{ fontSize: '15px' }}>About Me</strong>
+                </Toast.Header>
+                <Toast.Body style={{ color: 'black', backgroundColor: 'white' }}>
+                    <p style={{ marginBottom: '10px' }}>
+                        Hi! My name is Paul Van. I am currently in my second year studying
+                        Advanced Science in Computing at Curtin University.
+
+                    </p>
+
+                    <p>
+                        I am passionate about programming, and I am also delving into web development
+                        as I grow my skills.
+                    </p>
+
+                    <p>
+                        In my free time, I enjoy 3D art sculpting as a hobby,
+                        where I bring my creative ideas to life. I also have a knack for making savory dishes,
+                        which helps me balance out my technical pursuits.
+                    </p>
+
+                    <p style={{ marginBottom: '10px', color: 'grey', fontSize: '10px' }}>
+                        Psst, that was written by AI, I'm terrible at writing introductions,
+                        the info is correct but you may notice the language is a bit...rigid??
+                    </p>
+                </Toast.Body>
+            </Toast>
+
+            <Toast show={showToastLiterature} onClose={() => {
+                setShowToastLiterature(false);
+            }}
+                style={{
+                    position: 'fixed',
+                    top: '50vh',
+                    left: '50vw',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 5,
+                    width: '80vw', // For small screens
+                    minWidth: '200px', // Ensures it's not too small
+                }}>
+                <Toast.Header style={{ boxShadow: '0px 0px 5px rgba(0,0,0,0.5)' }}>
+                    <strong className="me-auto" style={{ fontSize: '15px' }}>Literature I Strongly Recommend</strong>
+                </Toast.Header>
+                <Toast.Body style={{ color: 'black', backgroundColor: 'white' }}>
+                    <p style={{ marginBottom: '15px' }}>
+                        Here are three books I consider must-reads. These works have deeply influenced my perspective on life, morality, and the human condition:
+                    </p>
+                    <ul style={{ paddingLeft: '30px', marginBottom: '10px', paddingRight: '30px' }}>
+                        <li>
+                            <strong>Crime and Punishment</strong> by Fyodor Dostoevsky
+                            A gripping exploration of morality, guilt, and redemption through the life of Raskolnikov.
+                        </li>
+                        <li>
+                            <strong>The Grand Inquisitor</strong> (from *The Brothers Karamazov*) by Fyodor Dostoevsky
+                            A profound philosophical parable questioning faith, free will, and human nature.
+                        </li>
+                        <li>
+                            <strong>The Death of Ivan Ilyich</strong> by Leo Tolstoy
+                            A powerful narrative about the inevitability of death and the search for a meaningful life.
+                        </li>
+                    </ul>
+                    <p style={{ fontStyle: 'italic', color: 'grey', fontSize: '10px' }}>
+                        These books have genuinely illuminated the human condition and the hidden evil within all of us.
+                        It's also written by AI as before, but seriously, read them, they are great works!
+                        Ah, and of course, the Bible too.
+                    </p>
+                </Toast.Body>
+            </Toast>
+
+
             <Container className="ReferenceBarContainer" style={{
                 backgroundColor: 'rgb(25, 25, 25)', color: 'white',
                 borderTop: '0.1px solid white'
@@ -213,13 +329,22 @@ export default function ReferenceBar() {
                             </Col>
                             <Col md={3}>
                                 <Row >
-                                    {[`About`, `Interests`, `Credentials`].map((extra) => (
-                                        <Col key={extra} style={{ display: 'flex', justifyContent: 'end' }}>
-                                            <span className="DescriptionStyle" style={{
-                                                textDecoration: 'underline', marginTop: `${checkMore768px ? "0" : "15px"}`
-                                            }}>{extra}</span>
-                                        </Col>
-                                    ))}
+                                    <Col style={{ display: 'flex', justifyContent: 'end' }}>
+                                        <span className="DescriptionStyle" style={{ marginTop: `${checkMore768px ? "0" : "15px"}` }}
+                                            onClick={() => setShowToastAbout(true)}>About</span>
+                                    </Col>
+
+                                    <Col style={{ display: 'flex', justifyContent: 'end' }}>
+                                        <span className="DescriptionStyle" style={{ marginTop: `${checkMore768px ? "0" : "15px"}` }}
+                                            onClick={() => setShowToastCredentials(true)}>Credentials</span>
+                                    </Col>
+
+
+                                    <Col style={{ display: 'flex', justifyContent: 'end' }}>
+                                        <span className="DescriptionStyle" style={{ marginTop: `${checkMore768px ? "0" : "15px"}` }}
+                                            onClick={() => setShowToastLiterature(true)}>Literature</span>
+                                    </Col>
+
                                 </Row>
                             </Col>
 
@@ -231,7 +356,7 @@ export default function ReferenceBar() {
                             display: 'inline-block', maxWidth: `${checkMore768px ? "50%" : "100%"}`,
                             marginTop: `${checkMore768px ? "25px" : "0px"}`
                         }}>Information from your device is used to personalize your ad experience.
-                            Ur data finna be stolen, its so over.</span>
+                            Your data is safe with me. Worry not.</span>
                     </Col>
                 </Container>
             </Container >
