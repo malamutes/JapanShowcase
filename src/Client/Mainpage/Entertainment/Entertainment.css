@@ -8,7 +8,7 @@
 }
 
 .DivTop:hover>.Div2 {
-    opacity: 1;
+    opacity: 0;
 }
 
 .Div2 {
