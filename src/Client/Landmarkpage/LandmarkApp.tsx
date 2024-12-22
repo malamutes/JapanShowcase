@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom"
 import { LandmarkContext } from "./LandmarkAppContext"
 import { LightThemeContext } from "../../ThemeContext"
 import { useContext } from "react"
-import SVGSplit from "../Festivalpage/SVGSplit"
 
 export default function LandmarkApp() {
     const { CurrentLandmark } = useParams();
