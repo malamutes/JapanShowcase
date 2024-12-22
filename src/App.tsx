@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIntro(true);
-    }, 500);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -39,18 +39,15 @@ function App() {
   return (
     <>
       <div >
-        {firstVisit ? (<WebsiteIntro />) : (null)}
-        {intro ? (<>
-          <TopBar />
-          <MainIntroImage />
-          <EightSpotsSpace />
-          <Food />
-          <Landmarks />
-          <Entertainment />
-          <Game />
-          <Festival />
-          <ReferenceBar />
-        </>) : (null)}
+        <TopBar />
+        <MainIntroImage />
+        <EightSpotsSpace />
+        <Food />
+        <Landmarks />
+        <Entertainment />
+        <Game />
+        <Festival />
+        <ReferenceBar />
       </div>
     </>
   )
